@@ -1,15 +1,23 @@
 package escenas;
 
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class EscenaMenu {
 
+
     public Scene construir(Stage stage) {
-        ImageView fondo = new ImageView("imagenes/fondomenu.jpg");
+        ImageView fondo = new ImageView("/Imagenes/fondomenu.jpg");
         fondo.setFitWidth(1280);
         fondo.setFitHeight(720);
 
