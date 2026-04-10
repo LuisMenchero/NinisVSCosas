@@ -22,7 +22,7 @@ public class EscenaMenu {
         fondo.setFitHeight(720);
 
         Button btnJugar = new Button("Jugar");
-        btnJugar.setLayoutX(350);
+        btnJugar.setLayoutX(640);
         btnJugar.setLayoutY(300);
         btnJugar.setOnAction(e -> {
             EscenaJuego escenaJuego = new EscenaJuego();
@@ -30,7 +30,7 @@ public class EscenaMenu {
         });
 
         Button btnSeleccionar = new Button("Seleccionar ninis");
-        btnSeleccionar.setLayoutX(320);
+        btnSeleccionar.setLayoutX(615);
         btnSeleccionar.setLayoutY(370);
         btnSeleccionar.setOnAction(e -> {
             EscenaSeleccionar escenaSeleccionar = new EscenaSeleccionar();
