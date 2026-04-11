@@ -24,7 +24,7 @@ public class EscenaMenu {
         Button btnJugar = new Button("Jugar");
         btnJugar.setLayoutX(640);
         btnJugar.setLayoutY(300);
-        btnJugar.setOnAction(e -> {
+        btnJugar.setOnAction(evento -> {
             EscenaJuego escenaJuego = new EscenaJuego();
             stage.setScene(escenaJuego.construir(stage));
         });
@@ -32,7 +32,7 @@ public class EscenaMenu {
         Button btnSeleccionar = new Button("Seleccionar ninis");
         btnSeleccionar.setLayoutX(615);
         btnSeleccionar.setLayoutY(370);
-        btnSeleccionar.setOnAction(e -> {
+        btnSeleccionar.setOnAction(evento -> {
             EscenaSeleccionar escenaSeleccionar = new EscenaSeleccionar();
             stage.setScene(escenaSeleccionar.construir(stage));
         });
