@@ -8,14 +8,14 @@ import static javafx.application.Application.launch;
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) {
-        primaryStage.setTitle("Ninis vs World");
-        primaryStage.setResizable(false);
+    public void start(Stage escenaPrincipal) {
+        escenaPrincipal.setTitle("Ninis vs World");
+        escenaPrincipal.setResizable(false);
 
         EscenaMenu menu = new EscenaMenu();
-        primaryStage.setScene(menu.construir(primaryStage));
+        escenaPrincipal.setScene(menu.construir(escenaPrincipal));
 
-        primaryStage.show();
+        escenaPrincipal.show();
     }
 
     public static void main(String[] args) {
