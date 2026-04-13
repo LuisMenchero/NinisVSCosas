@@ -11,8 +11,8 @@ public abstract class Nini {
     protected double columna;
     protected double fila;
     // Tamaño
-    protected double ancho = 128;
-    protected double alto = 128;
+    protected double ancho = 80;
+    protected double alto = 95;
 
     // datos del Nini
     protected int saludMaxima;
@@ -49,7 +49,7 @@ public abstract class Nini {
 
     // --- MÉTODOS ---
     // abstactos
-    protected abstract void disparar();
+    //protected abstract void disparar(ArrayList<Cosa> cosas);
 
     //public abstract void actualizar(double tiempoFrames, ArrayList<Cosa> cosas);
 

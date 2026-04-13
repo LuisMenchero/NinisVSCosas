@@ -5,8 +5,8 @@ public class Cuadricula {
     public static int columnas = 10;
     public static int filas = 5;
         // indica el inicio de la cuadricula en la imagen
-    public static double cordX = 200;
-    public static double cordY = 100;
+    public static double cordX = 201;
+    public static double cordY = 135;
         // tamaño de las celdas
     public static double anchoCelda = 80;
     public static double altoCelda = 95;
@@ -14,11 +14,11 @@ public class Cuadricula {
     // --- MÉTODOS ---
         // busca mitad de una celda de una columna especifica en el eje X
     public static double buscarMitadCeldaEjeX(int columna) {
-        return cordX + columna * anchoCelda + anchoCelda / 2;
+        return cordX + (columna-1) * anchoCelda + anchoCelda / 2;
     }
         // busca mitad de una celda de una fila especifica en el eje Y
     public static double buscarMitadCeldaEjeY(int filas) {
-        return cordY + filas * altoCelda + altoCelda / 2;
+        return cordY + (filas-1) * altoCelda + altoCelda / 2;
     }
 
         // para convertir los pixeles a columna/fila al hacer clic con raton
