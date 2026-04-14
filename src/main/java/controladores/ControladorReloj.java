@@ -8,9 +8,14 @@ public class ControladorReloj {
 // de lo que se encarga es de dar "tiempoFrames" que es el tiempo que ha pasado desde el ultimo frame"
 // esto lo hemos investigado y sirve en general para que el funcionamiento de la logica no se vea ligada a los frames a los que te vaya el juego
 
+
+    private AnimationTimer temporizador;
+    private boolean pausado = false;
+
+
     public void iniciarReloj() {
 
-        AnimationTimer temporizador = new AnimationTimer() {
+        temporizador = new AnimationTimer() {
             private long ultimoTiempo = 0;
             //hemos usado long para que funcione porque si no se queda el juego capum
 
@@ -42,6 +47,17 @@ public class ControladorReloj {
 
     }
 
+    public void pausa(){
+
+        if (pausado = true){
+            temporizador.start();
+            pausado = false;
+        } else {
+            temporizador.stop();
+            pausado = true;
+        }
+
+    }
 
 
 }
