@@ -20,4 +20,7 @@ public class Celda {
         return hayPlanta;
     }
 
+    public Nini getNini() {
+        return nini;
+    }
 }

@@ -11,4 +11,19 @@ public class Lopez extends Nini {
     }
 
     // --- MÉTODOS ---
+    //    @Override
+//    public void actualizar(double tiempoFrames, ArrayList<Cosa> cosas) {
+//        if (hayZombieEnFila(cosas)) {
+//            tiempoDelUltimoDisparo = tiempoDelUltimoDisparo + tiempoFrames;
+//            if(tiempoDelUltimoDisparo > cooldownDisparo) {
+//                tiempoDelUltimoDisparo = 0;
+//                disparar(cosas);
+//            }
+//        }
+//    }
+//
+//    @Override
+//    public void disparar(ArrayList<Cosa> cosas) {
+//        Escupitajo nuevaNota = new Escupitajo(fila,columna,root);
+//    }
 }

@@ -48,7 +48,7 @@ public class EscenaJuego {
         Adripan ad1 = new Adripan(Cuadricula.buscarMitadCeldaEjeX(5),Cuadricula.buscarMitadCeldaEjeY(3),root);
         terreno[5][3].setNini(ad1);
 
-        Guevara g1 = new Guevara(Cuadricula.buscarMitadCeldaEjeX(7),Cuadricula.buscarMitadCeldaEjeY(3),root);
+        Guevara g1 = new Guevara(Cuadricula.buscarMitadCeldaEjeX(7),Cuadricula.buscarMitadCeldaEjeY(3),root,terreno);
         terreno[7][3].setNini(g1);
 
         Luis l33 = new Luis(Cuadricula.buscarMitadCeldaEjeX(6),Cuadricula.buscarMitadCeldaEjeY(1),root, geB);
