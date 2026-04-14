@@ -1,5 +1,7 @@
 package escenas;
 
+import controladores.ControladorJuego;
+import controladores.ControladorReloj;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -23,6 +25,10 @@ public class EscenaJuego {
 
 
         Pane root = new Pane(fondo);
+
+        reloj.iniciarReloj();
+
+
         Luis l1 = new Luis(Cuadricula.buscarMitadCeldaEjeX(2),Cuadricula.buscarMitadCeldaEjeY(1),root, geB);
 
         terreno[2][1].setNini(l1);
@@ -48,7 +54,13 @@ public class EscenaJuego {
         Luis l33 = new Luis(Cuadricula.buscarMitadCeldaEjeX(6),Cuadricula.buscarMitadCeldaEjeY(1),root, geB);
 
         terreno[6][1].setNini(l33);
+
+
         return new Scene(root, 1280, 720);
     }
+
+
+    ControladorReloj reloj = new ControladorReloj();
+
 
 }
