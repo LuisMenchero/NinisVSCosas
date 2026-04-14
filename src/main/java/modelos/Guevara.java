@@ -7,7 +7,7 @@ public class Guevara extends Nini {
 
     // --- CONSTRUCTOR ---
     public Guevara(double columna, double fila, Pane root) {
-        super(columna, fila, 500, 0, 0, "Animaciones/Ninis/Guevarin_Idle.gif", root);
+        super(columna, fila, 500, 0, 0, "Animaciones/Ninis/Guevara_Idle.gif", root);
     }
 
     // --- MÉTODOS ---

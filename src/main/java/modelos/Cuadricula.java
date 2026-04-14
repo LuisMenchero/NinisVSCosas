@@ -5,8 +5,8 @@ public class Cuadricula {
     public static int columnas = 10;
     public static int filas = 5;
         // indica el inicio de la cuadricula en la imagen
-    public static double cordX = 201;
-    public static double cordY = 135;
+    public static double cordX = 205;
+    public static double cordY = 125;
         // tamaño de las celdas
     public static double anchoCelda = 80;
     public static double altoCelda = 95;
