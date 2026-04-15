@@ -25,7 +25,8 @@ public class Luis extends Nini {
         if (tiempoProduccionButanito >= tiempoGeneracionButanito) {
             tiempoProduccionButanito = 0;
             System.out.println("+25 Butanitos");
-            //gestorButanitos.añadirButanitos(25);
+            Butanito nuevoButanito = new Butanito(columna,fila,root,"Animaciones/Items/Butanito.gif");
+            gestorButanitos.sumarButanitos(50);
         }
     }
 

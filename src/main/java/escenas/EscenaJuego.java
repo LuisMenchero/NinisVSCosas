@@ -1,6 +1,5 @@
 package escenas;
 
-import controladores.ControladorJuego;
 import controladores.ControladorReloj;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -29,7 +28,8 @@ public class EscenaJuego {
                 terreno[i][j] = new Celda();
             }
         }
-        GestorButanitos geB = new  GestorButanitos();
+
+        GestorButanitos geB = GestorButanitos.getInstancia();
 
         //Botón de pausa
         Button btnPausa = new Button("=");
@@ -70,9 +70,9 @@ public class EscenaJuego {
         terreno[5][3].setNini(ad1);
         reloj.registrar(ad1);
 
-//        Guevara g1 = new Guevara(Cuadricula.buscarMitadCeldaEjeX(7),Cuadricula.buscarMitadCeldaEjeY(3),root,terreno);
-//        terreno[7][3].setNini(g1);
-//        reloj.registrar(g1);
+        Guevara g1 = new Guevara(Cuadricula.buscarMitadCeldaEjeX(7),Cuadricula.buscarMitadCeldaEjeY(3),root,terreno);
+        terreno[7][3].setNini(g1);
+        reloj.registrar(g1);
 
         Luis l33 = new Luis(Cuadricula.buscarMitadCeldaEjeX(6),Cuadricula.buscarMitadCeldaEjeY(1),root, geB);
         terreno[6][1].setNini(l33);
