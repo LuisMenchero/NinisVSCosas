@@ -1,5 +1,6 @@
 package modelos;
 
+import controladores.ControladorReloj;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -53,10 +54,6 @@ public abstract class Nini {
         this.imagenNini.setLayoutX(columna);
         this.imagenNini.setLayoutY(fila);
 
-
-        if (potenciado) {
-            potenciar();
-        }
         root.getChildren().add(imagenNini);
     }
 
@@ -64,8 +61,8 @@ public abstract class Nini {
     // abstactos
     //protected abstract void disparar(ArrayList<Cosa> cosas);
 
-    //public abstract void actualizar(double tiempoFrames, ArrayList<Cosa> cosas);
-
+    public abstract void actualizar(double tiempoFrames, Celda[][] terreno);
+    //ArrayList<Cosa> cosas
     // normales
     public void recibirDaño(int daño) {
         salud = saludMaxima - daño;
@@ -86,14 +83,16 @@ public abstract class Nini {
     }
 
     public void potenciar() {
-        if (potenciado) {
+        if (ControladorReloj.detectarGuevara() && !potenciado) {
             // Para el potenciador
             this.potenciador = new ImageView("Animaciones/Ninis/PotenciadorGuevara.gif");
             this.potenciador.setFitWidth(ancho);
             this.potenciador.setFitHeight(alto);
             this.potenciador.setLayoutX(columna);
             this.potenciador.setLayoutY(fila);
+            this.potenciador.setOpacity(0.4);
 
+            this.potenciado = true;
 
             root.getChildren().add(potenciador);
         }

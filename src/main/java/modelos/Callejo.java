@@ -11,10 +11,10 @@ public class Callejo extends Nini {
     }
 
     // --- MÉTODOS ---
-    //    @Override
-//    public void actualizar(double tiempoFrames, ArrayList<Cosa> cosas) {
-//
-//    }
+        @Override
+    public void actualizar(double tiempoFrames, Celda[][] terreno) {
+            potenciar();
+    }
 //
 //    @Override
 //    public void disparar(ArrayList<Cosa> cosas) {

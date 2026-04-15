@@ -13,11 +13,11 @@ public class Adripan extends Nini {
     }
 
     //--- MÉTODOS ---
-//    @Override
-//    public void actualizar(double tiempoFrames, ArrayList<Cosa> cosas) {
-//
-//    }
-//
+    @Override
+    public void actualizar(double tiempoFrames, Celda[][] terreno) {
+        potenciar();
+    }
+
 //    @Override
 //    public void disparar(ArrayList<Cosa> cosas) {
 //    }

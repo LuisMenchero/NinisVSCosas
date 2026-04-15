@@ -11,8 +11,9 @@ public class Lopez extends Nini {
     }
 
     // --- MÉTODOS ---
-    //    @Override
-//    public void actualizar(double tiempoFrames, ArrayList<Cosa> cosas) {
+        @Override
+    public void actualizar(double tiempoFrames, Celda[][] terreno) {
+            potenciar();
 //        if (hayZombieEnFila(cosas)) {
 //            tiempoDelUltimoDisparo = tiempoDelUltimoDisparo + tiempoFrames;
 //            if(tiempoDelUltimoDisparo > cooldownDisparo) {
@@ -20,7 +21,8 @@ public class Lopez extends Nini {
 //                disparar(cosas);
 //            }
 //        }
-//    }
+
+    }
 //
 //    @Override
 //    public void disparar(ArrayList<Cosa> cosas) {
