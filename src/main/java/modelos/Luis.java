@@ -18,14 +18,16 @@ public class Luis extends Nini {
     }
 
     // --- MÉTODOS ---
-//    @Override
-//    public void actualizar(double tiempoFrames, ArrayList<Cosa> cosas){
-//        tiempoProduccionButanito = tiempoProduccionButanito + tiempoFrames;
-//        if (tiempoProduccionButanito >= tiempoGeneracionButanito) {
-//            tiempoProduccionButanito = 0;
-//            gestorButanitos.añadirButanitos(25);
-//        }
-//    }
+    @Override
+    public void actualizar(double tiempoFrames, Celda[][] terreno){
+        potenciar();
+        tiempoProduccionButanito = tiempoProduccionButanito + tiempoFrames;
+        if (tiempoProduccionButanito >= tiempoGeneracionButanito) {
+            tiempoProduccionButanito = 0;
+            System.out.println("+25 Butanitos");
+            //gestorButanitos.añadirButanitos(25);
+        }
+    }
 
 //    @Override
 //    public void disparar(ArrayList<Cosa> cosas){
