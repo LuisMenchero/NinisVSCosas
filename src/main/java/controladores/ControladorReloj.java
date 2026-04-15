@@ -1,7 +1,12 @@
 package controladores;
 
+import escenas.EscenaJuego;
 import javafx.animation.AnimationTimer;
+import modelos.Celda;
 import modelos.Guevara;
+import modelos.Nini;
+
+import java.util.ArrayList;
 
 public class ControladorReloj {
 
@@ -12,6 +17,7 @@ public class ControladorReloj {
 
     private AnimationTimer temporizador;
     private boolean pausado = false;
+    private static ArrayList<Nini> ninis = new ArrayList<>();
 
 
     public void iniciarReloj() {
@@ -41,16 +47,31 @@ public class ControladorReloj {
 
     }
 
+    public void registrar(Nini nini) {
+        ninis.add(nini);
+    }
+
+    public static boolean detectarGuevara() {
+        for (Nini nini : ninis) {
+            if (nini instanceof Guevara) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     public void actualizar(double tiempoFrames) {
         //aqui van las cosas que requieren ser actualizadas que reciban tiempoFrames
-//        actualizar(tiempoFrames);
+        for (Nini nini : ninis) {
+            nini.actualizar(tiempoFrames, EscenaJuego.getTerreno());
+        }
+
 
     }
 
-    public void pausa(){
+    public void pausa() {
 
-        if (pausado){
+        if (pausado) {
             temporizador.start();
             pausado = false;
         } else {
