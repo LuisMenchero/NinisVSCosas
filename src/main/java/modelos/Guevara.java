@@ -12,9 +12,10 @@ public class Guevara extends Nini {
     }
 
     // --- MÉTODOS ---
-    //    @Override
-//    public void actualizar(double tiempoFrames, ArrayList<Cosa> cosas) {
-//
+//        @Override
+//    public void actualizar(double tiempoFrames, Celda[][] terreno) {
+//    potenciarNinis(terreno);
+//    , ArrayList<Cosa> cosas
 //    }
 //
 //    @Override

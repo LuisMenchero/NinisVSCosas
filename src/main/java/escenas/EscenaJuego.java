@@ -3,12 +3,20 @@ package escenas;
 import controladores.ControladorJuego;
 import controladores.ControladorReloj;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import modelos.*;
 
 public class EscenaJuego {
+
+    ControladorReloj reloj = new ControladorReloj();
+
     public Scene construir(Stage stage) {
         ImageView fondo = new ImageView("imagenes/fondoNvsW.png");
         fondo.setFitWidth(1280);
@@ -23,10 +31,19 @@ public class EscenaJuego {
         }
         GestorButanitos geB = new  GestorButanitos();
 
+        //Botón de pausa
+        Button btnPausa = new Button("=");
+        btnPausa.setLayoutX(1200);
+        btnPausa.setLayoutY(10);
+        btnPausa.setOnAction(evento -> {
+            reloj.pausa();
+            mostrarPanelPausa();
+        } );
 
-        Pane root = new Pane(fondo);
-
+        //Iniciar el reloj interno del juego (game loop)
         reloj.iniciarReloj();
+
+        Pane root = new Pane(fondo, btnPausa);
 
 
         Luis l1 = new Luis(Cuadricula.buscarMitadCeldaEjeX(2),Cuadricula.buscarMitadCeldaEjeY(1),root, geB);
@@ -56,11 +73,56 @@ public class EscenaJuego {
         terreno[6][1].setNini(l33);
 
 
+        ConstruirPanelPausa(stage);
+        root.getChildren().add(panelPausa);
+
         return new Scene(root, 1280, 720);
     }
 
+    Pane panelPausa = new Pane();
 
-    ControladorReloj reloj = new ControladorReloj();
+    private void ConstruirPanelPausa (Stage stage){
+
+        panelPausa.setPrefSize(1280, 720);
+
+        //Esta es la primera vez que uso el -fx y sirve como una especie de css
+        panelPausa.setStyle("-fx-background-color: rgba(0,0,0,0.6);");
+        Text textoPausa = new Text("Pausa");
+        textoPausa.setFill(Color.WHITE);
+        textoPausa.setFont(Font.font("Verdana", FontWeight.BOLD, 50));
+        textoPausa.setLayoutX(640);
+        textoPausa.setLayoutY(300);
+
+        Button btnReanudar = new Button("Reanudar");
+        btnReanudar.setLayoutX(640);
+        btnReanudar.setLayoutY(350);
+        btnReanudar.setOnAction(evento -> {
+            reloj.pausa();
+            mostrarPanelPausa();
+        });
+
+        Button btnSalir = new Button("Salir");
+        btnSalir.setLayoutX(640);
+        btnSalir.setLayoutY(400);
+        btnSalir.setOnAction(evento -> {
+            EscenaMenu escenaMenu = new EscenaMenu();
+            stage.setScene(escenaMenu.construir(stage));
+        });
+
+
+        panelPausa.setVisible(false);
+        panelPausa.getChildren().addAll(textoPausa, btnReanudar, btnSalir);
+    }
+
+
+    public void mostrarPanelPausa (){
+        if (reloj.isPausado()){
+        panelPausa.setVisible(true);
+        }else {
+        panelPausa.setVisible(false);
+        }
+    }
+
 
 
 }

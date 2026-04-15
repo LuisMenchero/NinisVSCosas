@@ -1,6 +1,7 @@
 package controladores;
 
 import javafx.animation.AnimationTimer;
+import modelos.Guevara;
 
 public class ControladorReloj {
 
@@ -43,13 +44,13 @@ public class ControladorReloj {
 
     public void actualizar(double tiempoFrames) {
         //aqui van las cosas que requieren ser actualizadas que reciban tiempoFrames
-
+//        actualizar(tiempoFrames);
 
     }
 
     public void pausa(){
 
-        if (pausado = true){
+        if (pausado){
             temporizador.start();
             pausado = false;
         } else {
@@ -59,5 +60,9 @@ public class ControladorReloj {
 
     }
 
+
+    public boolean isPausado() {
+        return pausado;
+    }
 
 }
