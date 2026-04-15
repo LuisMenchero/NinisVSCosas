@@ -1,5 +1,6 @@
 package escenas;
 
+import com.sun.prism.Image;
 import controladores.ControladorJuego;
 import controladores.ControladorReloj;
 import javafx.scene.Scene;
@@ -43,7 +44,14 @@ public class EscenaJuego {
         //Iniciar el reloj interno del juego (game loop)
         reloj.iniciarReloj();
 
-        Pane root = new Pane(fondo, btnPausa);
+
+        ImageView menuPlantas = new ImageView("Imagenes/PlantasRN.png");
+        menuPlantas.setFitWidth(450);
+        menuPlantas.setFitHeight(80);
+        menuPlantas.setLayoutX(50);
+        menuPlantas.setLayoutY(20);
+
+        Pane root = new Pane(fondo, btnPausa, menuPlantas);
 
 
         Luis l1 = new Luis(Cuadricula.buscarMitadCeldaEjeX(2),Cuadricula.buscarMitadCeldaEjeY(1),root, geB);
@@ -90,11 +98,11 @@ public class EscenaJuego {
         Text textoPausa = new Text("Pausa");
         textoPausa.setFill(Color.WHITE);
         textoPausa.setFont(Font.font("Verdana", FontWeight.BOLD, 50));
-        textoPausa.setLayoutX(640);
+        textoPausa.setLayoutX(560);
         textoPausa.setLayoutY(300);
 
         Button btnReanudar = new Button("Reanudar");
-        btnReanudar.setLayoutX(640);
+        btnReanudar.setLayoutX(560);
         btnReanudar.setLayoutY(350);
         btnReanudar.setOnAction(evento -> {
             reloj.pausa();
@@ -102,7 +110,7 @@ public class EscenaJuego {
         });
 
         Button btnSalir = new Button("Salir");
-        btnSalir.setLayoutX(640);
+        btnSalir.setLayoutX(560);
         btnSalir.setLayoutY(400);
         btnSalir.setOnAction(evento -> {
             EscenaMenu escenaMenu = new EscenaMenu();
