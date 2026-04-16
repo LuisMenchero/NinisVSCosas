@@ -48,4 +48,8 @@ public class GestorButanitos {
         contadorButanitos = contadorButanitos - costeButanitos;
     }
 
+
+    public int getContadorButanitos() {
+        return contadorButanitos;
+    }
 }
