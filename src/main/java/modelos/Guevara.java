@@ -3,6 +3,8 @@ package modelos;
 import escenas.EscenaJuego;
 import javafx.scene.layout.Pane;
 
+import java.util.ArrayList;
+
 public class Guevara extends Nini {
     // --- ATRIBUTOS EXTRA ---
     private boolean haPotenciadoNinis = false;
@@ -14,7 +16,7 @@ public class Guevara extends Nini {
 
     // --- MÉTODOS ---
     @Override
-    public void actualizar(double tiempoFrames, Celda[][] terreno) {
+    public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas) {
         //potenciarNinis();
 //        potenciar();
 
@@ -22,8 +24,8 @@ public class Guevara extends Nini {
 //    , ArrayList<Cosa> cosas
     }
 
-//    @Override
-//    public void disparar(ArrayList<Cosa> cosas) {
-//    }
+    @Override
+    public void disparar(ArrayList<Cosa> cosas) {
+    }
 
 }

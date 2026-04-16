@@ -2,9 +2,7 @@ package controladores;
 
 import escenas.EscenaJuego;
 import javafx.animation.AnimationTimer;
-import modelos.Celda;
-import modelos.Guevara;
-import modelos.Nini;
+import modelos.*;
 
 import java.util.ArrayList;
 
@@ -17,7 +15,9 @@ public class ControladorReloj {
 
     private AnimationTimer temporizador;
     private boolean pausado = false;
+    private static ArrayList<Cosa> cosas = new ArrayList<>();
     private static ArrayList<Nini> ninis = new ArrayList<>();
+    private static ArrayList<Nota> notas = new ArrayList<>();
 
 
     public void iniciarReloj() {
@@ -63,9 +63,11 @@ public class ControladorReloj {
     public void actualizar(double tiempoFrames) {
         //aqui van las cosas que requieren ser actualizadas que reciban tiempoFrames
         for (Nini nini : ninis) {
-            nini.actualizar(tiempoFrames, EscenaJuego.getTerreno());
+            nini.actualizar(tiempoFrames, EscenaJuego.getTerreno(), cosas);
+            if (nini instanceof Diego) {
+                notas.addAll(((Diego) nini).getNotasNuevas());
+            }
         }
-
 
     }
 

@@ -19,7 +19,7 @@ public class Luis extends Nini {
 
     // --- MÉTODOS ---
     @Override
-    public void actualizar(double tiempoFrames, Celda[][] terreno){
+    public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas) {
         potenciar();
         tiempoProduccionButanito = tiempoProduccionButanito + tiempoFrames;
         if (tiempoProduccionButanito >= tiempoGeneracionButanito) {
@@ -30,7 +30,7 @@ public class Luis extends Nini {
         }
     }
 
-//    @Override
-//    public void disparar(ArrayList<Cosa> cosas){
-//    }
+    @Override
+    public void disparar(ArrayList<Cosa> cosas){
+    }
 }

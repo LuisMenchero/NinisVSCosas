@@ -3,6 +3,7 @@ package modelos;
 import javafx.scene.layout.Pane;
 
 import javax.swing.text.html.ImageView;
+import java.util.ArrayList;
 
 public class Adripan extends Nini {
     // --- ATRIBUTOS EXTRA ---
@@ -14,13 +15,13 @@ public class Adripan extends Nini {
 
     //--- MÉTODOS ---
     @Override
-    public void actualizar(double tiempoFrames, Celda[][] terreno) {
+    public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas) {
         potenciar();
     }
 
-//    @Override
-//    public void disparar(ArrayList<Cosa> cosas) {
-//    }
+    @Override
+    public void disparar(ArrayList<Cosa> cosas) {
+    }
 
 //    public void explotar(double tiempoFrames) {
 //        if (estaCargado && -----) {

@@ -2,6 +2,8 @@ package modelos;
 
 import javafx.scene.layout.Pane;
 
+import java.util.ArrayList;
+
 public class Callejo extends Nini {
     // --- ATRIBUTOS EXTRA ---
 
@@ -12,11 +14,11 @@ public class Callejo extends Nini {
 
     // --- MÉTODOS ---
         @Override
-    public void actualizar(double tiempoFrames, Celda[][] terreno) {
+    public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas) {
             potenciar();
     }
-//
-//    @Override
-//    public void disparar(ArrayList<Cosa> cosas) {
-//    }
+
+    @Override
+    public void disparar(ArrayList<Cosa> cosas) {
+    }
 }

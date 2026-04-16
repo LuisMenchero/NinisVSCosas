@@ -2,6 +2,8 @@ package modelos;
 
 import javafx.scene.layout.Pane;
 
+import java.util.ArrayList;
+
 public class Lopez extends Nini {
     // --- ATRIBUTOS EXTRA ---
 
@@ -12,7 +14,7 @@ public class Lopez extends Nini {
 
     // --- MÉTODOS ---
         @Override
-    public void actualizar(double tiempoFrames, Celda[][] terreno) {
+    public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas) {
             potenciar();
 //        if (hayZombieEnFila(cosas)) {
 //            tiempoDelUltimoDisparo = tiempoDelUltimoDisparo + tiempoFrames;
@@ -23,9 +25,9 @@ public class Lopez extends Nini {
 //        }
 
     }
-//
-//    @Override
-//    public void disparar(ArrayList<Cosa> cosas) {
-//        Escupitajo nuevaNota = new Escupitajo(fila,columna,root);
-//    }
+
+    @Override
+    public void disparar(ArrayList<Cosa> cosas) {
+        //Escupitajo nuevaNota = new Escupitajo(fila,columna,root);
+    }
 }

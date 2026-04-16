@@ -1,6 +1,7 @@
 package modelos;
 
 import controladores.ControladorReloj;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -30,7 +31,6 @@ public abstract class Nini {
 
     // el gif del potenciador
     protected ImageView potenciador;
-    protected StackPane aura = new StackPane();
 
     // --- CONSTRUCTOR ---
     public Nini(double columna, double fila, int salud, int costeButanitos, double cooldownDisparo, String rutaImagenNini, Pane root) {
@@ -49,7 +49,6 @@ public abstract class Nini {
         this.imagenNini.setFitHeight(alto);
 
 
-
         // para posicionarlo en la pantalla
         this.imagenNini.setLayoutX(columna);
         this.imagenNini.setLayoutY(fila);
@@ -59,10 +58,9 @@ public abstract class Nini {
 
     // --- MÉTODOS ---
     // abstactos
-    //protected abstract void disparar(ArrayList<Cosa> cosas);
+    protected abstract void disparar(ArrayList<Cosa> cosas);
 
-    public abstract void actualizar(double tiempoFrames, Celda[][] terreno);
-    //ArrayList<Cosa> cosas
+    public abstract void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas);
     // normales
     public void recibirDaño(int daño) {
         salud = saludMaxima - daño;
@@ -98,14 +96,14 @@ public abstract class Nini {
         }
     }
 
-//    protected boolean hayZombieEnMiFila(ArrayList<Cosa> cosas) {
-//        for (Cosa cosaAct : cosas) {
-//            if (cosaAct.getFila() == this.fila){
-//              return true;
-//            }
-//        }
-//        return false;
-//    }
+    protected boolean hayZombieEnMiFila(ArrayList<Cosa> cosas) {
+        for (Cosa cosaAct : cosas) {
+            if (cosaAct.getFila() == this.fila){
+              return true;
+            }
+        }
+        return false;
+    }
 
     // --- GETTERS ---
     public double getColumna() {
@@ -123,6 +121,6 @@ public abstract class Nini {
     public ImageView getImagenNini() {
         return imagenNini;
     }
-    public void setImagenNiniImage(String rutaNuevaAnimacion) {this.imagenNini = new ImageView(rutaNuevaAnimacion);}
+    public void setImagenNiniImage(String rutaNuevaAnimacion) {this.imagenNini.setImage(new Image(rutaNuevaAnimacion));}
     public void setPotenciado(boolean potenciado) {this.potenciado = potenciado;}
 }
