@@ -5,6 +5,7 @@ import controladores.ControladorJuego;
 import controladores.ControladorReloj;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -18,6 +19,7 @@ public class EscenaJuego {
 
     public ControladorReloj reloj = new ControladorReloj();
     public static Celda[][] terreno = new Celda[Cuadricula.columnas][Cuadricula.filas];
+
 
     public Scene construir(Stage stage) {
         ImageView fondo = new ImageView("imagenes/fondoNvsW.png");
@@ -52,8 +54,18 @@ public class EscenaJuego {
         menuPlantas.setLayoutX(50);
         menuPlantas.setLayoutY(20);
 
-        Pane root = new Pane(fondo, btnPausa, menuPlantas);
 
+        int numeroButanitos = geB.getContadorButanitos();
+        Text cantidadButanitos = new Text();
+        cantidadButanitos.setLayoutX(1100);
+        cantidadButanitos.setLayoutY(20);
+        cantidadButanitos.setFill(Color.WHITE);
+
+
+        cantidadButanitos.setText(String.valueOf(numeroButanitos));
+
+
+        Pane root = new Pane(fondo, btnPausa, menuPlantas, cantidadButanitos);
 
         Luis l1 = new Luis(Cuadricula.buscarMitadCeldaEjeX(2),Cuadricula.buscarMitadCeldaEjeY(1),root, geB);
         terreno[2][1].setNini(l1);
