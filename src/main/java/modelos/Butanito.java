@@ -41,6 +41,8 @@ public class Butanito {
 
     public void recoger() {
         gestorButanitos.sumarButanitos(50);
+        root.getChildren().remove(imagenButanito);
+
     }
 
     public void setImagenButanito(ImageView imagenButanito) {

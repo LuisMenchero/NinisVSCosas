@@ -31,7 +31,7 @@ public class GestorButanitos {
         for (Butanito butanitoAct : butanitos) {
             if (butanitoAct == butanito) {
                 butanitos.remove(butanitoAct);
-                butanitoAct.setImagenButanito(null);
+//                butanitoAct.setImagenButanito(null);
                 return;
             }
         }
