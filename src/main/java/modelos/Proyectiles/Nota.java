@@ -21,7 +21,8 @@ public class Nota extends Proyectil {
 
     @Override
     public void moverProyectil(double tiempoFrames) {
-        this.imagenNota.setLayoutX(columna + pixelesPorSegundo * tiempoFrames);
+        columna = (columna + pixelesPorSegundo * tiempoFrames);
+        this.imagenNota.setLayoutX(columna);
         System.out.println("me muevo");
     }
 }

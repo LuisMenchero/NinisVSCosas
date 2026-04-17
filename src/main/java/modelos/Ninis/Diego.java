@@ -47,6 +47,9 @@ public class Diego extends Nini {
 
     public ArrayList<Proyectil> getNotasNuevas() {
         ArrayList<Proyectil> copiaNotasNuevas = new ArrayList<>();
+        for (Nota nota : notasNuevas) {
+            copiaNotasNuevas.add(nota);
+        }
         notasNuevas.clear();
         return copiaNotasNuevas;
     }
