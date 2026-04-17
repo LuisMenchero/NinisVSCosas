@@ -46,11 +46,11 @@ public class EscenaJuego {
         reloj.iniciarReloj();
 
 
-        ImageView menuPlantas = new ImageView("Imagenes/PlantasRN.png");
-        menuPlantas.setFitWidth(450);
-        menuPlantas.setFitHeight(80);
-        menuPlantas.setLayoutX(50);
-        menuPlantas.setLayoutY(20);
+        ImageView menuNinis = new ImageView("Imagenes/NinisRN.png");
+        menuNinis.setFitWidth(450);
+        menuNinis.setFitHeight(80);
+        menuNinis.setLayoutX(50);
+        menuNinis.setLayoutY(20);
 
 
         int numeroButanitos = geB.getContadorButanitos();
@@ -63,7 +63,7 @@ public class EscenaJuego {
         cantidadButanitos.setText(String.valueOf(numeroButanitos));
         geB.setTextoContador(cantidadButanitos);
 
-        Pane root = new Pane(fondo, btnPausa, menuPlantas, cantidadButanitos);
+        Pane root = new Pane(fondo, btnPausa, menuNinis, cantidadButanitos);
 
 
 
