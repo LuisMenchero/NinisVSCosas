@@ -9,7 +9,7 @@ public class Nota extends Proyectil {
 
     // --- CONSTRUCTOR ---
     public Nota(double fila, double columna, Pane root) {
-        super(10,fila + 35, columna  + 65, root);
+        super(200,fila + 35, columna  + 65, root);
     }
 
     // --- MÉTODOS ---

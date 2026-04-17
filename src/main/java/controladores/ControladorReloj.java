@@ -28,7 +28,7 @@ public class ControladorReloj {
     public void iniciarReloj() {
 
         temporizador = new AnimationTimer() {
-            private long ultimoTiempo = 0;
+            private long ultimoTiempo = -1;
             //hemos usado long para que funcione porque si no se queda el juego capum
 
             @Override
@@ -70,11 +70,14 @@ public class ControladorReloj {
         for (Nini nini : ninis) {
             nini.actualizar(tiempoFrames, EscenaJuego.getTerreno(), cosas);
             if (nini instanceof Diego) {
-
-                if (((Diego) nini).getNotasNuevas().isEmpty()) {
-                    System.out.println("No tengo bolingas");
+                    //Esta parte deberá permanecer comentada porque si no las notas no se mueven jeje
+//                if (((Diego) nini).getNotasNuevas().isEmpty()) {
+//                    System.out.println("No tengo bolingas");
+//                }
+                ArrayList<Proyectil> notasNuevas = ((Diego) nini).getNotasNuevas();
+                if (!notasNuevas.isEmpty()) {
+                    proyectiles.addAll(notasNuevas);
                 }
-                proyectiles.addAll(((Diego) nini).getNotasNuevas());
             }
         }
 
