@@ -1,8 +1,9 @@
-package modelos;
+package modelos.Ninis;
 
 import javafx.scene.layout.Pane;
+import modelos.Celda;
+import modelos.Cosas.Cosa;
 
-import javax.swing.text.html.ImageView;
 import java.util.ArrayList;
 
 public class Adripan extends Nini {

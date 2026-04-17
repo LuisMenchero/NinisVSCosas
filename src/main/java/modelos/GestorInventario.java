@@ -1,7 +1,6 @@
 package modelos;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
+import modelos.Ninis.Nini;
 
 public class GestorInventario {
 

@@ -1,14 +1,12 @@
-package modelos;
+package modelos.Ninis;
 
-import controladores.ControladorReloj;
-import javafx.animation.KeyFrame;
 import javafx.animation.PauseTransition;
-import javafx.animation.Timeline;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
+import modelos.Celda;
+import modelos.Cosas.Cosa;
+import modelos.Proyectiles.Nota;
 
-import java.awt.*;
 import java.util.ArrayList;
 
 public class Diego extends Nini {

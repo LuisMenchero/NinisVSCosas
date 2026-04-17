@@ -1,4 +1,4 @@
-package modelos;
+package modelos.Cosas;
 
 public class Cosa {
 

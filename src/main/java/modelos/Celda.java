@@ -1,5 +1,7 @@
 package modelos;
 
+import modelos.Ninis.Nini;
+
 public class Celda {
     // --- ATRIBUTOS ---
     private Nini nini = null;

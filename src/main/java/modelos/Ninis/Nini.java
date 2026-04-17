@@ -1,10 +1,11 @@
-package modelos;
+package modelos.Ninis;
 
 import controladores.ControladorReloj;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
+import modelos.Celda;
+import modelos.Cosas.Cosa;
 
 import java.util.ArrayList;
 

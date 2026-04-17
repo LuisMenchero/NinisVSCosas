@@ -1,7 +1,8 @@
-package modelos;
+package modelos.Ninis;
 
-import escenas.EscenaJuego;
 import javafx.scene.layout.Pane;
+import modelos.Celda;
+import modelos.Cosas.Cosa;
 
 import java.util.ArrayList;
 

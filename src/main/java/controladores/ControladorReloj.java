@@ -2,7 +2,11 @@ package controladores;
 
 import escenas.EscenaJuego;
 import javafx.animation.AnimationTimer;
-import modelos.*;
+import modelos.Cosas.Cosa;
+import modelos.Ninis.Diego;
+import modelos.Ninis.Guevara;
+import modelos.Ninis.Nini;
+import modelos.Proyectiles.Nota;
 
 import java.util.ArrayList;
 

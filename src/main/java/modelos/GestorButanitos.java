@@ -1,5 +1,7 @@
 package modelos;
 
+import modelos.Items.Butanito;
+
 import java.util.ArrayList;
 
 public class GestorButanitos {

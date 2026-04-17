@@ -1,7 +1,8 @@
-package modelos;
+package modelos.Items;
 
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import modelos.GestorButanitos;
 
 public class Butanito {
     // Posicion

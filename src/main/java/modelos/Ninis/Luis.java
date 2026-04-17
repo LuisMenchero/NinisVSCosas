@@ -1,6 +1,9 @@
-package modelos;
+package modelos.Ninis;
 
 import javafx.scene.layout.Pane;
+import modelos.*;
+import modelos.Cosas.Cosa;
+import modelos.Items.Butanito;
 
 import java.util.ArrayList;
 

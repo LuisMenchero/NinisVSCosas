@@ -1,4 +1,4 @@
-package modelos;
+package modelos.Proyectiles;
 
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;

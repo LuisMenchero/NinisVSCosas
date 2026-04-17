@@ -1,11 +1,8 @@
 package escenas;
 
-import com.sun.prism.Image;
-import controladores.ControladorJuego;
 import controladores.ControladorReloj;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -14,6 +11,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import modelos.*;
+import modelos.Ninis.*;
 
 public class EscenaJuego {
 
