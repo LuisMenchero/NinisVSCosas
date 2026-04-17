@@ -3,15 +3,15 @@ package modelos.Proyectiles;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
-public class Nota extends Proyectil {
+public class Escupitajo extends Proyectil {
     // --- ATRIBUTOS ---
 
 
     // --- CONSTRUCTOR ---
-    public Nota(double fila, double columna, Pane root) {
-        super(200,fila + 35, columna  + 65, root);
+    public Escupitajo(double fila, double columna, Pane root) {
+        super(210,fila + 25, columna  + 60, root);
         // Para el gif
-        this.imagenProyectil = new ImageView("Animaciones/Proyectiles/nota.gif");
+        this.imagenProyectil = new ImageView("Animaciones/Ninis/Guevara_Idle.gif");
         this.imagenProyectil.setFitWidth(ancho);
         this.imagenProyectil.setFitHeight(alto);
 

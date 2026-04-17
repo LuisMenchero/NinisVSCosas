@@ -5,7 +5,9 @@ import javafx.animation.AnimationTimer;
 import modelos.Cosas.Cosa;
 import modelos.Ninis.Diego;
 import modelos.Ninis.Guevara;
+import modelos.Ninis.Lopez;
 import modelos.Ninis.Nini;
+import modelos.Proyectiles.Escupitajo;
 import modelos.Proyectiles.Nota;
 import modelos.Proyectiles.Proyectil;
 
@@ -70,13 +72,14 @@ public class ControladorReloj {
         for (Nini nini : ninis) {
             nini.actualizar(tiempoFrames, EscenaJuego.getTerreno(), cosas);
             if (nini instanceof Diego) {
-                    //Esta parte deberá permanecer comentada porque si no las notas no se mueven jeje
-//                if (((Diego) nini).getNotasNuevas().isEmpty()) {
-//                    System.out.println("No tengo bolingas");
-//                }
                 ArrayList<Proyectil> notasNuevas = ((Diego) nini).getNotasNuevas();
                 if (!notasNuevas.isEmpty()) {
                     proyectiles.addAll(notasNuevas);
+                }
+            } else if (nini instanceof Lopez) {
+                ArrayList<Proyectil> escupitajosNuevos = ((Lopez) nini).getEscupitajosNuevos();
+                if (!escupitajosNuevos.isEmpty()) {
+                    proyectiles.addAll(escupitajosNuevos);
                 }
             }
         }
@@ -84,7 +87,8 @@ public class ControladorReloj {
         for (Proyectil proyectil : proyectiles) {
             if (proyectil instanceof Nota) {
                 ((Nota) proyectil).actualizar(tiempoFrames);
-                System.out.println("hola funciono");
+            } else if (proyectil instanceof Escupitajo) {
+                ((Escupitajo) proyectil).actualizar(tiempoFrames);
             }
         }
 

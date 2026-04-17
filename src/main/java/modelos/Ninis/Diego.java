@@ -35,11 +35,10 @@ public class Diego extends Nini {
 
     @Override
     public void disparar(ArrayList<Cosa> cosas) {
-        System.out.println("disparo");
         this.setImagenNiniImage("Animaciones/Ninis/DiegoDisparando.gif");
-        notasNuevas.add(new Nota(fila,columna,root));
-        PauseTransition pausa = new PauseTransition(Duration.seconds(1.5));
+        PauseTransition pausa = new PauseTransition(Duration.seconds(1.2));
         pausa.setOnFinished(evento -> {
+            notasNuevas.add(new Nota(fila,columna,root));
             this.setImagenNiniImage("Animaciones/Ninis/DiegoEsperando.gif");
         });
         pausa.play();

@@ -7,7 +7,7 @@ public abstract class Proyectil {
     // --- ATRIBUTOS ---
     protected int pixelesPorSegundo;
     // imagen de la nota
-    protected ImageView imagenNota;
+    protected ImageView imagenProyectil;
     protected double ancho = 20;
     protected double alto = 20;
 
@@ -22,18 +22,6 @@ public abstract class Proyectil {
         this.fila = fila;
         this.columna = columna;
         this.root = root;
-
-        // Para el gif
-        this.imagenNota = new ImageView("Animaciones/Proyectiles/nota.gif");
-        this.imagenNota.setFitWidth(ancho);
-        this.imagenNota.setFitHeight(alto);
-
-
-        // para posicionarlo en la pantalla
-        this.imagenNota.setLayoutX(columna);
-        this.imagenNota.setLayoutY(fila);
-
-        root.getChildren().add(imagenNota);
     }
     // --- MÉTODOS ---
     protected abstract void actualizar(double tiempoFrames);
