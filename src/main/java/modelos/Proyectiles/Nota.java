@@ -3,36 +3,25 @@ package modelos.Proyectiles;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
-public class Nota {
+public class Nota extends Proyectil {
     // --- ATRIBUTOS ---
-
-    // imagen de la nota
-    protected ImageView imagenNota;
-    protected double ancho = 20;
-    protected double alto = 20;
-
-    // para colocar la nota
-    private double fila;
-    private double columna;
-    private Pane root;
 
 
     // --- CONSTRUCTOR ---
     public Nota(double fila, double columna, Pane root) {
-        this.fila = fila;
-        this.columna = columna;
-        this.root = root;
+        super(10,fila + 35, columna  + 65, root);
+    }
 
-        // Para el gif
-        this.imagenNota = new ImageView("Animaciones/Proyectiles/nota.gif");
-        this.imagenNota.setFitWidth(ancho);
-        this.imagenNota.setFitHeight(alto);
+    // --- MÉTODOS ---
+    @Override
+    public void actualizar(double tiempoFrames) {
+        moverProyectil(tiempoFrames);
+        System.out.println("hola funciono");
+    }
 
-
-        // para posicionarlo en la pantalla
-        this.imagenNota.setLayoutX(columna + 65);
-        this.imagenNota.setLayoutY(fila + 35);
-
-        root.getChildren().add(imagenNota);
+    @Override
+    public void moverProyectil(double tiempoFrames) {
+        this.imagenNota.setLayoutX(columna + pixelesPorSegundo * tiempoFrames);
+        System.out.println("me muevo");
     }
 }

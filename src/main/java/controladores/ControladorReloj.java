@@ -7,6 +7,7 @@ import modelos.Ninis.Diego;
 import modelos.Ninis.Guevara;
 import modelos.Ninis.Nini;
 import modelos.Proyectiles.Nota;
+import modelos.Proyectiles.Proyectil;
 
 import java.util.ArrayList;
 
@@ -21,7 +22,7 @@ public class ControladorReloj {
     private boolean pausado = false;
     private static ArrayList<Cosa> cosas = new ArrayList<>();
     private static ArrayList<Nini> ninis = new ArrayList<>();
-    private static ArrayList<Nota> notas = new ArrayList<>();
+    private static ArrayList<Proyectil> proyectiles = new ArrayList<>();
 
 
     public void iniciarReloj() {
@@ -69,7 +70,18 @@ public class ControladorReloj {
         for (Nini nini : ninis) {
             nini.actualizar(tiempoFrames, EscenaJuego.getTerreno(), cosas);
             if (nini instanceof Diego) {
-                notas.addAll(((Diego) nini).getNotasNuevas());
+
+                if (((Diego) nini).getNotasNuevas().isEmpty()) {
+                    System.out.println("No tengo bolingas");
+                }
+                proyectiles.addAll(((Diego) nini).getNotasNuevas());
+            }
+        }
+
+        for (Proyectil proyectil : proyectiles) {
+            if (proyectil instanceof Nota) {
+                ((Nota) proyectil).actualizar(tiempoFrames);
+                System.out.println("hola funciono");
             }
         }
 

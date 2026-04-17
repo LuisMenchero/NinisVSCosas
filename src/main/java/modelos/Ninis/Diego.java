@@ -6,6 +6,7 @@ import javafx.util.Duration;
 import modelos.Celda;
 import modelos.Cosas.Cosa;
 import modelos.Proyectiles.Nota;
+import modelos.Proyectiles.Proyectil;
 
 import java.util.ArrayList;
 
@@ -44,8 +45,8 @@ public class Diego extends Nini {
         pausa.play();
     }
 
-    public ArrayList<Nota> getNotasNuevas() {
-        ArrayList<Nota> copiaNotasNuevas = new ArrayList<>();
+    public ArrayList<Proyectil> getNotasNuevas() {
+        ArrayList<Proyectil> copiaNotasNuevas = new ArrayList<>();
         notasNuevas.clear();
         return copiaNotasNuevas;
     }
