@@ -61,9 +61,11 @@ public class EscenaJuego {
 
 
         cantidadButanitos.setText(String.valueOf(numeroButanitos));
-
+        geB.setTextoContador(cantidadButanitos);
 
         Pane root = new Pane(fondo, btnPausa, menuPlantas, cantidadButanitos);
+
+
 
         Luis l1 = new Luis(Cuadricula.buscarMitadCeldaEjeX(2),Cuadricula.buscarMitadCeldaEjeY(1),root, geB);
         terreno[2][1].setNini(l1);
