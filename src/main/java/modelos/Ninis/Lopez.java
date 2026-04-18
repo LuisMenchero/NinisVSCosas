@@ -38,7 +38,7 @@ public class Lopez extends Nini {
     public void disparar(ArrayList<Cosa> cosas) {
         this.setImagenNiniImage("Animaciones/Ninis/Lopez_escupitajo.gif");
 
-        PauseTransition pausa = new PauseTransition(Duration.seconds(0.8));
+        PauseTransition pausa = new PauseTransition(Duration.seconds(0.7));
         pausa.setOnFinished(evento -> {
             escupitajosNuevos.add(new Escupitajo(fila,columna,root));
             this.setImagenNiniImage("Animaciones/Ninis/LopezEsperando.gif");
