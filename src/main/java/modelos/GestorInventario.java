@@ -16,12 +16,16 @@ public class GestorInventario {
     }
 
 
-    public void añadirNiniInventario(Nini nini) {
+    public int añadirNiniInventario(Nini nini) {
+        int posicion = 100;
         for (int i = 0; i < 8; i++) {
             if (inventario[i] == null) {
                 inventario[i] = nini;
+                posicion = i;
+                return posicion;
             }
         }
+        return posicion;
     }
 
     public void eliminarNiniInventario(Nini nini) {

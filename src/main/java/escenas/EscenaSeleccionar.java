@@ -5,6 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import modelos.GestorInventario;
@@ -22,6 +23,7 @@ public class EscenaSeleccionar {
         titulo.setStyle("-fx-font-size: 40px;");
         titulo.setLayoutX(55);
         titulo.setLayoutY(100);
+        titulo.setFill(Color.WHITE);
 
         Button btnSalir = new Button("Salir");
         btnSalir.setLayoutX(255);
@@ -83,6 +85,7 @@ public class EscenaSeleccionar {
         nombreNini.setStyle("-fx-font-size: 20px;");
         nombreNini.setLayoutX(1027);
         nombreNini.setLayoutY(270);
+        nombreNini.setFill(Color.WHITE);
 
         Text descNini = new Text();
 
@@ -297,6 +300,10 @@ public class EscenaSeleccionar {
 
         Pane root = new Pane(fondo,titulo,btnSalir,nombreNini,luis, fotoDesc,diego,callejo,adripan,isma,ximena, lopez,guille,dani,keke,guevara,lorena,maria,jud,elsa,eliseo,hueco1,hueco2,hueco3,hueco4);
         return new Scene(root, 1280, 720);
+    }
+
+    public void colocar(int posicion){
+
     }
 
 }
