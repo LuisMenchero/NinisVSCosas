@@ -2,6 +2,7 @@ package escenas;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
@@ -18,7 +19,7 @@ public class EscenaSeleccionar {
         fondo.setFitHeight(720);
 
         Text titulo = new Text("-- Selecciona tus Ninis --");
-        titulo.setStyle("-fx-font-size: 40px; -fx-color-label-visible: red;");
+        titulo.setStyle("-fx-font-size: 40px;");
         titulo.setLayoutX(55);
         titulo.setLayoutY(100);
 
@@ -66,21 +67,51 @@ public class EscenaSeleccionar {
         int posicionXNini8 = 748;
         int posicionYNini8 = 533;
 
+        // posiciones de las descripciones
+        // imagen
+        int posicionXDescFoto = 1027;
+        int posicionYDescFoto = 80;
+        int tamañoDescFoto = 165;
+
+        ImageView fotoDesc = new ImageView();
+        fotoDesc.setFitWidth(tamañoDescFoto);
+        fotoDesc.setFitHeight(tamañoDescFoto);
+        fotoDesc.setLayoutX(posicionXDescFoto);
+        fotoDesc.setLayoutY(posicionYDescFoto);
+
+        Text nombreNini = new Text();
+        nombreNini.setStyle("-fx-font-size: 20px;");
+        nombreNini.setLayoutX(1027);
+        nombreNini.setLayoutY(270);
+
+        Text descNini = new Text();
+
+        Text costeNini = new Text();
+
+        Text vidaNini = new Text();
+
+        Text dañoNini = new Text();
+
+
+
 
         // fila 1
-        ImageView luis = new ImageView("Imagenes/CosoPrueba.png");
+        ImageView luis = new ImageView("Imagenes/Luis_Cuadricula.png");
         luis.setFitWidth(100);
         luis.setFitHeight(100);
         luis.setLayoutX(columna1);
         luis.setLayoutY(fila1);
+
         luis.setOnMouseClicked(evento -> {
             luis.setLayoutX(posicionXNini1);
             luis.setLayoutY(posicionYNini1);
             luis.setFitWidth(167);
             luis.setFitHeight(167);
+            fotoDesc.setImage(new Image("Animaciones/Ninis/Lis.gif"));
+            nombreNini.setText("-- LUIS --");
         });
 
-        ImageView diego = new ImageView("Imagenes/CosoPrueba.png");
+        ImageView diego = new ImageView("Imagenes/Diegosaas_1.png");
         diego.setFitWidth(100);
         diego.setFitHeight(100);
         diego.setLayoutX(columna2);
@@ -90,9 +121,11 @@ public class EscenaSeleccionar {
             diego.setLayoutY(posicionYNini2);
             diego.setFitWidth(167);
             diego.setFitHeight(167);
+            fotoDesc.setImage(new Image("Animaciones/Ninis/DiegoEsperando.gif"));
+            nombreNini.setText("-- DIEGO --");
         });
 
-        ImageView callejo = new ImageView("Imagenes/CosoPrueba.png");
+        ImageView callejo = new ImageView("Imagenes/Callejones.png");
         callejo.setFitWidth(100);
         callejo.setFitHeight(100);
         callejo.setLayoutX(columna3);
@@ -102,9 +135,11 @@ public class EscenaSeleccionar {
             callejo.setLayoutY(posicionYNini3);
             callejo.setFitWidth(167);
             callejo.setFitHeight(167);
+            fotoDesc.setImage(new Image("Animaciones/Ninis/Callejo_idle.gif"));
+            nombreNini.setText("-- CALLEJO --");
         });
 
-        ImageView adripan = new ImageView("Imagenes/CosoPrueba.png");
+        ImageView adripan = new ImageView("Imagenes/Adrinap.png");
         adripan.setFitWidth(100);
         adripan.setFitHeight(100);
         adripan.setLayoutX(columna4);
@@ -114,6 +149,8 @@ public class EscenaSeleccionar {
             adripan.setLayoutY(posicionYNini4);
             adripan.setFitWidth(167);
             adripan.setFitHeight(167);
+            fotoDesc.setImage(new Image("Animaciones/Ninis/AdripanEsperando.gif"));
+            nombreNini.setText("-- ADRIPAN --");
         });
 
         ImageView isma = new ImageView("Imagenes/CosoPrueba.png");
@@ -126,6 +163,8 @@ public class EscenaSeleccionar {
             isma.setLayoutY(posicionYNini5);
             isma.setFitWidth(167);
             isma.setFitHeight(167);
+
+            nombreNini.setText("-- ISMA --");
         });
 
 
@@ -140,18 +179,22 @@ public class EscenaSeleccionar {
             ximena.setLayoutY(posicionYNini6);
             ximena.setFitWidth(167);
             ximena.setFitHeight(167);
+
+            nombreNini.setText("-- XIMENA --");
         });
 
-        ImageView timon = new ImageView("Imagenes/CosoPrueba.png");
-        timon.setFitWidth(100);
-        timon.setFitHeight(100);
-        timon.setLayoutX(columna2);
-        timon.setLayoutY(fila2);
-        timon.setOnMouseClicked(evento -> {
-            timon.setLayoutX(posicionXNini7);
-            timon.setLayoutY(posicionYNini7);
-            timon.setFitWidth(167);
-            timon.setFitHeight(167);
+        ImageView lopez = new ImageView("Imagenes/Lucillos.png");
+        lopez.setFitWidth(100);
+        lopez.setFitHeight(100);
+        lopez.setLayoutX(columna2);
+        lopez.setLayoutY(fila2);
+        lopez.setOnMouseClicked(evento -> {
+            lopez.setLayoutX(posicionXNini7);
+            lopez.setLayoutY(posicionYNini7);
+            lopez.setFitWidth(167);
+            lopez.setFitHeight(167);
+            fotoDesc.setImage(new Image("Animaciones/Ninis/LopezEsperando.gif"));
+            nombreNini.setText("-- LÓPEZ --");
         });
 
         ImageView guille = new ImageView("Imagenes/CosoPrueba.png");
@@ -164,6 +207,8 @@ public class EscenaSeleccionar {
             guille.setLayoutY(posicionYNini8);
             guille.setFitWidth(167);
             guille.setFitHeight(167);
+
+            nombreNini.setText("-- GUILLE --");
         });
 
         ImageView dani = new ImageView("Imagenes/CosoPrueba.png");
@@ -180,11 +225,19 @@ public class EscenaSeleccionar {
 
 
         // fila 3
-        ImageView guevara = new ImageView("Imagenes/CosoPrueba.png");
+        ImageView guevara = new ImageView("Imagenes/Guevarote.png");
         guevara.setFitWidth(100);
         guevara.setFitHeight(100);
         guevara.setLayoutX(columna1);
         guevara.setLayoutY(fila3);
+        guevara.setOnMouseClicked(evento -> {
+            guevara.setLayoutX(posicionXNini4);
+            guevara.setLayoutY(posicionYNini4);
+            guevara.setFitWidth(167);
+            guevara.setFitHeight(167);
+            fotoDesc.setImage(new Image("Animaciones/Ninis/Guevara_Idle.gif"));
+            nombreNini.setText("-- GUEVARA --");
+        });
 
         ImageView lorena = new ImageView("Imagenes/CosoPrueba.png");
         lorena.setFitWidth(100);
@@ -242,7 +295,7 @@ public class EscenaSeleccionar {
         hueco4.setLayoutY(fila4);
 
 
-        Pane root = new Pane(fondo,titulo,btnSalir,luis,diego,callejo,adripan,isma,ximena,timon,guille,dani,keke,guevara,lorena,maria,jud,elsa,eliseo,hueco1,hueco2,hueco3,hueco4);
+        Pane root = new Pane(fondo,titulo,btnSalir,nombreNini,luis, fotoDesc,diego,callejo,adripan,isma,ximena, lopez,guille,dani,keke,guevara,lorena,maria,jud,elsa,eliseo,hueco1,hueco2,hueco3,hueco4);
         return new Scene(root, 1280, 720);
     }
 
