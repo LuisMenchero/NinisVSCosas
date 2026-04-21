@@ -10,10 +10,12 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import modelos.GestorInventario;
 
+import java.util.HashMap;
+
 public class EscenaSeleccionar {
 
     public Scene construir(Stage stage) {
-        GestorInventario geInv = new GestorInventario();
+
 
         ImageView fondo = new ImageView("imagenes/SeleccionPlanta.png");
         fondo.setFitWidth(1280);
@@ -308,9 +310,7 @@ public class EscenaSeleccionar {
 //            }
 //        }
 
-
-
-
+        GestorInventario geInv = new GestorInventario();
 
         Pane root = new Pane(fondo,titulo,btnSalir,nombreNini,luis, fotoDesc,diego,callejo,adripan,isma,ximena, lopez,guille,dani,keke,guevara,lorena,maria,jud,elsa,eliseo,hueco1,hueco2,hueco3,hueco4);
         return new Scene(root, 1280, 720);
