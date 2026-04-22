@@ -202,7 +202,7 @@ public class EscenaSeleccionar {
 
 
         // fila 2
-        ImageView ximena = new ImageView("Imagenes/CosoPrueba.png");
+        ImageView ximena = new ImageView("Imagenes/Guimena.png");
         ximena.setFitWidth(100);
         ximena.setFitHeight(100);
         ximena.setLayoutX(columna1);
@@ -211,7 +211,13 @@ public class EscenaSeleccionar {
             colocar("ximena", ximena);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Ximena_idle.gif"));
             nombreNini.setText("-- XIMENA --");
-
+            descNini.setText("");
+            costeNini.setText(" - COSTE BUTANITOS - \n - --- butanitos.");
+            vidaNini.setText(" - SALUD - \n - --- puntos de salud.");
+            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - ---.");
+            radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
+            tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
+            dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
         });
 
         ImageView lopez = new ImageView("Imagenes/Lucillos.png");

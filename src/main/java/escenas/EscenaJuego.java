@@ -78,7 +78,7 @@ public class EscenaJuego {
         adripan.setVisible(false);
         ImageView isma = new ImageView("Imagenes/CosoPrueba.png");
         isma.setVisible(false);
-        ImageView ximena = new ImageView("Imagenes/CosoPrueba.png");
+        ImageView ximena = new ImageView("Imagenes/Guimena.png");
         ximena.setVisible(false);
         ImageView lopez = new ImageView("Imagenes/Lucillos.png");
         lopez.setVisible(false);
