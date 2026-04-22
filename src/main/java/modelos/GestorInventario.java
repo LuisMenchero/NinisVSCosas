@@ -6,7 +6,7 @@ import modelos.Ninis.Nini;
 public class GestorInventario {
 
     public static GestorInventario instancia;  ;
-    private ImageView[] inventario = new ImageView[8];
+    private String[] inventario = new String[8];
 
 
     public static GestorInventario getInstancia() {
@@ -17,11 +17,11 @@ public class GestorInventario {
     }
 
 
-    public int añadirNiniInventario(ImageView nini) {
+    public int añadirNiniInventario(String nombreNini) {
         int posicion = 100;
 
         for (int i = 0; i < 8; i++) {
-            if (inventario[i] == nini) {
+            if (inventario[i] == nombreNini) {
                 return posicion;
             }
         }
@@ -29,7 +29,7 @@ public class GestorInventario {
 
         for (int i = 0; i < 8; i++) {
             if (inventario[i] == null) {
-                inventario[i] = nini;
+                inventario[i] = nombreNini;
                 posicion = i;
                 return posicion;
             }
@@ -37,16 +37,26 @@ public class GestorInventario {
         return posicion;
     }
 
-    public void eliminarNiniInventario(ImageView nini) {
+    public void eliminarNiniInventario(String nombreNini) {
     for (int i = 0; i < 8; i++) {
-        if (inventario[i] == nini) {
+        if (inventario[i] == nombreNini) {
             inventario[i] = null;
         }
     }
     }
 
 
-    public ImageView[] getInventario() {
+    public int getPosicionActual(String nombreNini) {
+        for (int i = 0; i < 8; i++) {
+            if (nombreNini.equals(inventario[i])) {
+                return i;
+            }
+        }
+        return 100;
+    }
+
+
+    public String[] getInventario() {
         return inventario;
     }
 }

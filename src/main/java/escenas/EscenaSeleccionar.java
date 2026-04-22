@@ -10,6 +10,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import modelos.GestorInventario;
 
+import javax.swing.*;
 import java.util.HashMap;
 
 public class EscenaSeleccionar {
@@ -85,7 +86,7 @@ public class EscenaSeleccionar {
         luis.setLayoutY(fila1);
 
         luis.setOnMouseClicked(evento -> {
-            colocar(luis);
+            colocar("luis", luis);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Lis.gif"));
             nombreNini.setText("-- LUIS --");
         });
@@ -96,7 +97,7 @@ public class EscenaSeleccionar {
         diego.setLayoutX(columna2);
         diego.setLayoutY(fila1);
         diego.setOnMouseClicked(evento -> {
-            colocar(diego);
+            colocar("diego", diego);
             fotoDesc.setImage(new Image("Animaciones/Ninis/DiegoEsperando.gif"));
             nombreNini.setText("-- DIEGO --");
         });
@@ -107,7 +108,7 @@ public class EscenaSeleccionar {
         callejo.setLayoutX(columna3);
         callejo.setLayoutY(fila1);
         callejo.setOnMouseClicked(evento -> {
-            colocar(callejo);
+            colocar("callejo", callejo);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Callejo_idle.gif"));
             nombreNini.setText("-- CALLEJO --");
         });
@@ -118,7 +119,7 @@ public class EscenaSeleccionar {
         adripan.setLayoutX(columna4);
         adripan.setLayoutY(fila1);
         adripan.setOnMouseClicked(evento -> {
-            colocar(adripan);
+            colocar("adripan", adripan);
             fotoDesc.setImage(new Image("Animaciones/Ninis/AdripanEsperando.gif"));
             nombreNini.setText("-- ADRIPAN --");
         });
@@ -129,7 +130,7 @@ public class EscenaSeleccionar {
         isma.setLayoutX(columna5);
         isma.setLayoutY(fila1);
         isma.setOnMouseClicked(evento -> {
-            colocar(isma);
+            colocar("isma", isma);
 
             nombreNini.setText("-- ISMA --");
         });
@@ -142,7 +143,7 @@ public class EscenaSeleccionar {
         ximena.setLayoutX(columna1);
         ximena.setLayoutY(fila2);
         ximena.setOnMouseClicked(evento -> {
-            colocar(ximena);
+            colocar("ximena", ximena);
 
             nombreNini.setText("-- XIMENA --");
         });
@@ -153,7 +154,7 @@ public class EscenaSeleccionar {
         lopez.setLayoutX(columna2);
         lopez.setLayoutY(fila2);
         lopez.setOnMouseClicked(evento -> {
-            colocar(lopez);
+            colocar("lopez",lopez);
 
             fotoDesc.setImage(new Image("Animaciones/Ninis/LopezEsperando.gif"));
             nombreNini.setText("-- LÓPEZ --");
@@ -165,7 +166,7 @@ public class EscenaSeleccionar {
         guille.setLayoutX(columna3);
         guille.setLayoutY(fila2);
         guille.setOnMouseClicked(evento -> {
-            colocar(guille);
+            colocar("guille",guille);
 
             nombreNini.setText("-- GUILLE --");
         });
@@ -176,7 +177,7 @@ public class EscenaSeleccionar {
         dani.setLayoutX(columna4);
         dani.setLayoutY(fila2);
         dani.setOnMouseClicked(evento -> {
-            colocar(dani);
+            colocar("dani",dani);
 
             nombreNini.setText("-- DANI --");
         });
@@ -187,7 +188,7 @@ public class EscenaSeleccionar {
         keke.setLayoutX(columna5);
         keke.setLayoutY(fila2);
         keke.setOnMouseClicked(evento -> {
-            colocar(keke);
+            colocar("keke",keke);
 
             nombreNini.setText("-- KEKE --");
         });
@@ -199,7 +200,7 @@ public class EscenaSeleccionar {
         guevara.setLayoutX(columna1);
         guevara.setLayoutY(fila3);
         guevara.setOnMouseClicked(evento -> {
-            colocar(guevara);
+            colocar("guevara",guevara);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Guevara_Idle.gif"));
             nombreNini.setText("-- GUEVARA --");
         });
@@ -210,7 +211,7 @@ public class EscenaSeleccionar {
         lorena.setLayoutX(columna2);
         lorena.setLayoutY(fila3);
         lorena.setOnMouseClicked(evento -> {
-            colocar(lorena);
+            colocar("lorena",lorena);
 
             nombreNini.setText("-- LORENA --");
         });
@@ -221,7 +222,7 @@ public class EscenaSeleccionar {
         maria.setLayoutX(columna3);
         maria.setLayoutY(fila3);
         maria.setOnMouseClicked(evento -> {
-            colocar(maria);
+            colocar("maria",maria);
 
             nombreNini.setText("-- MARIA --");
         });
@@ -232,7 +233,7 @@ public class EscenaSeleccionar {
         jud.setLayoutX(columna4);
         jud.setLayoutY(fila3);
         jud.setOnMouseClicked(evento -> {
-            colocar(jud);
+            colocar("jud",jud);
 
             nombreNini.setText("-- JUD --");
         });
@@ -243,7 +244,7 @@ public class EscenaSeleccionar {
         elsa.setLayoutX(columna5);
         elsa.setLayoutY(fila3);
         elsa.setOnMouseClicked(evento -> {
-            colocar(elsa);
+            colocar("elsa",elsa);
 
             nombreNini.setText("-- ELSA --");
         });
@@ -255,7 +256,7 @@ public class EscenaSeleccionar {
         eliseo.setLayoutX(columna1);
         eliseo.setLayoutY(fila4);
         eliseo.setOnMouseClicked(evento -> {
-            colocar(eliseo);
+            colocar("eliseo",eliseo);
 
             nombreNini.setText("-- ELISEO --");
         });
@@ -266,7 +267,7 @@ public class EscenaSeleccionar {
         hueco1.setLayoutX(columna2);
         hueco1.setLayoutY(fila4);
         hueco1.setOnMouseClicked(evento -> {
-            colocar(hueco1);
+            colocar("hueco1",hueco1);
 
             nombreNini.setText("-- --- --");
         });
@@ -277,7 +278,7 @@ public class EscenaSeleccionar {
         hueco2.setLayoutX(columna3);
         hueco2.setLayoutY(fila4);
         hueco2.setOnMouseClicked(evento -> {
-            colocar(hueco2);
+            colocar("hueco2",hueco2);
 
             nombreNini.setText("-- --- --");
         });
@@ -288,7 +289,7 @@ public class EscenaSeleccionar {
         hueco3.setLayoutX(columna4);
         hueco3.setLayoutY(fila4);
         hueco3.setOnMouseClicked(evento -> {
-            colocar(hueco3);
+            colocar("hueco3",hueco3);
 
             nombreNini.setText("-- --- --");
         });
@@ -299,7 +300,7 @@ public class EscenaSeleccionar {
         hueco4.setLayoutX(columna5);
         hueco4.setLayoutY(fila4);
         hueco4.setOnMouseClicked(evento -> {
-            colocar(hueco4);
+            colocar("hueco4",hueco4);
 
             nombreNini.setText("-- --- --");
         });
@@ -310,15 +311,98 @@ public class EscenaSeleccionar {
 //            }
 //        }
 
-        GestorInventario geInv = new GestorInventario();
+        GestorInventario geInv = GestorInventario.getInstancia();
+        HashMap<String, ImageView> nombresImagenes = new HashMap<>();
+        nombresImagenes.put("luis", luis);
+        nombresImagenes.put("diego", diego);
+        nombresImagenes.put("callejo", callejo);
+        nombresImagenes.put("adripan", adripan);
+        nombresImagenes.put("guevara", guevara);
+        nombresImagenes.put("lopez", lopez);
+        nombresImagenes.put("isma", isma);
+        nombresImagenes.put("ximena", ximena);
+        nombresImagenes.put("guille", guille);
+        nombresImagenes.put("dani", dani);
+        nombresImagenes.put("keke", keke);
+        nombresImagenes.put("lorena", lorena);
+        nombresImagenes.put("maria", maria);
+        nombresImagenes.put("jud", jud);
+        nombresImagenes.put("elsa", elsa);
+        nombresImagenes.put("eliseo", eliseo);
+
+        String [] inventarioCopia = geInv.getInventario();
+        for (int i = 0; i < 8; i++){
+            if (inventarioCopia[i] != null && nombresImagenes.containsKey(inventarioCopia[i])) {
+                ImageView niniSeleccionado = nombresImagenes.get(inventarioCopia[i]);
+                int posicion = geInv.getPosicionActual(inventarioCopia[i]);
+
+                // Nini 1
+                int posicionXNini1 = 577;
+                int posicionYNini1 = 20;
+                // Nini 2
+                int posicionXNini2 = 748;
+                int posicionYNini2 = 20;
+                // Nini 3
+                int posicionXNini3 = 577;
+                int posicionYNini3 = 191;
+                // Nini 4
+                int posicionXNini4 = 748;
+                int posicionYNini4 = 191;
+                // Nini 5
+                int posicionXNini5 = 577;
+                int posicionYNini5 = 362;
+                // Nini 6
+                int posicionXNini6 = 748;
+                int posicionYNini6 = 362;
+                // Nini 7
+                int posicionXNini7 = 577;
+                int posicionYNini7 = 533;
+                // Nini 8
+                int posicionXNini8 = 748;
+                int posicionYNini8 = 533;
+
+                niniSeleccionado.setFitWidth(167);
+                niniSeleccionado.setFitHeight(167);
+
+                if (posicion == 0) {
+                    niniSeleccionado.setLayoutX(posicionXNini1);
+                    niniSeleccionado.setLayoutY(posicionYNini1);
+                } else if (posicion == 1) {
+                    niniSeleccionado.setLayoutX(posicionXNini2);
+                    niniSeleccionado.setLayoutY(posicionYNini2);
+                } else if (posicion == 2) {
+                    niniSeleccionado.setLayoutX(posicionXNini3);
+                    niniSeleccionado.setLayoutY(posicionYNini3);
+                } else if (posicion == 3) {
+                    niniSeleccionado.setLayoutX(posicionXNini4);
+                    niniSeleccionado.setLayoutY(posicionYNini4);
+                } else if (posicion == 4) {
+                    niniSeleccionado.setLayoutX(posicionXNini5);
+                    niniSeleccionado.setLayoutY(posicionYNini5);
+                }  else if (posicion == 5) {
+                    niniSeleccionado.setLayoutX(posicionXNini6);
+                    niniSeleccionado.setLayoutY(posicionYNini6);
+                }  else if (posicion == 6) {
+                    niniSeleccionado.setLayoutX(posicionXNini7);
+                    niniSeleccionado.setLayoutY(posicionYNini7);
+                }  else if (posicion == 7) {
+                    niniSeleccionado.setLayoutX(posicionXNini8);
+                    niniSeleccionado.setLayoutY(posicionYNini8);
+                }
+            }
+        }
 
         Pane root = new Pane(fondo,titulo,btnSalir,nombreNini,luis, fotoDesc,diego,callejo,adripan,isma,ximena, lopez,guille,dani,keke,guevara,lorena,maria,jud,elsa,eliseo,hueco1,hueco2,hueco3,hueco4);
         return new Scene(root, 1280, 720);
     }
 
-    public void colocar(ImageView niniSeleccionado){
+    public void colocar(String nombreNini, ImageView niniSeleccionado){
         GestorInventario geInv = GestorInventario.getInstancia();
-        int posicion = geInv.añadirNiniInventario(niniSeleccionado);
+        int posicion = geInv.añadirNiniInventario(nombreNini);
+
+        if (posicion == 100){
+            return;
+        }
 
         // posiciones de las imagenes en pantalla cuando las seleccionas
         // Nini 1
@@ -375,69 +459,6 @@ public class EscenaSeleccionar {
             niniSeleccionado.setLayoutY(posicionYNini8);
         } else {
             System.out.println("Error: posicion incorrecto");
-        }
-    }
-
-    public void precargarImagenes() {
-        GestorInventario geInv = new GestorInventario();
-
-        // posiciones de las imagenes en pantalla cuando las seleccionas
-        // Nini 1
-        int posicionXNini1 = 577;
-        int posicionYNini1 = 20;
-        // Nini 2
-        int posicionXNini2 = 748;
-        int posicionYNini2 = 20;
-        // Nini 3
-        int posicionXNini3 = 577;
-        int posicionYNini3 = 191;
-        // Nini 4
-        int posicionXNini4 = 748;
-        int posicionYNini4 = 191;
-        // Nini 5
-        int posicionXNini5 = 577;
-        int posicionYNini5 = 362;
-        // Nini 6
-        int posicionXNini6 = 748;
-        int posicionYNini6 = 362;
-        // Nini 7
-        int posicionXNini7 = 577;
-        int posicionYNini7 = 533;
-        // Nini 8
-        int posicionXNini8 = 748;
-        int posicionYNini8 = 533;
-
-        for (int i = 0; i < geInv.getInventario().length-1; i++) {
-            if (geInv.getInventario()[i] != null) {
-                geInv.getInventario()[i].setFitWidth(167);
-                geInv.getInventario()[i].setFitHeight(167);
-
-                if (i == 0) {
-                    geInv.getInventario()[i].setLayoutX(posicionXNini1);
-                    geInv.getInventario()[i].setLayoutY(posicionYNini1);
-                } else if (i == 1) {
-                    geInv.getInventario()[i].setLayoutX(posicionXNini2);
-                    geInv.getInventario()[i].setLayoutY(posicionYNini2);
-                } else if (i == 2) {
-                    geInv.getInventario()[i].setLayoutX(posicionXNini3);
-                    geInv.getInventario()[i].setLayoutY(posicionYNini3);
-                } else if (i == 3) {
-                    geInv.getInventario()[i].setLayoutX(posicionXNini4);
-                    geInv.getInventario()[i].setLayoutY(posicionYNini4);
-                } else if (i == 4) {
-                    geInv.getInventario()[i].setLayoutX(posicionXNini5);
-                    geInv.getInventario()[i].setLayoutY(posicionYNini5);
-                }  else if (i == 5) {
-                    geInv.getInventario()[i].setLayoutX(posicionXNini6);
-                    geInv.getInventario()[i].setLayoutY(posicionYNini6);
-                }  else if (i == 6) {
-                    geInv.getInventario()[i].setLayoutX(posicionXNini7);
-                    geInv.getInventario()[i].setLayoutY(posicionYNini7);
-                }  else if (i == 7) {
-                    geInv.getInventario()[i].setLayoutX(posicionXNini8);
-                    geInv.getInventario()[i].setLayoutY(posicionYNini8);
-                }
-            }
         }
     }
 
