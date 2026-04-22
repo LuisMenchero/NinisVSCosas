@@ -7,6 +7,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import modelos.GestorInventario;
 
@@ -62,18 +63,48 @@ public class EscenaSeleccionar {
         fotoDesc.setLayoutY(posicionYDescFoto);
 
         Text nombreNini = new Text();
-        nombreNini.setStyle("-fx-font-size: 20px;");
+        nombreNini.setStyle("-fx-font-size: 30px;");
         nombreNini.setLayoutX(1027);
-        nombreNini.setLayoutY(270);
+        nombreNini.setLayoutY(280);
         nombreNini.setFill(Color.WHITE);
+        nombreNini.setTextAlignment(TextAlignment.CENTER);
 
         Text descNini = new Text();
+        descNini.setStyle("-fx-font-size: 15px;");
+        descNini.setLayoutX(970);
+        descNini.setLayoutY(310);
+        descNini.setFill(Color.WHITE);
+        nombreNini.setTextAlignment(TextAlignment.CENTER);
 
         Text costeNini = new Text();
+        costeNini.setLayoutX(970);
+        costeNini.setLayoutY(420);
+        costeNini.setFill(Color.WHITE);
 
         Text vidaNini = new Text();
+        vidaNini.setLayoutX(1110);
+        vidaNini.setLayoutY(420);
+        vidaNini.setFill(Color.WHITE);
+
+        Text alcanceAtaque = new Text();
+        alcanceAtaque.setLayoutX(970);
+        alcanceAtaque.setLayoutY(490);
+        alcanceAtaque.setFill(Color.WHITE);
+
+        Text radioAtaque = new Text();
+        radioAtaque.setLayoutX(1110);
+        radioAtaque.setLayoutY(490);
+        radioAtaque.setFill(Color.WHITE);
+
+        Text tipoProyectil = new Text();
+        tipoProyectil.setLayoutX(970);
+        tipoProyectil.setLayoutY(540);
+        tipoProyectil.setFill(Color.WHITE);
 
         Text dañoNini = new Text();
+        dañoNini.setLayoutX(1110);
+        dañoNini.setLayoutY(540);
+        dañoNini.setFill(Color.WHITE);
 
 
 
@@ -89,6 +120,13 @@ public class EscenaSeleccionar {
             colocar("luis", luis);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Lis.gif"));
             nombreNini.setText("-- LUIS --");
+            descNini.setText(" Luis bla bla bla, ble ble ble,\n blo blo blo");
+            costeNini.setText(" - COSTE BUTANITOS - \n - 50 butanitos.");
+            vidaNini.setText(" - SALUD - \n - 75 puntos de salud.");
+            alcanceAtaque.setText(" - TIEMPO DE GENERACION DE BUTANITOS - \n - 10 segundos.");
+            radioAtaque.setText("");
+            tipoProyectil.setText("");
+            dañoNini.setText("");
         });
 
         ImageView diego = new ImageView("Imagenes/Diegosaas_1.png");
@@ -100,6 +138,13 @@ public class EscenaSeleccionar {
             colocar("diego", diego);
             fotoDesc.setImage(new Image("Animaciones/Ninis/DiegoEsperando.gif"));
             nombreNini.setText("-- DIEGO --");
+            descNini.setText(" Diego es un bajista profesional. Con sus \n solos de bajo, conmueve a sus enemigos \n y eso les hace algo de daño.");
+            costeNini.setText(" - COSTE BUTANITOS - \n - 100 butanitos.");
+            vidaNini.setText(" - SALUD - \n - 100 puntos de salud.");
+            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - Lejano.");
+            radioAtaque.setText(" - RADIO ATAQUE - \n - 1 enemigo.");
+            tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - Nota.");
+            dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
         });
 
         ImageView callejo = new ImageView("Imagenes/Callejones.png");
@@ -111,6 +156,13 @@ public class EscenaSeleccionar {
             colocar("callejo", callejo);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Callejo_idle.gif"));
             nombreNini.setText("-- CALLEJO --");
+            descNini.setText(" Callejo blabla.");
+            costeNini.setText(" - COSTE BUTANITOS - \n - 50 butanitos.");
+            vidaNini.setText(" - SALUD - \n - 200 puntos de salud.");
+            alcanceAtaque.setText("");
+            radioAtaque.setText("");
+            tipoProyectil.setText("");
+            dañoNini.setText("");
         });
 
         ImageView adripan = new ImageView("Imagenes/Adrinap.png");
@@ -122,6 +174,13 @@ public class EscenaSeleccionar {
             colocar("adripan", adripan);
             fotoDesc.setImage(new Image("Animaciones/Ninis/AdripanEsperando.gif"));
             nombreNini.setText("-- ADRIPAN --");
+            descNini.setText(" Adripan blablabla.");
+            costeNini.setText(" - COSTE BUTANITOS - \n - 25 butanitos.");
+            vidaNini.setText(" - SALUD - \n - 80 puntos de salud.");
+            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - Cercano.");
+            radioAtaque.setText(" - RADIO ATAQUE - \n - Casillas de alrededor.");
+            tipoProyectil.setText(" - TIPO DE ATAQUE - \n - Explosión.");
+            dañoNini.setText(" - DAÑO - \n - Daño de explosión: --- .");
         });
 
         ImageView isma = new ImageView("Imagenes/CosoPrueba.png");
@@ -131,8 +190,15 @@ public class EscenaSeleccionar {
         isma.setLayoutY(fila1);
         isma.setOnMouseClicked(evento -> {
             colocar("isma", isma);
-
+            //fotoDesc.setImage(new Image(""));
             nombreNini.setText("-- ISMA --");
+            descNini.setText("");
+            costeNini.setText(" - COSTE BUTANITOS - \n - --- butanitos.");
+            vidaNini.setText(" - SALUD - \n - --- puntos de salud.");
+            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - ---.");
+            radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
+            tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
+            dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
         });
 
 
@@ -144,8 +210,9 @@ public class EscenaSeleccionar {
         ximena.setLayoutY(fila2);
         ximena.setOnMouseClicked(evento -> {
             colocar("ximena", ximena);
-
+            fotoDesc.setImage(new Image("Animaciones/Ninis/Ximena_idle.gif"));
             nombreNini.setText("-- XIMENA --");
+
         });
 
         ImageView lopez = new ImageView("Imagenes/Lucillos.png");
@@ -155,9 +222,9 @@ public class EscenaSeleccionar {
         lopez.setLayoutY(fila2);
         lopez.setOnMouseClicked(evento -> {
             colocar("lopez",lopez);
-
             fotoDesc.setImage(new Image("Animaciones/Ninis/LopezEsperando.gif"));
             nombreNini.setText("-- LÓPEZ --");
+
         });
 
         ImageView guille = new ImageView("Imagenes/CosoPrueba.png");
@@ -167,8 +234,15 @@ public class EscenaSeleccionar {
         guille.setLayoutY(fila2);
         guille.setOnMouseClicked(evento -> {
             colocar("guille",guille);
-
+            //fotoDesc.setImage(new Image(""));
             nombreNini.setText("-- GUILLE --");
+            descNini.setText("");
+            costeNini.setText(" - COSTE BUTANITOS - \n - --- butanitos.");
+            vidaNini.setText(" - SALUD - \n - --- puntos de salud.");
+            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - ---.");
+            radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
+            tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
+            dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
         });
 
         ImageView dani = new ImageView("Imagenes/CosoPrueba.png");
@@ -178,8 +252,15 @@ public class EscenaSeleccionar {
         dani.setLayoutY(fila2);
         dani.setOnMouseClicked(evento -> {
             colocar("dani",dani);
-
+            //fotoDesc.setImage(new Image(""));
             nombreNini.setText("-- DANI --");
+            descNini.setText("");
+            costeNini.setText(" - COSTE BUTANITOS - \n - --- butanitos.");
+            vidaNini.setText(" - SALUD - \n - --- puntos de salud.");
+            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - ---.");
+            radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
+            tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
+            dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
         });
 
         ImageView keke = new ImageView("Imagenes/CosoPrueba.png");
@@ -189,8 +270,15 @@ public class EscenaSeleccionar {
         keke.setLayoutY(fila2);
         keke.setOnMouseClicked(evento -> {
             colocar("keke",keke);
-
+            //fotoDesc.setImage(new Image(""));
             nombreNini.setText("-- KEKE --");
+            descNini.setText("");
+            costeNini.setText(" - COSTE BUTANITOS - \n - --- butanitos.");
+            vidaNini.setText(" - SALUD - \n - --- puntos de salud.");
+            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - ---.");
+            radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
+            tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
+            dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
         });
 
         // fila 3
@@ -212,8 +300,15 @@ public class EscenaSeleccionar {
         lorena.setLayoutY(fila3);
         lorena.setOnMouseClicked(evento -> {
             colocar("lorena",lorena);
-
+            // fotoDesc.setImage(new Image(""));
             nombreNini.setText("-- LORENA --");
+            descNini.setText("");
+            costeNini.setText(" - COSTE BUTANITOS - \n - --- butanitos.");
+            vidaNini.setText(" - SALUD - \n - --- puntos de salud.");
+            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - ---.");
+            radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
+            tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
+            dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
         });
 
         ImageView maria = new ImageView("Imagenes/CosoPrueba.png");
@@ -223,8 +318,15 @@ public class EscenaSeleccionar {
         maria.setLayoutY(fila3);
         maria.setOnMouseClicked(evento -> {
             colocar("maria",maria);
-
+            //fotoDesc.setImage(new Image(""));
             nombreNini.setText("-- MARIA --");
+            descNini.setText("");
+            costeNini.setText(" - COSTE BUTANITOS - \n - --- butanitos.");
+            vidaNini.setText(" - SALUD - \n - --- puntos de salud.");
+            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - ---.");
+            radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
+            tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
+            dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
         });
 
         ImageView jud = new ImageView("Imagenes/CosoPrueba.png");
@@ -234,8 +336,15 @@ public class EscenaSeleccionar {
         jud.setLayoutY(fila3);
         jud.setOnMouseClicked(evento -> {
             colocar("jud",jud);
-
+            //fotoDesc.setImage(new Image(""));
             nombreNini.setText("-- JUD --");
+            descNini.setText("");
+            costeNini.setText(" - COSTE BUTANITOS - \n - --- butanitos.");
+            vidaNini.setText(" - SALUD - \n - --- puntos de salud.");
+            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - ---.");
+            radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
+            tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
+            dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
         });
 
         ImageView elsa = new ImageView("Imagenes/CosoPrueba.png");
@@ -245,8 +354,15 @@ public class EscenaSeleccionar {
         elsa.setLayoutY(fila3);
         elsa.setOnMouseClicked(evento -> {
             colocar("elsa",elsa);
-
+            //fotoDesc.setImage(new Image(""));
             nombreNini.setText("-- ELSA --");
+            descNini.setText("");
+            costeNini.setText(" - COSTE BUTANITOS - \n - --- butanitos.");
+            vidaNini.setText(" - SALUD - \n - --- puntos de salud.");
+            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - ---.");
+            radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
+            tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
+            dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
         });
 
         // fila 4
@@ -257,8 +373,15 @@ public class EscenaSeleccionar {
         eliseo.setLayoutY(fila4);
         eliseo.setOnMouseClicked(evento -> {
             colocar("eliseo",eliseo);
-
+            //fotoDesc.setImage(new Image(""));
             nombreNini.setText("-- ELISEO --");
+            descNini.setText("");
+            costeNini.setText(" - COSTE BUTANITOS - \n - --- butanitos.");
+            vidaNini.setText(" - SALUD - \n - --- puntos de salud.");
+            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - ---.");
+            radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
+            tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
+            dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
         });
 
         ImageView hueco1 = new ImageView("Imagenes/CosoPrueba.png");
@@ -268,8 +391,15 @@ public class EscenaSeleccionar {
         hueco1.setLayoutY(fila4);
         hueco1.setOnMouseClicked(evento -> {
             colocar("hueco1",hueco1);
-
+            //fotoDesc.setImage(new Image(""));
             nombreNini.setText("-- --- --");
+            descNini.setText("");
+            costeNini.setText(" - COSTE BUTANITOS - \n - --- butanitos.");
+            vidaNini.setText(" - SALUD - \n - --- puntos de salud.");
+            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - ---.");
+            radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
+            tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
+            dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
         });
 
         ImageView hueco2 = new ImageView("Imagenes/CosoPrueba.png");
@@ -279,8 +409,15 @@ public class EscenaSeleccionar {
         hueco2.setLayoutY(fila4);
         hueco2.setOnMouseClicked(evento -> {
             colocar("hueco2",hueco2);
-
+            // fotoDesc.setImage(new Image(""));
             nombreNini.setText("-- --- --");
+            descNini.setText("");
+            costeNini.setText(" - COSTE BUTANITOS - \n - --- butanitos.");
+            vidaNini.setText(" - SALUD - \n - --- puntos de salud.");
+            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - ---.");
+            radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
+            tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
+            dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
         });
 
         ImageView hueco3 = new ImageView("Imagenes/CosoPrueba.png");
@@ -290,8 +427,15 @@ public class EscenaSeleccionar {
         hueco3.setLayoutY(fila4);
         hueco3.setOnMouseClicked(evento -> {
             colocar("hueco3",hueco3);
-
+            //fotoDesc.setImage(new Image(""));
             nombreNini.setText("-- --- --");
+            descNini.setText("");
+            costeNini.setText(" - COSTE BUTANITOS - \n - --- butanitos.");
+            vidaNini.setText(" - SALUD - \n - --- puntos de salud.");
+            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - ---.");
+            radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
+            tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
+            dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
         });
 
         ImageView hueco4 = new ImageView("Imagenes/CosoPrueba.png");
@@ -301,8 +445,15 @@ public class EscenaSeleccionar {
         hueco4.setLayoutY(fila4);
         hueco4.setOnMouseClicked(evento -> {
             colocar("hueco4",hueco4);
-
+            //fotoDesc.setImage(new Image(""));
             nombreNini.setText("-- --- --");
+            descNini.setText("");
+            costeNini.setText(" - COSTE BUTANITOS - \n - --- butanitos.");
+            vidaNini.setText(" - SALUD - \n - --- puntos de salud.");
+            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - ---.");
+            radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
+            tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
+            dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
         });
 
 //        for (int i = 0; i < geInv.getInventario().length-1; i++) {
@@ -392,7 +543,7 @@ public class EscenaSeleccionar {
             }
         }
 
-        Pane root = new Pane(fondo,titulo,btnSalir,nombreNini,luis, fotoDesc,diego,callejo,adripan,isma,ximena, lopez,guille,dani,keke,guevara,lorena,maria,jud,elsa,eliseo,hueco1,hueco2,hueco3,hueco4);
+        Pane root = new Pane(fondo,titulo,btnSalir,nombreNini,descNini,costeNini,dañoNini,vidaNini,alcanceAtaque,radioAtaque,tipoProyectil,luis, fotoDesc,diego,callejo,adripan,isma,ximena, lopez,guille,dani,keke,guevara,lorena,maria,jud,elsa,eliseo,hueco1,hueco2,hueco3,hueco4);
         return new Scene(root, 1280, 720);
     }
 

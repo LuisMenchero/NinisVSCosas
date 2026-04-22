@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class Luis extends Nini {
     // --- ATRIBUTOS EXTRA ---
     private double tiempoProduccionButanito = 0;
-    private double tiempoGeneracionButanito = 20;
+    private double tiempoGeneracionButanito = 25;
     private GestorButanitos gestorButanitos;
 
     // --- CONSTRUCTOR ---
