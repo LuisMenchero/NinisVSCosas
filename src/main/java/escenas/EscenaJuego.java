@@ -13,6 +13,8 @@ import javafx.stage.Stage;
 import modelos.*;
 import modelos.Ninis.*;
 
+import java.util.HashMap;
+
 public class EscenaJuego {
 
     public ControladorReloj reloj = new ControladorReloj();
@@ -48,7 +50,7 @@ public class EscenaJuego {
 
         ImageView menuPlantas = new ImageView("Imagenes/PlantasRN.png");
         menuPlantas.setFitWidth(450);
-        menuPlantas.setFitHeight(80);
+        menuPlantas.setFitHeight(75);
         menuPlantas.setLayoutX(50);
         menuPlantas.setLayoutY(20);
 
@@ -63,7 +65,128 @@ public class EscenaJuego {
         cantidadButanitos.setText(String.valueOf(numeroButanitos));
         geB.setTextoContador(cantidadButanitos);
 
-        Pane root = new Pane(fondo, btnPausa, menuPlantas, cantidadButanitos);
+
+
+        // para la barra de las plantas seleccionadas
+        ImageView luis = new ImageView("Imagenes/Luis_Cuadricula.png");
+        luis.setVisible(false);
+        ImageView diego = new ImageView("Imagenes/Diegosaas_1.png");
+        diego.setVisible(false);
+        ImageView callejo = new ImageView("Imagenes/Callejones.png");
+        callejo.setVisible(false);
+        ImageView adripan = new ImageView("Imagenes/Adrinap.png");
+        adripan.setVisible(false);
+        ImageView isma = new ImageView("Imagenes/CosoPrueba.png");
+        isma.setVisible(false);
+        ImageView ximena = new ImageView("Imagenes/CosoPrueba.png");
+        ximena.setVisible(false);
+        ImageView lopez = new ImageView("Imagenes/Lucillos.png");
+        lopez.setVisible(false);
+        ImageView guille = new ImageView("Imagenes/CosoPrueba.png");
+        guille.setVisible(false);
+        ImageView dani = new ImageView("Imagenes/CosoPrueba.png");
+        dani.setVisible(false);
+        ImageView keke = new ImageView("Imagenes/CosoPrueba.png");
+        keke.setVisible(false);
+        ImageView guevara = new ImageView("Imagenes/Guevarote.png");
+        guevara.setVisible(false);
+        ImageView lorena = new ImageView("Imagenes/CosoPrueba.png");
+        lorena.setVisible(false);
+        ImageView maria = new ImageView("Imagenes/CosoPrueba.png");
+        maria.setVisible(false);
+        ImageView jud = new ImageView("Imagenes/CosoPrueba.png");
+        jud.setVisible(false);
+        ImageView elsa = new ImageView("Imagenes/CosoPrueba.png");
+        elsa.setVisible(false);
+        ImageView eliseo = new ImageView("Imagenes/CosoPrueba.png");
+        eliseo.setVisible(false);
+        ImageView hueco1 = new ImageView("Imagenes/CosoPrueba.png");
+        hueco1.setVisible(false);
+        ImageView hueco2 = new ImageView("Imagenes/CosoPrueba.png");
+        hueco2.setVisible(false);
+        ImageView hueco3 = new ImageView("Imagenes/CosoPrueba.png");
+        hueco3.setVisible(false);
+        ImageView hueco4 = new ImageView("Imagenes/CosoPrueba.png");
+        hueco4.setVisible(false);
+
+        GestorInventario geInv = GestorInventario.getInstancia();
+
+        HashMap<String, ImageView> nombresImagenes = new HashMap<>();
+        nombresImagenes.put("luis", luis);
+        nombresImagenes.put("diego", diego);
+        nombresImagenes.put("callejo", callejo);
+        nombresImagenes.put("adripan", adripan);
+        nombresImagenes.put("guevara", guevara);
+        nombresImagenes.put("lopez", lopez);
+        nombresImagenes.put("isma", isma);
+        nombresImagenes.put("ximena", ximena);
+        nombresImagenes.put("guille", guille);
+        nombresImagenes.put("dani", dani);
+        nombresImagenes.put("keke", keke);
+        nombresImagenes.put("lorena", lorena);
+        nombresImagenes.put("maria", maria);
+        nombresImagenes.put("jud", jud);
+        nombresImagenes.put("elsa", elsa);
+        nombresImagenes.put("eliseo", eliseo);
+
+        String[] inventarioCopia = geInv.getInventario();
+        for (int i = 0; i < 8; i++){
+            if (inventarioCopia[i] != null && nombresImagenes.containsKey(inventarioCopia[i])) {
+                ImageView niniSeleccionado = nombresImagenes.get(inventarioCopia[i]);
+                int posicion = geInv.getPosicionActual(inventarioCopia[i]);
+
+                // Nini 1
+                int posicionXNini1 = 58;
+                // Nini 2
+                int posicionXNini2 = 113;
+                // Nini 3
+                int posicionXNini3 = 167;
+                // Nini 4
+                int posicionXNini4 = 222;
+                // Nini 5
+                int posicionXNini5 = 277;
+                // Nini 6
+                int posicionXNini6 = 332;
+                // Nini 7
+                int posicionXNini7 = 386;
+                // Nini 8
+                int posicionXNini8 = 441;
+
+                int posicionYNinis = 37;
+
+                niniSeleccionado.setVisible(true);
+                niniSeleccionado.setFitWidth(50);
+                niniSeleccionado.setFitHeight(50);
+
+                if (posicion == 0) {
+                    niniSeleccionado.setLayoutX(posicionXNini1);
+                    niniSeleccionado.setLayoutY(posicionYNinis);
+                } else if (posicion == 1) {
+                    niniSeleccionado.setLayoutX(posicionXNini2);
+                    niniSeleccionado.setLayoutY(posicionYNinis);
+                } else if (posicion == 2) {
+                    niniSeleccionado.setLayoutX(posicionXNini3);
+                    niniSeleccionado.setLayoutY(posicionYNinis);
+                } else if (posicion == 3) {
+                    niniSeleccionado.setLayoutX(posicionXNini4);
+                    niniSeleccionado.setLayoutY(posicionYNinis);
+                } else if (posicion == 4) {
+                    niniSeleccionado.setLayoutX(posicionXNini5);
+                    niniSeleccionado.setLayoutY(posicionYNinis);
+                }  else if (posicion == 5) {
+                    niniSeleccionado.setLayoutX(posicionXNini6);
+                    niniSeleccionado.setLayoutY(posicionYNinis);
+                }  else if (posicion == 6) {
+                    niniSeleccionado.setLayoutX(posicionXNini7);
+                    niniSeleccionado.setLayoutY(posicionYNinis);
+                }  else if (posicion == 7) {
+                    niniSeleccionado.setLayoutX(posicionXNini8);
+                    niniSeleccionado.setLayoutY(posicionYNinis);
+                }
+            }
+        }
+
+        Pane root = new Pane(fondo, btnPausa, menuPlantas, cantidadButanitos,luis,diego,callejo,adripan,isma,ximena, lopez,guille,dani,keke,guevara,lorena,maria,jud,elsa,eliseo,hueco1,hueco2,hueco3,hueco4);
 
 
 

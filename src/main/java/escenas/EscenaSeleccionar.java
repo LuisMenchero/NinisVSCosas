@@ -15,7 +15,6 @@ import javax.swing.*;
 import java.util.HashMap;
 
 public class EscenaSeleccionar {
-
     public Scene construir(Stage stage) {
 
 
@@ -463,6 +462,7 @@ public class EscenaSeleccionar {
 //        }
 
         GestorInventario geInv = GestorInventario.getInstancia();
+
         HashMap<String, ImageView> nombresImagenes = new HashMap<>();
         nombresImagenes.put("luis", luis);
         nombresImagenes.put("diego", diego);
@@ -481,7 +481,7 @@ public class EscenaSeleccionar {
         nombresImagenes.put("elsa", elsa);
         nombresImagenes.put("eliseo", eliseo);
 
-        String [] inventarioCopia = geInv.getInventario();
+        String[] inventarioCopia = geInv.getInventario();
         for (int i = 0; i < 8; i++){
             if (inventarioCopia[i] != null && nombresImagenes.containsKey(inventarioCopia[i])) {
                 ImageView niniSeleccionado = nombresImagenes.get(inventarioCopia[i]);
