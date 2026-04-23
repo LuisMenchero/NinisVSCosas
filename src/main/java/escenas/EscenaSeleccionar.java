@@ -16,8 +16,6 @@ import java.util.HashMap;
 
 public class EscenaSeleccionar {
     public Scene construir(Stage stage) {
-
-
         ImageView fondo = new ImageView("imagenes/SeleccionPlanta.png");
         fondo.setFitWidth(1280);
         fondo.setFitHeight(720);
@@ -460,12 +458,6 @@ public class EscenaSeleccionar {
             tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
             dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
         });
-
-//        for (int i = 0; i < geInv.getInventario().length-1; i++) {
-//            if (geInv.getInventario()[i] != null) {
-//                precargarImagenes();
-//            }
-//        }
 
         GestorInventario geInv = GestorInventario.getInstancia();
 

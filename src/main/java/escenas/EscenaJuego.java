@@ -3,6 +3,7 @@ package escenas;
 import controladores.ControladorReloj;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -42,7 +43,7 @@ public class EscenaJuego {
         btnPausa.setOnAction(evento -> {
             reloj.pausa();
             mostrarPanelPausa();
-        } );
+        });
 
         //Iniciar el reloj interno del juego (game loop)
         reloj.iniciarReloj();
@@ -66,10 +67,11 @@ public class EscenaJuego {
         geB.setTextoContador(cantidadButanitos);
 
 
-
         // para la barra de las plantas seleccionadas
         ImageView luis = new ImageView("Imagenes/Luis_Cuadricula.png");
         luis.setVisible(false);
+
+
         ImageView diego = new ImageView("Imagenes/Diegosaas_1.png");
         diego.setVisible(false);
         ImageView callejo = new ImageView("Imagenes/Callejones.png");
@@ -130,7 +132,7 @@ public class EscenaJuego {
         nombresImagenes.put("eliseo", eliseo);
 
         String[] inventarioCopia = geInv.getInventario();
-        for (int i = 0; i < 8; i++){
+        for (int i = 0; i < 8; i++) {
             if (inventarioCopia[i] != null && nombresImagenes.containsKey(inventarioCopia[i])) {
                 ImageView niniSeleccionado = nombresImagenes.get(inventarioCopia[i]);
                 int posicion = geInv.getPosicionActual(inventarioCopia[i]);
@@ -157,6 +159,78 @@ public class EscenaJuego {
                 niniSeleccionado.setVisible(true);
                 niniSeleccionado.setFitWidth(50);
                 niniSeleccionado.setFitHeight(50);
+                niniSeleccionado.setOnMouseClicked(evento -> {
+                    for (ImageView imagenAct : nombresImagenes.values()) {
+                        if (imagenAct == luis) {
+                            imagenAct.setImage(new Image("Imagenes/Luis_Cuadricula.png"));
+                        } else if (imagenAct == diego) {
+                            imagenAct.setImage(new Image("Imagenes/Diegosaas_1.png"));
+                        } else if (imagenAct == callejo) {
+                            imagenAct.setImage(new Image("Imagenes/Callejones.png"));
+                        } else if (imagenAct == adripan) {
+                            imagenAct.setImage(new Image("Imagenes/Adrinap.png"));
+                        } else if (imagenAct == guevara) {
+                            imagenAct.setImage(new Image("Imagenes/Guevarote.png"));
+                        } else if (imagenAct == lopez) {
+                            imagenAct.setImage(new Image("Imagenes/Lucillos.png"));
+//                        } else if (imagenAct == isma) {
+
+                        } else if (imagenAct == ximena) {
+                            imagenAct.setImage(new Image("Imagenes/Guimena.png"));
+//                        } else if (imagenAct == guille) {
+//
+//                        } else if (imagenAct == dani) {
+//
+//                        } else if (imagenAct == keke) {
+//
+//                        } else if (imagenAct == lorena) {
+//
+//                        } else if (imagenAct == maria) {
+//
+//                        } else if (imagenAct == jud) {
+//
+//                        } else if (imagenAct == elsa) {
+//
+//                        } else if (imagenAct == eliseo) {
+
+                        }
+                    }
+                    if (niniSeleccionado == luis) {
+                        niniSeleccionado.setImage(new Image("Imagenes/Luis_Cuadricula_Seleccionada.png"));
+                    } else if (niniSeleccionado == diego) {
+                        niniSeleccionado.setImage(new Image("Imagenes/Diegosaas_Seleccionado.png"));
+                    } else if (niniSeleccionado == callejo) {
+                        niniSeleccionado.setImage(new Image("Imagenes/Callejones_Seleccionado.png"));
+                    } else if (niniSeleccionado == adripan) {
+                        niniSeleccionado.setImage(new Image("Imagenes/Adrinap_Seleccionado.png"));
+                    } else if (niniSeleccionado == guevara) {
+                        niniSeleccionado.setImage(new Image("Imagenes/Guevarote_Seleccionado.png"));
+                    } else if (niniSeleccionado == lopez) {
+                        niniSeleccionado.setImage(new Image("Imagenes/Lucillos_Seleccionado.png"));
+//                    } else if (niniSeleccionado == isma) {
+
+                    } else if (niniSeleccionado == ximena) {
+                        niniSeleccionado.setImage(new Image("Imagenes/Guimena_Seleccionado.png"));
+//                    } else if (niniSeleccionado == guille) {
+//
+//                    } else if (niniSeleccionado == dani) {
+//
+//                    } else if (niniSeleccionado == keke) {
+//
+//                    } else if (niniSeleccionado == lorena) {
+//
+//                    } else if (niniSeleccionado == maria) {
+//
+//                    } else if (niniSeleccionado == jud) {
+//
+//                    } else if (niniSeleccionado == elsa) {
+//
+//                    } else if (niniSeleccionado == eliseo) {
+
+                    }
+
+
+                });
 
                 if (posicion == 0) {
                     niniSeleccionado.setLayoutX(posicionXNini1);
@@ -173,52 +247,51 @@ public class EscenaJuego {
                 } else if (posicion == 4) {
                     niniSeleccionado.setLayoutX(posicionXNini5);
                     niniSeleccionado.setLayoutY(posicionYNinis);
-                }  else if (posicion == 5) {
+                } else if (posicion == 5) {
                     niniSeleccionado.setLayoutX(posicionXNini6);
                     niniSeleccionado.setLayoutY(posicionYNinis);
-                }  else if (posicion == 6) {
+                } else if (posicion == 6) {
                     niniSeleccionado.setLayoutX(posicionXNini7);
                     niniSeleccionado.setLayoutY(posicionYNinis);
-                }  else if (posicion == 7) {
+                } else if (posicion == 7) {
                     niniSeleccionado.setLayoutX(posicionXNini8);
                     niniSeleccionado.setLayoutY(posicionYNinis);
                 }
             }
         }
 
-        Pane root = new Pane(fondo, btnPausa, menuPlantas, cantidadButanitos,luis,diego,callejo,adripan,isma,ximena, lopez,guille,dani,keke,guevara,lorena,maria,jud,elsa,eliseo,hueco1,hueco2,hueco3,hueco4);
+        Pane root = new Pane(fondo, btnPausa, menuPlantas, cantidadButanitos, luis, diego, callejo, adripan, isma, ximena, lopez, guille, dani, keke, guevara, lorena, maria, jud, elsa, eliseo, hueco1, hueco2, hueco3, hueco4);
 
 
-
-        Luis l1 = new Luis(Cuadricula.buscarMitadCeldaEjeX(2),Cuadricula.buscarMitadCeldaEjeY(1),root, geB);
+        Luis l1 = new Luis(Cuadricula.buscarMitadCeldaEjeX(2), Cuadricula.buscarMitadCeldaEjeY(1), root, geB);
         terreno[2][1].setNini(l1);
         reloj.registrar(l1);
 
-        Luis l2 = new Luis(Cuadricula.buscarMitadCeldaEjeX(1),Cuadricula.buscarMitadCeldaEjeY(2),root, geB);
+        Luis l2 = new Luis(Cuadricula.buscarMitadCeldaEjeX(1), Cuadricula.buscarMitadCeldaEjeY(2), root, geB);
         terreno[1][2].setNini(l2);
         reloj.registrar(l2);
 
-        Diego d1 = new Diego(Cuadricula.buscarMitadCeldaEjeX(1),Cuadricula.buscarMitadCeldaEjeY(1),root);
+        Diego d1 = new Diego(Cuadricula.buscarMitadCeldaEjeX(1), Cuadricula.buscarMitadCeldaEjeY(1), root);
         terreno[1][1].setNini(d1);
         reloj.registrar(d1);
 
-        Callejo c1 = new Callejo(Cuadricula.buscarMitadCeldaEjeX(3),Cuadricula.buscarMitadCeldaEjeY(3),root);
+        Callejo c1 = new Callejo(Cuadricula.buscarMitadCeldaEjeX(3), Cuadricula.buscarMitadCeldaEjeY(3), root);
         terreno[3][3].setNini(c1);
         reloj.registrar(c1);
 
-        Lopez lopi1 = new Lopez(Cuadricula.buscarMitadCeldaEjeX(2),Cuadricula.buscarMitadCeldaEjeY(3),root);
+        Lopez lopi1 = new Lopez(Cuadricula.buscarMitadCeldaEjeX(2), Cuadricula.buscarMitadCeldaEjeY(3), root);
         terreno[2][3].setNini(lopi1);
         reloj.registrar(lopi1);
 
-        Adripan ad1 = new Adripan(Cuadricula.buscarMitadCeldaEjeX(5),Cuadricula.buscarMitadCeldaEjeY(3),root);
+        Adripan ad1 = new Adripan(Cuadricula.buscarMitadCeldaEjeX(5), Cuadricula.buscarMitadCeldaEjeY(3), root);
         terreno[5][3].setNini(ad1);
         reloj.registrar(ad1);
 
-        Guevara g1 = new Guevara(Cuadricula.buscarMitadCeldaEjeX(7),Cuadricula.buscarMitadCeldaEjeY(3),root,terreno);
+        Guevara g1 = new Guevara(Cuadricula.buscarMitadCeldaEjeX(7), Cuadricula.buscarMitadCeldaEjeY(3), root, terreno);
         terreno[7][3].setNini(g1);
         reloj.registrar(g1);
 
-        Luis l33 = new Luis(Cuadricula.buscarMitadCeldaEjeX(6),Cuadricula.buscarMitadCeldaEjeY(1),root, geB);
+        Luis l33 = new Luis(Cuadricula.buscarMitadCeldaEjeX(6), Cuadricula.buscarMitadCeldaEjeY(1), root, geB);
         terreno[6][1].setNini(l33);
         reloj.registrar(l33);
 
@@ -230,7 +303,7 @@ public class EscenaJuego {
 
     Pane panelPausa = new Pane();
 
-    private void ConstruirPanelPausa (Stage stage){
+    private void ConstruirPanelPausa(Stage stage) {
 
         panelPausa.setPrefSize(1280, 720);
 
@@ -264,11 +337,11 @@ public class EscenaJuego {
     }
 
 
-    public void mostrarPanelPausa (){
-        if (reloj.isPausado()){
-        panelPausa.setVisible(true);
-        }else {
-        panelPausa.setVisible(false);
+    public void mostrarPanelPausa() {
+        if (reloj.isPausado()) {
+            panelPausa.setVisible(true);
+        } else {
+            panelPausa.setVisible(false);
         }
     }
 
