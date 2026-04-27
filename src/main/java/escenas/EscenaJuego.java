@@ -18,8 +18,11 @@ import java.util.HashMap;
 
 public class EscenaJuego {
 
-    public ControladorReloj reloj = new ControladorReloj();
-    public static Celda[][] terreno = new Celda[Cuadricula.columnas][Cuadricula.filas];
+    private ControladorReloj reloj = new ControladorReloj();
+    private static Celda[][] terreno = new Celda[Cuadricula.filas][Cuadricula.columnas];
+    private Pane panelPausa = new Pane();
+    private TipoNini niniSeleccionadoTipo;
+    private ImageView niniTransparente;
 
 
     public Scene construir(Stage stage) {
@@ -30,7 +33,7 @@ public class EscenaJuego {
         // Para crear e inicializar el tablero donde colocar las plantas/ninis
         for (int i = 0; i < Cuadricula.columnas; i++) {
             for (int j = 0; j < Cuadricula.filas; j++) {
-                terreno[i][j] = new Celda();
+                terreno[j][i] = new Celda();
             }
         }
 
@@ -197,20 +200,27 @@ public class EscenaJuego {
                     }
                     if (niniSeleccionado == luis) {
                         niniSeleccionado.setImage(new Image("Imagenes/Luis_Cuadricula_Seleccionada.png"));
+                        niniSeleccionadoTipo = TipoNini.LUIS;
                     } else if (niniSeleccionado == diego) {
                         niniSeleccionado.setImage(new Image("Imagenes/Diegosaas_Seleccionado.png"));
+                        niniSeleccionadoTipo = TipoNini.DIEGO;
                     } else if (niniSeleccionado == callejo) {
                         niniSeleccionado.setImage(new Image("Imagenes/Callejones_Seleccionado.png"));
+                        niniSeleccionadoTipo = TipoNini.CALLEJO;
                     } else if (niniSeleccionado == adripan) {
                         niniSeleccionado.setImage(new Image("Imagenes/Adrinap_Seleccionado.png"));
+                        niniSeleccionadoTipo = TipoNini.ADRIPAN;
                     } else if (niniSeleccionado == guevara) {
                         niniSeleccionado.setImage(new Image("Imagenes/Guevarote_Seleccionado.png"));
+                        niniSeleccionadoTipo = TipoNini.GUEVARA;
                     } else if (niniSeleccionado == lopez) {
                         niniSeleccionado.setImage(new Image("Imagenes/Lucillos_Seleccionado.png"));
+                        niniSeleccionadoTipo = TipoNini.LOPEZ;
 //                    } else if (niniSeleccionado == isma) {
 
                     } else if (niniSeleccionado == ximena) {
                         niniSeleccionado.setImage(new Image("Imagenes/Guimena_Seleccionado.png"));
+                        niniSeleccionadoTipo = TipoNini.XIMENA;
 //                    } else if (niniSeleccionado == guille) {
 //
 //                    } else if (niniSeleccionado == dani) {
@@ -228,8 +238,6 @@ public class EscenaJuego {
 //                    } else if (niniSeleccionado == eliseo) {
 
                     }
-
-
                 });
 
                 if (posicion == 0) {
@@ -260,40 +268,107 @@ public class EscenaJuego {
             }
         }
 
-        Pane root = new Pane(fondo, btnPausa, menuPlantas, cantidadButanitos, luis, diego, callejo, adripan, isma, ximena, lopez, guille, dani, keke, guevara, lorena, maria, jud, elsa, eliseo, hueco1, hueco2, hueco3, hueco4);
+        Pane root = new Pane(fondo, btnPausa, menuPlantas, cantidadButanitos,luis, diego, callejo, adripan, isma, ximena, lopez, guille, dani, keke, guevara, lorena, maria, jud, elsa, eliseo, hueco1, hueco2, hueco3, hueco4);
+//        niniTransparente = new ImageView();
+//        niniTransparente.setLayoutX(Cuadricula.anchoCelda);
+//        niniTransparente.setLayoutY(Cuadricula.altoCelda);
+//        niniTransparente.setOpacity(0.6);
+//        niniTransparente.setVisible(false);
+
+//        root.setOnMouseClicked((evento) -> {
+//            niniTransparente.setLayoutX(evento.getX() - niniTransparente.getFitWidth() / 2);
+//            niniTransparente.setLayoutY(evento.getY() - niniTransparente.getFitHeight() / 2);
+//        });
+
+        root.setOnMouseClicked((evento) -> {
+            // Si pinchas un sitio en el panel que devuelve null, no hace nada ni continua
+            if (niniSeleccionadoTipo == null) {
+                System.out.println("nulo");
+                return;
+            }
+
+            // para hacer el cambio de donde pinchas en la pantalla a coordenadas de pixeles
+            int filaPinchada = Cuadricula.convertirAFila(evento.getY());
+            int columnaPinchada = Cuadricula.convertirAColumna(evento.getX());
+            System.out.println("fila " + filaPinchada);
+            System.out.println("columna " + columnaPinchada);
+
+            // Comprobaciones, esta en los pixeles de la cuadricula? no hay nini ya? tienes butanitos suficientes?
+            if (columnaPinchada < 0 || columnaPinchada >= Cuadricula.columnas || filaPinchada < 0 || filaPinchada >= Cuadricula.filas) {
+                System.out.println("por ahi no master");
+                return;
+            }
+            if (terreno[filaPinchada][columnaPinchada].getHayPlanta()) {
+                System.out.println("hay un nini ahi");
+                return;
+            }
 
 
-        Luis l1 = new Luis(Cuadricula.buscarMitadCeldaEjeX(2), Cuadricula.buscarMitadCeldaEjeY(1), root, geB);
-        terreno[2][1].setNini(l1);
-        reloj.registrar(l1);
 
-        Luis l2 = new Luis(Cuadricula.buscarMitadCeldaEjeX(1), Cuadricula.buscarMitadCeldaEjeY(2), root, geB);
-        terreno[1][2].setNini(l2);
-        reloj.registrar(l2);
+            Nini niniNuevo = null;
+            if (geB.getContadorButanitos() < niniNuevo.getCosteButanitos()) {
+                return;
+            }
 
-        Diego d1 = new Diego(Cuadricula.buscarMitadCeldaEjeX(1), Cuadricula.buscarMitadCeldaEjeY(1), root);
-        terreno[1][1].setNini(d1);
-        reloj.registrar(d1);
+            if (niniSeleccionadoTipo == TipoNini.LUIS) {
+                luis.setImage(new Image("Imagenes/Luis_Cuadricula.png"));
+                niniNuevo = new  Luis(Cuadricula.buscarMitadCeldaEjeX(columnaPinchada), Cuadricula.buscarMitadCeldaEjeY(filaPinchada), root, geB);
+            } else if (niniSeleccionadoTipo == TipoNini.DIEGO) {
+                diego.setImage(new Image("Imagenes/Diegosaas_1.png"));
+                niniNuevo = new Diego(Cuadricula.buscarMitadCeldaEjeX(columnaPinchada), Cuadricula.buscarMitadCeldaEjeY(filaPinchada), root);
+            } else if (niniSeleccionadoTipo == TipoNini.CALLEJO) {
+                callejo.setImage(new Image("Imagenes/Callejones.png"));
+                niniNuevo = new Callejo(Cuadricula.buscarMitadCeldaEjeX(columnaPinchada), Cuadricula.buscarMitadCeldaEjeY(filaPinchada), root);
+            } else if (niniSeleccionadoTipo == TipoNini.ADRIPAN) {
+                adripan.setImage(new Image("Imagenes/Adrinap.png"));
+                niniNuevo = new Adripan(Cuadricula.buscarMitadCeldaEjeX(columnaPinchada), Cuadricula.buscarMitadCeldaEjeY(filaPinchada), root);
+            } else if (niniSeleccionadoTipo == TipoNini.GUEVARA) {
+                guevara.setImage(new Image("Imagenes/Guevarote.png"));
+                niniNuevo = new Guevara(Cuadricula.buscarMitadCeldaEjeX(columnaPinchada), Cuadricula.buscarMitadCeldaEjeY(filaPinchada), root);
+            } else if (niniSeleccionadoTipo == TipoNini.LOPEZ) {
+                lopez.setImage(new Image("Imagenes/Lucillos.png"));
+                niniNuevo = new Lopez(Cuadricula.buscarMitadCeldaEjeX(columnaPinchada), Cuadricula.buscarMitadCeldaEjeY(filaPinchada), root);
 
-        Callejo c1 = new Callejo(Cuadricula.buscarMitadCeldaEjeX(3), Cuadricula.buscarMitadCeldaEjeY(3), root);
-        terreno[3][3].setNini(c1);
-        reloj.registrar(c1);
+//                        } else if (niniSeleccionadoTipo == TipoNini.ISMA) {
 
-        Lopez lopi1 = new Lopez(Cuadricula.buscarMitadCeldaEjeX(2), Cuadricula.buscarMitadCeldaEjeY(3), root);
-        terreno[2][3].setNini(lopi1);
-        reloj.registrar(lopi1);
+            } else if (niniSeleccionadoTipo == TipoNini.XIMENA) {
+                ximena.setImage(new Image("Imagenes/Guimena.png"));
 
-        Adripan ad1 = new Adripan(Cuadricula.buscarMitadCeldaEjeX(5), Cuadricula.buscarMitadCeldaEjeY(3), root);
-        terreno[5][3].setNini(ad1);
-        reloj.registrar(ad1);
+//                        } else if (niniSeleccionadoTipo == TipoNini.GUILLE) {
+//
+//                        } else if (niniSeleccionadoTipo == TipoNini.DANI) {
+//
+//                        } else if (niniSeleccionadoTipo == TipoNini.KEKE) {
+//
+//                        } else if (niniSeleccionadoTipo == TipoNini.LORENA) {
+//
+//                        } else if (niniSeleccionadoTipo == TipoNini.MARIA) {
+//
+//                        } else if (niniSeleccionadoTipo == TipoNini.JUD) {
+//
+//                        } else if (niniSeleccionadoTipo == TipoNini.ELSA
+//
+//                        } else if (niniSeleccionadoTipo == TipoNini.ELISEO) {
 
-        Guevara g1 = new Guevara(Cuadricula.buscarMitadCeldaEjeX(7), Cuadricula.buscarMitadCeldaEjeY(3), root, terreno);
-        terreno[7][3].setNini(g1);
-        reloj.registrar(g1);
+            }
 
-        Luis l33 = new Luis(Cuadricula.buscarMitadCeldaEjeX(6), Cuadricula.buscarMitadCeldaEjeY(1), root, geB);
-        terreno[6][1].setNini(l33);
-        reloj.registrar(l33);
+
+
+            ImageView niniNuevoImagen = new ImageView(new Image(niniNuevo.getRutaImagenNini()));
+            niniNuevoImagen.setFitWidth(Cuadricula.anchoCelda);
+            niniNuevoImagen.setFitHeight(Cuadricula.altoCelda);
+            niniNuevoImagen.setLayoutX(Cuadricula.buscarMitadCeldaEjeX(columnaPinchada));
+            niniNuevoImagen.setLayoutY(Cuadricula.buscarMitadCeldaEjeY(filaPinchada));
+
+            terreno[filaPinchada][columnaPinchada].setNini(niniNuevo);
+
+            geB.restarButanitos(niniNuevo.getCosteButanitos());
+            niniSeleccionadoTipo = null;
+            niniTransparente.setVisible(false);
+            reloj.registrar(niniNuevo);
+
+            root.getChildren().add(niniNuevoImagen);
+        });
 
         ConstruirPanelPausa(stage);
         root.getChildren().add(panelPausa);
@@ -301,7 +376,6 @@ public class EscenaJuego {
         return new Scene(root, 1280, 720);
     }
 
-    Pane panelPausa = new Pane();
 
     private void ConstruirPanelPausa(Stage stage) {
 
@@ -334,6 +408,14 @@ public class EscenaJuego {
 
         panelPausa.setVisible(false);
         panelPausa.getChildren().addAll(textoPausa, btnReanudar, btnSalir);
+    }
+
+
+    public void seleccionarNini(TipoNini tipoNini, String rutaImagenTransparente) {
+        niniSeleccionadoTipo = tipoNini;
+        niniTransparente.setImage(new Image(rutaImagenTransparente));
+        niniTransparente.setOpacity(0.6);
+        niniTransparente.setVisible(true);
     }
 
 

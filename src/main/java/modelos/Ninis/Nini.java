@@ -27,6 +27,7 @@ public abstract class Nini {
     protected double tiempoDelUltimoDisparo;
 
     // el gif del Nini
+    protected String rutaImagenNini;
     protected ImageView imagenNini;
     protected Pane root;
 
@@ -41,6 +42,7 @@ public abstract class Nini {
         this.saludMaxima = salud;
         this.costeButanitos = costeButanitos;
         this.cooldownDisparo = cooldownDisparo;
+        this.rutaImagenNini = rutaImagenNini;
         this.tiempoDelUltimoDisparo = cooldownDisparo;
         this.root = root;
 
@@ -118,6 +120,9 @@ public abstract class Nini {
     }
     public int getSalud() {
         return salud;
+    }
+    public String getRutaImagenNini() {
+        return rutaImagenNini;
     }
     public ImageView getImagenNini() {
         return imagenNini;

@@ -10,7 +10,7 @@ public class Guevara extends Nini {
     // --- ATRIBUTOS EXTRA ---
     private boolean haPotenciadoNinis = false;
     // --- CONSTRUCTOR ---
-    public Guevara(double columna, double fila, Pane root, Celda[][] terreno) {
+    public Guevara(double columna, double fila, Pane root) {
         super(columna, fila, 500, 0, 0, "Animaciones/Ninis/Guevara_Idle.gif", root);
 
     }

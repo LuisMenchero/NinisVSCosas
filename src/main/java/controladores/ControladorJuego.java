@@ -1,8 +1,13 @@
 package controladores;
 
+import escenas.EscenaJuego;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import modelos.Ninis.Nini;
+
 public class ControladorJuego {
 
-    protected void a (){
-    //aqui ibamos a hacer algo en clase con los botones pero investigando no hizo falta
+    public void plantarNini (Nini niniPlantar){
+
     }
 }
