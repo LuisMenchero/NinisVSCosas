@@ -2,11 +2,12 @@ package modelos;
 
 import javafx.scene.image.ImageView;
 import modelos.Ninis.Nini;
+import modelos.Ninis.TipoNini;
 
 public class GestorInventario {
 
     public static GestorInventario instancia;  ;
-    private String[] inventario = new String[8];
+    private TipoNini[] inventario = new TipoNini[8];
 
 
     public static GestorInventario getInstancia() {
@@ -17,11 +18,11 @@ public class GestorInventario {
     }
 
 
-    public int añadirNiniInventario(String nombreNini) {
+    public int añadirNiniInventario(TipoNini tipoNini) {
         int posicion = 100;
 
         for (int i = 0; i < 8; i++) {
-            if (inventario[i] == nombreNini) {
+            if (inventario[i] == tipoNini) {
                 return posicion;
             }
         }
@@ -29,7 +30,7 @@ public class GestorInventario {
 
         for (int i = 0; i < 8; i++) {
             if (inventario[i] == null) {
-                inventario[i] = nombreNini;
+                inventario[i] = tipoNini;
                 posicion = i;
                 return posicion;
             }
@@ -37,16 +38,16 @@ public class GestorInventario {
         return posicion;
     }
 
-    public void eliminarNiniInventario(String nombreNini) {
+    public void eliminarNiniInventario(TipoNini tipoNini) {
     for (int i = 0; i < 8; i++) {
-        if (inventario[i] == nombreNini) {
+        if (inventario[i] == tipoNini) {
             inventario[i] = null;
         }
     }
     }
 
 
-    public int getPosicionActual(String nombreNini) {
+    public int getPosicionActual(TipoNini nombreNini) {
         for (int i = 0; i < 8; i++) {
             if (nombreNini.equals(inventario[i])) {
                 return i;
@@ -56,7 +57,7 @@ public class GestorInventario {
     }
 
 
-    public String[] getInventario() {
+    public TipoNini[] getInventario() {
         return inventario;
     }
 }

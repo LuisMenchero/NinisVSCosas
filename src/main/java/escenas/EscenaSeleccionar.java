@@ -10,6 +10,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import modelos.GestorInventario;
+import modelos.Ninis.TipoNini;
 
 import javax.swing.*;
 import java.util.HashMap;
@@ -114,7 +115,7 @@ public class EscenaSeleccionar {
         luis.setLayoutY(fila1);
 
         luis.setOnMouseClicked(evento -> {
-            colocar("luis", luis);
+            colocar(TipoNini.LUIS, luis);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Lis.gif"));
             nombreNini.setText("-- LUIS --");
             descNini.setText(" Luis bla bla bla, ble ble ble,\n blo blo blo");
@@ -132,7 +133,7 @@ public class EscenaSeleccionar {
         diego.setLayoutX(columna2);
         diego.setLayoutY(fila1);
         diego.setOnMouseClicked(evento -> {
-            colocar("diego", diego);
+            colocar(TipoNini.DIEGO, diego);
             fotoDesc.setImage(new Image("Animaciones/Ninis/DiegoEsperando.gif"));
             nombreNini.setText("-- DIEGO --");
             descNini.setText(" Diego es un bajista profesional. Con sus \n solos de bajo, conmueve a sus enemigos \n y eso les hace algo de daño.");
@@ -150,7 +151,7 @@ public class EscenaSeleccionar {
         callejo.setLayoutX(columna3);
         callejo.setLayoutY(fila1);
         callejo.setOnMouseClicked(evento -> {
-            colocar("callejo", callejo);
+            colocar(TipoNini.CALLEJO, callejo);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Callejo_idle.gif"));
             nombreNini.setText("-- CALLEJO --");
             descNini.setText(" Callejo blabla.");
@@ -168,7 +169,7 @@ public class EscenaSeleccionar {
         adripan.setLayoutX(columna4);
         adripan.setLayoutY(fila1);
         adripan.setOnMouseClicked(evento -> {
-            colocar("adripan", adripan);
+            colocar(TipoNini.ADRIPAN, adripan);
             fotoDesc.setImage(new Image("Animaciones/Ninis/AdripanEsperando.gif"));
             nombreNini.setText("-- ADRIPAN --");
             descNini.setText(" Adripan blablabla.");
@@ -186,7 +187,7 @@ public class EscenaSeleccionar {
         isma.setLayoutX(columna5);
         isma.setLayoutY(fila1);
         isma.setOnMouseClicked(evento -> {
-            colocar("isma", isma);
+            colocar(TipoNini.ISMA, isma);
             //fotoDesc.setImage(new Image(""));
             nombreNini.setText("-- ISMA --");
             descNini.setText("");
@@ -206,7 +207,7 @@ public class EscenaSeleccionar {
         ximena.setLayoutX(columna1);
         ximena.setLayoutY(fila2);
         ximena.setOnMouseClicked(evento -> {
-            colocar("ximena", ximena);
+            colocar(TipoNini.XIMENA, ximena);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Ximena_idle.gif"));
             nombreNini.setText("-- XIMENA --");
             descNini.setText("");
@@ -224,7 +225,7 @@ public class EscenaSeleccionar {
         lopez.setLayoutX(columna2);
         lopez.setLayoutY(fila2);
         lopez.setOnMouseClicked(evento -> {
-            colocar("lopez",lopez);
+            colocar(TipoNini.LOPEZ,lopez);
             fotoDesc.setImage(new Image("Animaciones/Ninis/LopezEsperando.gif"));
             nombreNini.setText("-- LÓPEZ --");
 
@@ -236,7 +237,7 @@ public class EscenaSeleccionar {
         guille.setLayoutX(columna3);
         guille.setLayoutY(fila2);
         guille.setOnMouseClicked(evento -> {
-            colocar("guille",guille);
+            colocar(TipoNini.GUILLE,guille);
             //fotoDesc.setImage(new Image(""));
             nombreNini.setText("-- GUILLE --");
             descNini.setText("");
@@ -254,7 +255,7 @@ public class EscenaSeleccionar {
         dani.setLayoutX(columna4);
         dani.setLayoutY(fila2);
         dani.setOnMouseClicked(evento -> {
-            colocar("dani",dani);
+            colocar(TipoNini.DANI,dani);
             //fotoDesc.setImage(new Image(""));
             nombreNini.setText("-- DANI --");
             descNini.setText("");
@@ -272,7 +273,7 @@ public class EscenaSeleccionar {
         keke.setLayoutX(columna5);
         keke.setLayoutY(fila2);
         keke.setOnMouseClicked(evento -> {
-            colocar("keke",keke);
+            colocar(TipoNini.KEKE,keke);
             //fotoDesc.setImage(new Image(""));
             nombreNini.setText("-- KEKE --");
             descNini.setText("");
@@ -291,7 +292,7 @@ public class EscenaSeleccionar {
         guevara.setLayoutX(columna1);
         guevara.setLayoutY(fila3);
         guevara.setOnMouseClicked(evento -> {
-            colocar("guevara",guevara);
+            colocar(TipoNini.GUEVARA,guevara);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Guevara_Idle.gif"));
             nombreNini.setText("-- GUEVARA --");
         });
@@ -302,7 +303,7 @@ public class EscenaSeleccionar {
         lorena.setLayoutX(columna2);
         lorena.setLayoutY(fila3);
         lorena.setOnMouseClicked(evento -> {
-            colocar("lorena",lorena);
+            colocar(TipoNini.LORENA,lorena);
             // fotoDesc.setImage(new Image(""));
             nombreNini.setText("-- LORENA --");
             descNini.setText("");
@@ -320,7 +321,7 @@ public class EscenaSeleccionar {
         maria.setLayoutX(columna3);
         maria.setLayoutY(fila3);
         maria.setOnMouseClicked(evento -> {
-            colocar("maria",maria);
+            colocar(TipoNini.MARIA,maria);
             //fotoDesc.setImage(new Image(""));
             nombreNini.setText("-- MARIA --");
             descNini.setText("");
@@ -338,7 +339,7 @@ public class EscenaSeleccionar {
         jud.setLayoutX(columna4);
         jud.setLayoutY(fila3);
         jud.setOnMouseClicked(evento -> {
-            colocar("jud",jud);
+            colocar(TipoNini.JUD,jud);
             //fotoDesc.setImage(new Image(""));
             nombreNini.setText("-- JUD --");
             descNini.setText("");
@@ -356,7 +357,7 @@ public class EscenaSeleccionar {
         elsa.setLayoutX(columna5);
         elsa.setLayoutY(fila3);
         elsa.setOnMouseClicked(evento -> {
-            colocar("elsa",elsa);
+            colocar(TipoNini.ELSA,elsa);
             //fotoDesc.setImage(new Image(""));
             nombreNini.setText("-- ELSA --");
             descNini.setText("");
@@ -375,7 +376,7 @@ public class EscenaSeleccionar {
         eliseo.setLayoutX(columna1);
         eliseo.setLayoutY(fila4);
         eliseo.setOnMouseClicked(evento -> {
-            colocar("eliseo",eliseo);
+            colocar(TipoNini.ELISEO,eliseo);
             //fotoDesc.setImage(new Image(""));
             nombreNini.setText("-- ELISEO --");
             descNini.setText("");
@@ -393,7 +394,7 @@ public class EscenaSeleccionar {
         hueco1.setLayoutX(columna2);
         hueco1.setLayoutY(fila4);
         hueco1.setOnMouseClicked(evento -> {
-            colocar("hueco1",hueco1);
+            colocar(TipoNini.HUECO1,hueco1);
             //fotoDesc.setImage(new Image(""));
             nombreNini.setText("-- --- --");
             descNini.setText("");
@@ -411,7 +412,7 @@ public class EscenaSeleccionar {
         hueco2.setLayoutX(columna3);
         hueco2.setLayoutY(fila4);
         hueco2.setOnMouseClicked(evento -> {
-            colocar("hueco2",hueco2);
+            colocar(TipoNini.HUECO2,hueco2);
             // fotoDesc.setImage(new Image(""));
             nombreNini.setText("-- --- --");
             descNini.setText("");
@@ -429,7 +430,7 @@ public class EscenaSeleccionar {
         hueco3.setLayoutX(columna4);
         hueco3.setLayoutY(fila4);
         hueco3.setOnMouseClicked(evento -> {
-            colocar("hueco3",hueco3);
+            colocar(TipoNini.HUECO3,hueco3);
             //fotoDesc.setImage(new Image(""));
             nombreNini.setText("-- --- --");
             descNini.setText("");
@@ -447,7 +448,7 @@ public class EscenaSeleccionar {
         hueco4.setLayoutX(columna5);
         hueco4.setLayoutY(fila4);
         hueco4.setOnMouseClicked(evento -> {
-            colocar("hueco4",hueco4);
+            colocar(TipoNini.HUECO4,hueco4);
             //fotoDesc.setImage(new Image(""));
             nombreNini.setText("-- --- --");
             descNini.setText("");
@@ -461,25 +462,25 @@ public class EscenaSeleccionar {
 
         GestorInventario geInv = GestorInventario.getInstancia();
 
-        HashMap<String, ImageView> nombresImagenes = new HashMap<>();
-        nombresImagenes.put("luis", luis);
-        nombresImagenes.put("diego", diego);
-        nombresImagenes.put("callejo", callejo);
-        nombresImagenes.put("adripan", adripan);
-        nombresImagenes.put("guevara", guevara);
-        nombresImagenes.put("lopez", lopez);
-        nombresImagenes.put("isma", isma);
-        nombresImagenes.put("ximena", ximena);
-        nombresImagenes.put("guille", guille);
-        nombresImagenes.put("dani", dani);
-        nombresImagenes.put("keke", keke);
-        nombresImagenes.put("lorena", lorena);
-        nombresImagenes.put("maria", maria);
-        nombresImagenes.put("jud", jud);
-        nombresImagenes.put("elsa", elsa);
-        nombresImagenes.put("eliseo", eliseo);
+        HashMap<TipoNini, ImageView> nombresImagenes = new HashMap<>();
+        nombresImagenes.put(TipoNini.LUIS, luis);
+        nombresImagenes.put(TipoNini.DIEGO, diego);
+        nombresImagenes.put(TipoNini.CALLEJO, callejo);
+        nombresImagenes.put(TipoNini.ADRIPAN, adripan);
+        nombresImagenes.put(TipoNini.GUEVARA, guevara);
+        nombresImagenes.put(TipoNini.LOPEZ, lopez);
+        nombresImagenes.put(TipoNini.ISMA, isma);
+        nombresImagenes.put(TipoNini.XIMENA, ximena);
+        nombresImagenes.put(TipoNini.GUILLE, guille);
+        nombresImagenes.put(TipoNini.DANI, dani);
+        nombresImagenes.put(TipoNini.KEKE, keke);
+        nombresImagenes.put(TipoNini.LORENA, lorena);
+        nombresImagenes.put(TipoNini.MARIA, maria);
+        nombresImagenes.put(TipoNini.JUD, jud);
+        nombresImagenes.put(TipoNini.ELSA, elsa);
+        nombresImagenes.put(TipoNini.ELISEO, eliseo);
 
-        String[] inventarioCopia = geInv.getInventario();
+        TipoNini[] inventarioCopia = geInv.getInventario();
         for (int i = 0; i < 8; i++){
             if (inventarioCopia[i] != null && nombresImagenes.containsKey(inventarioCopia[i])) {
                 ImageView niniSeleccionado = nombresImagenes.get(inventarioCopia[i]);
@@ -545,9 +546,9 @@ public class EscenaSeleccionar {
         return new Scene(root, 1280, 720);
     }
 
-    public void colocar(String nombreNini, ImageView niniSeleccionado){
+    public void colocar(TipoNini tipoNini, ImageView niniSeleccionado){
         GestorInventario geInv = GestorInventario.getInstancia();
-        int posicion = geInv.añadirNiniInventario(nombreNini);
+        int posicion = geInv.añadirNiniInventario(tipoNini);
 
         if (posicion == 100){
             return;

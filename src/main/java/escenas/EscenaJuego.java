@@ -116,25 +116,44 @@ public class EscenaJuego {
 
         GestorInventario geInv = GestorInventario.getInstancia();
 
-        HashMap<String, ImageView> nombresImagenes = new HashMap<>();
-        nombresImagenes.put("luis", luis);
-        nombresImagenes.put("diego", diego);
-        nombresImagenes.put("callejo", callejo);
-        nombresImagenes.put("adripan", adripan);
-        nombresImagenes.put("guevara", guevara);
-        nombresImagenes.put("lopez", lopez);
-        nombresImagenes.put("isma", isma);
-        nombresImagenes.put("ximena", ximena);
-        nombresImagenes.put("guille", guille);
-        nombresImagenes.put("dani", dani);
-        nombresImagenes.put("keke", keke);
-        nombresImagenes.put("lorena", lorena);
-        nombresImagenes.put("maria", maria);
-        nombresImagenes.put("jud", jud);
-        nombresImagenes.put("elsa", elsa);
-        nombresImagenes.put("eliseo", eliseo);
+        HashMap<TipoNini, ImageView> nombresImagenes = new HashMap<>();
+        nombresImagenes.put(TipoNini.LUIS, luis);
+        nombresImagenes.put(TipoNini.DIEGO, diego);
+        nombresImagenes.put(TipoNini.CALLEJO, callejo);
+        nombresImagenes.put(TipoNini.ADRIPAN, adripan);
+        nombresImagenes.put(TipoNini.GUEVARA, guevara);
+        nombresImagenes.put(TipoNini.LOPEZ, lopez);
+        nombresImagenes.put(TipoNini.ISMA, isma);
+        nombresImagenes.put(TipoNini.XIMENA, ximena);
+        nombresImagenes.put(TipoNini.GUILLE, guille);
+        nombresImagenes.put(TipoNini.DANI, dani);
+        nombresImagenes.put(TipoNini.KEKE, keke);
+        nombresImagenes.put(TipoNini.LORENA, lorena);
+        nombresImagenes.put(TipoNini.MARIA, maria);
+        nombresImagenes.put(TipoNini.JUD, jud);
+        nombresImagenes.put(TipoNini.ELSA, elsa);
+        nombresImagenes.put(TipoNini.ELISEO, eliseo);
 
-        String[] inventarioCopia = geInv.getInventario();
+        HashMap<TipoNini, Integer> niniYCostes = new HashMap<>();
+        niniYCostes.put(TipoNini.LUIS, 50);
+        niniYCostes.put(TipoNini.DIEGO, 100);
+        niniYCostes.put(TipoNini.CALLEJO, 50);
+        niniYCostes.put(TipoNini.ADRIPAN, 25);
+        niniYCostes.put(TipoNini.GUEVARA, 25);
+        niniYCostes.put(TipoNini.LOPEZ, 125);
+        niniYCostes.put(TipoNini.ISMA, 125);
+        niniYCostes.put(TipoNini.XIMENA, 50);
+        niniYCostes.put(TipoNini.GUILLE, 0);
+        niniYCostes.put(TipoNini.DANI, 0);
+        niniYCostes.put(TipoNini.KEKE, 0);
+        niniYCostes.put(TipoNini.LORENA, 0);
+        niniYCostes.put(TipoNini.MARIA, 0);
+        niniYCostes.put(TipoNini.JUD, 0);
+        niniYCostes.put(TipoNini.ELSA, 0);
+        niniYCostes.put(TipoNini.ELISEO, 0);
+
+
+        TipoNini[] inventarioCopia = geInv.getInventario();
         for (int i = 0; i < 8; i++) {
             if (inventarioCopia[i] != null && nombresImagenes.containsKey(inventarioCopia[i])) {
                 ImageView niniSeleccionado = nombresImagenes.get(inventarioCopia[i]);
@@ -303,9 +322,11 @@ public class EscenaJuego {
                 return;
             }
 
+            if (geB.getContadorButanitos() < niniYCostes.get(niniSeleccionadoTipo) || geB.getContadorButanitos() <= 0) {
+                return;
+            }
+
             Nini niniNuevo = null;
-
-
             if (niniSeleccionadoTipo == TipoNini.LUIS) {
                 luis.setImage(new Image("Imagenes/Luis_Cuadricula.png"));
                 niniNuevo = new  Luis(Cuadricula.buscarMitadCeldaEjeX(columnaPinchada), Cuadricula.buscarMitadCeldaEjeY(filaPinchada), root, geB);
@@ -348,9 +369,7 @@ public class EscenaJuego {
 
             }
 
-            if (geB.getContadorButanitos() < niniNuevo.getCosteButanitos() || geB.getContadorButanitos() <= 0) {
-                return;
-            }
+
 
             ImageView niniNuevoImagen = new ImageView(new Image(niniNuevo.getRutaImagenNini()));
             niniNuevoImagen.setFitWidth(Cuadricula.anchoCelda);
