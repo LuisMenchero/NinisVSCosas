@@ -61,7 +61,7 @@ public abstract class Nini {
 
     // --- MÉTODOS ---
     // abstactos
-    protected abstract void disparar(ArrayList<Cosa> cosas);
+    protected abstract void atacar(ArrayList<Cosa> cosas);
 
     public abstract void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas);
     // normales

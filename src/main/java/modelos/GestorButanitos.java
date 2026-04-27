@@ -70,4 +70,8 @@ private void actualizarTextoContador (){
     public int getContadorButanitos() {
         return contadorButanitos;
     }
+
+    public void setContadorButanitos(int contadorButanitos) {
+        GestorButanitos.contadorButanitos = contadorButanitos;
+    }
 }

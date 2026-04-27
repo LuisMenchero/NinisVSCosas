@@ -32,6 +32,6 @@ public class Luis extends Nini {
     }
 
     @Override
-    public void disparar(ArrayList<Cosa> cosas){
+    public void atacar(ArrayList<Cosa> cosas){
     }
 }

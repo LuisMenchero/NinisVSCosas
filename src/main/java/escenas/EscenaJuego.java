@@ -36,11 +36,12 @@ public class EscenaJuego {
         // Para crear e inicializar el tablero donde colocar las plantas/ninis
         for (int i = 0; i < Cuadricula.columnas; i++) {
             for (int j = 0; j < Cuadricula.filas; j++) {
-                terreno[j][i] = new Celda();
+                    terreno[j][i] = new Celda();
             }
         }
 
         GestorButanitos geB = GestorButanitos.getInstancia();
+        geB.setContadorButanitos(50);
 
         //Botón de pausa
         Button btnPausa = new Button("=");

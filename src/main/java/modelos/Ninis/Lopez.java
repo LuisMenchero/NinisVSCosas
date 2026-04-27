@@ -6,7 +6,6 @@ import javafx.util.Duration;
 import modelos.Celda;
 import modelos.Cosas.Cosa;
 import modelos.Proyectiles.Escupitajo;
-import modelos.Proyectiles.Nota;
 import modelos.Proyectiles.Proyectil;
 
 import java.util.ArrayList;
@@ -24,18 +23,18 @@ public class Lopez extends Nini {
         @Override
     public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas) {
             potenciar();
-//        if (hayZombieEnFila(cosas)) {
+        if (hayZombieEnMiFila(cosas)) {
             tiempoDelUltimoDisparo = tiempoDelUltimoDisparo + tiempoFrames;
             if(tiempoDelUltimoDisparo > cooldownDisparo) {
                 tiempoDelUltimoDisparo = 0;
-                disparar(cosas);
+                atacar(cosas);
             }
-//        }
+        }
 
     }
 
     @Override
-    public void disparar(ArrayList<Cosa> cosas) {
+    public void atacar(ArrayList<Cosa> cosas) {
         this.setImagenNiniImage("Animaciones/Ninis/Lopez_escupitajo.gif");
 
         PauseTransition pausa = new PauseTransition(Duration.seconds(0.7));
