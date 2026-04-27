@@ -348,7 +348,7 @@ public class EscenaJuego {
 
             }
 
-            if (geB.getContadorButanitos() < niniNuevo.getCosteButanitos()) {
+            if (geB.getContadorButanitos() < niniNuevo.getCosteButanitos() || geB.getContadorButanitos() <= 0) {
                 return;
             }
 
@@ -362,7 +362,7 @@ public class EscenaJuego {
 
             geB.restarButanitos(niniNuevo.getCosteButanitos());
             niniSeleccionadoTipo = null;
-            niniTransparente.setVisible(false);
+//            niniTransparente.setVisible(false);
             reloj.registrar(niniNuevo);
 
             root.getChildren().add(niniNuevoImagen);

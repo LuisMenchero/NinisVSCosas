@@ -7,7 +7,6 @@ import modelos.Ninis.Nini;
 
 public class ControladorJuego {
 
-    public void plantarNini (Nini niniPlantar){
 
-    }
+
 }
