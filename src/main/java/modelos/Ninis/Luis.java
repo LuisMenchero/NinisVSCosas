@@ -11,13 +11,11 @@ public class Luis extends Nini {
     // --- ATRIBUTOS EXTRA ---
     private double tiempoProduccionButanito = 0;
     private double tiempoGeneracionButanito = 25;
-    private GestorButanitos gestorButanitos;
 
     // --- CONSTRUCTOR ---
 
-    public Luis(double columna, double fila, Pane root, GestorButanitos gestorButanitos) {
+    public Luis(double columna, double fila, Pane root) {
         super(columna, fila, 75, 50, 0, "Animaciones/Ninis/Lis.gif", root);
-        this.gestorButanitos = gestorButanitos;
     }
 
     // --- MÉTODOS ---

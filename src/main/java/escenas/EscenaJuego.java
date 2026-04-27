@@ -1,6 +1,7 @@
 package escenas;
 
 import controladores.ControladorReloj;
+import javafx.animation.PauseTransition;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -11,7 +12,9 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import modelos.*;
+import modelos.Cosas.Cv;
 import modelos.Ninis.*;
 
 import java.util.HashMap;
@@ -329,7 +332,7 @@ public class EscenaJuego {
             Nini niniNuevo = null;
             if (niniSeleccionadoTipo == TipoNini.LUIS) {
                 luis.setImage(new Image("Imagenes/Luis_Cuadricula.png"));
-                niniNuevo = new  Luis(Cuadricula.buscarMitadCeldaEjeX(columnaPinchada), Cuadricula.buscarMitadCeldaEjeY(filaPinchada), root, geB);
+                niniNuevo = new  Luis(Cuadricula.buscarMitadCeldaEjeX(columnaPinchada), Cuadricula.buscarMitadCeldaEjeY(filaPinchada), root);
             } else if (niniSeleccionadoTipo == TipoNini.DIEGO) {
                 diego.setImage(new Image("Imagenes/Diegosaas_1.png"));
                 niniNuevo = new Diego(Cuadricula.buscarMitadCeldaEjeX(columnaPinchada), Cuadricula.buscarMitadCeldaEjeY(filaPinchada), root);
@@ -369,23 +372,25 @@ public class EscenaJuego {
 
             }
 
-
-
-            ImageView niniNuevoImagen = new ImageView(new Image(niniNuevo.getRutaImagenNini()));
-            niniNuevoImagen.setFitWidth(Cuadricula.anchoCelda);
-            niniNuevoImagen.setFitHeight(Cuadricula.altoCelda);
-            niniNuevoImagen.setLayoutX(Cuadricula.buscarMitadCeldaEjeX(columnaPinchada));
-            niniNuevoImagen.setLayoutY(Cuadricula.buscarMitadCeldaEjeY(filaPinchada));
-
             terreno[filaPinchada][columnaPinchada].setNini(niniNuevo);
 
             geB.restarButanitos(niniNuevo.getCosteButanitos());
             niniSeleccionadoTipo = null;
 //            niniTransparente.setVisible(false);
-            reloj.registrar(niniNuevo);
-
-            root.getChildren().add(niniNuevoImagen);
+            reloj.registrarNini(niniNuevo);
         });
+
+
+        for (int i = 0; i < 5; i++) {
+                Cv cv = new Cv(root);
+                reloj.registrarCosa(cv);
+        }
+
+
+
+
+
+
 
         ConstruirPanelPausa(stage);
         root.getChildren().add(panelPausa);

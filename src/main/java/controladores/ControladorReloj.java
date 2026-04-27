@@ -54,8 +54,11 @@ public class ControladorReloj {
 
     }
 
-    public void registrar(Nini nini) {
+    public void registrarNini(Nini nini) {
         ninis.add(nini);
+    }
+    public void registrarCosa(Cosa cosa) {
+        cosas.add(cosa);
     }
 
     public static boolean detectarGuevara() {
@@ -90,6 +93,10 @@ public class ControladorReloj {
             } else if (proyectil instanceof Escupitajo) {
                 ((Escupitajo) proyectil).actualizar(tiempoFrames);
             }
+        }
+
+        for (Cosa cosa : cosas) {
+            cosa.actualizar(tiempoFrames);
         }
 
     }

@@ -11,7 +11,7 @@ public class GestorButanitos {
     // --- ATRIBUTOS ---
     public static GestorButanitos instancia;
     private ArrayList<Butanito> butanitos;
-    private static int contadorButanitos = 50;
+    private static int contadorButanitos = 500;
     private Text textoContador;
     // --- CONSTRUCTOR ---
 
