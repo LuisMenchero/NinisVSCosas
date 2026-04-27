@@ -24,17 +24,17 @@ public class Diego extends Nini {
     @Override
     public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas) {
         potenciar();
-//        if (hayZombieEnFila(cosas)) {
+        if (hayZombieEnMiFila(cosas)) {
             tiempoDelUltimoDisparo = tiempoDelUltimoDisparo + tiempoFrames;
             if(tiempoDelUltimoDisparo > cooldownDisparo) {
                 tiempoDelUltimoDisparo = 0;
-                disparar(cosas);
-//            }
+                atacar(cosas);
+            }
         }
     }
 
     @Override
-    public void disparar(ArrayList<Cosa> cosas) {
+    public void atacar(ArrayList<Cosa> cosas) {
         this.setImagenNiniImage("Animaciones/Ninis/DiegoDisparando.gif");
         PauseTransition pausa = new PauseTransition(Duration.seconds(1.2));
         pausa.setOnFinished(evento -> {

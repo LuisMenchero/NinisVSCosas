@@ -17,8 +17,8 @@ public class Cuadricula {
         return cordX + columna * anchoCelda;
     }
         // busca mitad de una celda de una fila especifica en el eje Y
-    public static double buscarMitadCeldaEjeY(int filas) {
-        return cordY + filas * altoCelda;
+    public static double buscarMitadCeldaEjeY(int fila) {
+        return cordY + fila * altoCelda;
     }
 
         // para convertir los pixeles a columna/fila al hacer clic con raton
