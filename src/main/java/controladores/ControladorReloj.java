@@ -113,6 +113,12 @@ public class ControladorReloj {
 
     }
 
+    public static void reiniciar() {
+        ninis.clear();
+        cosas.clear();
+        proyectiles.clear();
+    }
+
 
     public boolean isPausado() {
         return pausado;

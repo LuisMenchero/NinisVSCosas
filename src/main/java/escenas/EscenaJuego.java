@@ -42,7 +42,6 @@ public class EscenaJuego {
         }
 
         GestorButanitos geB = GestorButanitos.getInstancia();
-        geB.setContadorButanitos(5000);
 
         //Botón de pausa
         Button btnPausa = new Button("=");
@@ -427,6 +426,8 @@ public class EscenaJuego {
         btnSalir.setLayoutX(560);
         btnSalir.setLayoutY(400);
         btnSalir.setOnAction(evento -> {
+            ControladorReloj.reiniciar();
+            GestorButanitos.reiniciar();
             EscenaMenu escenaMenu = new EscenaMenu();
             stage.setScene(escenaMenu.construir(stage));
             ControladorMusica.pararMusicaJuego();
