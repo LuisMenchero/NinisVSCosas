@@ -1,5 +1,6 @@
 package escenas;
 
+import controladores.ControladorMusica;
 import controladores.ControladorReloj;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -29,7 +30,7 @@ public class EscenaJuego {
         ImageView fondo = new ImageView("imagenes/fondoNvsW.png");
         fondo.setFitWidth(1280);
         fondo.setFitHeight(720);
-
+        ControladorMusica.reproducirMusicaJuego();
         // Para crear e inicializar el tablero donde colocar las plantas/ninis
         for (int i = 0; i < Cuadricula.columnas; i++) {
             for (int j = 0; j < Cuadricula.filas; j++) {
@@ -46,6 +47,7 @@ public class EscenaJuego {
         btnPausa.setOnAction(evento -> {
             reloj.pausa();
             mostrarPanelPausa();
+            ControladorMusica.pausarMusicaJuego();
         });
 
         //Iniciar el reloj interno del juego (game loop)
@@ -393,6 +395,7 @@ public class EscenaJuego {
         btnReanudar.setOnAction(evento -> {
             reloj.pausa();
             mostrarPanelPausa();
+            ControladorMusica.despausarMusicaJuego();
         });
 
         Button btnSalir = new Button("Salir");
@@ -401,6 +404,7 @@ public class EscenaJuego {
         btnSalir.setOnAction(evento -> {
             EscenaMenu escenaMenu = new EscenaMenu();
             stage.setScene(escenaMenu.construir(stage));
+            ControladorMusica.pararMusicaJuego();
         });
 
 
