@@ -303,12 +303,8 @@ public class EscenaJuego {
                 return;
             }
 
-
-
             Nini niniNuevo = null;
-            if (geB.getContadorButanitos() < niniNuevo.getCosteButanitos()) {
-                return;
-            }
+
 
             if (niniSeleccionadoTipo == TipoNini.LUIS) {
                 luis.setImage(new Image("Imagenes/Luis_Cuadricula.png"));
@@ -352,7 +348,9 @@ public class EscenaJuego {
 
             }
 
-
+            if (geB.getContadorButanitos() < niniNuevo.getCosteButanitos()) {
+                return;
+            }
 
             ImageView niniNuevoImagen = new ImageView(new Image(niniNuevo.getRutaImagenNini()));
             niniNuevoImagen.setFitWidth(Cuadricula.anchoCelda);
