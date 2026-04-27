@@ -56,7 +56,17 @@ public abstract class Nini {
         this.imagenNini.setLayoutX(columna);
         this.imagenNini.setLayoutY(fila);
 
-        root.getChildren().add(imagenNini);
+
+        // para el potenciador
+        this.potenciador = new ImageView("Animaciones/Ninis/PotenciadorGuevara.gif");
+        this.potenciador.setFitWidth(ancho);
+        this.potenciador.setFitHeight(alto);
+        this.potenciador.setLayoutX(columna);
+        this.potenciador.setLayoutY(fila);
+        this.potenciador.setOpacity(0.4);
+        this.potenciador.setVisible(false);
+
+        root.getChildren().addAll(imagenNini,potenciador);
     }
 
     // --- MÉTODOS ---
@@ -85,17 +95,8 @@ public abstract class Nini {
 
     public void potenciar() {
         if (ControladorReloj.detectarGuevara() && !potenciado) {
-            // Para el potenciador
-            this.potenciador = new ImageView("Animaciones/Ninis/PotenciadorGuevara.gif");
-            this.potenciador.setFitWidth(ancho);
-            this.potenciador.setFitHeight(alto);
-            this.potenciador.setLayoutX(columna);
-            this.potenciador.setLayoutY(fila);
-            this.potenciador.setOpacity(0.4);
-
-            this.potenciado = true;
-
-            root.getChildren().add(potenciador);
+            this.potenciador.setVisible(true);
+            this.potenciado =  true;
         }
     }
 

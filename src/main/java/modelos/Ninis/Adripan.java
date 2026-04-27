@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public class Adripan extends Nini {
     // --- ATRIBUTOS EXTRA ---
     private boolean estaCargado = false;
+    private boolean enProcesoCarga = false;
     private double tiempoParaRecarga;
 
     // --- CONSTRUCTOR ---
@@ -22,16 +23,13 @@ public class Adripan extends Nini {
     @Override
     public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas) {
         potenciar();
-//        if (tiempoFrames > ) {
-//
-//        }
 
         tiempoParaRecarga = tiempoParaRecarga+ 10 + tiempoFrames;
-        if (!estaCargado) {
+        if (!estaCargado && !enProcesoCarga) {
             recargar();
         }
         if (estaCargado) {
-
+            atacar(cosas);
         }
     }
 
@@ -41,35 +39,14 @@ public class Adripan extends Nini {
     }
 
     public void recargar () {
-        this.setImagenNiniImage("Animaciones/Ninis/AdripanEsperando.gif");
-        PauseTransition pausa1 = new PauseTransition(Duration.seconds(1));
-        pausa1.setOnFinished(evento -> {
-            this.setImagenNiniImage("Animaciones/Ninis/AdripanRecarga.gif");
-        });
-        pausa1.play();
+        enProcesoCarga = true;
+        this.setImagenNiniImage("Animaciones/Ninis/AdripanRecarga.gif");
+        PauseTransition pausa = new PauseTransition(Duration.seconds(2));
 
-        PauseTransition pausa2 = new PauseTransition(Duration.seconds(1));
-        pausa2.setOnFinished(evento -> {
-            estaCargado = true;
+        pausa.setOnFinished(evento -> {
             this.setImagenNiniImage("Animaciones/Ninis/AdripanCargado.gif");
-        });
-        pausa2.play();
-    }
-
-//    public void explotar(double tiempoFrames) {
-//        if (estaCargado && -----) {
-//
-//        }
-//    }
-
-    public boolean cargar(double tiempoFrames) {
-        if (tiempoFrames <= cooldownDisparo && !estaCargado) {
-            setImagenNiniImage("Animaciones/Ninis/AdripanRecarga.gif");
             estaCargado = true;
-        }
-        if (estaCargado) {
-            setImagenNiniImage("Animaciones/Ninis/AdripanCargado.gif");
-        }
-        return false;
+        });
+        pausa.play();
     }
 }

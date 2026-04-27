@@ -42,7 +42,7 @@ public class EscenaJuego {
         }
 
         GestorButanitos geB = GestorButanitos.getInstancia();
-        geB.setContadorButanitos(50);
+        geB.setContadorButanitos(5000);
 
         //Botón de pausa
         Button btnPausa = new Button("=");
