@@ -9,7 +9,7 @@ public class Escupitajo extends Proyectil {
 
     // --- CONSTRUCTOR ---
     public Escupitajo(double fila, double columna, Pane root) {
-        super(210,fila + 25, columna  + 60, root);
+        super(210, 15, fila + 25, columna  + 60, root);
         // Para el gif
         this.imagenProyectil = new ImageView("Animaciones/Ninis/Guevara_Idle.gif");
         this.imagenProyectil.setFitWidth(ancho);
@@ -27,6 +27,11 @@ public class Escupitajo extends Proyectil {
     @Override
     public void actualizar(double tiempoFrames) {
         moverProyectil(tiempoFrames);
+    }
+
+    @Override
+    public void impactar() {
+        root.getChildren().remove(imagenProyectil);
     }
 
     @Override

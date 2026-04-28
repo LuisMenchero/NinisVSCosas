@@ -122,16 +122,19 @@ public class ControladorReloj {
     }
 
     private void comprobarColisiones() {
-    ArrayList <Proyectil> proyectilesEliminar = new ArrayList<>();
-    ArrayList <Cosa> cosasEliminar = new ArrayList<>();
+
 
     for (Proyectil proyectil : proyectiles) {
         for (Cosa cosa : cosas) {
 
             if (proyectil.getImagenProyectil().getBoundsInParent().intersects(cosa.getImagenCosa().getBoundsInParent())) {
 
-                cosa.
+                cosa.recibirDaño(proyectil.getDaño());
+                proyectil.impactar();
+
+                break;
             }
+
         }
     }
 

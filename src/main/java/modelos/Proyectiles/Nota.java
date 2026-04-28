@@ -9,7 +9,7 @@ public class Nota extends Proyectil {
 
     // --- CONSTRUCTOR ---
     public Nota(double fila, double columna, Pane root) {
-        super(200,fila + 35, columna  + 65, root);
+        super(200, 20, fila + 35, columna  + 65, root);
         // Para el gif
         this.imagenProyectil = new ImageView("Animaciones/Proyectiles/nota.gif");
         this.imagenProyectil.setFitWidth(ancho);
@@ -27,6 +27,11 @@ public class Nota extends Proyectil {
     @Override
     public void actualizar(double tiempoFrames) {
         moverProyectil(tiempoFrames);
+    }
+
+    @Override
+    public void impactar() {
+        root.getChildren().remove(imagenProyectil);
     }
 
     @Override

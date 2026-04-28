@@ -68,7 +68,7 @@ private void actualizarTextoContador (){
     }
 
     public static void reiniciar () {
-        contadorButanitos = 50;
+        contadorButanitos = 5000;
         instancia = null;
     }
 

@@ -35,7 +35,7 @@ public abstract class Cosa {
         this.saludMaxima = salud;
         this.pixelesPorSegundo = velocidad;
         this.rutaImagenCosa = rutaImagenCosa;
-
+        this.root = root;
 
         // Para el gif
         this.imagenCosa = new ImageView(rutaImagenCosa);
