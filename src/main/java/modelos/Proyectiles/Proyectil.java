@@ -29,4 +29,8 @@ public abstract class Proyectil {
 
     // --- GETTERS Y SETTERS ---
 
+
+    public ImageView getImagenProyectil() {
+        return imagenProyectil;
+    }
 }

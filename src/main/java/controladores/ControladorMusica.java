@@ -24,6 +24,7 @@ public class ControladorMusica {
     public static void reproducirMusicaJuego () {
         reproductor = new MediaPlayer(canciones[contador]);
         reproductor.play();
+        reproductor.setVolume(0.5);
         reproductor.setOnEndOfMedia(() -> siguienteCancion());
     }
 

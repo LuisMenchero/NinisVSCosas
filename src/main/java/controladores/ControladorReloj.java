@@ -99,6 +99,8 @@ public class ControladorReloj {
             cosa.actualizar(tiempoFrames);
         }
 
+        comprobarColisiones();
+
     }
 
     public void pausa() {
@@ -117,6 +119,22 @@ public class ControladorReloj {
         ninis.clear();
         cosas.clear();
         proyectiles.clear();
+    }
+
+    private void comprobarColisiones() {
+    ArrayList <Proyectil> proyectilesEliminar = new ArrayList<>();
+    ArrayList <Cosa> cosasEliminar = new ArrayList<>();
+
+    for (Proyectil proyectil : proyectiles) {
+        for (Cosa cosa : cosas) {
+
+            if (proyectil.getImagenProyectil().getBoundsInParent().intersects(cosa.getImagenCosa().getBoundsInParent())) {
+
+                cosa.
+            }
+        }
+    }
+
     }
 
 
