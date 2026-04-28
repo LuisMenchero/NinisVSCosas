@@ -41,7 +41,7 @@ public class Adripan extends Nini {
     public void recargar () {
         enProcesoCarga = true;
         this.setImagenNiniImage("Animaciones/Ninis/AdripanRecarga.gif");
-        PauseTransition pausa = new PauseTransition(Duration.seconds(2));
+        PauseTransition pausa = new PauseTransition(Duration.seconds(2.6));
 
         pausa.setOnFinished(evento -> {
             this.setImagenNiniImage("Animaciones/Ninis/AdripanCargado.gif");
