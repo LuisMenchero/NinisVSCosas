@@ -78,20 +78,15 @@ public abstract class Nini {
     public void recibirDaño(int daño) {
         salud = saludMaxima - daño;
         if (salud <= 0) {
-            muerte();
+            morir();
         }
     }
 
-    public void muerte() {
+    public void morir() {
         root.getChildren().remove(imagenNini);
+        ControladorReloj.getNinis().remove(this);
     }
 
-    public boolean estaMuerto() {
-        if (salud <= 0) {
-            return true;
-        }
-        return false;
-    }
 
     public void potenciar() {
         if (ControladorReloj.detectarGuevara() && !potenciado) {

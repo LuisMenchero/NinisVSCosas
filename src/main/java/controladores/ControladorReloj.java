@@ -142,4 +142,15 @@ public class ControladorReloj {
         return pausado;
     }
 
+    public static ArrayList<Cosa> getCosas() {
+        return cosas;
+    }
+
+    public static ArrayList<Nini> getNinis() {
+        return ninis;
+    }
+
+    public static ArrayList<Proyectil> getProyectiles() {
+        return proyectiles;
+    }
 }

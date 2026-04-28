@@ -1,5 +1,6 @@
 package modelos.Cosas;
 
+import controladores.ControladorReloj;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import modelos.Cuadricula;
@@ -54,6 +55,18 @@ public abstract class Cosa {
     public abstract void caminar(double tiempoFrames);
     public abstract void atacar();
     public abstract void actualizar(double tiempoFrames);
+
+    public void recibirDaño(int daño) {
+        this.salud = salud - daño;
+        if (this.salud <= 0) {
+            morir();
+        }
+    }
+
+    public void morir() {
+        root.getChildren().remove(imagenCosa);
+        ControladorReloj.getCosas().remove(this);
+    }
 
 
 
