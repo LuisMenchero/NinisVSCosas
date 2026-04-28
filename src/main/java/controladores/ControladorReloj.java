@@ -138,6 +138,24 @@ public class ControladorReloj {
         }
     }
 
+
+    for (Nini nini : ninis) {
+        for (Cosa cosa : cosas) {
+
+            if (nini.getImagenNini().getBoundsInParent().intersects(cosa.getImagenCosa().getBoundsInParent())) {
+                cosa.setPixelesPorSegundosActual(0);
+                while (!nini.estaMuerto()){
+                    nini.recibirDaño(cosa.getDaño());
+                }
+                cosa.setPixelesPorSegundosActual(cosa.getPixelesPorSegundo());
+
+            }
+
+
+        }
+    }
+
+
     }
 
 

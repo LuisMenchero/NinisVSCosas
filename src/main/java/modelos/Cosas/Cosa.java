@@ -18,22 +18,28 @@ public abstract class Cosa {
     protected int saludMaxima;
     protected int salud;
     protected int pixelesPorSegundo;
+    protected int daño;
 
     // el gif de la cosa
     protected String rutaImagenCosa;
     protected ImageView imagenCosa;
     protected Pane root;
 
+    // funcionamiento
+    protected int pixelesPorSegundosActual;
+
     // --- CONSTRUCTOR ---
 
 
-    public Cosa(int salud, int velocidad, String rutaImagenCosa, Pane root) {
+    public Cosa(int salud, int velocidad, int daño, String rutaImagenCosa, Pane root) {
         this.columna = 1280;
         int filaRandom = (int)(Math.random() * (4 - 0 + 1) + 0);
         this.fila = Cuadricula.buscarMitadCeldaEjeY(filaRandom);
         this.salud = salud;
         this.saludMaxima = salud;
         this.pixelesPorSegundo = velocidad;
+        this.pixelesPorSegundosActual = velocidad;
+        this.daño = daño;
         this.rutaImagenCosa = rutaImagenCosa;
         this.root = root;
 
@@ -85,5 +91,17 @@ public abstract class Cosa {
 
     public ImageView getImagenCosa() {
         return imagenCosa;
+    }
+
+    public int getDaño() {
+        return daño;
+    }
+
+    public void setPixelesPorSegundosActual(int pixelesPorSegundosActual) {
+        this.pixelesPorSegundosActual = pixelesPorSegundosActual;
+    }
+
+    public int getPixelesPorSegundo() {
+        return pixelesPorSegundo;
     }
 }

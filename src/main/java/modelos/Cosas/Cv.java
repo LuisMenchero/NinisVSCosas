@@ -7,12 +7,12 @@ public class Cv extends Cosa{
 
     // --- CONSTRUCTOR ---
     public Cv(Pane root) {
-        super(2000,20 ,"Animaciones/Ninis/Guevara_Idle.gif", root);
+        super(2000,20 , 20, "Animaciones/Ninis/Guevara_Idle.gif", root);
     }
 
     @Override
     public void caminar(double tiempoFrames) {
-        columna = (columna - pixelesPorSegundo * tiempoFrames);
+        columna = (columna - pixelesPorSegundosActual * tiempoFrames);
         this.imagenCosa.setLayoutX(columna);
     }
 

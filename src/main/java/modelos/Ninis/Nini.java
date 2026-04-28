@@ -104,6 +104,13 @@ public abstract class Nini {
         return false;
     }
 
+    public boolean estaMuerto(){
+        if (this.salud <=0){
+            return true;
+        }
+        return false;
+    }
+
     // --- GETTERS ---
     public double getColumna() {
         return columna;
