@@ -101,6 +101,10 @@ public abstract class Cosa {
         this.pixelesPorSegundosActual = pixelesPorSegundosActual;
     }
 
+    public void setImagenCosa(ImageView imagenCosa) {
+        this.imagenCosa = imagenCosa;
+    }
+
     public int getPixelesPorSegundo() {
         return pixelesPorSegundo;
     }

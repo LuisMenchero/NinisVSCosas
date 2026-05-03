@@ -181,14 +181,14 @@ public class EscenaSeleccionar {
             dañoNini.setText(" - DAÑO - \n - Daño de explosión: --- .");
         });
 
-        ImageView isma = new ImageView("Imagenes/CosoPrueba.png");
+        ImageView isma = new ImageView("Imagenes/Ismahil.png");
         isma.setFitWidth(100);
         isma.setFitHeight(100);
         isma.setLayoutX(columna5);
         isma.setLayoutY(fila1);
         isma.setOnMouseClicked(evento -> {
             colocar(TipoNini.ISMA, isma);
-            //fotoDesc.setImage(new Image(""));
+            fotoDesc.setImage(new Image("Animaciones/Ninis/Isma_Idle.gif"));
             nombreNini.setText("-- ISMA --");
             descNini.setText("");
             costeNini.setText(" - COSTE BUTANITOS - \n - --- butanitos.");
@@ -388,13 +388,13 @@ public class EscenaSeleccionar {
             dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
         });
 
-        ImageView hueco1 = new ImageView("Imagenes/CosoPrueba.png");
-        hueco1.setFitWidth(100);
-        hueco1.setFitHeight(100);
-        hueco1.setLayoutX(columna2);
-        hueco1.setLayoutY(fila4);
-        hueco1.setOnMouseClicked(evento -> {
-            colocar(TipoNini.HUECO1,hueco1);
+        ImageView raul = new ImageView("Imagenes/CosoPrueba.png");
+        raul.setFitWidth(100);
+        raul.setFitHeight(100);
+        raul.setLayoutX(columna2);
+        raul.setLayoutY(fila4);
+        raul.setOnMouseClicked(evento -> {
+            colocar(TipoNini.RAUL,raul);
             //fotoDesc.setImage(new Image(""));
             nombreNini.setText("-- --- --");
             descNini.setText("");
@@ -542,7 +542,7 @@ public class EscenaSeleccionar {
             }
         }
 
-        Pane root = new Pane(fondo,titulo,btnSalir,nombreNini,descNini,costeNini,dañoNini,vidaNini,alcanceAtaque,radioAtaque,tipoProyectil,luis, fotoDesc,diego,callejo,adripan,isma,ximena, lopez,guille,dani,keke,guevara,lorena,maria,jud,elsa,eliseo,hueco1,hueco2,hueco3,hueco4);
+        Pane root = new Pane(fondo,titulo,btnSalir,nombreNini,descNini,costeNini,dañoNini,vidaNini,alcanceAtaque,radioAtaque,tipoProyectil,luis, fotoDesc,diego,callejo,adripan,isma,ximena, lopez,guille,dani,keke,guevara,lorena,maria,jud,elsa,eliseo,raul,hueco2,hueco3,hueco4);
         return new Scene(root, 1280, 720);
     }
 

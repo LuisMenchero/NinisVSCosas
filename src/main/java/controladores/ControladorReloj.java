@@ -2,6 +2,8 @@ package controladores;
 
 import escenas.EscenaJuego;
 import javafx.animation.AnimationTimer;
+import javafx.animation.PauseTransition;
+import javafx.util.Duration;
 import modelos.Cosas.Cosa;
 import modelos.Ninis.Diego;
 import modelos.Ninis.Guevara;
@@ -126,12 +128,9 @@ public class ControladorReloj {
 
     for (Proyectil proyectil : proyectiles) {
         for (Cosa cosa : cosas) {
-
             if (proyectil.getImagenProyectil().getBoundsInParent().intersects(cosa.getImagenCosa().getBoundsInParent())) {
-
                 cosa.recibirDaño(proyectil.getDaño());
                 proyectil.impactar();
-
                 break;
             }
 
@@ -141,14 +140,17 @@ public class ControladorReloj {
 
     for (Nini nini : ninis) {
         for (Cosa cosa : cosas) {
-
             if (nini.getImagenNini().getBoundsInParent().intersects(cosa.getImagenCosa().getBoundsInParent())) {
                 cosa.setPixelesPorSegundosActual(0);
-                while (!nini.estaMuerto()){
-                    nini.recibirDaño(cosa.getDaño());
+                PauseTransition pausa = new PauseTransition(Duration.seconds(2));
+                cosa.atacar();
+                nini.recibirDaño(cosa.getDaño());
+                pausa.setOnFinished(event -> {
+                });
+                pausa.play();
+                if (nini.isEstaMuerto()) {
+                    cosa.setPixelesPorSegundosActual(cosa.getPixelesPorSegundo());
                 }
-                cosa.setPixelesPorSegundosActual(cosa.getPixelesPorSegundo());
-
             }
 
 

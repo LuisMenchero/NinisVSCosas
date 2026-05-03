@@ -25,6 +25,7 @@ public abstract class Nini {
     protected double cooldownDisparo;
     protected int costeButanitos;
     protected double tiempoDelUltimoDisparo;
+    protected boolean estaMuerto = false;
 
     // el gif del Nini
     protected String rutaImagenNini;
@@ -76,7 +77,7 @@ public abstract class Nini {
     public abstract void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas);
     // normales
     public void recibirDaño(int daño) {
-        salud = saludMaxima - daño;
+        salud = salud - daño;
         if (salud <= 0) {
             morir();
         }
@@ -85,6 +86,7 @@ public abstract class Nini {
     public void morir() {
         root.getChildren().remove(imagenNini);
         ControladorReloj.getNinis().remove(this);
+        estaMuerto = true;
     }
 
 
@@ -104,12 +106,6 @@ public abstract class Nini {
         return false;
     }
 
-    public boolean estaMuerto(){
-        if (this.salud <=0){
-            return true;
-        }
-        return false;
-    }
 
     // --- GETTERS ---
     public double getColumna() {
@@ -132,4 +128,8 @@ public abstract class Nini {
     }
     public void setImagenNiniImage(String rutaNuevaAnimacion) {this.imagenNini.setImage(new Image(rutaNuevaAnimacion));}
     public void setPotenciado(boolean potenciado) {this.potenciado = potenciado;}
+
+    public boolean isEstaMuerto() {
+        return estaMuerto;
+    }
 }

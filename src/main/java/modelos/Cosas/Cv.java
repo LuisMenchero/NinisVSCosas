@@ -1,13 +1,16 @@
 package modelos.Cosas;
 
+import javafx.animation.PauseTransition;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.util.Duration;
 
 public class Cv extends Cosa{
     // --- ATRIBUTOS ---
 
     // --- CONSTRUCTOR ---
     public Cv(Pane root) {
-        super(2000,20 , 20, "Animaciones/Ninis/Guevara_Idle.gif", root);
+        super(2000,20 , 2, "Animaciones/Cosas/caminarCV.gif", root);
     }
 
     @Override
@@ -18,7 +21,12 @@ public class Cv extends Cosa{
 
     @Override
     public void atacar() {
-
+        this.setImagenCosa(new ImageView("Animaciones/Cosas/Ataquendo.gif"));
+        PauseTransition pausa = new PauseTransition(Duration.seconds(2));
+        pausa.setOnFinished(event -> {
+            this.setImagenCosa(new ImageView("Animaciones/Cosas/caminarCV.gif"));
+        });
+        pausa.play();
     }
 
     @Override
