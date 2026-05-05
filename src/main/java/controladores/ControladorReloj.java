@@ -127,7 +127,6 @@ public class ControladorReloj {
 
     private void comprobarColisiones() {
 
-
     for (Proyectil proyectil : proyectiles) {
         for (Cosa cosa : cosas) {
             if (proyectil.getHitbox().getBoundsInParent().intersects(cosa.getHitbox().getBoundsInParent())) {
@@ -154,6 +153,13 @@ public class ControladorReloj {
         }
     }
 
+
+    for (Cosa cosa : cosas) {
+        if (cosa.getHitbox().getBoundsInParent().intersects(EscenaJuego.getHitboxCasa().getBoundsInParent())) {
+            EscenaJuego.getReloj().pausa();
+            ControladorJuego.terminarPartida();
+        }
+    }
 
     }
 

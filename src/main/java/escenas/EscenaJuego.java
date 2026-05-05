@@ -2,18 +2,17 @@ package escenas;
 
 import controladores.ControladorMusica;
 import controladores.ControladorReloj;
-import javafx.animation.PauseTransition;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 import modelos.*;
 import modelos.Cosas.CascoCv;
 import modelos.Cosas.ConoCv;
@@ -24,11 +23,13 @@ import java.util.HashMap;
 
 public class EscenaJuego {
 
-    private ControladorReloj reloj = new ControladorReloj();
+    private static ControladorReloj reloj = new ControladorReloj();
     private static Celda[][] terreno = new Celda[Cuadricula.filas][Cuadricula.columnas];
     private Pane panelPausa = new Pane();
+    private static Pane panelPartidaTerminada = new Pane();
     private TipoNini niniSeleccionadoTipo;
     private ImageView niniTransparente;
+    private static Rectangle hitboxCasa;
 
 
     public Scene construir(Stage stage) {
@@ -413,14 +414,19 @@ public class EscenaJuego {
 //            reloj.registrarCosa(cv);
 //        }
 
-
-
-
-
-
+        hitboxCasa = new Rectangle(
+                0,
+                150,
+                200,
+                550
+        );
+        hitboxCasa.setFill(Color.RED);
+        hitboxCasa.setOpacity(0.5);
+        hitboxCasa.setVisible(true);
 
         ConstruirPanelPausa(stage);
-        root.getChildren().add(panelPausa);
+        ConstruirPanelPartidaPerdida(stage);
+        root.getChildren().addAll(panelPausa,panelPartidaTerminada,hitboxCasa);
 
         return new Scene(root, 1280, 720);
     }
@@ -464,6 +470,38 @@ public class EscenaJuego {
     }
 
 
+
+    private void ConstruirPanelPartidaPerdida(Stage stage) {
+
+        panelPartidaTerminada.setPrefSize(1280, 720);
+
+        //Esta es la primera vez que uso el -fx y sirve como una especie de css
+        panelPartidaTerminada.setStyle("-fx-background-color: rgba(0,0,0,0.6);");
+        Text textoGameOver = new Text("--- GAME OVER ---");
+        textoGameOver.setFill(Color.RED);
+        textoGameOver.setFont(Font.font("Verdana", FontWeight.BOLD, 50));
+        textoGameOver.setLayoutX(560);
+        textoGameOver.setLayoutY(300);
+
+
+
+        Button btnSalir = new Button("Salir");
+        btnSalir.setLayoutX(560);
+        btnSalir.setLayoutY(400);
+        btnSalir.setOnAction(evento -> {
+            ControladorReloj.reiniciar();
+            GestorButanitos.reiniciar();
+            EscenaMenu escenaMenu = new EscenaMenu();
+            stage.setScene(escenaMenu.construir(stage));
+            ControladorMusica.pararMusicaJuego();
+        });
+
+
+        panelPartidaTerminada.setVisible(false);
+        panelPartidaTerminada.getChildren().addAll(textoGameOver, btnSalir);
+    }
+
+
     public void seleccionarNini(TipoNini tipoNini, String rutaImagenTransparente) {
         niniSeleccionadoTipo = tipoNini;
         niniTransparente.setImage(new Image(rutaImagenTransparente));
@@ -480,7 +518,21 @@ public class EscenaJuego {
         }
     }
 
+
+
     public static Celda[][] getTerreno() {
         return terreno;
+    }
+
+    public static Rectangle getHitboxCasa() {
+        return hitboxCasa;
+    }
+
+    public static ControladorReloj getReloj() {
+        return reloj;
+    }
+
+    public static Pane getPanelPartidaTerminada() {
+        return panelPartidaTerminada;
     }
 }
