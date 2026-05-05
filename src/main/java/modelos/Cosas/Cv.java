@@ -23,19 +23,6 @@ public class Cv extends Cosa {
         //Si queremos que se mueva de fila en algun momento poner un set y
     }
 
-//    @Override
-//    public void atacar(double tiempoFrames, Nini niniAtacando) {
-//        while (!niniAtacando.isEstaMuerto()) {
-//            tiempoUltimoGolpe = tiempoUltimoGolpe + tiempoFrames;
-//            if (tiempoUltimoGolpe > cooldownAtaque && pixelesPorSegundosActual == 0) {
-//                tiempoUltimoGolpe = 0;
-//                this.setImagenCosa("Animaciones/Cosas/Ataquendo.gif");
-//                System.out.printf("ATACAAAAR ATACAAAR");
-//                niniAtacando.recibirDaño(daño);
-//            }
-//        }
-//    }
-
     @Override
     public void atacar(double tiempoFrames, Nini niniAtacando) {
         if (!atacandoNini) {

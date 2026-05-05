@@ -15,6 +15,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import modelos.*;
+import modelos.Cosas.CascoCv;
+import modelos.Cosas.ConoCv;
 import modelos.Cosas.Cv;
 import modelos.Ninis.*;
 
@@ -392,10 +394,24 @@ public class EscenaJuego {
         });
 
 
-        for (int i = 0; i < 5; i++) {
-                Cv cv = new Cv(root);
-                reloj.registrarCosa(cv);
-        }
+//        for (int i = 0; i < 5; i++) {
+//                Cv cv = new Cv(root);
+//                reloj.registrarCosa(cv);
+//        }
+
+
+            Cv cv = new Cv(root);
+            ConoCv cncv = new ConoCv(root);
+            CascoCv cscv = new CascoCv(root);
+            reloj.registrarCosa(cv);
+            reloj.registrarCosa(cncv);
+            reloj.registrarCosa(cscv);
+
+
+//        for (int i = 0; i < 5; i++) {
+//            CascoCv cv = new CascoCv(root);
+//            reloj.registrarCosa(cv);
+//        }
 
 
 
