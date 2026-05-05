@@ -8,7 +8,10 @@ import java.util.ArrayList;
 
 public class Guevara extends Nini {
     // --- ATRIBUTOS EXTRA ---
-    private boolean haPotenciadoNinis = false;
+    private double multiplicadorDaño = 1.5;
+    private int tiempoEnDesaparecer = 5;
+    private double tiempoParaDesaparecer = 0;
+
     // --- CONSTRUCTOR ---
     public Guevara(double columna, double fila, Pane root) {
         super(columna, fila, 500, 0, 0, "Animaciones/Ninis/Guevara_Idle.gif", root);
@@ -18,7 +21,10 @@ public class Guevara extends Nini {
     // --- MÉTODOS ---
     @Override
     public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas) {
-
+        tiempoParaDesaparecer = tiempoParaDesaparecer + tiempoFrames;
+        if(tiempoParaDesaparecer > tiempoEnDesaparecer) {
+            recibirDaño(500);
+        }
     }
 
     @Override

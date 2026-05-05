@@ -53,4 +53,8 @@ public abstract class Proyectil {
     public int getDaño() {
         return daño;
     }
+
+    public Rectangle getHitbox() {
+        return hitbox;
+    }
 }

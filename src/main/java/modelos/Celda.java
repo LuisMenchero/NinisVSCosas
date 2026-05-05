@@ -25,4 +25,5 @@ public class Celda {
     public Nini getNini() {
         return nini;
     }
+    public void setHayPlanta(boolean hayPlanta) {}
 }

@@ -5,6 +5,7 @@ import javafx.animation.AnimationTimer;
 import javafx.animation.PauseTransition;
 import javafx.util.Duration;
 import modelos.Cosas.Cosa;
+import modelos.Cuadricula;
 import modelos.Ninis.Diego;
 import modelos.Ninis.Guevara;
 import modelos.Ninis.Lopez;
@@ -23,6 +24,7 @@ public class ControladorReloj {
 
 
     private AnimationTimer temporizador;
+    private double tiempoFrames;
     private boolean pausado = false;
     private static ArrayList<Cosa> cosas = new ArrayList<>();
     private static ArrayList<Nini> ninis = new ArrayList<>();
@@ -42,12 +44,12 @@ public class ControladorReloj {
                     return;
                 }
 
-                double tiempoFrames = (now - ultimoTiempo) / 1000000000.0;
+                tiempoFrames = (now - ultimoTiempo) / 1000000000.0;
                 ultimoTiempo = now;
 
 
                 // lo hemos hecho de forma que sea una pila de llamadas pero nos hemos debatido que fuera un getter
-                actualizar(tiempoFrames);
+                actualizar();
 
             }
         };
@@ -72,7 +74,7 @@ public class ControladorReloj {
         return false;
     }
 
-    public void actualizar(double tiempoFrames) {
+    public void actualizar() {
         //aqui van las cosas que requieren ser actualizadas que reciban tiempoFrames
         for (Nini nini : ninis) {
             nini.actualizar(tiempoFrames, EscenaJuego.getTerreno(), cosas);
@@ -128,7 +130,7 @@ public class ControladorReloj {
 
     for (Proyectil proyectil : proyectiles) {
         for (Cosa cosa : cosas) {
-            if (proyectil.getImagenProyectil().getBoundsInParent().intersects(cosa.getImagenCosa().getBoundsInParent())) {
+            if (proyectil.getHitbox().getBoundsInParent().intersects(cosa.getHitbox().getBoundsInParent())) {
                 cosa.recibirDaño(proyectil.getDaño());
                 proyectil.impactar();
                 break;
@@ -140,16 +142,15 @@ public class ControladorReloj {
 
     for (Nini nini : ninis) {
         for (Cosa cosa : cosas) {
-            if (nini.getImagenNini().getBoundsInParent().intersects(cosa.getImagenCosa().getBoundsInParent())) {
-                cosa.setPixelesPorSegundosActual(0);
-                nini.recibirDaño(cosa.getDaño());
-                System.out.printf("hola creo que solo me hago una vez");
+            if (nini.getHitbox().getBoundsInParent().intersects(cosa.getHitbox().getBoundsInParent())) {
+                cosa.setPixelesPorSegundosActual(1);
+                cosa.atacar(tiempoFrames, nini);
                 if (nini.isEstaMuerto()) {
+                    EscenaJuego.getTerreno()[Cuadricula.convertirAFila(nini.getFila())][Cuadricula.convertirAColumna(nini.getColumna())].setNini(null);
+                    EscenaJuego.getTerreno()[Cuadricula.convertirAFila(nini.getFila())][Cuadricula.convertirAColumna(nini.getColumna())].setHayPlanta(false);
                     cosa.setPixelesPorSegundosActual(cosa.getPixelesPorSegundo());
                 }
             }
-
-
         }
     }
 

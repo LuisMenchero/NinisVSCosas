@@ -1,11 +1,13 @@
 package modelos.Cosas;
 
 import controladores.ControladorReloj;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import modelos.Cuadricula;
+import modelos.Ninis.Nini;
 
 public abstract class Cosa {
     // --- ATRIBUTOS ---
@@ -30,8 +32,10 @@ public abstract class Cosa {
     protected Pane root;
 
     // funcionamiento
+    protected boolean atacandoNini = false;
     protected int pixelesPorSegundosActual;
     protected Rectangle hitbox;
+
 
     // --- CONSTRUCTOR ---
 
@@ -76,7 +80,7 @@ public abstract class Cosa {
 
     // --- METODOS ---
     public abstract void caminar(double tiempoFrames);
-    public abstract void atacar();
+    public abstract void atacar(double tiempoFrames, Nini niniAtacando);
     public abstract void actualizar(double tiempoFrames);
 
     public void recibirDaño(int daño) {
@@ -119,8 +123,10 @@ public abstract class Cosa {
         this.pixelesPorSegundosActual = pixelesPorSegundosActual;
     }
 
-    public void setImagenCosa(ImageView imagenCosa) {
-        this.imagenCosa = imagenCosa;
+    public void setImagenCosa(String rutaNuevaAnimacion) {this.imagenCosa.setImage(new Image(rutaNuevaAnimacion));}
+
+    public void setAtacandoNini(boolean atacandoNini) {
+        this.atacandoNini = atacandoNini;
     }
 
     public int getPixelesPorSegundo() {

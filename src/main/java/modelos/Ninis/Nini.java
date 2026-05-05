@@ -1,6 +1,7 @@
 package modelos.Ninis;
 
 import controladores.ControladorReloj;
+import escenas.EscenaJuego;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -8,6 +9,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import modelos.Celda;
 import modelos.Cosas.Cosa;
+import modelos.Cuadricula;
 
 import java.util.ArrayList;
 
@@ -73,14 +75,14 @@ public abstract class Nini {
         this.potenciador.setVisible(false);
 
         hitbox = new Rectangle(
-                columna+10,
-                fila+20,
-                70,60 );
+                columna + 10,
+                fila + 20,
+                70, 60);
         hitbox.setFill(Color.RED);
         hitbox.setOpacity(0.5);
         hitbox.setVisible(true);
 
-        root.getChildren().addAll(imagenNini,potenciador, hitbox);
+        root.getChildren().addAll(imagenNini, potenciador, hitbox);
     }
 
     // --- MÉTODOS ---
@@ -88,6 +90,7 @@ public abstract class Nini {
     protected abstract void atacar(ArrayList<Cosa> cosas);
 
     public abstract void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas);
+
     // normales
     public void recibirDaño(int daño) {
         salud = salud - daño;
@@ -99,23 +102,24 @@ public abstract class Nini {
     public void morir() {
         root.getChildren().remove(imagenNini);
         root.getChildren().remove(hitbox);
-
+        this.potenciador.setVisible(false);
         ControladorReloj.getNinis().remove(this);
         estaMuerto = true;
+
     }
 
 
     public void potenciar() {
         if (ControladorReloj.detectarGuevara() && !potenciado) {
             this.potenciador.setVisible(true);
-            this.potenciado =  true;
+            this.potenciado = true;
         }
     }
 
     protected boolean hayZombieEnMiFila(ArrayList<Cosa> cosas) {
         for (Cosa cosaAct : cosas) {
-            if (cosaAct.getFila() == this.fila){
-              return true;
+            if (cosaAct.getFila() == this.fila) {
+                return true;
             }
         }
         return false;
@@ -126,23 +130,34 @@ public abstract class Nini {
     public double getColumna() {
         return columna;
     }
+
     public double getFila() {
         return fila;
     }
+
     public int getCosteButanitos() {
         return costeButanitos;
     }
+
     public int getSalud() {
         return salud;
     }
+
     public String getRutaImagenNini() {
         return rutaImagenNini;
     }
+
     public ImageView getImagenNini() {
         return imagenNini;
     }
-    public void setImagenNiniImage(String rutaNuevaAnimacion) {this.imagenNini.setImage(new Image(rutaNuevaAnimacion));}
-    public void setPotenciado(boolean potenciado) {this.potenciado = potenciado;}
+
+    public void setImagenNiniImage(String rutaNuevaAnimacion) {
+        this.imagenNini.setImage(new Image(rutaNuevaAnimacion));
+    }
+
+    public void setPotenciado(boolean potenciado) {
+        this.potenciado = potenciado;
+    }
 
     public boolean isEstaMuerto() {
         return estaMuerto;
