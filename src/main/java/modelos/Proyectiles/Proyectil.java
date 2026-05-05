@@ -2,6 +2,8 @@ package modelos.Proyectiles;
 
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 public abstract class Proyectil {
     // --- ATRIBUTOS ---
@@ -17,6 +19,9 @@ public abstract class Proyectil {
     protected double columna;
     protected Pane root;
 
+    //Funcionamiento
+    protected Rectangle hitbox;
+
     // --- CONSTRUCTOR ---
     public Proyectil(int pixelesPorSegundo, int daño, double fila, double columna, Pane root) {
         this.pixelesPorSegundo = pixelesPorSegundo;
@@ -24,6 +29,14 @@ public abstract class Proyectil {
         this.fila = fila;
         this.columna = columna;
         this.root = root;
+        this.hitbox = new Rectangle(
+                columna,
+                fila ,
+                15,20);
+        hitbox.setFill(Color.RED);
+        hitbox.setOpacity(0.5);
+        hitbox.setVisible(true);
+        this.root.getChildren().add(hitbox);
     }
     // --- MÉTODOS ---
     protected abstract void actualizar(double tiempoFrames);

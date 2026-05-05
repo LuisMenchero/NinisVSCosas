@@ -142,12 +142,8 @@ public class ControladorReloj {
         for (Cosa cosa : cosas) {
             if (nini.getImagenNini().getBoundsInParent().intersects(cosa.getImagenCosa().getBoundsInParent())) {
                 cosa.setPixelesPorSegundosActual(0);
-                PauseTransition pausa = new PauseTransition(Duration.seconds(2));
-                cosa.atacar();
                 nini.recibirDaño(cosa.getDaño());
-                pausa.setOnFinished(event -> {
-                });
-                pausa.play();
+                System.out.printf("hola creo que solo me hago una vez");
                 if (nini.isEstaMuerto()) {
                     cosa.setPixelesPorSegundosActual(cosa.getPixelesPorSegundo());
                 }

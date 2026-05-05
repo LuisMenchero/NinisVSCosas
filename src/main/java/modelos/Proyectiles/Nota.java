@@ -32,11 +32,13 @@ public class Nota extends Proyectil {
     @Override
     public void impactar() {
         root.getChildren().remove(imagenProyectil);
+        root.getChildren().remove(hitbox);
     }
 
     @Override
     public void moverProyectil(double tiempoFrames) {
         columna = (columna + pixelesPorSegundo * tiempoFrames);
         this.imagenProyectil.setLayoutX(columna);
+        this.hitbox.setX(columna+pixelesPorSegundo * tiempoFrames);
     }
 }

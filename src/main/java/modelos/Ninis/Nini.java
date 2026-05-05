@@ -4,6 +4,8 @@ import controladores.ControladorReloj;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import modelos.Celda;
 import modelos.Cosas.Cosa;
 
@@ -34,6 +36,9 @@ public abstract class Nini {
 
     // el gif del potenciador
     protected ImageView potenciador;
+
+    //funcionamiento
+    protected Rectangle hitbox;
 
     // --- CONSTRUCTOR ---
     public Nini(double columna, double fila, int salud, int costeButanitos, double cooldownDisparo, String rutaImagenNini, Pane root) {
@@ -67,7 +72,15 @@ public abstract class Nini {
         this.potenciador.setOpacity(0.4);
         this.potenciador.setVisible(false);
 
-        root.getChildren().addAll(imagenNini,potenciador);
+        hitbox = new Rectangle(
+                columna+10,
+                fila+20,
+                70,60 );
+        hitbox.setFill(Color.RED);
+        hitbox.setOpacity(0.5);
+        hitbox.setVisible(true);
+
+        root.getChildren().addAll(imagenNini,potenciador, hitbox);
     }
 
     // --- MÉTODOS ---
@@ -85,6 +98,8 @@ public abstract class Nini {
 
     public void morir() {
         root.getChildren().remove(imagenNini);
+        root.getChildren().remove(hitbox);
+
         ControladorReloj.getNinis().remove(this);
         estaMuerto = true;
     }
@@ -131,5 +146,9 @@ public abstract class Nini {
 
     public boolean isEstaMuerto() {
         return estaMuerto;
+    }
+
+    public Rectangle getHitbox() {
+        return hitbox;
     }
 }
