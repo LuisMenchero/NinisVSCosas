@@ -43,10 +43,11 @@ public class ConoCv extends Cosa {
             if (!atacandoNini) {
                 this.setImagenCosa("Animaciones/Cosas/Cono_Ataquendo.gif");
                 atacandoNini = true;
+                movimientoDeHitbox.play();
             }
 
             tiempoUltimoGolpe = tiempoUltimoGolpe + tiempoFrames;
-            if (tiempoUltimoGolpe > cooldownAtaque && pixelesPorSegundosActual == 1) {
+            if (tiempoUltimoGolpe > cooldownAtaque && pixelesPorSegundosActual == 0) {
                 tiempoUltimoGolpe = 0;
                 niniAtacando.recibirDaño(daño);
                 System.out.println("vida nini : " + niniAtacando.getSalud());
@@ -55,6 +56,8 @@ public class ConoCv extends Cosa {
             if (niniAtacando.isEstaMuerto()) {
                 this.setImagenCosa("Animaciones/Cosas/cono_andando.gif");
                 atacandoNini = false;
+                movimientoDeHitbox.stop();
+                hitbox.setTranslateX(0);
             }
         }
 

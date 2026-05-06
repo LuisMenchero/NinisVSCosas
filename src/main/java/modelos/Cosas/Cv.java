@@ -1,11 +1,10 @@
 package modelos.Cosas;
 
-import javafx.animation.PauseTransition;
-import javafx.scene.image.ImageView;
+import javafx.animation.Animation;
+import javafx.animation.TranslateTransition;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 import modelos.Ninis.Nini;
-import modelos.Proyectiles.Nota;
 
 public class Cv extends Cosa {
     // --- ATRIBUTOS ---
@@ -28,10 +27,11 @@ public class Cv extends Cosa {
         if (!atacandoNini) {
             this.setImagenCosa("Animaciones/Cosas/Ataquendo.gif");
             atacandoNini = true;
+            movimientoDeHitbox.play();
         }
 
         tiempoUltimoGolpe = tiempoUltimoGolpe + tiempoFrames;
-        if (tiempoUltimoGolpe > cooldownAtaque && pixelesPorSegundosActual == 1) {
+        if (tiempoUltimoGolpe > cooldownAtaque && pixelesPorSegundosActual == 0) {
             tiempoUltimoGolpe = 0;
             niniAtacando.recibirDaño(daño);
             System.out.println("vida nini : " + niniAtacando.getSalud());
@@ -40,6 +40,8 @@ public class Cv extends Cosa {
         if (niniAtacando.isEstaMuerto()) {
             this.setImagenCosa("Animaciones/Cosas/caminarCV.gif");
             atacandoNini = false;
+            movimientoDeHitbox.stop();
+            hitbox.setTranslateX(0);
         }
     }
 

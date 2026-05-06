@@ -142,7 +142,7 @@ public class ControladorReloj {
     for (Nini nini : ninis) {
         for (Cosa cosa : cosas) {
             if (nini.getHitbox().getBoundsInParent().intersects(cosa.getHitbox().getBoundsInParent())) {
-                cosa.setPixelesPorSegundosActual(1);
+                cosa.setPixelesPorSegundosActual(0);
                 cosa.atacar(tiempoFrames, nini);
                 if (nini.isEstaMuerto()) {
                     EscenaJuego.getTerreno()[Cuadricula.convertirAFila(nini.getFila())][Cuadricula.convertirAColumna(nini.getColumna())].setNini(null);

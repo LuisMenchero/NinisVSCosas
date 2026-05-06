@@ -1,11 +1,14 @@
 package modelos.Cosas;
 
 import controladores.ControladorReloj;
+import javafx.animation.Animation;
+import javafx.animation.TranslateTransition;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.util.Duration;
 import modelos.Cuadricula;
 import modelos.Ninis.Nini;
 
@@ -35,6 +38,7 @@ public abstract class Cosa {
     protected boolean atacandoNini = false;
     protected int pixelesPorSegundosActual;
     protected Rectangle hitbox;
+    TranslateTransition movimientoDeHitbox;
 
 
     // --- CONSTRUCTOR ---
@@ -42,7 +46,7 @@ public abstract class Cosa {
 
     public Cosa(int salud, int velocidad, int daño, double cooldownAtaque, String rutaImagenCosa, Pane root) {
         this.columna = 1280;
-        int filaRandom = (int)(Math.random() * (4 - 0 + 1) + 0);
+        int filaRandom = (int) (Math.random() * (4 - 0 + 1) + 0);
         this.fila = Cuadricula.buscarMitadCeldaEjeY(filaRandom);
         this.salud = salud;
         this.saludMaxima = salud;
@@ -68,19 +72,25 @@ public abstract class Cosa {
         // nocilla que merendilla AY MI LOPI
         hitbox = new Rectangle(
                 columna,
-                fila+20,
-                40,60 );
-     hitbox.setFill(Color.RED);
-     hitbox.setOpacity(0.5);
-     hitbox.setVisible(true);
+                fila + 20,
+                40, 60);
+        hitbox.setFill(Color.RED);
+        hitbox.setOpacity(0.5);
+        hitbox.setVisible(true);
 
+        movimientoDeHitbox = new TranslateTransition(Duration.millis(100), hitbox);
+        movimientoDeHitbox.setByX(-1);
+        movimientoDeHitbox.setCycleCount(Animation.INDEFINITE);
+        movimientoDeHitbox.setAutoReverse(true);
         root.getChildren().addAll(imagenCosa, hitbox);
     }
 
 
     // --- METODOS ---
     public abstract void caminar(double tiempoFrames);
+
     public abstract void atacar(double tiempoFrames, Nini niniAtacando);
+
     public abstract void actualizar(double tiempoFrames);
 
     public void recibirDaño(int daño) {
@@ -95,7 +105,6 @@ public abstract class Cosa {
         root.getChildren().remove(hitbox);
         ControladorReloj.getCosas().remove(this);
     }
-
 
 
     // --- GETTERS Y SETTERS ---
@@ -123,7 +132,9 @@ public abstract class Cosa {
         this.pixelesPorSegundosActual = pixelesPorSegundosActual;
     }
 
-    public void setImagenCosa(String rutaNuevaAnimacion) {this.imagenCosa.setImage(new Image(rutaNuevaAnimacion));}
+    public void setImagenCosa(String rutaNuevaAnimacion) {
+        this.imagenCosa.setImage(new Image(rutaNuevaAnimacion));
+    }
 
     public void setAtacandoNini(boolean atacandoNini) {
         this.atacandoNini = atacandoNini;
