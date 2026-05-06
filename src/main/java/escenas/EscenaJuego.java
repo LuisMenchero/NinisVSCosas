@@ -111,7 +111,7 @@ public class EscenaJuego {
         elsa.setVisible(false);
         ImageView eliseo = new ImageView("Imagenes/CosoPrueba.png");
         eliseo.setVisible(false);
-        ImageView raul = new ImageView("Animaciones/Ninis/Guevara_Idle.gif");
+        ImageView raul = new ImageView("Imagenes/Rayul.png");
         raul.setVisible(false);
         ImageView hueco2 = new ImageView("Imagenes/CosoPrueba.png");
         hueco2.setVisible(false);
@@ -224,7 +224,7 @@ public class EscenaJuego {
 //                        } else if (imagenAct == eliseo) {
 
                         } else if (imagenAct == raul) {
-                            imagenAct.setImage(new Image("Animaciones/Ninis/Guevara_Idle.gif"));
+                            imagenAct.setImage(new Image("Imagenes/Rayul.png"));
                         }
                     }
                     if (niniSeleccionado == luis) {
@@ -268,7 +268,7 @@ public class EscenaJuego {
 //                    } else if (niniSeleccionado == eliseo) {
 
                     } else if (niniSeleccionado == raul) {
-                            niniSeleccionado.setImage(new Image("Animaciones/Ninis/Guevara_Idle.gif"));
+                            niniSeleccionado.setImage(new Image("Imagenes/Rayul_Seleccionado.png"));
                             niniSeleccionadoTipo = TipoNini.RAUL;
                     }
                 });
@@ -382,7 +382,7 @@ public class EscenaJuego {
 //                        } else if (niniSeleccionadoTipo == TipoNini.ELISEO) {
 
             } else if (niniSeleccionadoTipo == TipoNini.RAUL) {
-                ximena.setImage(new Image("Animaciones/Ninis/Guevara_Idle.gif"));
+                raul.setImage(new Image("Imagenes/Rayul.png"));
                 niniNuevo = new Raul(Cuadricula.buscarMitadCeldaEjeX(columnaPinchada), Cuadricula.buscarMitadCeldaEjeY(filaPinchada), root);
             }
 

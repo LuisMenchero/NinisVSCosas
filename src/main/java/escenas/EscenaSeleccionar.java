@@ -388,17 +388,17 @@ public class EscenaSeleccionar {
             dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
         });
 
-        ImageView raul = new ImageView("Imagenes/CosoPrueba.png");
+        ImageView raul = new ImageView("Imagenes/Rayul.png");
         raul.setFitWidth(100);
         raul.setFitHeight(100);
         raul.setLayoutX(columna2);
         raul.setLayoutY(fila4);
         raul.setOnMouseClicked(evento -> {
             colocar(TipoNini.RAUL,raul);
-            //fotoDesc.setImage(new Image(""));
-            nombreNini.setText("-- --- --");
+            fotoDesc.setImage(new Image("Animaciones/Ninis/Raul_Idle.gif"));
+            nombreNini.setText("-- RAUL --");
             descNini.setText("");
-            costeNini.setText(" - COSTE BUTANITOS - \n - --- butanitos.");
+            costeNini.setText(" - COSTE BUTANITOS - \n - --- 300 butanitos.");
             vidaNini.setText(" - SALUD - \n - --- puntos de salud.");
             alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - ---.");
             radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
@@ -479,6 +479,7 @@ public class EscenaSeleccionar {
         nombresImagenes.put(TipoNini.JUD, jud);
         nombresImagenes.put(TipoNini.ELSA, elsa);
         nombresImagenes.put(TipoNini.ELISEO, eliseo);
+        nombresImagenes.put(TipoNini.RAUL,  raul);
 
         TipoNini[] inventarioCopia = geInv.getInventario();
         for (int i = 0; i < 8; i++){
