@@ -36,7 +36,6 @@ public class EscenaSeleccionar {
         });
 
 
-
         // posiciones de las imagenes en la seleccion de ninis izquierda
         int columna1 = 18;
         int columna2 = 123;
@@ -103,8 +102,6 @@ public class EscenaSeleccionar {
         dañoNini.setLayoutX(1110);
         dañoNini.setLayoutY(540);
         dañoNini.setFill(Color.WHITE);
-
-
 
 
         // fila 1
@@ -225,7 +222,7 @@ public class EscenaSeleccionar {
         lopez.setLayoutX(columna2);
         lopez.setLayoutY(fila2);
         lopez.setOnMouseClicked(evento -> {
-            colocar(TipoNini.LOPEZ,lopez);
+            colocar(TipoNini.LOPEZ, lopez);
             fotoDesc.setImage(new Image("Animaciones/Ninis/LopezEsperando.gif"));
             nombreNini.setText("-- LÓPEZ --");
 
@@ -237,7 +234,7 @@ public class EscenaSeleccionar {
         guille.setLayoutX(columna3);
         guille.setLayoutY(fila2);
         guille.setOnMouseClicked(evento -> {
-            colocar(TipoNini.GUILLE,guille);
+            colocar(TipoNini.GUILLE, guille);
             //fotoDesc.setImage(new Image(""));
             nombreNini.setText("-- GUILLE --");
             descNini.setText("");
@@ -249,14 +246,14 @@ public class EscenaSeleccionar {
             dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
         });
 
-        ImageView dani = new ImageView("Imagenes/CosoPrueba.png");
+        ImageView dani = new ImageView("Imagenes/Dani_no_seleccion.png");
         dani.setFitWidth(100);
         dani.setFitHeight(100);
         dani.setLayoutX(columna4);
         dani.setLayoutY(fila2);
         dani.setOnMouseClicked(evento -> {
-            colocar(TipoNini.DANI,dani);
-            //fotoDesc.setImage(new Image(""));
+            colocar(TipoNini.DANI, dani);
+            fotoDesc.setImage(new Image("Animaciones/Ninis/Dani_idle.gif"));
             nombreNini.setText("-- DANI --");
             descNini.setText("");
             costeNini.setText(" - COSTE BUTANITOS - \n - --- butanitos.");
@@ -273,7 +270,7 @@ public class EscenaSeleccionar {
         keke.setLayoutX(columna5);
         keke.setLayoutY(fila2);
         keke.setOnMouseClicked(evento -> {
-            colocar(TipoNini.KEKE,keke);
+            colocar(TipoNini.KEKE, keke);
             //fotoDesc.setImage(new Image(""));
             nombreNini.setText("-- KEKE --");
             descNini.setText("");
@@ -292,19 +289,19 @@ public class EscenaSeleccionar {
         guevara.setLayoutX(columna1);
         guevara.setLayoutY(fila3);
         guevara.setOnMouseClicked(evento -> {
-            colocar(TipoNini.GUEVARA,guevara);
+            colocar(TipoNini.GUEVARA, guevara);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Guevara_Idle.gif"));
             nombreNini.setText("-- GUEVARA --");
         });
 
-        ImageView lorena = new ImageView("Imagenes/CosoPrueba.png");
+        ImageView lorena = new ImageView("Imagenes/Lorena_no_seleccion.png");
         lorena.setFitWidth(100);
         lorena.setFitHeight(100);
         lorena.setLayoutX(columna2);
         lorena.setLayoutY(fila3);
         lorena.setOnMouseClicked(evento -> {
-            colocar(TipoNini.LORENA,lorena);
-            // fotoDesc.setImage(new Image(""));
+            colocar(TipoNini.LORENA, lorena);
+            fotoDesc.setImage(new Image("Animaciones/Ninis/Lorena_Idle.gif"));
             nombreNini.setText("-- LORENA --");
             descNini.setText("");
             costeNini.setText(" - COSTE BUTANITOS - \n - --- butanitos.");
@@ -321,7 +318,7 @@ public class EscenaSeleccionar {
         maria.setLayoutX(columna3);
         maria.setLayoutY(fila3);
         maria.setOnMouseClicked(evento -> {
-            colocar(TipoNini.MARIA,maria);
+            colocar(TipoNini.MARIA, maria);
             //fotoDesc.setImage(new Image(""));
             nombreNini.setText("-- MARIA --");
             descNini.setText("");
@@ -339,8 +336,8 @@ public class EscenaSeleccionar {
         jud.setLayoutX(columna4);
         jud.setLayoutY(fila3);
         jud.setOnMouseClicked(evento -> {
-            colocar(TipoNini.JUD,jud);
-            //fotoDesc.setImage(new Image(""));
+            colocar(TipoNini.JUD, jud);
+            fotoDesc.setImage(new Image("Animaciones/Ninis/Jud_Idle.gif"));
             nombreNini.setText("-- JUD --");
             descNini.setText("");
             costeNini.setText(" - COSTE BUTANITOS - \n - --- butanitos.");
@@ -357,7 +354,7 @@ public class EscenaSeleccionar {
         elsa.setLayoutX(columna5);
         elsa.setLayoutY(fila3);
         elsa.setOnMouseClicked(evento -> {
-            colocar(TipoNini.ELSA,elsa);
+            colocar(TipoNini.ELSA, elsa);
             //fotoDesc.setImage(new Image(""));
             nombreNini.setText("-- ELSA --");
             descNini.setText("");
@@ -370,14 +367,14 @@ public class EscenaSeleccionar {
         });
 
         // fila 4
-        ImageView eliseo = new ImageView("Imagenes/CosoPrueba.png");
+        ImageView eliseo = new ImageView("Imagenes/Eliseo_no_seleccion.png");
         eliseo.setFitWidth(100);
         eliseo.setFitHeight(100);
         eliseo.setLayoutX(columna1);
         eliseo.setLayoutY(fila4);
         eliseo.setOnMouseClicked(evento -> {
-            colocar(TipoNini.ELISEO,eliseo);
-            //fotoDesc.setImage(new Image(""));
+            colocar(TipoNini.ELISEO, eliseo);
+            fotoDesc.setImage(new Image("Animaciones/Ninis/Eliseo3bolas_Idle.gif"));
             nombreNini.setText("-- ELISEO --");
             descNini.setText("");
             costeNini.setText(" - COSTE BUTANITOS - \n - --- butanitos.");
@@ -394,7 +391,7 @@ public class EscenaSeleccionar {
         raul.setLayoutX(columna2);
         raul.setLayoutY(fila4);
         raul.setOnMouseClicked(evento -> {
-            colocar(TipoNini.RAUL,raul);
+            colocar(TipoNini.RAUL, raul);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Raul_Idle.gif"));
             nombreNini.setText("-- RAUL --");
             descNini.setText("");
@@ -412,7 +409,7 @@ public class EscenaSeleccionar {
         hueco2.setLayoutX(columna3);
         hueco2.setLayoutY(fila4);
         hueco2.setOnMouseClicked(evento -> {
-            colocar(TipoNini.HUECO2,hueco2);
+            colocar(TipoNini.HUECO2, hueco2);
             // fotoDesc.setImage(new Image(""));
             nombreNini.setText("-- --- --");
             descNini.setText("");
@@ -430,7 +427,7 @@ public class EscenaSeleccionar {
         hueco3.setLayoutX(columna4);
         hueco3.setLayoutY(fila4);
         hueco3.setOnMouseClicked(evento -> {
-            colocar(TipoNini.HUECO3,hueco3);
+            colocar(TipoNini.HUECO3, hueco3);
             //fotoDesc.setImage(new Image(""));
             nombreNini.setText("-- --- --");
             descNini.setText("");
@@ -448,7 +445,7 @@ public class EscenaSeleccionar {
         hueco4.setLayoutX(columna5);
         hueco4.setLayoutY(fila4);
         hueco4.setOnMouseClicked(evento -> {
-            colocar(TipoNini.HUECO4,hueco4);
+            colocar(TipoNini.HUECO4, hueco4);
             //fotoDesc.setImage(new Image(""));
             nombreNini.setText("-- --- --");
             descNini.setText("");
@@ -479,10 +476,10 @@ public class EscenaSeleccionar {
         nombresImagenes.put(TipoNini.JUD, jud);
         nombresImagenes.put(TipoNini.ELSA, elsa);
         nombresImagenes.put(TipoNini.ELISEO, eliseo);
-        nombresImagenes.put(TipoNini.RAUL,  raul);
+        nombresImagenes.put(TipoNini.RAUL, raul);
 
         TipoNini[] inventarioCopia = geInv.getInventario();
-        for (int i = 0; i < 8; i++){
+        for (int i = 0; i < 8; i++) {
             if (inventarioCopia[i] != null && nombresImagenes.containsKey(inventarioCopia[i])) {
                 ImageView niniSeleccionado = nombresImagenes.get(inventarioCopia[i]);
                 int posicion = geInv.getPosicionActual(inventarioCopia[i]);
@@ -530,28 +527,28 @@ public class EscenaSeleccionar {
                 } else if (posicion == 4) {
                     niniSeleccionado.setLayoutX(posicionXNini5);
                     niniSeleccionado.setLayoutY(posicionYNini5);
-                }  else if (posicion == 5) {
+                } else if (posicion == 5) {
                     niniSeleccionado.setLayoutX(posicionXNini6);
                     niniSeleccionado.setLayoutY(posicionYNini6);
-                }  else if (posicion == 6) {
+                } else if (posicion == 6) {
                     niniSeleccionado.setLayoutX(posicionXNini7);
                     niniSeleccionado.setLayoutY(posicionYNini7);
-                }  else if (posicion == 7) {
+                } else if (posicion == 7) {
                     niniSeleccionado.setLayoutX(posicionXNini8);
                     niniSeleccionado.setLayoutY(posicionYNini8);
                 }
             }
         }
 
-        Pane root = new Pane(fondo,titulo,btnSalir,nombreNini,descNini,costeNini,dañoNini,vidaNini,alcanceAtaque,radioAtaque,tipoProyectil,luis, fotoDesc,diego,callejo,adripan,isma,ximena, lopez,guille,dani,keke,guevara,lorena,maria,jud,elsa,eliseo,raul,hueco2,hueco3,hueco4);
+        Pane root = new Pane(fondo, titulo, btnSalir, nombreNini, descNini, costeNini, dañoNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, luis, fotoDesc, diego, callejo, adripan, isma, ximena, lopez, guille, dani, keke, guevara, lorena, maria, jud, elsa, eliseo, raul, hueco2, hueco3, hueco4);
         return new Scene(root, 1280, 720);
     }
 
-    public void colocar(TipoNini tipoNini, ImageView niniSeleccionado){
+    public void colocar(TipoNini tipoNini, ImageView niniSeleccionado) {
         GestorInventario geInv = GestorInventario.getInstancia();
         int posicion = geInv.añadirNiniInventario(tipoNini);
 
-        if (posicion == 100){
+        if (posicion == 100) {
             return;
         }
 
@@ -599,13 +596,13 @@ public class EscenaSeleccionar {
         } else if (posicion == 4) {
             niniSeleccionado.setLayoutX(posicionXNini5);
             niniSeleccionado.setLayoutY(posicionYNini5);
-        }  else if (posicion == 5) {
+        } else if (posicion == 5) {
             niniSeleccionado.setLayoutX(posicionXNini6);
             niniSeleccionado.setLayoutY(posicionYNini6);
-        }  else if (posicion == 6) {
+        } else if (posicion == 6) {
             niniSeleccionado.setLayoutX(posicionXNini7);
             niniSeleccionado.setLayoutY(posicionYNini7);
-        }  else if (posicion == 7) {
+        } else if (posicion == 7) {
             niniSeleccionado.setLayoutX(posicionXNini8);
             niniSeleccionado.setLayoutY(posicionYNini8);
         } else {
