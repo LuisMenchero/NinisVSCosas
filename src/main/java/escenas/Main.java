@@ -1,6 +1,7 @@
 package escenas;
 
 import javafx.application.Application;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import static javafx.application.Application.launch;
@@ -14,6 +15,8 @@ public class Main extends Application {
 
         EscenaMenu menu = new EscenaMenu();
         escenaPrincipal.setScene(menu.construir(escenaPrincipal));
+        Image logo = new Image("Imagenes/Ninis.png");
+        escenaPrincipal.getIcons().add(logo);
 
         escenaPrincipal.show();
     }
