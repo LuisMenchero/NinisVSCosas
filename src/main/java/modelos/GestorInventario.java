@@ -6,7 +6,8 @@ import modelos.Ninis.TipoNini;
 
 public class GestorInventario {
 
-    public static GestorInventario instancia;  ;
+    public static GestorInventario instancia;
+    ;
     private TipoNini[] inventario = new TipoNini[8];
 
 
@@ -39,11 +40,11 @@ public class GestorInventario {
     }
 
     public void eliminarNiniInventario(TipoNini tipoNini) {
-    for (int i = 0; i < 8; i++) {
-        if (inventario[i] == tipoNini) {
-            inventario[i] = null;
+        for (int i = 0; i < 8; i++) {
+            if (inventario[i] == tipoNini) {
+                inventario[i] = null;
+            }
         }
-    }
     }
 
 

@@ -103,6 +103,11 @@ public class EscenaSeleccionar {
         dañoNini.setLayoutY(540);
         dañoNini.setFill(Color.WHITE);
 
+        Button btnQuitarNini = new Button("Quitar Nini");
+        btnQuitarNini.setLayoutX(1000);
+        btnQuitarNini.setLayoutY(620);
+        btnQuitarNini.setVisible(false);
+
 
         // fila 1
         ImageView luis = new ImageView("Imagenes/Luis_Cuadricula.png");
@@ -122,6 +127,10 @@ public class EscenaSeleccionar {
             radioAtaque.setText("");
             tipoProyectil.setText("");
             dañoNini.setText("");
+            btnQuitarNini.setVisible(true);
+            btnQuitarNini.setOnMouseClicked(quitarNini -> {
+                quitarSeleccionado(TipoNini.LUIS, luis, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
+            });
         });
 
         ImageView diego = new ImageView("Imagenes/Diegosaas_1.png");
@@ -140,6 +149,10 @@ public class EscenaSeleccionar {
             radioAtaque.setText(" - RADIO ATAQUE - \n - 1 enemigo.");
             tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - Nota.");
             dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
+            btnQuitarNini.setVisible(true);
+            btnQuitarNini.setOnMouseClicked(quitarNini -> {
+                quitarSeleccionado(TipoNini.DIEGO, diego, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
+            });
         });
 
         ImageView callejo = new ImageView("Imagenes/Callejones.png");
@@ -158,6 +171,10 @@ public class EscenaSeleccionar {
             radioAtaque.setText("");
             tipoProyectil.setText("");
             dañoNini.setText("");
+            btnQuitarNini.setVisible(true);
+            btnQuitarNini.setOnMouseClicked(quitarNini -> {
+                quitarSeleccionado(TipoNini.CALLEJO, callejo, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
+            });
         });
 
         ImageView adripan = new ImageView("Imagenes/Adrinap.png");
@@ -176,6 +193,10 @@ public class EscenaSeleccionar {
             radioAtaque.setText(" - RADIO ATAQUE - \n - Casillas de alrededor.");
             tipoProyectil.setText(" - TIPO DE ATAQUE - \n - Explosión.");
             dañoNini.setText(" - DAÑO - \n - Daño de explosión: --- .");
+            btnQuitarNini.setVisible(true);
+            btnQuitarNini.setOnMouseClicked(quitarNini -> {
+                quitarSeleccionado(TipoNini.ADRIPAN, adripan, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
+            });
         });
 
         ImageView isma = new ImageView("Imagenes/Ismahil.png");
@@ -194,6 +215,10 @@ public class EscenaSeleccionar {
             radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
             tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
             dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
+            btnQuitarNini.setVisible(true);
+            btnQuitarNini.setOnMouseClicked(quitarNini -> {
+                quitarSeleccionado(TipoNini.ISMA, isma, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
+            });
         });
 
 
@@ -214,6 +239,10 @@ public class EscenaSeleccionar {
             radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
             tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
             dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
+            btnQuitarNini.setVisible(true);
+            btnQuitarNini.setOnMouseClicked(quitarNini -> {
+                quitarSeleccionado(TipoNini.XIMENA, ximena, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
+            });
         });
 
         ImageView lopez = new ImageView("Imagenes/Lucillos.png");
@@ -225,6 +254,10 @@ public class EscenaSeleccionar {
             colocar(TipoNini.LOPEZ, lopez);
             fotoDesc.setImage(new Image("Animaciones/Ninis/LopezEsperando.gif"));
             nombreNini.setText("-- LÓPEZ --");
+            btnQuitarNini.setVisible(true);
+            btnQuitarNini.setOnMouseClicked(quitarNini -> {
+                quitarSeleccionado(TipoNini.LOPEZ, lopez, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
+            });
 
         });
 
@@ -244,6 +277,10 @@ public class EscenaSeleccionar {
             radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
             tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
             dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
+            btnQuitarNini.setVisible(true);
+            btnQuitarNini.setOnMouseClicked(quitarNini -> {
+                quitarSeleccionado(TipoNini.GUILLE, guille, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
+            });
         });
 
         ImageView dani = new ImageView("Imagenes/Dani_no_seleccion.png");
@@ -262,6 +299,10 @@ public class EscenaSeleccionar {
             radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
             tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
             dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
+            btnQuitarNini.setVisible(true);
+            btnQuitarNini.setOnMouseClicked(quitarNini -> {
+                quitarSeleccionado(TipoNini.DANI, dani, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
+            });
         });
 
         ImageView keke = new ImageView("Imagenes/CosoPrueba.png");
@@ -280,6 +321,10 @@ public class EscenaSeleccionar {
             radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
             tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
             dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
+            btnQuitarNini.setVisible(true);
+            btnQuitarNini.setOnMouseClicked(quitarNini -> {
+                quitarSeleccionado(TipoNini.KEKE, keke, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
+            });
         });
 
         // fila 3
@@ -292,6 +337,10 @@ public class EscenaSeleccionar {
             colocar(TipoNini.GUEVARA, guevara);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Guevara_Idle.gif"));
             nombreNini.setText("-- GUEVARA --");
+            btnQuitarNini.setVisible(true);
+            btnQuitarNini.setOnMouseClicked(quitarNini -> {
+                quitarSeleccionado(TipoNini.GUEVARA, guevara, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
+            });
         });
 
         ImageView lorena = new ImageView("Imagenes/Lorena_no_seleccion.png");
@@ -310,6 +359,10 @@ public class EscenaSeleccionar {
             radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
             tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
             dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
+            btnQuitarNini.setVisible(true);
+            btnQuitarNini.setOnMouseClicked(quitarNini -> {
+                quitarSeleccionado(TipoNini.LORENA, lorena, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
+            });
         });
 
         ImageView maria = new ImageView("Imagenes/CosoPrueba.png");
@@ -328,6 +381,10 @@ public class EscenaSeleccionar {
             radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
             tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
             dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
+            btnQuitarNini.setVisible(true);
+            btnQuitarNini.setOnMouseClicked(quitarNini -> {
+                quitarSeleccionado(TipoNini.MARIA, maria, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
+            });
         });
 
         ImageView jud = new ImageView("Imagenes/CosoPrueba.png");
@@ -346,6 +403,10 @@ public class EscenaSeleccionar {
             radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
             tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
             dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
+            btnQuitarNini.setVisible(true);
+            btnQuitarNini.setOnMouseClicked(quitarNini -> {
+                quitarSeleccionado(TipoNini.JUD, jud, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
+            });
         });
 
         ImageView elsa = new ImageView("Imagenes/CosoPrueba.png");
@@ -364,6 +425,10 @@ public class EscenaSeleccionar {
             radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
             tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
             dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
+            btnQuitarNini.setVisible(true);
+            btnQuitarNini.setOnMouseClicked(quitarNini -> {
+                quitarSeleccionado(TipoNini.ELSA, elsa, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
+            });
         });
 
         // fila 4
@@ -383,6 +448,10 @@ public class EscenaSeleccionar {
             radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
             tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
             dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
+            btnQuitarNini.setVisible(true);
+            btnQuitarNini.setOnMouseClicked(quitarNini -> {
+                quitarSeleccionado(TipoNini.ELISEO, eliseo, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
+            });
         });
 
         ImageView raul = new ImageView("Imagenes/Rayul.png");
@@ -401,6 +470,10 @@ public class EscenaSeleccionar {
             radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
             tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
             dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
+            btnQuitarNini.setVisible(true);
+            btnQuitarNini.setOnMouseClicked(quitarNini -> {
+                quitarSeleccionado(TipoNini.RAUL, raul, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
+            });
         });
 
         ImageView hueco2 = new ImageView("Imagenes/CosoPrueba.png");
@@ -419,6 +492,10 @@ public class EscenaSeleccionar {
             radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
             tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
             dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
+            btnQuitarNini.setVisible(true);
+            btnQuitarNini.setOnMouseClicked(quitarNini -> {
+                quitarSeleccionado(TipoNini.HUECO2, hueco2, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
+            });
         });
 
         ImageView hueco3 = new ImageView("Imagenes/CosoPrueba.png");
@@ -437,6 +514,10 @@ public class EscenaSeleccionar {
             radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
             tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
             dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
+            btnQuitarNini.setVisible(true);
+            btnQuitarNini.setOnMouseClicked(quitarNini -> {
+                quitarSeleccionado(TipoNini.HUECO3, hueco3, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
+            });
         });
 
         ImageView hueco4 = new ImageView("Imagenes/CosoPrueba.png");
@@ -455,6 +536,10 @@ public class EscenaSeleccionar {
             radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
             tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
             dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
+            btnQuitarNini.setVisible(true);
+            btnQuitarNini.setOnMouseClicked(quitarNini -> {
+                quitarSeleccionado(TipoNini.HUECO4, hueco4, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
+            });
         });
 
         GestorInventario geInv = GestorInventario.getInstancia();
@@ -540,7 +625,7 @@ public class EscenaSeleccionar {
             }
         }
 
-        Pane root = new Pane(fondo, titulo, btnSalir, nombreNini, descNini, costeNini, dañoNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, luis, fotoDesc, diego, callejo, adripan, isma, ximena, lopez, guille, dani, keke, guevara, lorena, maria, jud, elsa, eliseo, raul, hueco2, hueco3, hueco4);
+        Pane root = new Pane(fondo, titulo, btnSalir, btnQuitarNini, nombreNini, descNini, costeNini, dañoNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, luis, fotoDesc, diego, callejo, adripan, isma, ximena, lopez, guille, dani, keke, guevara, lorena, maria, jud, elsa, eliseo, raul, hueco2, hueco3, hueco4);
         return new Scene(root, 1280, 720);
     }
 
@@ -608,6 +693,103 @@ public class EscenaSeleccionar {
         } else {
             System.out.println("Error: posicion incorrecto");
         }
+    }
+
+    public void quitarSeleccionado(TipoNini tipoNini, ImageView niniSeleccionado,
+                                   ImageView fotoDesc, Text nombreNini, Text descNini, Text costeNini, Text vidaNini,
+                                   Text alcanceAtaque, Text radioAtaque, Text tipoProyectil, Text dañoNini, Button btnQuitarNini) {
+        GestorInventario geInv = GestorInventario.getInstancia();
+
+        // posiciones por defecto de los ninis a la izquierda
+        int columna1 = 18;
+        int columna2 = 123;
+        int columna3 = 228;
+        int columna4 = 333;
+        int columna5 = 438;
+        int fila1 = 150;
+        int fila2 = 255;
+        int fila3 = 360;
+        int fila4 = 465;
+
+
+        // tamaño por defecto
+        niniSeleccionado.setFitWidth(100);
+        niniSeleccionado.setFitHeight(100);
+
+        // fila 1
+        if (tipoNini == TipoNini.LUIS) {
+            niniSeleccionado.setLayoutX(columna1);
+            niniSeleccionado.setLayoutY(fila1);
+        } else if (tipoNini == TipoNini.DIEGO) {
+            niniSeleccionado.setLayoutX(columna2);
+            niniSeleccionado.setLayoutY(fila1);
+        } else if (tipoNini == TipoNini.CALLEJO) {
+            niniSeleccionado.setLayoutX(columna3);
+            niniSeleccionado.setLayoutY(fila1);
+        } else if (tipoNini == TipoNini.ADRIPAN) {
+            niniSeleccionado.setLayoutX(columna4);
+            niniSeleccionado.setLayoutY(fila1);
+        } else if (tipoNini == TipoNini.ISMA) {
+            niniSeleccionado.setLayoutX(columna5);
+            niniSeleccionado.setLayoutY(fila1);
+        } else if (tipoNini == TipoNini.XIMENA) {
+            niniSeleccionado.setLayoutX(columna1);
+            niniSeleccionado.setLayoutY(fila2);
+        } else if (tipoNini == TipoNini.LOPEZ) {
+            niniSeleccionado.setLayoutX(columna2);
+            niniSeleccionado.setLayoutY(fila2);
+        } else if (tipoNini == TipoNini.GUILLE) {
+            niniSeleccionado.setLayoutX(columna3);
+            niniSeleccionado.setLayoutY(fila2);
+        } else if (tipoNini == TipoNini.DANI) {
+            niniSeleccionado.setLayoutX(columna4);
+            niniSeleccionado.setLayoutY(fila2);
+        } else if (tipoNini == TipoNini.KEKE) {
+            niniSeleccionado.setLayoutX(columna5);
+            niniSeleccionado.setLayoutY(fila2);
+        } else if (tipoNini == TipoNini.GUEVARA) {
+            niniSeleccionado.setLayoutX(columna1);
+            niniSeleccionado.setLayoutY(fila3);
+        } else if (tipoNini == TipoNini.LORENA) {
+            niniSeleccionado.setLayoutX(columna2);
+            niniSeleccionado.setLayoutY(fila3);
+        } else if (tipoNini == TipoNini.MARIA) {
+            niniSeleccionado.setLayoutX(columna3);
+            niniSeleccionado.setLayoutY(fila3);
+        } else if (tipoNini == TipoNini.JUD) {
+            niniSeleccionado.setLayoutX(columna4);
+            niniSeleccionado.setLayoutY(fila3);
+        } else if (tipoNini == TipoNini.ELSA) {
+            niniSeleccionado.setLayoutX(columna5);
+            niniSeleccionado.setLayoutY(fila3);
+        } else if (tipoNini == TipoNini.ELISEO) {
+            niniSeleccionado.setLayoutX(columna1);
+            niniSeleccionado.setLayoutY(fila4);
+        } else if (tipoNini == TipoNini.RAUL) {
+            niniSeleccionado.setLayoutX(columna2);
+            niniSeleccionado.setLayoutY(fila4);
+        } else if (tipoNini == TipoNini.HUECO2) {
+            niniSeleccionado.setLayoutX(columna3);
+            niniSeleccionado.setLayoutY(fila4);
+        } else if (tipoNini == TipoNini.HUECO3) {
+            niniSeleccionado.setLayoutX(columna4);
+            niniSeleccionado.setLayoutY(fila4);
+        } else if (tipoNini == TipoNini.HUECO4) {
+            niniSeleccionado.setLayoutX(columna5);
+            niniSeleccionado.setLayoutY(fila4);
+        }
+
+        fotoDesc.setImage(null);
+        nombreNini.setText("");
+        descNini.setText("");
+        costeNini.setText("");
+        vidaNini.setText("");
+        alcanceAtaque.setText("");
+        radioAtaque.setText("");
+        tipoProyectil.setText("");
+        dañoNini.setText("");
+        btnQuitarNini.setVisible(false);
+        geInv.eliminarNiniInventario(tipoNini);
     }
 
 }
