@@ -9,6 +9,10 @@ public class Celda {
 
     // --- MÉTODOS ---
 
+    public void limpiar (){
+        this.nini = null;
+        this.hayPlanta = false;
+    }
 
     // GETTERS Y SETTERS
     public void setNini(Nini nini) {

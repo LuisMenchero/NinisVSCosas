@@ -106,6 +106,14 @@ public abstract class Nini {
         ControladorReloj.getNinis().remove(this);
         estaMuerto = true;
 
+        //Esto de aqui para que el nini no exista más (que bien me expreso)
+        int filaTerreno = Cuadricula.convertirAFila(fila);
+        int columnaTerreno  = Cuadricula.convertirAColumna(columna);
+        Celda [][] terreno = EscenaJuego.getTerreno();
+        if (filaTerreno >=0 && filaTerreno < terreno.length && columnaTerreno >=0 && columnaTerreno < terreno[0].length) {
+            terreno [filaTerreno][columnaTerreno].limpiar();
+        }
+
     }
 
 

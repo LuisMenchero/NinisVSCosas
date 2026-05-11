@@ -32,8 +32,12 @@ public class ControladorReloj {
 
 
     public void iniciarReloj() {
+        if (temporizador != null) {
+            temporizador.stop();
+        }
 
         temporizador = new AnimationTimer() {
+
             private long ultimoTiempo = -1;
             //hemos usado long para que funcione porque si no se queda el juego capum
 
@@ -125,6 +129,13 @@ public class ControladorReloj {
         proyectiles.clear();
     }
 
+    public void terminar(){
+        if (temporizador != null) {
+            temporizador.stop();
+        }
+        pausado = false;
+    }
+
     private void comprobarColisiones() {
 
     for (Proyectil proyectil : proyectiles) {
@@ -145,8 +156,8 @@ public class ControladorReloj {
                 cosa.setPixelesPorSegundosActual(0);
                 cosa.atacar(tiempoFrames, nini);
                 if (nini.isEstaMuerto()) {
-                    EscenaJuego.getTerreno()[Cuadricula.convertirAFila(nini.getFila())][Cuadricula.convertirAColumna(nini.getColumna())].setNini(null);
-                    EscenaJuego.getTerreno()[Cuadricula.convertirAFila(nini.getFila())][Cuadricula.convertirAColumna(nini.getColumna())].setHayPlanta(false);
+//                    EscenaJuego.getTerreno()[Cuadricula.convertirAFila(nini.getFila())][Cuadricula.convertirAColumna(nini.getColumna())].setNini(null);
+//                    EscenaJuego.getTerreno()[Cuadricula.convertirAFila(nini.getFila())][Cuadricula.convertirAColumna(nini.getColumna())].setHayPlanta(false);
                     cosa.setPixelesPorSegundosActual(cosa.getPixelesPorSegundo());
                 }
             }
@@ -156,7 +167,7 @@ public class ControladorReloj {
 
     for (Cosa cosa : cosas) {
         if (cosa.getHitbox().getBoundsInParent().intersects(EscenaJuego.getHitboxCasa().getBoundsInParent())) {
-            EscenaJuego.getReloj().pausa();
+//            EscenaJuego.getReloj().pausa();
             ControladorJuego.terminarPartida();
         }
     }

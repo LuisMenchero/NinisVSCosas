@@ -465,6 +465,7 @@ public class EscenaJuego {
         btnSalir.setLayoutX(560);
         btnSalir.setLayoutY(400);
         btnSalir.setOnAction(evento -> {
+            reloj.terminar();
             ControladorReloj.reiniciar();
             GestorButanitos.reiniciar();
             EscenaMenu escenaMenu = new EscenaMenu();
