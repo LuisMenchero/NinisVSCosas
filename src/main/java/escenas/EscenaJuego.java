@@ -19,6 +19,7 @@ import modelos.Cosas.ConoCv;
 import modelos.Cosas.Cv;
 import modelos.Ninis.*;
 
+import javax.swing.*;
 import java.util.HashMap;
 
 public class EscenaJuego {
@@ -69,13 +70,21 @@ public class EscenaJuego {
 
         int numeroButanitos = geB.getContadorButanitos();
         Text cantidadButanitos = new Text();
-        cantidadButanitos.setLayoutX(1100);
-        cantidadButanitos.setLayoutY(20);
+        cantidadButanitos.setLayoutX(1120);
+        cantidadButanitos.setLayoutY(80);
         cantidadButanitos.setFill(Color.WHITE);
+        cantidadButanitos.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
 
 
         cantidadButanitos.setText(String.valueOf(numeroButanitos));
         geB.setTextoContador(cantidadButanitos);
+
+        //Imagen de cantidad de butanitos
+        ImageView cuadroButanos = new ImageView("Imagenes/Cuadro_Butanitos.png");
+        cuadroButanos.setLayoutX(1100);
+        cuadroButanos.setLayoutY(20);
+        cuadroButanos.setFitWidth(75);
+        cuadroButanos.setFitHeight(75);
 
 
         // para la barra de las plantas seleccionadas
@@ -305,7 +314,7 @@ public class EscenaJuego {
             }
         }
 
-        Pane root = new Pane(fondo, btnPausa, menuPlantas, cantidadButanitos, luis, diego, callejo, adripan, isma, ximena, lopez, guille, dani, keke, guevara, lorena, maria, jud, elsa, eliseo, raul, hueco2, hueco3, hueco4);
+        Pane root = new Pane(fondo, btnPausa, menuPlantas,cuadroButanos, cantidadButanitos, luis, diego, callejo, adripan, isma, ximena, lopez, guille, dani, keke, guevara, lorena, maria, jud, elsa, eliseo, raul, hueco2, hueco3, hueco4);
 //        niniTransparente = new ImageView();
 //        niniTransparente.setLayoutX(Cuadricula.anchoCelda);
 //        niniTransparente.setLayoutY(Cuadricula.altoCelda);

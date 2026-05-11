@@ -30,7 +30,6 @@ public class ControladorReloj {
     private static ArrayList<Nini> ninis = new ArrayList<>();
     private static ArrayList<Proyectil> proyectiles = new ArrayList<>();
 
-
     public void iniciarReloj() {
         if (temporizador != null) {
             temporizador.stop();
