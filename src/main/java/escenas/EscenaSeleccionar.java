@@ -129,10 +129,10 @@ public class EscenaSeleccionar {
             colocar(TipoNini.LUIS, luis);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Lis.gif"));
             nombreNini.setText("-- LUIS --");
-            descNini.setText(" Luis bla bla bla, ble ble ble,\n blo blo blo");
+            descNini.setText(" Luis es un hacker que consigue saltarse\n cualquier sistema de seguridad. Con el \n tiempo, consigue robar Butanitos y te los\n da para que los uses.");
             costeNini.setText(" - COSTE BUTANITOS - \n - 50 butanitos.");
             vidaNini.setText(" - SALUD - \n - 75 puntos de salud.");
-            alcanceAtaque.setText(" - TIEMPO DE GENERACION DE BUTANITOS - \n - 10 segundos.");
+            alcanceAtaque.setText(" - TIEMPO DE GENERACION DE BUTANITOS - \n - 25 segundos.");
             radioAtaque.setText("");
             tipoProyectil.setText("");
             dañoNini.setText("");
@@ -151,7 +151,7 @@ public class EscenaSeleccionar {
             colocar(TipoNini.DIEGO, diego);
             fotoDesc.setImage(new Image("Animaciones/Ninis/DiegoEsperando.gif"));
             nombreNini.setText("-- DIEGO --");
-            descNini.setText(" Diego es un bajista profesional. Con sus \n solos de bajo, conmueve a sus enemigos \n y eso les hace algo de daño.");
+            descNini.setText(" Diego es un bajista profesional. Con sus \n solos de bajo. \n Sus notas salen disparadas e impactan \n con el primer enemigo que se le cruce.");
             costeNini.setText(" - COSTE BUTANITOS - \n - 100 butanitos.");
             vidaNini.setText(" - SALUD - \n - 100 puntos de salud.");
             alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - Lejano.");
