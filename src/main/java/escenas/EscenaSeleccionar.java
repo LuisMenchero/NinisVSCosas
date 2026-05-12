@@ -24,15 +24,20 @@ public class EscenaSeleccionar {
         titulo.setStyle("-fx-font-size: 40px;");
         titulo.setLayoutX(55);
         titulo.setLayoutY(100);
-        titulo.setFill(Color.WHITE);
+        titulo.setFill(Color.web("#7289da"));
 
         Button btnSalir = new Button("Salir");
-        btnSalir.setLayoutX(255);
-        btnSalir.setLayoutY(620);
+        btnSalir.setLayoutX(225);
+        btnSalir.setLayoutY(580);
         btnSalir.setOnAction(evento -> {
             EscenaMenu escenaMenu = new EscenaMenu();
             stage.setScene(escenaMenu.construir(stage));
         });
+
+        btnSalir.setStyle("-fx-background-color: none; -fx-text-fill: #7289da; -fx-font-size: 35px;");
+        btnSalir.setOnMouseEntered(evento -> {btnSalir.setStyle("-fx-background-color: none; -fx-text-fill: white; -fx-font-size: 35px;");});
+        btnSalir.setOnMouseExited(evento -> {btnSalir.setStyle("-fx-background-color: none; -fx-text-fill: #7289da; -fx-font-size: 35px;");});
+
 
 
         // posiciones de las imagenes en la seleccion de ninis izquierda
@@ -106,6 +111,11 @@ public class EscenaSeleccionar {
         btnQuitarNini.setLayoutX(1000);
         btnQuitarNini.setLayoutY(620);
         btnQuitarNini.setVisible(false);
+        btnQuitarNini.setStyle("-fx-background-color: none; -fx-text-fill: #dc3838; -fx-font-size: 35px;");
+        btnQuitarNini.setOnMouseEntered(evento -> {btnQuitarNini.setStyle("-fx-background-color: none; -fx-text-fill: white; -fx-font-size: 35px;");});
+        btnQuitarNini.setOnMouseExited(evento -> {btnQuitarNini.setStyle("-fx-background-color: none; -fx-text-fill: #dc3838; -fx-font-size: 35px;");});
+
+
 
 
         // fila 1

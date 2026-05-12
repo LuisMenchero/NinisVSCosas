@@ -30,6 +30,7 @@ public class EscenaJuego {
     private TipoNini niniSeleccionadoTipo;
     private ImageView niniTransparente;
     private static Rectangle hitboxCasa;
+    private boolean modoColgarActivo = false;
 
 
     public Scene construir(Stage stage) {
@@ -70,7 +71,7 @@ public class EscenaJuego {
         int numeroButanitos = geB.getContadorButanitos();
         Text cantidadButanitos = new Text();
         cantidadButanitos.setLayoutX(1120);
-        cantidadButanitos.setLayoutY(80);
+        cantidadButanitos.setLayoutY(87);
         cantidadButanitos.setFill(Color.WHITE);
         cantidadButanitos.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
 
@@ -80,7 +81,7 @@ public class EscenaJuego {
 
         //Imagen de cantidad de butanitos
         ImageView cuadroButanos = new ImageView("Imagenes/Cuadro_Butanitos.png");
-        cuadroButanos.setLayoutX(1100);
+        cuadroButanos.setLayoutX(1110);
         cuadroButanos.setLayoutY(20);
         cuadroButanos.setFitWidth(75);
         cuadroButanos.setFitHeight(75);
@@ -337,7 +338,73 @@ public class EscenaJuego {
             }
         }
 
-        Pane root = new Pane(fondo, btnPausa, menuPlantas, cuadroButanos, cantidadButanitos, luis, diego, callejo, adripan, isma, ximena, lopez, guille, dani, keke, guevara, lorena, maria, jud, elsa, eliseo, raul, irene, alvaro, hamil);
+
+        //Para colgar
+
+        //Agarrini la palini
+        ImageView colgar = new ImageView("Animaciones/Items/BotonColgar.png");
+        colgar.setLayoutX(1010);
+        colgar.setLayoutY(20);
+        colgar.setFitWidth(75);
+        colgar.setFitHeight(75);
+
+        colgar.setOnMouseClicked(evento -> {
+            modoColgarActivo = true;
+            niniSeleccionadoTipo = null;
+            colgar.setImage(new Image("Animaciones/Items/BotonColgarPulsado.png"));
+
+            for (ImageView imagenAct : nombresImagenes.values()) {
+                if (imagenAct == luis) {
+                    imagenAct.setImage(new Image("Imagenes/Luis_Cuadricula.png"));
+                } else if (imagenAct == diego) {
+                    imagenAct.setImage(new Image("Imagenes/Diegosaas_1.png"));
+                } else if (imagenAct == callejo) {
+                    imagenAct.setImage(new Image("Imagenes/Callejones.png"));
+                } else if (imagenAct == adripan) {
+                    imagenAct.setImage(new Image("Imagenes/Adrinap.png"));
+                } else if (imagenAct == guevara) {
+                    imagenAct.setImage(new Image("Imagenes/Guevarote.png"));
+                } else if (imagenAct == lopez) {
+                    imagenAct.setImage(new Image("Imagenes/Lucillos.png"));
+                } else if (imagenAct == isma) {
+                    imagenAct.setImage(new Image("Imagenes/Ismahil.png"));
+                } else if (imagenAct == ximena) {
+                    imagenAct.setImage(new Image("Imagenes/Guimena.png"));
+                } else if (imagenAct == guille) {
+                    imagenAct.setImage(new Image("Imagenes/Guille_No_Seleccion.png"));
+                } else if (imagenAct == dani) {
+                    imagenAct.setImage(new Image("Imagenes/Dani_no_seleccion.png"));
+                } else if (imagenAct == keke) {
+                    imagenAct.setImage(new Image("Imagenes/Keke_No_Seleccion.png"));
+                } else if (imagenAct == lorena) {
+                    imagenAct.setImage(new Image("Imagenes/Lorena_no_seleccion.png"));
+                } else if (imagenAct == maria) {
+                    imagenAct.setImage(new Image("Imagenes/Maria_No_Seleccion.png"));
+                } else if (imagenAct == jud) {
+                    imagenAct.setImage(new Image("Imagenes/Jut_No_Seleccion.png"));
+                } else if (imagenAct == elsa) {
+                    imagenAct.setImage(new Image("Imagenes/Elsa_No_Seleccion.png"));
+                } else if (imagenAct == eliseo) {
+                    imagenAct.setImage(new Image("Imagenes/Eliseo_no_seleccion.png"));
+                } else if (imagenAct == raul) {
+                    imagenAct.setImage(new Image("Imagenes/Rayul.png"));
+                } else if (imagenAct == irene) {
+                    imagenAct.setImage(new Image("Imagenes/Irene_No_Seleccion.png"));
+                } else if (imagenAct == alvaro) {
+                    imagenAct.setImage(new Image("Imagenes/Alvaro_No_Seleccion.png"));
+                } else if (imagenAct == hamil) {
+                    imagenAct.setImage(new Image("Imagenes/Hamil_No_Seleccion.png"));
+                }
+            }
+
+                });
+
+
+
+
+
+
+        Pane root = new Pane(fondo, btnPausa, menuPlantas, cuadroButanos, cantidadButanitos, colgar, luis, diego, callejo, adripan, isma, ximena, lopez, guille, dani, keke, guevara, lorena, maria, jud, elsa, eliseo, raul, irene, alvaro, hamil);
 //        niniTransparente = new ImageView();
 //        niniTransparente.setLayoutX(Cuadricula.anchoCelda);
 //        niniTransparente.setLayoutY(Cuadricula.altoCelda);
@@ -350,6 +417,24 @@ public class EscenaJuego {
 //        });
 
         root.setOnMouseClicked((evento) -> {
+
+            //Para colgar
+            if (modoColgarActivo == true){
+                int filaClick = Cuadricula.convertirAFila(evento.getY());
+                int columnaClick = Cuadricula.convertirAColumna(evento.getX());
+
+                if (terreno[filaClick][columnaClick].getHayPlanta()){
+                    terreno[filaClick][columnaClick].getNini().morir();
+                    terreno[filaClick][columnaClick].limpiar();
+                    colgar.setImage(new Image("Imagenes/BotonColgar.png"));
+                }
+//
+                modoColgarActivo = false;
+                return;
+
+            }
+
+            //Para plantar
             // Si pinchas un sitio en el panel que devuelve null, no hace nada ni continua
             if (niniSeleccionadoTipo == null) {
                 System.out.println("nulo");
@@ -498,16 +583,19 @@ public class EscenaJuego {
         textoPausa.setLayoutY(300);
 
         Button btnReanudar = new Button("Reanudar");
-        btnReanudar.setLayoutX(560);
+        btnReanudar.setLayoutX(540);
         btnReanudar.setLayoutY(350);
         btnReanudar.setOnAction(evento -> {
             reloj.pausa();
             mostrarPanelPausa();
             ControladorMusica.despausarMusicaJuego();
         });
+        btnReanudar.setStyle("-fx-background-color: none; -fx-text-fill: #ffffff; -fx-font-size: 35px;");
+        btnReanudar.setOnMouseEntered(evento -> {btnReanudar.setStyle("-fx-background-color: none; -fx-text-fill: #979797; -fx-font-size: 35px;");});
+        btnReanudar.setOnMouseExited(evento -> {btnReanudar.setStyle("-fx-background-color: none; -fx-text-fill: #ffffff; -fx-font-size: 35px;");});
 
         Button btnSalir = new Button("Salir");
-        btnSalir.setLayoutX(560);
+        btnSalir.setLayoutX(540);
         btnSalir.setLayoutY(400);
         btnSalir.setOnAction(evento -> {
             reloj.terminar();
@@ -517,6 +605,10 @@ public class EscenaJuego {
             stage.setScene(escenaMenu.construir(stage));
             ControladorMusica.pararMusicaJuego();
         });
+        btnSalir.setStyle("-fx-background-color: none; -fx-text-fill: #ffffff; -fx-font-size: 35px;");
+        btnSalir.setOnMouseEntered(evento -> {btnSalir.setStyle("-fx-background-color: none; -fx-text-fill: #979797; -fx-font-size: 35px;");});
+        btnSalir.setOnMouseExited(evento -> {btnSalir.setStyle("-fx-background-color: none; -fx-text-fill: #ffffff; -fx-font-size: 35px;");});
+
 
 
         panelPausa.setVisible(false);

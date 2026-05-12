@@ -22,20 +22,27 @@ public class EscenaMenu {
         fondo.setFitHeight(720);
 
         Button btnJugar = new Button("Jugar");
-        btnJugar.setLayoutX(640);
-        btnJugar.setLayoutY(300);
+        btnJugar.setLayoutX(575);
+        btnJugar.setLayoutY(250);
         btnJugar.setOnAction(evento -> {
             EscenaJuego escenaJuego = new EscenaJuego();
             stage.setScene(escenaJuego.construir(stage));
         });
+        btnJugar.setStyle("-fx-background-color: none; -fx-text-fill: black; -fx-font-size: 35px;");
+        btnJugar.setOnMouseEntered(evento -> {btnJugar.setStyle("-fx-background-color: none; -fx-text-fill: white; -fx-font-size: 35px;");});
+        btnJugar.setOnMouseExited(evento -> {btnJugar.setStyle("-fx-background-color: none; -fx-text-fill: black; -fx-font-size: 35px;");});
 
         Button btnSeleccionar = new Button("Seleccionar ninis");
-        btnSeleccionar.setLayoutX(615);
+        btnSeleccionar.setLayoutX(500);
         btnSeleccionar.setLayoutY(370);
         btnSeleccionar.setOnAction(evento -> {
             EscenaSeleccionar escenaSeleccionar = new EscenaSeleccionar();
             stage.setScene(escenaSeleccionar.construir(stage));
         });
+        btnSeleccionar.setStyle("-fx-background-color: none; -fx-text-fill: black; -fx-font-size: 35px;");
+        btnSeleccionar.setOnMouseEntered(evento -> {btnSeleccionar.setStyle("-fx-background-color: none; -fx-text-fill: #ffffff; -fx-font-size: 35px;");});
+        btnSeleccionar.setOnMouseExited(evento -> {btnSeleccionar.setStyle("-fx-background-color: none; -fx-text-fill: black; -fx-font-size: 35px;");});
+
 
 
         Pane root = new Pane(fondo, btnJugar, btnSeleccionar);
