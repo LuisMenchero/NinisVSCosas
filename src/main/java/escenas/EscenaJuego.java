@@ -19,7 +19,6 @@ import modelos.Cosas.ConoCv;
 import modelos.Cosas.Cv;
 import modelos.Ninis.*;
 
-import javax.swing.*;
 import java.util.HashMap;
 
 public class EscenaJuego {
@@ -102,32 +101,32 @@ public class EscenaJuego {
         ximena.setVisible(false);
         ImageView lopez = new ImageView("Imagenes/Lucillos.png");
         lopez.setVisible(false);
-        ImageView guille = new ImageView("Imagenes/CosoPrueba.png");
+        ImageView guille = new ImageView("Imagenes/Guille_No_Seleccion.png");
         guille.setVisible(false);
         ImageView dani = new ImageView("Imagenes/Dani_no_seleccion.png");
         dani.setVisible(false);
-        ImageView keke = new ImageView("Imagenes/CosoPrueba.png");
+        ImageView keke = new ImageView("Imagenes/Keke_No_Seleccion.png");
         keke.setVisible(false);
         ImageView guevara = new ImageView("Imagenes/Guevarote.png");
         guevara.setVisible(false);
         ImageView lorena = new ImageView("Imagenes/Lorena_no_seleccion.png");
         lorena.setVisible(false);
-        ImageView maria = new ImageView("Imagenes/CosoPrueba.png");
+        ImageView maria = new ImageView("Imagenes/Maria_No_Seleccion.png");
         maria.setVisible(false);
-        ImageView jud = new ImageView("Imagenes/CosoPrueba.png");
+        ImageView jud = new ImageView("Imagenes/Jut_No_Seleccion.png");
         jud.setVisible(false);
-        ImageView elsa = new ImageView("Imagenes/CosoPrueba.png");
+        ImageView elsa = new ImageView("Imagenes/Elsa_No_Seleccion.png");
         elsa.setVisible(false);
         ImageView eliseo = new ImageView("Imagenes/Eliseo_no_seleccion.png");
         eliseo.setVisible(false);
         ImageView raul = new ImageView("Imagenes/Rayul.png");
         raul.setVisible(false);
-        ImageView hueco2 = new ImageView("Imagenes/CosoPrueba.png");
-        hueco2.setVisible(false);
-        ImageView hueco3 = new ImageView("Imagenes/CosoPrueba.png");
-        hueco3.setVisible(false);
-        ImageView hueco4 = new ImageView("Imagenes/CosoPrueba.png");
-        hueco4.setVisible(false);
+        ImageView irene = new ImageView("Imagenes/Irene_No_Seleccion.png");
+        irene.setVisible(false);
+        ImageView alvaro = new ImageView("Imagenes/Alvaro_No_Seleccion.png");
+        alvaro.setVisible(false);
+        ImageView hamil = new ImageView("Imagenes/Hamil_No_Seleccion.png");
+        hamil.setVisible(false);
 
         GestorInventario geInv = GestorInventario.getInstancia();
 
@@ -149,6 +148,9 @@ public class EscenaJuego {
         nombresImagenes.put(TipoNini.ELSA, elsa);
         nombresImagenes.put(TipoNini.ELISEO, eliseo);
         nombresImagenes.put(TipoNini.RAUL, raul);
+        nombresImagenes.put(TipoNini.IRENE, irene);
+        nombresImagenes.put(TipoNini.ALVARO, alvaro);
+        nombresImagenes.put(TipoNini.HAMIL, hamil);
 
         HashMap<TipoNini, Integer> niniYCostes = new HashMap<>();
         niniYCostes.put(TipoNini.LUIS, 50);
@@ -168,7 +170,9 @@ public class EscenaJuego {
         niniYCostes.put(TipoNini.ELSA, 0);
         niniYCostes.put(TipoNini.ELISEO, 0);
         niniYCostes.put(TipoNini.RAUL, 0);
-
+        niniYCostes.put(TipoNini.IRENE, 0);
+        niniYCostes.put(TipoNini.ALVARO, 0);
+        niniYCostes.put(TipoNini.HAMIL, 0);
 
         TipoNini[] inventarioCopia = geInv.getInventario();
         for (int i = 0; i < 8; i++) {
@@ -216,24 +220,30 @@ public class EscenaJuego {
                             imagenAct.setImage(new Image("Imagenes/Ismahil.png"));
                         } else if (imagenAct == ximena) {
                             imagenAct.setImage(new Image("Imagenes/Guimena.png"));
-//                        } else if (imagenAct == guille) {
-//
+                        } else if (imagenAct == guille) {
+                            imagenAct.setImage(new Image("Imagenes/Guille_No_Seleccion.png"));
                         } else if (imagenAct == dani) {
                             imagenAct.setImage(new Image("Imagenes/Dani_no_seleccion.png"));
-//                        } else if (imagenAct == keke) {
-//
+                        } else if (imagenAct == keke) {
+                            imagenAct.setImage(new Image("Imagenes/Keke_No_Seleccion.png"));
                         } else if (imagenAct == lorena) {
                             imagenAct.setImage(new Image("Imagenes/Lorena_no_seleccion.png"));
-//                        } else if (imagenAct == maria) {
-//
-//                        } else if (imagenAct == jud) {
-//
-//                        } else if (imagenAct == elsa) {
-//
+                        } else if (imagenAct == maria) {
+                            imagenAct.setImage(new Image("Imagenes/Maria_No_Seleccion.png"));
+                        } else if (imagenAct == jud) {
+                            imagenAct.setImage(new Image("Imagenes/Jut_No_Seleccion.png"));
+                        } else if (imagenAct == elsa) {
+                            imagenAct.setImage(new Image("Imagenes/Elsa_No_Seleccion.png"));
                         } else if (imagenAct == eliseo) {
                             imagenAct.setImage(new Image("Imagenes/Eliseo_no_seleccion.png"));
                         } else if (imagenAct == raul) {
                             imagenAct.setImage(new Image("Imagenes/Rayul.png"));
+                        } else if (imagenAct == irene) {
+                            imagenAct.setImage(new Image("Imagenes/Irene_No_Seleccion.png"));
+                        } else if (imagenAct == alvaro) {
+                            imagenAct.setImage(new Image("Imagenes/Alvaro_No_Seleccion.png"));
+                        } else if (imagenAct == hamil) {
+                            imagenAct.setImage(new Image("Imagenes/Hamil_No_Seleccion.png"));
                         }
                     }
                     if (niniSeleccionado == luis) {
@@ -260,29 +270,42 @@ public class EscenaJuego {
                     } else if (niniSeleccionado == ximena) {
                         niniSeleccionado.setImage(new Image("Imagenes/Guimena_Seleccionado.png"));
                         niniSeleccionadoTipo = TipoNini.XIMENA;
-//                    } else if (niniSeleccionado == guille) {
-//
+                    } else if (niniSeleccionado == guille) {
+                        niniSeleccionado.setImage(new Image("Imagenes/Guille_Seleccion.png"));
+                        niniSeleccionadoTipo = TipoNini.GUILLE;
                     } else if (niniSeleccionado == dani) {
                         niniSeleccionado.setImage(new Image("Imagenes/Dani_seleccion.png"));
                         niniSeleccionadoTipo = TipoNini.DANI;
-//                    } else if (niniSeleccionado == keke) {
-//
+                    } else if (niniSeleccionado == keke) {
+                        niniSeleccionado.setImage(new Image("Imagenes/Keke_Seleccion.png"));
+                        niniSeleccionadoTipo = TipoNini.KEKE;
                     } else if (niniSeleccionado == lorena) {
                         niniSeleccionado.setImage(new Image("Imagenes/Lorena_seleccion.png"));
                         niniSeleccionadoTipo = TipoNini.LORENA;
-//                    } else if (niniSeleccionado == maria) {
-//
+                    } else if (niniSeleccionado == maria) {
+                        niniSeleccionado.setImage(new Image("Imagenes/Maria_Seleccion.png"));
+                        niniSeleccionadoTipo = TipoNini.MARIA;
                     } else if (niniSeleccionado == jud) {
-                        niniSeleccionado.setImage(new Image("Imagenes/Lorena_seleccion.png"));
+                        niniSeleccionado.setImage(new Image("Imagenes/Jut_Seleccion.png"));
                         niniSeleccionadoTipo = TipoNini.JUD;
-//                    } else if (niniSeleccionado == elsa) {
-//
+                    } else if (niniSeleccionado == elsa) {
+                        niniSeleccionado.setImage(new Image("Imagenes/Elsa_Seleccion.png"));
+                        niniSeleccionadoTipo = TipoNini.ELSA;
                     } else if (niniSeleccionado == eliseo) {
                         niniSeleccionado.setImage(new Image("Imagenes/Eliseo_seleccion.png"));
                         niniSeleccionadoTipo = TipoNini.ELISEO;
                     } else if (niniSeleccionado == raul) {
                         niniSeleccionado.setImage(new Image("Imagenes/Rayul_Seleccionado.png"));
                         niniSeleccionadoTipo = TipoNini.RAUL;
+                    } else if (niniSeleccionado == irene) {
+                        niniSeleccionado.setImage(new Image("Imagenes/Irene_Seleccion.png"));
+                        niniSeleccionadoTipo = TipoNini.IRENE;
+                    } else if (niniSeleccionado == alvaro) {
+                        niniSeleccionado.setImage(new Image("Imagenes/Alvaro_Seleccion.png"));
+                        niniSeleccionadoTipo = TipoNini.ALVARO;
+                    } else if (niniSeleccionado == hamil) {
+                        niniSeleccionado.setImage(new Image("Imagenes/Hamil_Seleccion.png"));
+                        niniSeleccionadoTipo = TipoNini.HAMIL;
                     }
                 });
 
@@ -314,7 +337,7 @@ public class EscenaJuego {
             }
         }
 
-        Pane root = new Pane(fondo, btnPausa, menuPlantas,cuadroButanos, cantidadButanitos, luis, diego, callejo, adripan, isma, ximena, lopez, guille, dani, keke, guevara, lorena, maria, jud, elsa, eliseo, raul, hueco2, hueco3, hueco4);
+        Pane root = new Pane(fondo, btnPausa, menuPlantas, cuadroButanos, cantidadButanitos, luis, diego, callejo, adripan, isma, ximena, lopez, guille, dani, keke, guevara, lorena, maria, jud, elsa, eliseo, raul, irene, alvaro, hamil);
 //        niniTransparente = new ImageView();
 //        niniTransparente.setLayoutX(Cuadricula.anchoCelda);
 //        niniTransparente.setLayoutY(Cuadricula.altoCelda);
@@ -378,29 +401,42 @@ public class EscenaJuego {
             } else if (niniSeleccionadoTipo == TipoNini.XIMENA) {
                 ximena.setImage(new Image("Imagenes/Guimena.png"));
                 niniNuevo = new Ximena(Cuadricula.buscarMitadCeldaEjeX(columnaPinchada), Cuadricula.buscarMitadCeldaEjeY(filaPinchada), root);
-//                        } else if (niniSeleccionadoTipo == TipoNini.GUILLE) {
-//
+            } else if (niniSeleccionadoTipo == TipoNini.GUILLE) {
+                guille.setImage(new Image("Imagenes/Guille_No_Seleccion.png"));
+                niniNuevo = new Guille(Cuadricula.buscarMitadCeldaEjeX(columnaPinchada), Cuadricula.buscarMitadCeldaEjeY(filaPinchada), root);
             } else if (niniSeleccionadoTipo == TipoNini.DANI) {
                 dani.setImage(new Image("Imagenes/Dani_no_seleccion.png"));
                 niniNuevo = new Dani(Cuadricula.buscarMitadCeldaEjeX(columnaPinchada), Cuadricula.buscarMitadCeldaEjeY(filaPinchada), root);
-//                        } else if (niniSeleccionadoTipo == TipoNini.KEKE) {
-//
+            } else if (niniSeleccionadoTipo == TipoNini.KEKE) {
+                keke.setImage(new Image("Imagenes/Keke_No_Seleccion.png"));
+                niniNuevo = new Keke(Cuadricula.buscarMitadCeldaEjeX(columnaPinchada), Cuadricula.buscarMitadCeldaEjeY(filaPinchada), root);
             } else if (niniSeleccionadoTipo == TipoNini.LORENA) {
                 lorena.setImage(new Image("Imagenes/Lorena_no_seleccion.png"));
                 niniNuevo = new Lorena(Cuadricula.buscarMitadCeldaEjeX(columnaPinchada), Cuadricula.buscarMitadCeldaEjeY(filaPinchada), root);
-//                        } else if (niniSeleccionadoTipo == TipoNini.MARIA) {
-//
+            } else if (niniSeleccionadoTipo == TipoNini.MARIA) {
+                maria.setImage(new Image("Imagenes/Maria_No_Seleccion.png"));
+                niniNuevo = new Maria(Cuadricula.buscarMitadCeldaEjeX(columnaPinchada), Cuadricula.buscarMitadCeldaEjeY(filaPinchada), root);
             } else if (niniSeleccionadoTipo == TipoNini.JUD) {
-                jud.setImage(new Image("Imagenes/Guimena.png"));
+                jud.setImage(new Image("Imagenes/Jut_No_Seleccion.png"));
                 niniNuevo = new Jud(Cuadricula.buscarMitadCeldaEjeX(columnaPinchada), Cuadricula.buscarMitadCeldaEjeY(filaPinchada), root);
-//                        } else if (niniSeleccionadoTipo == TipoNini.ELSA
-//
+            } else if (niniSeleccionadoTipo == TipoNini.ELSA) {
+                elsa.setImage(new Image("Imagenes/Elsa_No_Seleccion.png"));
+                niniNuevo = new Elsa(Cuadricula.buscarMitadCeldaEjeX(columnaPinchada), Cuadricula.buscarMitadCeldaEjeY(filaPinchada), root);
             } else if (niniSeleccionadoTipo == TipoNini.ELISEO) {
                 eliseo.setImage(new Image("Imagenes/Eliseo_no_seleccion.png"));
                 niniNuevo = new Eliseo(Cuadricula.buscarMitadCeldaEjeX(columnaPinchada), Cuadricula.buscarMitadCeldaEjeY(filaPinchada), root);
             } else if (niniSeleccionadoTipo == TipoNini.RAUL) {
                 raul.setImage(new Image("Imagenes/Rayul.png"));
                 niniNuevo = new Raul(Cuadricula.buscarMitadCeldaEjeX(columnaPinchada), Cuadricula.buscarMitadCeldaEjeY(filaPinchada), root);
+            } else if (niniSeleccionadoTipo == TipoNini.IRENE) {
+                irene.setImage(new Image("Imagenes/Irene_No_Seleccion.png"));
+                niniNuevo = new Irene(Cuadricula.buscarMitadCeldaEjeX(columnaPinchada), Cuadricula.buscarMitadCeldaEjeY(filaPinchada), root);
+            } else if (niniSeleccionadoTipo == TipoNini.ALVARO) {
+                alvaro.setImage(new Image("Imagenes/Alvaro_No_Seleccion.png"));
+                niniNuevo = new Alvaro(Cuadricula.buscarMitadCeldaEjeX(columnaPinchada), Cuadricula.buscarMitadCeldaEjeY(filaPinchada), root);
+            } else if (niniSeleccionadoTipo == TipoNini.HAMIL) {
+                hamil.setImage(new Image("Imagenes/Hamil_No_Seleccion.png"));
+                niniNuevo = new Hamil(Cuadricula.buscarMitadCeldaEjeX(columnaPinchada), Cuadricula.buscarMitadCeldaEjeY(filaPinchada), root);
             }
 
             terreno[filaPinchada][columnaPinchada].setNini(niniNuevo);

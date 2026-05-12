@@ -12,7 +12,6 @@ import javafx.stage.Stage;
 import modelos.GestorInventario;
 import modelos.Ninis.TipoNini;
 
-import javax.swing.*;
 import java.util.HashMap;
 
 public class EscenaSeleccionar {
@@ -261,14 +260,14 @@ public class EscenaSeleccionar {
 
         });
 
-        ImageView guille = new ImageView("Imagenes/CosoPrueba.png");
+        ImageView guille = new ImageView("Imagenes/Guille_No_Seleccion.png");
         guille.setFitWidth(100);
         guille.setFitHeight(100);
         guille.setLayoutX(columna3);
         guille.setLayoutY(fila2);
         guille.setOnMouseClicked(evento -> {
             colocar(TipoNini.GUILLE, guille);
-            //fotoDesc.setImage(new Image(""));
+            fotoDesc.setImage(new Image("Animaciones/Ninis/Guille_Idle.gif"));
             nombreNini.setText("-- GUILLE --");
             descNini.setText("");
             costeNini.setText(" - COSTE BUTANITOS - \n - --- butanitos.");
@@ -305,14 +304,14 @@ public class EscenaSeleccionar {
             });
         });
 
-        ImageView keke = new ImageView("Imagenes/CosoPrueba.png");
+        ImageView keke = new ImageView("Imagenes/Keke_No_Seleccion.png");
         keke.setFitWidth(100);
         keke.setFitHeight(100);
         keke.setLayoutX(columna5);
         keke.setLayoutY(fila2);
         keke.setOnMouseClicked(evento -> {
             colocar(TipoNini.KEKE, keke);
-            //fotoDesc.setImage(new Image(""));
+            fotoDesc.setImage(new Image("Animaciones/Ninis/Keke_Idle.gif"));
             nombreNini.setText("-- KEKE --");
             descNini.setText("");
             costeNini.setText(" - COSTE BUTANITOS - \n - --- butanitos.");
@@ -365,14 +364,14 @@ public class EscenaSeleccionar {
             });
         });
 
-        ImageView maria = new ImageView("Imagenes/CosoPrueba.png");
+        ImageView maria = new ImageView("Imagenes/Maria_No_Seleccion.png");
         maria.setFitWidth(100);
         maria.setFitHeight(100);
         maria.setLayoutX(columna3);
         maria.setLayoutY(fila3);
         maria.setOnMouseClicked(evento -> {
             colocar(TipoNini.MARIA, maria);
-            //fotoDesc.setImage(new Image(""));
+            fotoDesc.setImage(new Image("Animaciones/Ninis/Maria_Idle.gif"));
             nombreNini.setText("-- MARIA --");
             descNini.setText("");
             costeNini.setText(" - COSTE BUTANITOS - \n - --- butanitos.");
@@ -387,7 +386,7 @@ public class EscenaSeleccionar {
             });
         });
 
-        ImageView jud = new ImageView("Imagenes/CosoPrueba.png");
+        ImageView jud = new ImageView("Imagenes/Jut_No_Seleccion.png");
         jud.setFitWidth(100);
         jud.setFitHeight(100);
         jud.setLayoutX(columna4);
@@ -409,14 +408,14 @@ public class EscenaSeleccionar {
             });
         });
 
-        ImageView elsa = new ImageView("Imagenes/CosoPrueba.png");
+        ImageView elsa = new ImageView("Imagenes/Elsa_No_Seleccion.png");
         elsa.setFitWidth(100);
         elsa.setFitHeight(100);
         elsa.setLayoutX(columna5);
         elsa.setLayoutY(fila3);
         elsa.setOnMouseClicked(evento -> {
             colocar(TipoNini.ELSA, elsa);
-            //fotoDesc.setImage(new Image(""));
+            fotoDesc.setImage(new Image("Animaciones/Ninis/Elsa_Idle.gif"));
             nombreNini.setText("-- ELSA --");
             descNini.setText("");
             costeNini.setText(" - COSTE BUTANITOS - \n - --- butanitos.");
@@ -476,15 +475,15 @@ public class EscenaSeleccionar {
             });
         });
 
-        ImageView hueco2 = new ImageView("Imagenes/CosoPrueba.png");
-        hueco2.setFitWidth(100);
-        hueco2.setFitHeight(100);
-        hueco2.setLayoutX(columna3);
-        hueco2.setLayoutY(fila4);
-        hueco2.setOnMouseClicked(evento -> {
-            colocar(TipoNini.HUECO2, hueco2);
-            // fotoDesc.setImage(new Image(""));
-            nombreNini.setText("-- --- --");
+        ImageView irene = new ImageView("Imagenes/Irene_No_Seleccion.png");
+        irene.setFitWidth(100);
+        irene.setFitHeight(100);
+        irene.setLayoutX(columna3);
+        irene.setLayoutY(fila4);
+        irene.setOnMouseClicked(evento -> {
+            colocar(TipoNini.IRENE, irene);
+             fotoDesc.setImage(new Image("Animaciones/Ninis/Irene_Idle.gif"));
+            nombreNini.setText("-- IRENE --");
             descNini.setText("");
             costeNini.setText(" - COSTE BUTANITOS - \n - --- butanitos.");
             vidaNini.setText(" - SALUD - \n - --- puntos de salud.");
@@ -494,19 +493,19 @@ public class EscenaSeleccionar {
             dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
             btnQuitarNini.setVisible(true);
             btnQuitarNini.setOnMouseClicked(quitarNini -> {
-                quitarSeleccionado(TipoNini.HUECO2, hueco2, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
+                quitarSeleccionado(TipoNini.IRENE, irene, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
             });
         });
 
-        ImageView hueco3 = new ImageView("Imagenes/CosoPrueba.png");
-        hueco3.setFitWidth(100);
-        hueco3.setFitHeight(100);
-        hueco3.setLayoutX(columna4);
-        hueco3.setLayoutY(fila4);
-        hueco3.setOnMouseClicked(evento -> {
-            colocar(TipoNini.HUECO3, hueco3);
-            //fotoDesc.setImage(new Image(""));
-            nombreNini.setText("-- --- --");
+        ImageView alvaro = new ImageView("Imagenes/Alvaro_No_Seleccion.png");
+        alvaro.setFitWidth(100);
+        alvaro.setFitHeight(100);
+        alvaro.setLayoutX(columna4);
+        alvaro.setLayoutY(fila4);
+        alvaro.setOnMouseClicked(evento -> {
+            colocar(TipoNini.ALVARO, alvaro);
+            fotoDesc.setImage(new Image("Animaciones/Ninis/Alvaro_Idle.gif"));
+            nombreNini.setText("-- ALVARO --");
             descNini.setText("");
             costeNini.setText(" - COSTE BUTANITOS - \n - --- butanitos.");
             vidaNini.setText(" - SALUD - \n - --- puntos de salud.");
@@ -516,18 +515,18 @@ public class EscenaSeleccionar {
             dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
             btnQuitarNini.setVisible(true);
             btnQuitarNini.setOnMouseClicked(quitarNini -> {
-                quitarSeleccionado(TipoNini.HUECO3, hueco3, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
+                quitarSeleccionado(TipoNini.ALVARO, alvaro, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
             });
         });
 
-        ImageView hueco4 = new ImageView("Imagenes/CosoPrueba.png");
-        hueco4.setFitWidth(100);
-        hueco4.setFitHeight(100);
-        hueco4.setLayoutX(columna5);
-        hueco4.setLayoutY(fila4);
-        hueco4.setOnMouseClicked(evento -> {
-            colocar(TipoNini.HUECO4, hueco4);
-            //fotoDesc.setImage(new Image(""));
+        ImageView hamil = new ImageView("Imagenes/Hamil_No_Seleccion.png");
+        hamil.setFitWidth(100);
+        hamil.setFitHeight(100);
+        hamil.setLayoutX(columna5);
+        hamil.setLayoutY(fila4);
+        hamil.setOnMouseClicked(evento -> {
+            colocar(TipoNini.HAMIL, hamil);
+            fotoDesc.setImage(new Image("Animaciones/Ninis/Hamil_Idle.gif"));
             nombreNini.setText("-- --- --");
             descNini.setText("");
             costeNini.setText(" - COSTE BUTANITOS - \n - --- butanitos.");
@@ -538,7 +537,7 @@ public class EscenaSeleccionar {
             dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
             btnQuitarNini.setVisible(true);
             btnQuitarNini.setOnMouseClicked(quitarNini -> {
-                quitarSeleccionado(TipoNini.HUECO4, hueco4, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
+                quitarSeleccionado(TipoNini.HAMIL, hamil, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
             });
         });
 
@@ -562,6 +561,9 @@ public class EscenaSeleccionar {
         nombresImagenes.put(TipoNini.ELSA, elsa);
         nombresImagenes.put(TipoNini.ELISEO, eliseo);
         nombresImagenes.put(TipoNini.RAUL, raul);
+        nombresImagenes.put(TipoNini.IRENE, irene);
+        nombresImagenes.put(TipoNini.ALVARO, alvaro);
+        nombresImagenes.put(TipoNini.HAMIL, hamil);
 
         TipoNini[] inventarioCopia = geInv.getInventario();
         for (int i = 0; i < 8; i++) {
@@ -625,7 +627,7 @@ public class EscenaSeleccionar {
             }
         }
 
-        Pane root = new Pane(fondo, titulo, btnSalir, btnQuitarNini, nombreNini, descNini, costeNini, dañoNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, luis, fotoDesc, diego, callejo, adripan, isma, ximena, lopez, guille, dani, keke, guevara, lorena, maria, jud, elsa, eliseo, raul, hueco2, hueco3, hueco4);
+        Pane root = new Pane(fondo, titulo, btnSalir, btnQuitarNini, nombreNini, descNini, costeNini, dañoNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, luis, fotoDesc, diego, callejo, adripan, isma, ximena, lopez, guille, dani, keke, guevara, lorena, maria, jud, elsa, eliseo, raul, irene, alvaro, hamil);
         return new Scene(root, 1280, 720);
     }
 
@@ -768,13 +770,13 @@ public class EscenaSeleccionar {
         } else if (tipoNini == TipoNini.RAUL) {
             niniSeleccionado.setLayoutX(columna2);
             niniSeleccionado.setLayoutY(fila4);
-        } else if (tipoNini == TipoNini.HUECO2) {
+        } else if (tipoNini == TipoNini.IRENE) {
             niniSeleccionado.setLayoutX(columna3);
             niniSeleccionado.setLayoutY(fila4);
-        } else if (tipoNini == TipoNini.HUECO3) {
+        } else if (tipoNini == TipoNini.ALVARO) {
             niniSeleccionado.setLayoutX(columna4);
             niniSeleccionado.setLayoutY(fila4);
-        } else if (tipoNini == TipoNini.HUECO4) {
+        } else if (tipoNini == TipoNini.HAMIL) {
             niniSeleccionado.setLayoutX(columna5);
             niniSeleccionado.setLayoutY(fila4);
         }
