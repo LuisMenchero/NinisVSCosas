@@ -426,7 +426,7 @@ public class EscenaJuego {
                 if (terreno[filaClick][columnaClick].getHayPlanta()){
                     terreno[filaClick][columnaClick].getNini().morir();
                     terreno[filaClick][columnaClick].limpiar();
-                    colgar.setImage(new Image("Imagenes/BotonColgar.png"));
+                    colgar.setImage(new Image("Animaciones/Items/BotonColgar.png"));
                 }
 //
                 modoColgarActivo = false;
