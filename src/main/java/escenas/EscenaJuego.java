@@ -31,6 +31,7 @@ public class EscenaJuego {
     private ImageView niniTransparente;
     private static Rectangle hitboxCasa;
     private boolean modoColgarActivo = false;
+    public static Pane panelespecificoparacontroladorjuego;
 
 
     public Scene construir(Stage stage) {
@@ -405,7 +406,8 @@ public class EscenaJuego {
 
 
         Pane root = new Pane(fondo, btnPausa, menuPlantas, cuadroButanos, cantidadButanitos, colgar, luis, diego, callejo, adripan, isma, ximena, lopez, guille, dani, keke, guevara, lorena, maria, jud, elsa, eliseo, raul, irene, alvaro, hamil);
-//        niniTransparente = new ImageView();
+        panelespecificoparacontroladorjuego = root;
+        //        niniTransparente = new ImageView();
 //        niniTransparente.setLayoutX(Cuadricula.anchoCelda);
 //        niniTransparente.setLayoutY(Cuadricula.altoCelda);
 //        niniTransparente.setOpacity(0.6);
@@ -428,7 +430,7 @@ public class EscenaJuego {
                     terreno[filaClick][columnaClick].limpiar();
                     colgar.setImage(new Image("Animaciones/Items/BotonColgar.png"));
                 }
-//
+
                 modoColgarActivo = false;
                 return;
 
@@ -539,12 +541,12 @@ public class EscenaJuego {
 //        }
 
 
-        Cv cv = new Cv(root);
-        ConoCv cncv = new ConoCv(root);
-        CascoCv cscv = new CascoCv(root);
-        reloj.registrarCosa(cv);
-        reloj.registrarCosa(cncv);
-        reloj.registrarCosa(cscv);
+//        Cv cv = new Cv(root);
+//        ConoCv cncv = new ConoCv(root);
+//        CascoCv cscv = new CascoCv(root);
+//        reloj.registrarCosa(cv);
+//        reloj.registrarCosa(cncv);
+//        reloj.registrarCosa(cscv);
 
 
 //        for (int i = 0; i < 5; i++) {

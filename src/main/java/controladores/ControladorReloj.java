@@ -108,6 +108,9 @@ public class ControladorReloj {
 
         comprobarColisiones();
 
+        ControladorJuego.tiempoUltimoEnemigo = ControladorJuego.tiempoUltimoEnemigo + tiempoFrames;
+        ControladorJuego.spawnEnemigos();
+
     }
 
     public void pausa() {
