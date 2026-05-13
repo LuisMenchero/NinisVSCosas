@@ -110,7 +110,7 @@ public class ControladorReloj {
 
         ControladorJuego.tiempoUltimoEnemigo = ControladorJuego.tiempoUltimoEnemigo + tiempoFrames;
         ControladorJuego.spawnEnemigos();
-
+        ControladorJuego.tiempoPartida = ControladorJuego.tiempoPartida + tiempoFrames;
     }
 
     public void pausa() {
@@ -191,5 +191,9 @@ public class ControladorReloj {
 
     public static ArrayList<Proyectil> getProyectiles() {
         return proyectiles;
+    }
+
+    public double getTiempoFrames() {
+        return tiempoFrames;
     }
 }

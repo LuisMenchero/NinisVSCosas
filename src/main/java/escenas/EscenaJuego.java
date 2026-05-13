@@ -581,26 +581,6 @@ public class EscenaJuego {
             reloj.registrarNini(niniNuevo);
         });
 
-
-//        for (int i = 0; i < 5; i++) {
-//                Cv cv = new Cv(root);
-//                reloj.registrarCosa(cv);
-//        }
-
-
-//        Cv cv = new Cv(root);
-//        ConoCv cncv = new ConoCv(root);
-//        CascoCv cscv = new CascoCv(root);
-//        reloj.registrarCosa(cv);
-//        reloj.registrarCosa(cncv);
-//        reloj.registrarCosa(cscv);
-
-
-//        for (int i = 0; i < 5; i++) {
-//            CascoCv cv = new CascoCv(root);
-//            reloj.registrarCosa(cv);
-//        }
-
         hitboxCasa = new Rectangle(
                 0,
                 150,

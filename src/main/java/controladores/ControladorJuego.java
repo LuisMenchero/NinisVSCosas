@@ -20,30 +20,39 @@ public class ControladorJuego {
 
     //voy a hacer la parte del spawn de cosas (los he llamado enemigos porque si no me hago un lio)
     public static double tiempoUltimoEnemigo = 0;
-    public static double tiempoEnSpawnear = 10;
+    public static double tiempoEnSpawnear = 25;
     private static int ronda = 0;
     private static int tipo;
+    public static double tiempoPartida = 0;
 
 
     public static void spawnEnemigos (){
         if (tiempoUltimoEnemigo >= tiempoEnSpawnear){
             tiempoUltimoEnemigo = 0;
+            System.out.println(tiempoPartida);
+
+            controladorOleadas();
 
             if (ronda == 0){
+                Cosa enemigoNuevo = null;
+                enemigoNuevo = new Cv(EscenaJuego.panelespecificoparacontroladorjuego);
+                EscenaJuego.getReloj().registrarCosa(enemigoNuevo);
+            }
+
+            if (ronda == 1){
                 tipo = (int) (Math.random()*3);
                 Cosa enemigoNuevo = null;
                 if (tipo == 0){
-                     enemigoNuevo = new Cv(EscenaJuego.panelespecificoparacontroladorjuego);
+                    enemigoNuevo = new Cv(EscenaJuego.panelespecificoparacontroladorjuego);
                 }
                 if (tipo == 1){
-                     enemigoNuevo = new ConoCv(EscenaJuego.panelespecificoparacontroladorjuego);
+                    enemigoNuevo = new ConoCv(EscenaJuego.panelespecificoparacontroladorjuego);
                 }
                 if (tipo == 2){
-                     enemigoNuevo = new CascoCv(EscenaJuego.panelespecificoparacontroladorjuego);
+                    enemigoNuevo = new CascoCv(EscenaJuego.panelespecificoparacontroladorjuego);
                 }
 
                 EscenaJuego.getReloj().registrarCosa(enemigoNuevo);
-
 
             }
 
@@ -51,14 +60,38 @@ public class ControladorJuego {
         }
     }
 
-//        Cv cv = new Cv(root);
-//        ConoCv cncv = new ConoCv(root);
-//        CascoCv cscv = new CascoCv(root);
-//        reloj.registrarCosa(cv);
-//        reloj.registrarCosa(cncv);
-//        reloj.registrarCosa(cscv);
-
-
+    private static void controladorOleadas (){
+        if (tiempoPartida > 75){
+            ronda = 1;
+        }
+        if (tiempoPartida > 150){
+            ronda = 2;
+        }
+        if (tiempoPartida > 275) {
+            ronda = 3;
+        }
+        if (tiempoPartida > 400) {
+            ronda = 4;
+        }
+        if (tiempoPartida > 700) {
+            ronda = 5;
+        }
+        if (tiempoPartida > 900) {
+            ronda = 6;
+        }
+        if (tiempoPartida > 1200) {
+            ronda = 7;
+        }
+        if (tiempoPartida > 1400) {
+            ronda = 8;
+        }
+        if (tiempoPartida > 1600) {
+            ronda = 9;
+        }
+        if (tiempoPartida > 2000) {
+            ronda = 10;
+        }
+    }
 
     public static void terminarPartida(){
 //        EscenaJuego.getReloj().pausa();
