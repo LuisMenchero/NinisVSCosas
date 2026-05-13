@@ -12,7 +12,7 @@ public class Elsa extends Nini {
     // --- CONSTRUCTOR ---
 
     public Elsa(double columna, double fila, Pane root) {
-        super(columna, fila, 125, 0, 0, "Animaciones/Ninis/Elsa_Idle.gif", root);
+        super(columna, fila, TipoNini.ELSA,125, 0, 0, 5,"Animaciones/Ninis/Elsa_Idle.gif", root);
     }
 
     // --- MÉTODOS ---

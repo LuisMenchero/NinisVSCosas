@@ -23,10 +23,12 @@ public abstract class Nini {
     protected double alto = 95;
 
     // datos del Nini
+    protected TipoNini tipoNini;
     protected int saludMaxima;
     protected int salud;
     protected boolean potenciado = false;
     protected double cooldownDisparo;
+    protected int cooldownVolverPlantar;
     protected int costeButanitos;
     protected double tiempoDelUltimoDisparo;
     protected boolean estaMuerto = false;
@@ -43,13 +45,15 @@ public abstract class Nini {
     protected Rectangle hitbox;
 
     // --- CONSTRUCTOR ---
-    public Nini(double columna, double fila, int salud, int costeButanitos, double cooldownDisparo, String rutaImagenNini, Pane root) {
+    public Nini(double columna, double fila, TipoNini tipoNini,int salud, int costeButanitos, double cooldownDisparo, int cooldownVolverPlantar,String rutaImagenNini, Pane root) {
         this.columna = columna;
         this.fila = fila;
+        this.tipoNini = tipoNini;
         this.salud = salud;
         this.saludMaxima = salud;
         this.costeButanitos = costeButanitos;
         this.cooldownDisparo = cooldownDisparo;
+        this.cooldownVolverPlantar = cooldownVolverPlantar;
         this.rutaImagenNini = rutaImagenNini;
         this.tiempoDelUltimoDisparo = cooldownDisparo;
         this.root = root;
@@ -147,6 +151,10 @@ public abstract class Nini {
         return costeButanitos;
     }
 
+    public int getCooldownVolverPlantar() {
+        return cooldownVolverPlantar;
+    }
+
     public int getSalud() {
         return salud;
     }
@@ -163,6 +171,9 @@ public abstract class Nini {
         this.imagenNini.setImage(new Image(rutaNuevaAnimacion));
     }
 
+    public TipoNini getTipoNini() {
+        return tipoNini;
+    }
     public void setPotenciado(boolean potenciado) {
         this.potenciado = potenciado;
     }

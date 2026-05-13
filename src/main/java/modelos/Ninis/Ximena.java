@@ -12,7 +12,7 @@ public class Ximena extends Nini{
     // --- CONSTRUCTOR ---
 
     public Ximena(double columna, double fila, Pane root) {
-        super(columna, fila, 50, 50, 0, "Animaciones/Ninis/Ximena_idle.gif", root);
+        super(columna, fila, TipoNini.XIMENA,50, 50, 0, 5,"Animaciones/Ninis/Ximena_idle.gif", root);
     }
 
     // --- MÉTODOS ---

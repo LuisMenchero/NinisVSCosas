@@ -1,5 +1,6 @@
 package escenas;
 
+import controladores.ControladorJuego;
 import controladores.ControladorMusica;
 import controladores.ControladorReloj;
 import javafx.scene.Scene;
@@ -337,7 +338,7 @@ public class EscenaJuego {
             }
         }
 
-        Pane root = new Pane(fondo, btnPausa, menuPlantas, cuadroButanos, cantidadButanitos, luis, diego, callejo, adripan, isma, ximena, lopez, guille, dani, keke, guevara, lorena, maria, jud, elsa, eliseo, raul, irene, alvaro, hamil);
+        Pane root = new Pane(fondo, btnPausa, menuPlantas, cuadroButanos, cantidadButanitos,luis, diego, callejo, adripan, isma, ximena, lopez, guille, dani, keke, guevara, lorena, maria, jud, elsa, eliseo, raul, irene, alvaro, hamil);
 //        niniTransparente = new ImageView();
 //        niniTransparente.setLayoutX(Cuadricula.anchoCelda);
 //        niniTransparente.setLayoutY(Cuadricula.altoCelda);
@@ -439,6 +440,52 @@ public class EscenaJuego {
                 niniNuevo = new Hamil(Cuadricula.buscarMitadCeldaEjeX(columnaPinchada), Cuadricula.buscarMitadCeldaEjeY(filaPinchada), root);
             }
 
+
+            // PARA BLOQUEAR TEMPORALMENTE AL NINI CUANDO ES PLANTADO
+            int posicionBarraX = 0, posicionBarraY = 71;
+            // Nini 1
+            int posicionXNini1 = 58;
+            // Nini 2
+            int posicionXNini2 = 113;
+            // Nini 3
+            int posicionXNini3 = 167;
+            // Nini 4
+            int posicionXNini4 = 222;
+            // Nini 5
+            int posicionXNini5 = 277;
+            // Nini 6
+            int posicionXNini6 = 332;
+            // Nini 7
+            int posicionXNini7 = 386;
+            // Nini 8
+            int posicionXNini8 = 441;
+
+            int posicionYNinis = 37;
+
+            for (int i = 0; i < 8; i++) {
+                if (inventarioCopia[i] != null && nombresImagenes.containsKey(inventarioCopia[i])) {
+                    int posicion = geInv.getPosicionActual(inventarioCopia[i]);
+                    if (posicion == 0 && inventarioCopia[i].equals(niniNuevo.getTipoNini())) {
+                        posicionBarraX = 73;
+                        ControladorJuego.bloquearNini(niniNuevo.getCooldownVolverPlantar(),posicionXNini1,posicionYNinis,root);
+                    } else if (posicion == 1 && inventarioCopia[i].equals(niniNuevo.getTipoNini())) {
+                        posicionBarraX = 130;
+                        ControladorJuego.bloquearNini(niniNuevo.getCooldownVolverPlantar(),posicionXNini2,posicionYNinis,root);                    } else if (posicion == 2 && inventarioCopia[i].equals(niniNuevo.getTipoNini())) {
+                        posicionBarraX = 185;
+                        ControladorJuego.bloquearNini(niniNuevo.getCooldownVolverPlantar(),posicionXNini3,posicionYNinis,root);                    } else if (posicion == 3 && inventarioCopia[i].equals(niniNuevo.getTipoNini())) {
+                        posicionBarraX = 240;
+                        ControladorJuego.bloquearNini(niniNuevo.getCooldownVolverPlantar(),posicionXNini4,posicionYNinis,root);                    } else if (posicion == 4 && inventarioCopia[i].equals(niniNuevo.getTipoNini())) {
+                        posicionBarraX = 295;
+                        ControladorJuego.bloquearNini(niniNuevo.getCooldownVolverPlantar(),posicionXNini5,posicionYNinis,root);                    } else if (posicion == 5 && inventarioCopia[i].equals(niniNuevo.getTipoNini())) {
+                        posicionBarraX = 350;
+                        ControladorJuego.bloquearNini(niniNuevo.getCooldownVolverPlantar(),posicionXNini6,posicionYNinis,root);                    } else if (posicion == 6 && inventarioCopia[i].equals(niniNuevo.getTipoNini())) {
+                        posicionBarraX = 405;
+                        ControladorJuego.bloquearNini(niniNuevo.getCooldownVolverPlantar(),posicionXNini7,posicionYNinis,root);                    } else if (posicion == 7 && inventarioCopia[i].equals(niniNuevo.getTipoNini())) {
+                        posicionBarraX = 460;
+                        ControladorJuego.bloquearNini(niniNuevo.getCooldownVolverPlantar(),posicionXNini8,posicionYNinis,root);                    }
+                }
+            }
+            ControladorJuego.crearBarraCooldownNini(niniNuevo.getCooldownVolverPlantar(),posicionBarraX,posicionBarraY,root);
             terreno[filaPinchada][columnaPinchada].setNini(niniNuevo);
 
             geB.restarButanitos(niniNuevo.getCosteButanitos());

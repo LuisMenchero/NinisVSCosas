@@ -12,7 +12,7 @@ public class Keke extends Nini {
     // --- CONSTRUCTOR ---
 
     public Keke(double columna, double fila, Pane root) {
-        super(columna, fila, 125, 175, 0, "Animaciones/Ninis/Keke_Idle.gif", root);
+        super(columna, fila, TipoNini.KEKE,125, 175, 0, 5,"Animaciones/Ninis/Keke_Idle.gif", root);
     }
 
     // --- MÉTODOS ---

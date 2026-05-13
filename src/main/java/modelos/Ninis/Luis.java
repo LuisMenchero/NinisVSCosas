@@ -15,7 +15,7 @@ public class Luis extends Nini {
     // --- CONSTRUCTOR ---
 
     public Luis(double columna, double fila, Pane root) {
-        super(columna, fila, 75, 50, 0, "Animaciones/Ninis/Lis.gif", root);
+        super(columna, fila, TipoNini.LUIS,75, 50, 0, 5,"Animaciones/Ninis/Lis.gif", root);
     }
 
     // --- MÉTODOS ---

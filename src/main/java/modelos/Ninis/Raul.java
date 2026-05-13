@@ -12,7 +12,7 @@ public class Raul extends Nini{
     // --- CONSTRUCTOR ---
 
     public Raul(double columna, double fila, Pane root) {
-        super(columna, fila, 75, 300, 3, "Animaciones/Ninis/Raul_Idle.gif", root);
+        super(columna, fila, TipoNini.RAUL,75, 300, 3, 5,"Animaciones/Ninis/Raul_Idle.gif", root);
     }
 
     // --- MÉTODOS ---
