@@ -12,7 +12,7 @@ public class Jud extends Nini{
     // --- CONSTRUCTOR ---
 
     public Jud(double columna, double fila, Pane root) {
-        super(columna, fila, 125, 175, 0, "Animaciones/Ninis/Jud_Idle.gif", root);
+        super(columna, fila, TipoNini.JUD,125, 175, 0, 5,"Animaciones/Ninis/Jud_Idle.gif", root);
     }
 
     // --- MÉTODOS ---

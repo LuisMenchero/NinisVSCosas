@@ -12,7 +12,7 @@ public class Isma extends Nini {
     // --- CONSTRUCTOR ---
 
     public Isma(double columna, double fila, Pane root) {
-        super(columna, fila, 50, 150, 0, "Animaciones/Ninis/Isma_Idle.gif", root);
+        super(columna, fila, TipoNini.ISMA,50, 150, 0, 5,"Animaciones/Ninis/Isma_Idle.gif", root);
     }
 
     // --- MÉTODOS ---

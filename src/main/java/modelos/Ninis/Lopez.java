@@ -15,7 +15,7 @@ public class Lopez extends Nini {
     private ArrayList<Escupitajo> escupitajosNuevos;
     // --- CONSTRUCTOR ---
     public Lopez(double columna, double fila, Pane root) {
-        super(columna, fila, 100, 75, 4, "Animaciones/Ninis/LopezEsperando.gif", root);
+        super(columna, fila, TipoNini.LOPEZ,100, 75, 4, 5,"Animaciones/Ninis/LopezEsperando.gif", root);
         escupitajosNuevos = new ArrayList<>();
     }
 

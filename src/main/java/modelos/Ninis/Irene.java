@@ -12,7 +12,7 @@ public class Irene extends Nini {
     // --- CONSTRUCTOR ---
 
     public Irene(double columna, double fila, Pane root) {
-        super(columna, fila, 125, 0, 0, "Animaciones/Ninis/Irene_Idle.gif", root);
+        super(columna, fila, TipoNini.IRENE,125, 0, 0, 5,"Animaciones/Ninis/Irene_Idle.gif", root);
     }
 
     // --- MÉTODOS ---

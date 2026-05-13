@@ -12,7 +12,7 @@ public class Guille extends Nini{
     // --- CONSTRUCTOR ---
 
     public Guille(double columna, double fila, Pane root) {
-        super(columna, fila, 125, 175, 0, "Animaciones/Ninis/Guille_Idle.gif", root);
+        super(columna, fila, TipoNini.GUILLE,125, 175, 0, 5,"Animaciones/Ninis/Guille_Idle.gif", root);
     }
 
     // --- MÉTODOS ---

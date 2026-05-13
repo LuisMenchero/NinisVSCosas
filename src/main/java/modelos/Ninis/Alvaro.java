@@ -12,7 +12,7 @@ public class Alvaro extends Nini{
     // --- CONSTRUCTOR ---
 
     public Alvaro(double columna, double fila, Pane root) {
-        super(columna, fila, 125, 75, 0, "Animaciones/Ninis/Alvaro_Idle.gif", root);
+        super(columna, fila, TipoNini.ALVARO,125, 75, 0, 5, "Animaciones/Ninis/Alvaro_Idle.gif", root);
     }
 
     // --- MÉTODOS ---

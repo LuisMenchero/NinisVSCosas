@@ -12,7 +12,7 @@ public class Dani extends Nini {
     // --- CONSTRUCTOR ---
 
     public Dani(double columna, double fila, Pane root) {
-        super(columna, fila, 100, 300, 7, "Animaciones/Ninis/Dani_idle.gif", root);
+        super(columna, fila, TipoNini.DANI,100, 300, 7, 5,"Animaciones/Ninis/Dani_idle.gif", root);
     }
 
     // --- MÉTODOS ---

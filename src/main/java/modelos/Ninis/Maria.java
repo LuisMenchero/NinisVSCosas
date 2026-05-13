@@ -12,7 +12,7 @@ public class Maria extends Nini{
     // --- CONSTRUCTOR ---
 
     public Maria(double columna, double fila, Pane root) {
-        super(columna, fila, 125, 150, 0, "Animaciones/Ninis/Maria_Idle.gif", root);
+        super(columna, fila, TipoNini.MARIA,125, 150, 0, 5,"Animaciones/Ninis/Maria_Idle.gif", root);
     }
 
     // --- MÉTODOS ---

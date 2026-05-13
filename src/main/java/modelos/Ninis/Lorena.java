@@ -12,7 +12,7 @@ public class Lorena extends Nini{
     // --- CONSTRUCTOR ---
 
     public Lorena(double columna, double fila, Pane root) {
-        super(columna, fila, 500, 25, 0, "Animaciones/Ninis/Lorena_Idle.gif", root);
+        super(columna, fila, TipoNini.LORENA,500, 25, 0, 5,"Animaciones/Ninis/Lorena_Idle.gif", root);
     }
 
     // --- MÉTODOS ---

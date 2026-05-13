@@ -16,7 +16,7 @@ public class Diego extends Nini {
 
     // --- CONSTRUCTOR ---
     public Diego(double columna, double fila, Pane root) {
-        super(columna, fila, 100, 100, 3, "Animaciones/Ninis/DiegoEsperando.gif" , root);
+        super(columna, fila, TipoNini.DIEGO,100, 100, 3, 5,"Animaciones/Ninis/DiegoEsperando.gif" , root);
         notasNuevas = new ArrayList<>();
     }
 

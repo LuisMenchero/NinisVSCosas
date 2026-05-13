@@ -12,7 +12,7 @@ public class Hamil extends Nini{
     // --- CONSTRUCTOR ---
 
     public Hamil(double columna, double fila, Pane root) {
-        super(columna, fila, 125, 450, 0, "Animaciones/Ninis/Hamil_Idle.gif", root);
+        super(columna, fila, TipoNini.HAMIL,125, 450, 0, 5,"Animaciones/Ninis/Hamil_Idle.gif", root);
     }
 
     // --- MÉTODOS ---

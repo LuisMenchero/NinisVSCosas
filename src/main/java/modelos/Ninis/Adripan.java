@@ -16,7 +16,7 @@ public class Adripan extends Nini {
 
     // --- CONSTRUCTOR ---
     public Adripan(double columna, double fila, Pane root) {
-        super(columna, fila, 80, 25, 10, "Animaciones/Ninis/AdripanEsperando.gif", root);
+        super(columna, fila, TipoNini.ADRIPAN, 80, 25, 10, 5,"Animaciones/Ninis/AdripanEsperando.gif", root);
     }
 
     //--- MÉTODOS ---
