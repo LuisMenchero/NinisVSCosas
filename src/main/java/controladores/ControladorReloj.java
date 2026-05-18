@@ -150,6 +150,7 @@ public class ControladorReloj {
 
     private void comprobarColisiones() {
 
+        // Para impactos de proyectiles
         for (Proyectil proyectil : proyectiles) {
             for (Cosa cosa : cosas) {
                 if (proyectil.getHitbox().getBoundsInParent().intersects(cosa.getHitbox().getBoundsInParent())) {
@@ -160,7 +161,26 @@ public class ControladorReloj {
             }
         }
 
+        // Para explosiones de algunos ninis
+        for (Nini nini : ninis) {
+            for (Cosa cosa : cosas) {
+                if (nini instanceof Isma && ((Isma) nini).isExplotar() ) {
+                    if (((Isma) nini).getHitboxExplosion().getBoundsInParent().intersects(cosa.getHitbox().getBoundsInParent())) {
+                        cosa.recibirDaño(99999);
+                    }
+                } else if (nini instanceof Adripan && ((Adripan) nini).isEstaCargado()) {
+                    if (nini.getHitbox().getBoundsInParent().intersects(cosa.getHitbox().getBoundsInParent())) {
+                        ((Adripan) nini).setHayContacto(true);
+                        if (((Adripan) nini).getHitboxExplosion().getBoundsInParent().intersects(cosa.getHitbox().getBoundsInParent())) {
+                            cosa.recibirDaño(99999);
+                        }
+                    }
+                }
 
+            }
+        }
+
+        // Para ataques de las cosas
         for (Nini nini : ninis) {
             for (Cosa cosa : cosas) {
                 if (nini.getHitbox().getBoundsInParent().intersects(cosa.getHitbox().getBoundsInParent())) {
