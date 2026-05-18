@@ -2,6 +2,8 @@ package modelos.Items;
 
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import modelos.GestorButanitos;
 
 public class Butanito {
@@ -20,6 +22,9 @@ public class Butanito {
     private ImageView imagenButanito;
     private Pane root;
 
+    // Hitbox
+    private Rectangle hitbox;
+
     public Butanito(double columna, double fila, Pane root, String rutaButanito) {
         this.columna = columna;
         this.fila = fila;
@@ -28,7 +33,14 @@ public class Butanito {
         imagenButanito = new ImageView(rutaButanito);
         imagenButanito.setFitWidth(ancho);
         imagenButanito.setFitHeight(alto);
-        imagenButanito.setOnMouseClicked(evento -> {recoger(); gestorButanitos.aniquilarButanito(this);});
+        hitbox = new Rectangle();
+        hitbox.setWidth(ancho);
+        hitbox.setHeight(alto);
+
+        hitbox.setFill(Color.BLUE);
+        hitbox.setOpacity(0.5);
+        hitbox.setVisible(true);
+        hitbox.setOnMouseClicked(evento -> {recoger(); gestorButanitos.aniquilarButanito(this);});
 
 
         double ejeXAleatorio = Math.random() * (60 - (-10) + 1) + (-10);
@@ -36,14 +48,17 @@ public class Butanito {
 
         this.imagenButanito.setLayoutX(columna + ejeXAleatorio);
         this.imagenButanito.setLayoutY(fila + ejeYAleatorio);
+        hitbox.setX(columna + ejeXAleatorio);
+        hitbox.setY(fila + ejeYAleatorio);
 
-        root.getChildren().add(imagenButanito);
+
+        root.getChildren().addAll(imagenButanito,hitbox);
     }
 
     public void recoger() {
         gestorButanitos.sumarButanitos(50);
         root.getChildren().remove(imagenButanito);
-
+        root.getChildren().remove(hitbox);
     }
 
     public void setImagenButanito(ImageView imagenButanito) {

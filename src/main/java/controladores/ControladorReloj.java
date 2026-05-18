@@ -5,6 +5,7 @@ import javafx.animation.AnimationTimer;
 import javafx.animation.PauseTransition;
 import javafx.util.Duration;
 import modelos.Cosas.Cosa;
+import modelos.Cosas.Furgo;
 import modelos.Cuadricula;
 import modelos.Ninis.*;
 import modelos.Proyectiles.*;
@@ -164,7 +165,7 @@ public class ControladorReloj {
         // Para explosiones de algunos ninis
         for (Nini nini : ninis) {
             for (Cosa cosa : cosas) {
-                if (nini instanceof Isma && ((Isma) nini).isExplotar() ) {
+                if (nini instanceof Isma && ((Isma) nini).isExplotar()) {
                     if (((Isma) nini).getHitboxExplosion().getBoundsInParent().intersects(cosa.getHitbox().getBoundsInParent())) {
                         cosa.recibirDaño(99999);
                     }
@@ -183,11 +184,23 @@ public class ControladorReloj {
         // Para ataques de las cosas
         for (Nini nini : ninis) {
             for (Cosa cosa : cosas) {
-                if (nini.getHitbox().getBoundsInParent().intersects(cosa.getHitbox().getBoundsInParent())) {
-                    cosa.setPixelesPorSegundosActual(0);
-                    cosa.atacar(tiempoFrames, nini);
-                    if (nini.isEstaMuerto()) {
-                        cosa.setPixelesPorSegundosActual(cosa.getPixelesPorSegundo());
+                if (cosa instanceof Furgo) {
+                    if (!((Furgo) cosa).isNiniRecogido()) {
+                        if (nini.getHitbox().getBoundsInParent().intersects(cosa.getHitbox().getBoundsInParent())) {
+                            cosa.setPixelesPorSegundosActual(0);
+                            cosa.atacar(tiempoFrames, nini);
+                            if (nini.isEstaMuerto()) {
+                                cosa.setPixelesPorSegundosActual(cosa.getPixelesPorSegundo());
+                            }
+                        }
+                    }
+                } else {
+                    if (nini.getHitbox().getBoundsInParent().intersects(cosa.getHitbox().getBoundsInParent())) {
+                        cosa.setPixelesPorSegundosActual(0);
+                        cosa.atacar(tiempoFrames, nini);
+                        if (nini.isEstaMuerto()) {
+                            cosa.setPixelesPorSegundosActual(cosa.getPixelesPorSegundo());
+                        }
                     }
                 }
             }

@@ -13,6 +13,10 @@ public class Bonitillo extends Cosa {
     // --- CONSTRUCTOR ---
     public Bonitillo(Pane root) {
         super(1567, 90, 10, 1, "Animaciones/Cosas/Bonitillo_Andando.gif", root);
+        imagenCosa.setFitWidth(55);
+        imagenCosa.setFitHeight(55);
+        imagenCosa.setX(10);
+        imagenCosa.setY(30);
     }
 
     @Override

@@ -15,9 +15,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import modelos.*;
-import modelos.Cosas.CascoCv;
-import modelos.Cosas.ConoCv;
-import modelos.Cosas.Cv;
+import modelos.Cosas.*;
 import modelos.Ninis.*;
 
 import java.util.HashMap;
@@ -594,6 +592,9 @@ public class EscenaJuego {
         ConstruirPanelPausa(stage);
         ConstruirPanelPartidaPerdida(stage);
         root.getChildren().addAll(panelPausa, panelPartidaTerminada, hitboxCasa);
+
+        Cosa cs = new Furgo(root);
+        reloj.registrarCosa(cs);
 
         return new Scene(root, 1280, 720);
     }
