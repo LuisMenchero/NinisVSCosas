@@ -6,13 +6,8 @@ import javafx.animation.PauseTransition;
 import javafx.util.Duration;
 import modelos.Cosas.Cosa;
 import modelos.Cuadricula;
-import modelos.Ninis.Diego;
-import modelos.Ninis.Guevara;
-import modelos.Ninis.Lopez;
-import modelos.Ninis.Nini;
-import modelos.Proyectiles.Escupitajo;
-import modelos.Proyectiles.Nota;
-import modelos.Proyectiles.Proyectil;
+import modelos.Ninis.*;
+import modelos.Proyectiles.*;
 
 import java.util.ArrayList;
 
@@ -64,6 +59,7 @@ public class ControladorReloj {
     public void registrarNini(Nini nini) {
         ninis.add(nini);
     }
+
     public void registrarCosa(Cosa cosa) {
         cosas.add(cosa);
     }
@@ -91,6 +87,16 @@ public class ControladorReloj {
                 if (!escupitajosNuevos.isEmpty()) {
                     proyectiles.addAll(escupitajosNuevos);
                 }
+            } else if (nini instanceof Dani) {
+                ArrayList<Proyectil> pelotasNuevas = ((Dani) nini).getPelotasNuevas();
+                if (!pelotasNuevas.isEmpty()) {
+                    proyectiles.addAll(pelotasNuevas);
+                }
+            } else if (nini instanceof Raul) {
+                ArrayList<Proyectil> pikminNuevos = ((Raul) nini).getPikminNuevos();
+                if (!pikminNuevos.isEmpty()) {
+                    proyectiles.addAll(pikminNuevos);
+                }
             }
         }
 
@@ -99,6 +105,10 @@ public class ControladorReloj {
                 ((Nota) proyectil).actualizar(tiempoFrames);
             } else if (proyectil instanceof Escupitajo) {
                 ((Escupitajo) proyectil).actualizar(tiempoFrames);
+            } else if (proyectil instanceof PelotaBaloncesto) {
+                ((PelotaBaloncesto) proyectil).actualizar(tiempoFrames);
+            } else if (proyectil instanceof Pikmin) {
+                ((Pikmin) proyectil).actualizar(tiempoFrames);
             }
         }
 
@@ -131,7 +141,7 @@ public class ControladorReloj {
         proyectiles.clear();
     }
 
-    public void terminar(){
+    public void terminar() {
         if (temporizador != null) {
             temporizador.stop();
         }
@@ -140,39 +150,35 @@ public class ControladorReloj {
 
     private void comprobarColisiones() {
 
-    for (Proyectil proyectil : proyectiles) {
-        for (Cosa cosa : cosas) {
-            if (proyectil.getHitbox().getBoundsInParent().intersects(cosa.getHitbox().getBoundsInParent())) {
-                cosa.recibirDaño(proyectil.getDaño());
-                proyectil.impactar();
-                break;
-            }
-
-        }
-    }
-
-
-    for (Nini nini : ninis) {
-        for (Cosa cosa : cosas) {
-            if (nini.getHitbox().getBoundsInParent().intersects(cosa.getHitbox().getBoundsInParent())) {
-                cosa.setPixelesPorSegundosActual(0);
-                cosa.atacar(tiempoFrames, nini);
-                if (nini.isEstaMuerto()) {
-//                    EscenaJuego.getTerreno()[Cuadricula.convertirAFila(nini.getFila())][Cuadricula.convertirAColumna(nini.getColumna())].setNini(null);
-//                    EscenaJuego.getTerreno()[Cuadricula.convertirAFila(nini.getFila())][Cuadricula.convertirAColumna(nini.getColumna())].setHayPlanta(false);
-                    cosa.setPixelesPorSegundosActual(cosa.getPixelesPorSegundo());
+        for (Proyectil proyectil : proyectiles) {
+            for (Cosa cosa : cosas) {
+                if (proyectil.getHitbox().getBoundsInParent().intersects(cosa.getHitbox().getBoundsInParent())) {
+                    cosa.recibirDaño(proyectil.getDaño());
+                    proyectil.impactar();
+                    break;
                 }
             }
         }
-    }
 
 
-    for (Cosa cosa : cosas) {
-        if (cosa.getHitbox().getBoundsInParent().intersects(EscenaJuego.getHitboxCasa().getBoundsInParent())) {
-//            EscenaJuego.getReloj().pausa();
-            ControladorJuego.terminarPartida();
+        for (Nini nini : ninis) {
+            for (Cosa cosa : cosas) {
+                if (nini.getHitbox().getBoundsInParent().intersects(cosa.getHitbox().getBoundsInParent())) {
+                    cosa.setPixelesPorSegundosActual(0);
+                    cosa.atacar(tiempoFrames, nini);
+                    if (nini.isEstaMuerto()) {
+                        cosa.setPixelesPorSegundosActual(cosa.getPixelesPorSegundo());
+                    }
+                }
+            }
         }
-    }
+
+
+        for (Cosa cosa : cosas) {
+            if (cosa.getHitbox().getBoundsInParent().intersects(EscenaJuego.getHitboxCasa().getBoundsInParent())) {
+                ControladorJuego.terminarPartida();
+            }
+        }
 
     }
 

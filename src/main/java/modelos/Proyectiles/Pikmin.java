@@ -3,12 +3,12 @@ package modelos.Proyectiles;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
-public class Nota extends Proyectil {
+public class Pikmin extends Proyectil{
     // --- ATRIBUTOS ---
 
 
     // --- CONSTRUCTOR ---
-    public Nota(double fila, double columna, Pane root) {
+    public Pikmin(double fila, double columna, Pane root) {
         super(200, 20, 20,20 , fila + 35, columna  + 65, root);
         // Para el gif
         this.imagenProyectil = new ImageView("Animaciones/Proyectiles/nota.gif");

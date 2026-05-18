@@ -11,8 +11,8 @@ public abstract class Proyectil {
     protected int daño;
     // imagen de la nota
     protected ImageView imagenProyectil;
-    protected double ancho = 20;
-    protected double alto = 20;
+    protected double ancho;
+    protected double alto;
 
     // para colocar la nota
     protected double fila;
@@ -23,9 +23,11 @@ public abstract class Proyectil {
     protected Rectangle hitbox;
 
     // --- CONSTRUCTOR ---
-    public Proyectil(int pixelesPorSegundo, int daño, double fila, double columna, Pane root) {
+    public Proyectil(int pixelesPorSegundo, int daño, int ancho, int alto,double fila, double columna, Pane root) {
         this.pixelesPorSegundo = pixelesPorSegundo;
         this.daño = daño;
+        this.ancho = ancho;
+        this.alto = alto;
         this.fila = fila;
         this.columna = columna;
         this.root = root;
