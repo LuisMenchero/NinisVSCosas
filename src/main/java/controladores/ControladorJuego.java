@@ -40,6 +40,151 @@ public class ControladorJuego {
             }
 
             if (ronda == 1){
+                tiempoPartida = 15;
+                Cosa enemigoNuevo = null;
+                enemigoNuevo = new Cv(EscenaJuego.panelespecificoparacontroladorjuego);
+                EscenaJuego.getReloj().registrarCosa(enemigoNuevo);
+
+
+            }
+
+            if (ronda == 2){
+                tipo = (int) (Math.random()*3);
+                Cosa enemigoNuevo = null;
+                if (tipo == 0){
+                    enemigoNuevo = new Cv(EscenaJuego.panelespecificoparacontroladorjuego);
+                }
+                if (tipo == 1){
+                    enemigoNuevo = new ConoCv(EscenaJuego.panelespecificoparacontroladorjuego);
+                }
+                if (tipo == 2){
+                    enemigoNuevo = new CascoCv(EscenaJuego.panelespecificoparacontroladorjuego);
+                }
+
+                EscenaJuego.getReloj().registrarCosa(enemigoNuevo);
+
+            }
+
+            if (ronda == 3){
+                tipo = (int) (Math.random()*3);
+                Cosa enemigoNuevo = null;
+                if (tipo == 0){
+                    enemigoNuevo = new Cv(EscenaJuego.panelespecificoparacontroladorjuego);
+                }
+                if (tipo == 1){
+                    enemigoNuevo = new ConoCv(EscenaJuego.panelespecificoparacontroladorjuego);
+                }
+                if (tipo == 2){
+                    enemigoNuevo = new CascoCv(EscenaJuego.panelespecificoparacontroladorjuego);
+                }
+
+                EscenaJuego.getReloj().registrarCosa(enemigoNuevo);
+
+            }
+
+            if (ronda == 4){
+                tipo = (int) (Math.random()*3);
+                Cosa enemigoNuevo = null;
+                if (tipo == 0){
+                    enemigoNuevo = new Cv(EscenaJuego.panelespecificoparacontroladorjuego);
+                }
+                if (tipo == 1){
+                    enemigoNuevo = new ConoCv(EscenaJuego.panelespecificoparacontroladorjuego);
+                }
+                if (tipo == 2){
+                    enemigoNuevo = new CascoCv(EscenaJuego.panelespecificoparacontroladorjuego);
+                }
+
+                EscenaJuego.getReloj().registrarCosa(enemigoNuevo);
+
+            }
+
+            if (ronda == 5){
+                tipo = (int) (Math.random()*3);
+                Cosa enemigoNuevo = null;
+                if (tipo == 0){
+                    enemigoNuevo = new Cv(EscenaJuego.panelespecificoparacontroladorjuego);
+                }
+                if (tipo == 1){
+                    enemigoNuevo = new ConoCv(EscenaJuego.panelespecificoparacontroladorjuego);
+                }
+                if (tipo == 2){
+                    enemigoNuevo = new CascoCv(EscenaJuego.panelespecificoparacontroladorjuego);
+                }
+
+                EscenaJuego.getReloj().registrarCosa(enemigoNuevo);
+
+            }
+
+            if (ronda == 6){
+                tipo = (int) (Math.random()*3);
+                Cosa enemigoNuevo = null;
+                if (tipo == 0){
+                    enemigoNuevo = new Cv(EscenaJuego.panelespecificoparacontroladorjuego);
+                }
+                if (tipo == 1){
+                    enemigoNuevo = new ConoCv(EscenaJuego.panelespecificoparacontroladorjuego);
+                }
+                if (tipo == 2){
+                    enemigoNuevo = new CascoCv(EscenaJuego.panelespecificoparacontroladorjuego);
+                }
+
+                EscenaJuego.getReloj().registrarCosa(enemigoNuevo);
+
+            }
+
+            if (ronda == 7){
+                tipo = (int) (Math.random()*3);
+                Cosa enemigoNuevo = null;
+                if (tipo == 0){
+                    enemigoNuevo = new Cv(EscenaJuego.panelespecificoparacontroladorjuego);
+                }
+                if (tipo == 1){
+                    enemigoNuevo = new ConoCv(EscenaJuego.panelespecificoparacontroladorjuego);
+                }
+                if (tipo == 2){
+                    enemigoNuevo = new CascoCv(EscenaJuego.panelespecificoparacontroladorjuego);
+                }
+
+                EscenaJuego.getReloj().registrarCosa(enemigoNuevo);
+
+            }
+
+            if (ronda == 8){
+                tipo = (int) (Math.random()*3);
+                Cosa enemigoNuevo = null;
+                if (tipo == 0){
+                    enemigoNuevo = new Cv(EscenaJuego.panelespecificoparacontroladorjuego);
+                }
+                if (tipo == 1){
+                    enemigoNuevo = new ConoCv(EscenaJuego.panelespecificoparacontroladorjuego);
+                }
+                if (tipo == 2){
+                    enemigoNuevo = new CascoCv(EscenaJuego.panelespecificoparacontroladorjuego);
+                }
+
+                EscenaJuego.getReloj().registrarCosa(enemigoNuevo);
+
+            }
+
+            if (ronda == 9){
+                tipo = (int) (Math.random()*3);
+                Cosa enemigoNuevo = null;
+                if (tipo == 0){
+                    enemigoNuevo = new Cv(EscenaJuego.panelespecificoparacontroladorjuego);
+                }
+                if (tipo == 1){
+                    enemigoNuevo = new ConoCv(EscenaJuego.panelespecificoparacontroladorjuego);
+                }
+                if (tipo == 2){
+                    enemigoNuevo = new CascoCv(EscenaJuego.panelespecificoparacontroladorjuego);
+                }
+
+                EscenaJuego.getReloj().registrarCosa(enemigoNuevo);
+
+            }
+
+            if (ronda == 10){
                 tipo = (int) (Math.random()*3);
                 Cosa enemigoNuevo = null;
                 if (tipo == 0){
@@ -61,7 +206,7 @@ public class ControladorJuego {
     }
 
     private static void controladorOleadas (){
-        if (tiempoPartida > 75){
+        if (tiempoPartida > 25){
             ronda = 1;
         }
         if (tiempoPartida > 150){
