@@ -1,7 +1,6 @@
 package modelos.Cosas;
 
-import javafx.animation.Animation;
-import javafx.animation.TranslateTransition;
+import javafx.animation.PauseTransition;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 import modelos.GestorButanitos;
@@ -9,13 +8,16 @@ import modelos.Ninis.Nini;
 
 public class Hacienda extends Cosa {
     // --- ATRIBUTOS ---
+    protected double tiempoDelUltimaResta;
+    protected double cooldownResta;
     //El gestor de butanitos lo pillo en este para que pueda descontarlos
-    GestorButanitos GB = GestorButanitos.getInstancia();
-
+    private GestorButanitos gb = GestorButanitos.getInstancia();
+    private boolean estaRestando = false;
 
     // --- CONSTRUCTOR ---
     public Hacienda(Pane root) {
-        super(2000, 20, 60, 2, "Animaciones/Cosas/caminarCV.gif", root);
+        super(2000, 20, 60, 2, "Animaciones/Cosas/Hacienda_Andando.gif", root);
+        cooldownResta = 5;
     }
 
     @Override
@@ -28,7 +30,7 @@ public class Hacienda extends Cosa {
     @Override
     public void atacar(double tiempoFrames, Nini niniAtacando) {
         if (!atacandoNini) {
-            this.setImagenCosa("Animaciones/Cosas/Ataquendo.gif");
+            this.setImagenCosa("Animaciones/Cosas/Hacienda_Ataque.gif");
             atacandoNini = true;
             movimientoDeHitbox.play();
         }
@@ -41,7 +43,7 @@ public class Hacienda extends Cosa {
         }
 
         if (niniAtacando.isEstaMuerto()) {
-            this.setImagenCosa("Animaciones/Cosas/caminarCV.gif");
+            this.setImagenCosa("Animaciones/Cosas/Hacienda_Andando.gif");
             atacandoNini = false;
             movimientoDeHitbox.stop();
             hitbox.setTranslateX(0);
@@ -49,15 +51,38 @@ public class Hacienda extends Cosa {
     }
 
     public void descontar () {
+        estaRestando = true;
         this.setImagenCosa("Animaciones/Cosas/Hacienda_Descontar.gif");
-        movimientoDeHitbox.play();
-        GB.restarButanitos(100);
+        pixelesPorSegundosActual = 0;
+        if (gb.getContadorButanitos()<=0) {
+            gb.setContadorButanitos(0);
+        } else {
+            gb.restarButanitos(100);
+        }
+        PauseTransition pausa = new PauseTransition(Duration.seconds(1));
+        pausa.setOnFinished(e -> {
+            this.setImagenCosa("Animaciones/Cosas/Hacienda_Andando.gif");
+            pixelesPorSegundosActual = pixelesPorSegundo;
+            estaRestando = false;
+        });
+        pausa.play();
     }
 
 
     @Override
     public void actualizar(double tiempoFrames) {
         caminar(tiempoFrames);
+        tiempoDelUltimaResta = tiempoDelUltimaResta + tiempoFrames;
+        if(tiempoDelUltimaResta > cooldownResta) {
+            tiempoDelUltimaResta = 0;
+            if (!estaRestando) {
+                descontar();
+            }
+        }
+
+
+
+
 
     }
 
