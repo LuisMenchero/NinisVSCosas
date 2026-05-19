@@ -12,7 +12,7 @@ public class Furgo extends Cosa {
 
     // --- CONSTRUCTOR ---
     public Furgo(Pane root) {
-        super(7000, 75, 9999, 2, "Animaciones/Cosas/Furgo_Abierto.gif", root);
+        super(700, 75, 9999, 2, "Animaciones/Cosas/Furgo_Abierto.gif", root);
         imagenCosa.setFitWidth(175);
         imagenCosa.setFitHeight(175);
         imagenCosa.setX(-20);

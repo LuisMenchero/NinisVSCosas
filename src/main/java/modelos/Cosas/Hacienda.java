@@ -16,7 +16,7 @@ public class Hacienda extends Cosa {
 
     // --- CONSTRUCTOR ---
     public Hacienda(Pane root) {
-        super(2000, 20, 60, 2, "Animaciones/Cosas/Hacienda_Andando.gif", root);
+        super(200, 20, 60, 2, "Animaciones/Cosas/Hacienda_Andando.gif", root);
         cooldownResta = 5;
     }
 

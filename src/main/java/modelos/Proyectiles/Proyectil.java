@@ -21,6 +21,7 @@ public abstract class Proyectil {
 
     //Funcionamiento
     protected Rectangle hitbox;
+    protected boolean haImpactado = false;
 
     // --- CONSTRUCTOR ---
     public Proyectil(int pixelesPorSegundo, int daño, int ancho, int alto,double fila, double columna, Pane root) {
@@ -58,5 +59,9 @@ public abstract class Proyectil {
 
     public Rectangle getHitbox() {
         return hitbox;
+    }
+
+    public boolean isHaImpactado() {
+        return haImpactado;
     }
 }

@@ -6,7 +6,6 @@ import javafx.scene.layout.Pane;
 public class Nota extends Proyectil {
     // --- ATRIBUTOS ---
 
-
     // --- CONSTRUCTOR ---
     public Nota(double fila, double columna, Pane root) {
         super(200, 20, 20,20 , fila + 35, columna  + 65, root);
@@ -31,9 +30,12 @@ public class Nota extends Proyectil {
 
     @Override
     public void impactar() {
+        if (this.haImpactado == true) {
+            return;
+        }
+        this.haImpactado = true;
         root.getChildren().remove(imagenProyectil);
         root.getChildren().remove(hitbox);
-        System.out.println("impacto");
     }
 
     @Override

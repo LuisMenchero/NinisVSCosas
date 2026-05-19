@@ -20,7 +20,7 @@ public class ControladorJuego {
 
     //voy a hacer la parte del spawn de cosas (los he llamado enemigos porque si no me hago un lio)
     public static double tiempoUltimoEnemigo = 0;
-    public static double tiempoEnSpawnear = 2;
+    public static double tiempoEnSpawnear = 25;
     private static int ronda = 0;
     private static int tipo;
     public static double tiempoPartida = 0;
