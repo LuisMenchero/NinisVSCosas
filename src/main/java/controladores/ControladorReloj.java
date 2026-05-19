@@ -153,12 +153,15 @@ public class ControladorReloj {
 
         // Para impactos de proyectiles
         for (Proyectil proyectil : proyectiles) {
+            if (!proyectil.isHaImpactado()){
+
             for (Cosa cosa : cosas) {
                 if (proyectil.getHitbox().getBoundsInParent().intersects(cosa.getHitbox().getBoundsInParent())) {
                     cosa.recibirDaño(proyectil.getDaño());
                     proyectil.impactar();
                     break;
                 }
+            }
             }
         }
 

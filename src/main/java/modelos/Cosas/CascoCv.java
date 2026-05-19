@@ -9,7 +9,7 @@ public class CascoCv extends Cosa {
 
     // --- CONSTRUCTOR ---
     public CascoCv(Pane root) {
-        super(6000, 20, 60, 2, "Animaciones/Cosas/casco_andando.gif", root);
+        super(600, 20, 60, 2, "Animaciones/Cosas/casco_andando.gif", root);
     }
 
     @Override

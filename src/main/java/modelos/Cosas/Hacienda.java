@@ -15,7 +15,7 @@ public class Hacienda extends Cosa {
 
     // --- CONSTRUCTOR ---
     public Hacienda(Pane root) {
-        super(2000, 20, 60, 2, "Animaciones/Cosas/caminarCV.gif", root);
+        super(200, 20, 60, 2, "Animaciones/Cosas/caminarCV.gif", root);
     }
 
     @Override

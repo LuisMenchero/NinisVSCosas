@@ -31,9 +31,11 @@ public class Pikmin extends Proyectil{
 
     @Override
     public void impactar() {
+        if (this.haImpactado == true) {
+            return;
+        }
         root.getChildren().remove(imagenProyectil);
         root.getChildren().remove(hitbox);
-        System.out.println("impacto");
     }
 
     @Override

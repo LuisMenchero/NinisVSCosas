@@ -11,7 +11,7 @@ public class Angine extends Cosa {
 
     // --- CONSTRUCTOR ---
     public Angine(Pane root) {
-        super(12000, 5, 20000, 0, "Animaciones/Cosas/caminarCV.gif", root);
+        super(1200, 5, 999999, 0, "Animaciones/Cosas/Angine_de_poitrine.gif", root);
     }
 
     @Override
@@ -19,13 +19,11 @@ public class Angine extends Cosa {
         columna = (columna - pixelesPorSegundosActual * tiempoFrames);
         this.imagenCosa.setLayoutX(columna);
         this.hitbox.setX((columna + 20) - pixelesPorSegundosActual * tiempoFrames);
-        //Si queremos que se mueva de fila en algun momento poner un set y
     }
 
     @Override
     public void atacar(double tiempoFrames, Nini niniAtacando) {
         if (!atacandoNini) {
-            this.setImagenCosa("Animaciones/Cosas/Ataquendo.gif");
             atacandoNini = true;
             movimientoDeHitbox.play();
         }
@@ -38,7 +36,6 @@ public class Angine extends Cosa {
         }
 
         if (niniAtacando.isEstaMuerto()) {
-            this.setImagenCosa("Animaciones/Cosas/caminarCV.gif");
             atacandoNini = false;
             movimientoDeHitbox.stop();
             hitbox.setTranslateX(0);

@@ -12,7 +12,7 @@ public class Jamiroquai extends Cosa {
 
     // --- CONSTRUCTOR ---
     public Jamiroquai(Pane root) {
-        super(2000, 14, 80, 1, "Animaciones/Cosas/Jamiroquai_Andando.gif", root);
+        super(250, 14, 80, 1, "Animaciones/Cosas/Jamiroquai_Andando.gif", root);
     }
 
     @Override

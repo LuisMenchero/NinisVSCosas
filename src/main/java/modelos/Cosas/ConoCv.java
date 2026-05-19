@@ -9,7 +9,7 @@ public class ConoCv extends Cosa {
 
     // --- CONSTRUCTOR ---
     public ConoCv(Pane root) {
-        super(4000, 20, 60, 2, "Animaciones/Cosas/cono_andando.gif", root);
+        super(400, 20, 60, 2, "Animaciones/Cosas/cono_andando.gif", root);
     }
 
     @Override

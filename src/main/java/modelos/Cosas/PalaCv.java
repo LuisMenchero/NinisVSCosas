@@ -9,7 +9,7 @@ public class PalaCv extends Cosa {
 
     // --- CONSTRUCTOR ---
     public PalaCv(Pane root) {
-        super(9000, 20, 65, 2, "Animaciones/Cosas/caminar_pala.gif", root);
+        super(900, 20, 65, 2, "Animaciones/Cosas/caminar_pala.gif", root);
     }
 
     @Override
