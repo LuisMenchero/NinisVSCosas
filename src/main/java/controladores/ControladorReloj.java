@@ -38,6 +38,15 @@ public class ControladorReloj {
 
             @Override
             public void handle(long now) {
+
+                //Esta parte lo que hace es que si está en pausa no haga nada del handle
+                if (pausado) {
+                    ultimoTiempo = -1;
+                    return;
+                }
+                //Y lo hemos hecho asi para arreglar el bug de pausa, que lo que pasaba es que aunque parase el temporizador, el handle seguia acumulando y sumaba a todo despues de reanudar
+
+
                 if (ultimoTiempo < 0) {
                     ultimoTiempo = now;
                     return;
@@ -127,10 +136,10 @@ public class ControladorReloj {
     public void pausa() {
 
         if (pausado) {
-            temporizador.start();
+//            temporizador.start();
             pausado = false;
         } else {
-            temporizador.stop();
+//            temporizador.stop();
             pausado = true;
         }
 
