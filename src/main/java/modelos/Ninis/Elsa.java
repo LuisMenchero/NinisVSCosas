@@ -18,7 +18,8 @@ public class Elsa extends Nini {
     // --- MÉTODOS ---
     @Override
     public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas){
-
+        potenciar();
+        curar();
     }
 
     @Override

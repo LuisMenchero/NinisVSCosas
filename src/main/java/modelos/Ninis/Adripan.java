@@ -30,6 +30,7 @@ public class Adripan extends Nini {
     @Override
     public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas) {
         potenciar();
+        curar();
         PauseTransition pause = new PauseTransition(Duration.seconds(10));
         pause.setOnFinished(e1 -> {
             if (!estaCargado && !enProcesoCarga) {

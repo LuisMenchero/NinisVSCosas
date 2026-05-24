@@ -22,6 +22,7 @@ public class Luis extends Nini {
     @Override
     public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas) {
         potenciar();
+        curar();
         tiempoProduccionButanito = tiempoProduccionButanito + tiempoFrames;
         if (tiempoProduccionButanito >= tiempoGeneracionButanito) {
             tiempoProduccionButanito = 0;

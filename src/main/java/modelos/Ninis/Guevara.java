@@ -21,6 +21,8 @@ public class Guevara extends Nini {
     // --- MÉTODOS ---
     @Override
     public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas) {
+        potenciar();
+        curar();
         tiempoParaDesaparecer = tiempoParaDesaparecer + tiempoFrames;
         if(tiempoParaDesaparecer > tiempoEnDesaparecer) {
             recibirDaño(500);

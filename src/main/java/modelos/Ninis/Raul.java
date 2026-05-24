@@ -24,6 +24,7 @@ public class Raul extends Nini{
     @Override
     public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas) {
         potenciar();
+        curar();
         if (hayZombieEnMiFila(cosas) || hayZombieEnMiFilaInferior(cosas) ||hayZombieEnMiFilaSuperior(cosas)) {
             tiempoDelUltimoDisparo = tiempoDelUltimoDisparo + tiempoFrames;
             if(tiempoDelUltimoDisparo > cooldownDisparo) {

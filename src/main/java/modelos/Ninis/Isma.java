@@ -25,6 +25,8 @@ public class Isma extends Nini {
     // --- MÉTODOS ---
     @Override
     public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas){
+        potenciar();
+        curar();
         PauseTransition pause = new PauseTransition(Duration.seconds(5));
         pause.setOnFinished(e1 -> {
             if(!explotar){
@@ -39,7 +41,6 @@ public class Isma extends Nini {
             pause2.play();
         });
         pause.play();
-
     }
 
     @Override

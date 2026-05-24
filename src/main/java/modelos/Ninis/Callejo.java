@@ -18,6 +18,7 @@ public class Callejo extends Nini {
         @Override
     public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas) {
             potenciar();
+            curar();
     }
 
     @Override

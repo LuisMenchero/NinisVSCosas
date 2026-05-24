@@ -82,6 +82,14 @@ public class ControladorReloj {
         }
         return false;
     }
+    public static boolean detectarLorena() {
+        for (Nini nini : ninis) {
+            if (nini instanceof Lorena) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     public void actualizar() {
         //aqui van las cosas que requieren ser actualizadas que reciban tiempoFrames

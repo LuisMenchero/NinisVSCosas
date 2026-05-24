@@ -13,19 +13,21 @@ import java.util.ArrayList;
 public class Lopez extends Nini {
     // --- ATRIBUTOS EXTRA ---
     private ArrayList<Escupitajo> escupitajosNuevos;
+
     // --- CONSTRUCTOR ---
     public Lopez(double columna, double fila, Pane root) {
-        super(columna, fila, TipoNini.LOPEZ,100, 75, 4, 5,"Animaciones/Ninis/LopezEsperando.gif", root);
+        super(columna, fila, TipoNini.LOPEZ, 100, 75, 4, 5, "Animaciones/Ninis/LopezEsperando.gif", root);
         escupitajosNuevos = new ArrayList<>();
     }
 
     // --- MÉTODOS ---
-        @Override
+    @Override
     public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas) {
-            potenciar();
+        potenciar();
+        curar();
         if (hayZombieEnMiFila(cosas)) {
             tiempoDelUltimoDisparo = tiempoDelUltimoDisparo + tiempoFrames;
-            if(tiempoDelUltimoDisparo > cooldownDisparo) {
+            if (tiempoDelUltimoDisparo > cooldownDisparo) {
                 tiempoDelUltimoDisparo = 0;
                 atacar(cosas);
             }
@@ -39,7 +41,7 @@ public class Lopez extends Nini {
 
         PauseTransition pausa = new PauseTransition(Duration.seconds(0.7));
         pausa.setOnFinished(evento -> {
-            escupitajosNuevos.add(new Escupitajo(fila,columna,root));
+            escupitajosNuevos.add(new Escupitajo(fila, columna, root));
             this.setImagenNiniImage("Animaciones/Ninis/LopezEsperando.gif");
         });
         pausa.play();

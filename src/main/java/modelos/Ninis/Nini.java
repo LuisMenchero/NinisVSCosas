@@ -27,6 +27,7 @@ public abstract class Nini {
     protected int saludMaxima;
     protected int salud;
     protected boolean potenciado = false;
+    protected boolean curado = false;
     protected double cooldownDisparo;
     protected int cooldownVolverPlantar;
     protected int costeButanitos;
@@ -38,8 +39,9 @@ public abstract class Nini {
     protected ImageView imagenNini;
     protected Pane root;
 
-    // el gif del potenciador
+    // el gif del potenciador y gif de curación
     protected ImageView potenciador;
+    protected ImageView curacion;
 
     //funcionamiento
     protected Rectangle hitbox;
@@ -78,6 +80,16 @@ public abstract class Nini {
         this.potenciador.setOpacity(0.4);
         this.potenciador.setVisible(false);
 
+        // para la curacion
+        this.curacion = new ImageView("Animaciones/Ninis/PotenciadorLorena.gif");
+        this.curacion.setFitWidth(ancho+20);
+        this.curacion.setFitHeight(alto+20);
+        this.curacion.setLayoutX(columna-10);
+        this.curacion.setLayoutY(fila);
+        this.curacion.setOpacity(0.4);
+        this.curacion.setVisible(false);
+
+
         hitbox = new Rectangle(
                 columna + 10,
                 fila + 20,
@@ -86,7 +98,7 @@ public abstract class Nini {
         hitbox.setOpacity(0.5);
         hitbox.setVisible(true);
 
-        root.getChildren().addAll(imagenNini, potenciador, hitbox);
+        root.getChildren().addAll(imagenNini, potenciador,curacion, hitbox);
     }
 
     // --- MÉTODOS ---
@@ -125,6 +137,20 @@ public abstract class Nini {
         if (ControladorReloj.detectarGuevara() && !potenciado) {
             this.potenciador.setVisible(true);
             this.potenciado = true;
+        } else if (!ControladorReloj.detectarGuevara() && potenciado) {
+            this.curacion.setVisible(false);
+            this.curado = false;
+        }
+    }
+    public void curar() {
+        if (ControladorReloj.detectarLorena() && !curado) {
+            this.salud = saludMaxima;
+            System.out.println(salud);
+            this.curacion.setVisible(true);
+            this.curado = true;
+        } else if (!ControladorReloj.detectarLorena() && curado) {
+            this.curacion.setVisible(false);
+            this.curado = false;
         }
     }
 

@@ -22,6 +22,8 @@ public class Irene extends Nini {
     // --- MÉTODOS ---
     @Override
     public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas){
+        potenciar();
+        curar();
         tiempoProduccionButanito = tiempoProduccionButanito + tiempoFrames;
         if (tiempoProduccionButanito >= tiempoGeneracionButanito) {
             tiempoProduccionButanito = 0;

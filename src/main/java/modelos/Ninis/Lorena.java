@@ -8,7 +8,8 @@ import java.util.ArrayList;
 
 public class Lorena extends Nini{
     // --- ATRIBUTOS ---
-
+    private int tiempoEnDesaparecer = 4;
+    private double tiempoParaDesaparecer = 0;
     // --- CONSTRUCTOR ---
 
     public Lorena(double columna, double fila, Pane root) {
@@ -18,7 +19,10 @@ public class Lorena extends Nini{
     // --- MÉTODOS ---
     @Override
     public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas){
-
+        tiempoParaDesaparecer = tiempoParaDesaparecer + tiempoFrames;
+        if(tiempoParaDesaparecer > tiempoEnDesaparecer) {
+            morir();
+        }
     }
 
     @Override
