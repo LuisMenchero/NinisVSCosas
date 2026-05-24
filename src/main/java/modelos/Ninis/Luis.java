@@ -27,7 +27,6 @@ public class Luis extends Nini {
             tiempoProduccionButanito = 0;
             System.out.println("butanito generado");
             Butanito nuevoButanito = new Butanito(columna,fila,root,"Animaciones/Items/Butanito.gif");
-
         }
     }
 
