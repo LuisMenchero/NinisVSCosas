@@ -687,6 +687,7 @@ public class EscenaJuego {
     public void mostrarPanelPausa() {
         if (reloj.isPausado()) {
             panelPausa.setVisible(true);
+            panelPausa.toFront();
         } else {
             panelPausa.setVisible(false);
         }
