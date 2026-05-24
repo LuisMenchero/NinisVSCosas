@@ -98,6 +98,16 @@ public class ControladorReloj {
                 if (!pikminNuevos.isEmpty()) {
                     proyectiles.addAll(pikminNuevos);
                 }
+            } else if (nini instanceof Guille) {
+                ArrayList<Proyectil> cabezasNuevas = ((Guille) nini).getCabezasNuevas();
+                if (!cabezasNuevas.isEmpty()) {
+                    proyectiles.addAll(cabezasNuevas);
+                }
+            } else if (nini instanceof Alvaro) {
+                ArrayList<Proyectil> alvaroDeslizadosNuevos = ((Alvaro) nini).getAlvaroDeslizados();
+                if (!alvaroDeslizadosNuevos.isEmpty()) {
+                    proyectiles.addAll(alvaroDeslizadosNuevos);
+                }
             }
         }
 
@@ -110,6 +120,10 @@ public class ControladorReloj {
                 ((PelotaBaloncesto) proyectil).actualizar(tiempoFrames);
             } else if (proyectil instanceof Pikmin) {
                 ((Pikmin) proyectil).actualizar(tiempoFrames);
+            } else if (proyectil instanceof CabezaGuille) {
+                ((CabezaGuille) proyectil).actualizar(tiempoFrames);
+            } else if (proyectil instanceof AlvaroDeslizando) {
+                ((AlvaroDeslizando) proyectil).actualizar(tiempoFrames);
             }
         }
 
@@ -153,15 +167,23 @@ public class ControladorReloj {
 
         // Para impactos de proyectiles
         for (Proyectil proyectil : proyectiles) {
-            if (!proyectil.isHaImpactado()){
-
-            for (Cosa cosa : cosas) {
-                if (proyectil.getHitbox().getBoundsInParent().intersects(cosa.getHitbox().getBoundsInParent())) {
-                    cosa.recibirDaño(proyectil.getDaño());
-                    proyectil.impactar();
-                    break;
+            if (!proyectil.isHaImpactado()) {
+                for (Cosa cosa : cosas) {
+                    if (proyectil.getHitbox().getBoundsInParent().intersects(cosa.getHitbox().getBoundsInParent())) {
+                        cosa.recibirDaño(proyectil.getDaño());
+                        proyectil.impactar();
+                        if (proyectil instanceof AlvaroDeslizando && !cosa.estaRalentizado()) {
+                            cosa.setPixelesPorSegundosActual(cosa.getPixelesPorSegundosActual() / 3);
+                            cosa.setEstaRalentizado(true);
+                            PauseTransition pause = new PauseTransition(Duration.seconds(3));
+                            pause.setOnFinished(e -> {
+                                cosa.setPixelesPorSegundosActual(cosa.getPixelesPorSegundo());
+                            });
+                            pause.play();
+                        }
+                        break;
+                    }
                 }
-            }
             }
         }
 

@@ -38,8 +38,8 @@ public abstract class Cosa {
     protected boolean atacandoNini = false;
     protected int pixelesPorSegundosActual;
     protected Rectangle hitbox;
-    TranslateTransition movimientoDeHitbox;
-
+    protected TranslateTransition movimientoDeHitbox;
+    protected boolean estaRalentizado = false;
 
     // --- CONSTRUCTOR ---
 
@@ -95,6 +95,7 @@ public abstract class Cosa {
 
     public void recibirDaño(int daño) {
         this.salud = salud - daño;
+        System.out.println("Salud: " + salud);
         if (this.salud <= 0) {
             morir();
         }
@@ -140,8 +141,20 @@ public abstract class Cosa {
         this.atacandoNini = atacandoNini;
     }
 
+    public void setEstaRalentizado(boolean estaRalentizado) {
+        this.estaRalentizado = estaRalentizado;
+    }
+
     public int getPixelesPorSegundo() {
         return pixelesPorSegundo;
+    }
+
+    public int getPixelesPorSegundosActual() {
+        return pixelesPorSegundosActual;
+    }
+
+    public boolean estaRalentizado() {
+        return estaRalentizado;
     }
 
     public Rectangle getHitbox() {
