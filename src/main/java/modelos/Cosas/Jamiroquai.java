@@ -20,7 +20,7 @@ public class Jamiroquai extends Cosa {
         columna = (columna - pixelesPorSegundosActual * tiempoFrames);
         this.imagenCosa.setLayoutX(columna);
         this.hitbox.setX((columna + 20) - pixelesPorSegundosActual * tiempoFrames);
-        //Si queremos que se mueva de fila en algun momento poner un set y
+        this.imagenCongelado.setLayoutX(columna);
     }
 
     @Override

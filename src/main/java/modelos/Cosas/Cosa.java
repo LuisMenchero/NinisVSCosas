@@ -41,6 +41,10 @@ public abstract class Cosa {
     protected TranslateTransition movimientoDeHitbox;
     protected boolean estaRalentizado = false;
 
+    // Congelamiento
+    protected boolean estaCongelado = false;
+    protected ImageView imagenCongelado;
+
     // --- CONSTRUCTOR ---
 
 
@@ -69,7 +73,6 @@ public abstract class Cosa {
         this.imagenCosa.setLayoutY(fila);
 
         //para la hitbox (nueva) ((vaya movida))
-        // nocilla que merendilla AY MI LOPI
         hitbox = new Rectangle(
                 columna,
                 fila + 20,
@@ -82,7 +85,17 @@ public abstract class Cosa {
         movimientoDeHitbox.setByX(-1);
         movimientoDeHitbox.setCycleCount(Animation.INDEFINITE);
         movimientoDeHitbox.setAutoReverse(true);
-        root.getChildren().addAll(imagenCosa, hitbox);
+
+        // para la congelación
+        imagenCongelado = new ImageView("Animaciones/Cosas/bloque_hielo.png");
+        imagenCongelado.setFitWidth(ancho);
+        imagenCongelado.setFitHeight(alto);
+        imagenCongelado.setLayoutX(columna);
+        imagenCongelado.setLayoutY(fila);
+        imagenCongelado.setOpacity(0.67);
+        imagenCongelado.setVisible(false);
+
+        root.getChildren().addAll(imagenCosa, hitbox,imagenCongelado);
     }
 
 
@@ -106,6 +119,16 @@ public abstract class Cosa {
         root.getChildren().remove(hitbox);
         ControladorReloj.getCosas().remove(this);
     }
+
+    public void congelar() {
+        imagenCongelado.setVisible(true);
+        this.pixelesPorSegundosActual = 0;
+    }
+    public void descongelar() {
+        imagenCongelado.setVisible(false);
+        this.pixelesPorSegundosActual = this.pixelesPorSegundo;
+    }
+
 
 
     // --- GETTERS Y SETTERS ---

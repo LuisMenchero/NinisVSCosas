@@ -31,7 +31,7 @@ public class Furgo extends Cosa {
             this.imagenCosa.setLayoutX(columna);
             this.hitbox.setX((columna + 20) + pixelesPorSegundosActual * tiempoFrames);
         }
-
+        this.imagenCongelado.setLayoutX(columna);
     }
 
     @Override
