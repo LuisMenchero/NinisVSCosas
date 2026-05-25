@@ -12,14 +12,13 @@ public class Keke extends Nini {
     // --- CONSTRUCTOR ---
 
     public Keke(double columna, double fila, Pane root) {
-        super(columna, fila, TipoNini.KEKE,125, 175, 0, 5,"Animaciones/Ninis/Keke_Idle.gif", root);
+        super(columna, fila, TipoNini.KEKE, 125, 175, 0, 5, "Animaciones/Ninis/Keke_Idle.gif", root);
     }
 
     // --- MÉTODOS ---
     @Override
-    public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas){
-        potenciar();
-        curar();
+    public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas) {
+        super.actualizar(tiempoFrames, terreno, cosas);
     }
 
     @Override

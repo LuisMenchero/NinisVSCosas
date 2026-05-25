@@ -10,25 +10,24 @@ import modelos.Proyectiles.Proyectil;
 
 import java.util.ArrayList;
 
-public class Guille extends Nini{
+public class Guille extends Nini {
     // --- ATRIBUTOS ---
     private ArrayList<CabezaGuille> cabezasNuevas;
     private boolean haAtacado = false;
     // --- CONSTRUCTOR ---
 
     public Guille(double columna, double fila, Pane root) {
-        super(columna, fila, TipoNini.GUILLE,125, 175, 2, 5,"Animaciones/Ninis/Guille_Idle.gif", root);
+        super(columna, fila, TipoNini.GUILLE, 125, 175, 2, 5, "Animaciones/Ninis/Guille_Idle.gif", root);
         cabezasNuevas = new ArrayList<>();
     }
 
     // --- MÉTODOS ---
     @Override
-    public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas){
-        potenciar();
-        curar();
+    public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas) {
+        super.actualizar(tiempoFrames, terreno, cosas);
         PauseTransition pausa = new PauseTransition(Duration.seconds(2));
         pausa.setOnFinished(e -> {
-            if(!haAtacado){
+            if (!haAtacado) {
                 atacar(cosas);
             }
         });
@@ -42,7 +41,7 @@ public class Guille extends Nini{
         haAtacado = true;
         PauseTransition pausa = new PauseTransition(Duration.seconds(1));
         pausa.setOnFinished(evento -> {
-            cabezasNuevas.add(new CabezaGuille(fila,columna,root));
+            cabezasNuevas.add(new CabezaGuille(fila, columna, root));
             PauseTransition pausaPequeña = new PauseTransition(Duration.millis(10));
             pausaPequeña.setOnFinished(e -> {
                 morir();

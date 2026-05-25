@@ -16,18 +16,17 @@ public class Diego extends Nini {
 
     // --- CONSTRUCTOR ---
     public Diego(double columna, double fila, Pane root) {
-        super(columna, fila, TipoNini.DIEGO,100, 100, 3, 5,"Animaciones/Ninis/DiegoEsperando.gif" , root);
+        super(columna, fila, TipoNini.DIEGO, 100, 100, 3, 5, "Animaciones/Ninis/DiegoEsperando.gif", root);
         notasNuevas = new ArrayList<>();
     }
 
     // --- MÉTODOS ---
     @Override
     public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas) {
-        potenciar();
-        curar();
+        super.actualizar(tiempoFrames, terreno, cosas);
         if (hayZombieEnMiFila(cosas)) {
             tiempoDelUltimoDisparo = tiempoDelUltimoDisparo + tiempoFrames;
-            if(tiempoDelUltimoDisparo > cooldownDisparo) {
+            if (tiempoDelUltimoDisparo > cooldownDisparo) {
                 tiempoDelUltimoDisparo = 0;
                 atacar(cosas);
             }
@@ -39,7 +38,7 @@ public class Diego extends Nini {
         this.setImagenNiniImage("Animaciones/Ninis/DiegoDisparando.gif");
         PauseTransition pausa = new PauseTransition(Duration.seconds(1.2));
         pausa.setOnFinished(evento -> {
-            notasNuevas.add(new Nota(fila,columna,root));
+            notasNuevas.add(new Nota(fila, columna, root));
             this.setImagenNiniImage("Animaciones/Ninis/DiegoEsperando.gif");
         });
         pausa.play();

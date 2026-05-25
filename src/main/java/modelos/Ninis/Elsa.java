@@ -15,14 +15,15 @@ public class Elsa extends Nini {
     // --- CONSTRUCTOR ---
 
     public Elsa(double columna, double fila, Pane root) {
-        super(columna, fila, TipoNini.ELSA,125, 0, 0, 200,"Animaciones/Ninis/Elsa_Idle.gif", root);
+        super(columna, fila, TipoNini.ELSA, 125, 0, 0, 200, "Animaciones/Ninis/Elsa_Idle.gif", root);
     }
 
     // --- MÉTODOS ---
     @Override
-    public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas){
+    public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas) {
+        super.actualizar(tiempoFrames, terreno, cosas);
         tiempoParaDesaparecer = tiempoParaDesaparecer + tiempoFrames;
-        if(tiempoParaDesaparecer > tiempoEnDesaparecer) {
+        if (tiempoParaDesaparecer > tiempoEnDesaparecer) {
             atacar(cosas);
             morir();
         }
