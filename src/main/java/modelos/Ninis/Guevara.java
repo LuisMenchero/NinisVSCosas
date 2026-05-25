@@ -14,18 +14,17 @@ public class Guevara extends Nini {
 
     // --- CONSTRUCTOR ---
     public Guevara(double columna, double fila, Pane root) {
-        super(columna, fila, TipoNini.GUEVARA,500, 25, 0, 5,"Animaciones/Ninis/Guevara_Idle.gif", root);
+        super(columna, fila, TipoNini.GUEVARA, 500, 25, 0, 5, "Animaciones/Ninis/Guevara_Idle.gif", root);
 
     }
 
     // --- MÉTODOS ---
     @Override
     public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas) {
-        potenciar();
-        curar();
+        super.actualizar(tiempoFrames, terreno, cosas);
         tiempoParaDesaparecer = tiempoParaDesaparecer + tiempoFrames;
-        if(tiempoParaDesaparecer > tiempoEnDesaparecer) {
-            recibirDaño(500);
+        if (tiempoParaDesaparecer > tiempoEnDesaparecer) {
+            morir();
         }
     }
 
@@ -33,4 +32,8 @@ public class Guevara extends Nini {
     public void atacar(ArrayList<Cosa> cosas) {
     }
 
+
+    public double getMultiplicadorDaño() {
+        return multiplicadorDaño;
+    }
 }

@@ -11,14 +11,13 @@ public class Callejo extends Nini {
 
     // --- CONSTRUCTOR ---
     public Callejo(double columna, double fila, Pane root) {
-        super(columna, fila, TipoNini.CALLEJO,200, 50, 0, 5,"Animaciones/Ninis/Callejo_idle.gif", root);
+        super(columna, fila, TipoNini.CALLEJO, 200, 50, 0, 5, "Animaciones/Ninis/Callejo_idle.gif", root);
     }
 
     // --- MÉTODOS ---
-        @Override
+    @Override
     public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas) {
-            potenciar();
-            curar();
+        super.actualizar(tiempoFrames, terreno, cosas);
     }
 
     @Override

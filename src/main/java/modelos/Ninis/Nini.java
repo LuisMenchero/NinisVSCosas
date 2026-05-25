@@ -105,7 +105,10 @@ public abstract class Nini {
     // abstactos
     protected abstract void atacar(ArrayList<Cosa> cosas);
 
-    public abstract void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas);
+    public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas) {
+        potenciar();
+        curar();
+    }
 
     // normales
     public void recibirDaño(int daño) {
@@ -119,6 +122,7 @@ public abstract class Nini {
         root.getChildren().remove(imagenNini);
         root.getChildren().remove(hitbox);
         this.potenciador.setVisible(false);
+        this.curacion.setVisible(false);
         ControladorReloj.getNinis().remove(this);
         estaMuerto = true;
 
@@ -138,14 +142,13 @@ public abstract class Nini {
             this.potenciador.setVisible(true);
             this.potenciado = true;
         } else if (!ControladorReloj.detectarGuevara() && potenciado) {
-            this.curacion.setVisible(false);
-            this.curado = false;
+            this.potenciador.setVisible(false);
+            this.potenciado = false;
         }
     }
     public void curar() {
         if (ControladorReloj.detectarLorena() && !curado) {
             this.salud = saludMaxima;
-            System.out.println(salud);
             this.curacion.setVisible(true);
             this.curado = true;
         } else if (!ControladorReloj.detectarLorena() && curado) {

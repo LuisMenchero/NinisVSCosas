@@ -6,20 +6,19 @@ import modelos.Cosas.Cosa;
 
 import java.util.ArrayList;
 
-public class Maria extends Nini{
+public class Maria extends Nini {
     // --- ATRIBUTOS ---
 
     // --- CONSTRUCTOR ---
 
     public Maria(double columna, double fila, Pane root) {
-        super(columna, fila, TipoNini.MARIA,125, 150, 0, 5,"Animaciones/Ninis/Maria_Idle.gif", root);
+        super(columna, fila, TipoNini.MARIA, 125, 150, 0, 5, "Animaciones/Ninis/Maria_Idle.gif", root);
     }
 
     // --- MÉTODOS ---
     @Override
-    public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas){
-        potenciar();
-        curar();
+    public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas) {
+        super.actualizar(tiempoFrames, terreno, cosas);
     }
 
     @Override

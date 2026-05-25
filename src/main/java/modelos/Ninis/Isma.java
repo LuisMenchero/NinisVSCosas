@@ -19,17 +19,16 @@ public class Isma extends Nini {
     // --- CONSTRUCTOR ---
 
     public Isma(double columna, double fila, Pane root) {
-        super(columna, fila, TipoNini.ISMA,50, 150, 0, 5,"Animaciones/Ninis/Isma_Idle.gif", root);
+        super(columna, fila, TipoNini.ISMA, 50, 150, 0, 5, "Animaciones/Ninis/Isma_Idle.gif", root);
     }
 
     // --- MÉTODOS ---
     @Override
-    public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas){
-        potenciar();
-        curar();
+    public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas) {
+        super.actualizar(tiempoFrames, terreno, cosas);
         PauseTransition pause = new PauseTransition(Duration.seconds(5));
         pause.setOnFinished(e1 -> {
-            if(!explotar){
+            if (!explotar) {
                 atacar(cosas);
             }
             PauseTransition pause2 = new PauseTransition(Duration.seconds(0.5));
@@ -47,15 +46,15 @@ public class Isma extends Nini {
     public void atacar(ArrayList<Cosa> cosas) {
         explotar = true;
         explosion = new ImageView("Animaciones/Ninis/boom-explosion.gif");
-        hitboxExplosion = new Rectangle(columna-50,fila-50,180,180);
+        hitboxExplosion = new Rectangle(columna - 50, fila - 50, 180, 180);
         hitboxExplosion.setFill(Color.RED);
         hitboxExplosion.setOpacity(0.5);
         hitboxExplosion.setVisible(true);
         explosion.setFitWidth(200);
         explosion.setFitHeight(200);
-        explosion.setX(columna-50);
-        explosion.setY(fila-50);
-        root.getChildren().addAll(explosion,hitboxExplosion);
+        explosion.setX(columna - 50);
+        explosion.setY(fila - 50);
+        root.getChildren().addAll(explosion, hitboxExplosion);
     }
 
     public boolean isExplotar() {

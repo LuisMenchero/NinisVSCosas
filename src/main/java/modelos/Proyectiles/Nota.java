@@ -13,7 +13,8 @@ public class Nota extends Proyectil {
         this.imagenProyectil = new ImageView("Animaciones/Proyectiles/nota.gif");
         this.imagenProyectil.setFitWidth(ancho);
         this.imagenProyectil.setFitHeight(alto);
-
+        this.imagenProyectilQuemado.setFitWidth(ancho+20);
+        this.imagenProyectilQuemado.setFitHeight(alto+20);
 
         // para posicionarlo en la pantalla
         this.imagenProyectil.setLayoutX(this.columna);
@@ -36,6 +37,7 @@ public class Nota extends Proyectil {
         this.haImpactado = true;
         root.getChildren().remove(imagenProyectil);
         root.getChildren().remove(hitbox);
+        root.getChildren().remove(imagenProyectilQuemado);
     }
 
     @Override
@@ -43,5 +45,6 @@ public class Nota extends Proyectil {
         columna = (columna + pixelesPorSegundo * tiempoFrames);
         this.imagenProyectil.setLayoutX(columna);
         this.hitbox.setX(columna+pixelesPorSegundo * tiempoFrames);
+        this.imagenProyectilQuemado.setLayoutX(columna);
     }
 }

@@ -15,23 +15,22 @@ public class Luis extends Nini {
     // --- CONSTRUCTOR ---
 
     public Luis(double columna, double fila, Pane root) {
-        super(columna, fila, TipoNini.LUIS,75, 50, 0, 5,"Animaciones/Ninis/Lis.gif", root);
+        super(columna, fila, TipoNini.LUIS, 75, 50, 0, 5, "Animaciones/Ninis/Lis.gif", root);
     }
 
     // --- MÉTODOS ---
     @Override
     public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas) {
-        potenciar();
-        curar();
+        super.actualizar(tiempoFrames, terreno, cosas);
         tiempoProduccionButanito = tiempoProduccionButanito + tiempoFrames;
         if (tiempoProduccionButanito >= tiempoGeneracionButanito) {
             tiempoProduccionButanito = 0;
             System.out.println("butanito generado");
-            Butanito nuevoButanito = new Butanito(columna,fila,root,"Animaciones/Items/Butanito.gif");
+            Butanito nuevoButanito = new Butanito(columna, fila, root, "Animaciones/Items/Butanito.gif");
         }
     }
 
     @Override
-    public void atacar(ArrayList<Cosa> cosas){
+    public void atacar(ArrayList<Cosa> cosas) {
     }
 }

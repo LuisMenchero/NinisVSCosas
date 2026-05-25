@@ -25,6 +25,7 @@ public class Hacienda extends Cosa {
         columna = (columna - pixelesPorSegundosActual * tiempoFrames);
         this.imagenCosa.setLayoutX(columna);
         this.hitbox.setX((columna + 20) - pixelesPorSegundosActual * tiempoFrames);
+        this.imagenCongelado.setLayoutX(columna);
     }
 
     @Override

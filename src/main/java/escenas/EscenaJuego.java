@@ -27,7 +27,6 @@ public class EscenaJuego {
     private Pane panelPausa = new Pane();
     private static Pane panelPartidaTerminada = new Pane();
     private TipoNini niniSeleccionadoTipo;
-    private ImageView niniTransparente;
     private static Rectangle hitboxCasa;
     private boolean modoColgarActivo = false;
     public static Pane panelespecificoparacontroladorjuego;
@@ -399,23 +398,8 @@ public class EscenaJuego {
 
                 });
 
-
-
-
-
-
         Pane root = new Pane(fondo, btnPausa, menuPlantas, cuadroButanos, cantidadButanitos, colgar, luis, diego, callejo, adripan, isma, ximena, lopez, guille, dani, keke, guevara, lorena, maria, jud, elsa, eliseo, raul, irene, alvaro, hamil);
         panelespecificoparacontroladorjuego = root;
-        //        niniTransparente = new ImageView();
-//        niniTransparente.setLayoutX(Cuadricula.anchoCelda);
-//        niniTransparente.setLayoutY(Cuadricula.altoCelda);
-//        niniTransparente.setOpacity(0.6);
-//        niniTransparente.setVisible(false);
-
-//        root.setOnMouseClicked((evento) -> {
-//            niniTransparente.setLayoutX(evento.getX() - niniTransparente.getFitWidth() / 2);
-//            niniTransparente.setLayoutY(evento.getY() - niniTransparente.getFitHeight() / 2);
-//        });
 
         root.setOnMouseClicked((evento) -> {
 
@@ -673,14 +657,6 @@ public class EscenaJuego {
 
         panelPartidaTerminada.setVisible(false);
         panelPartidaTerminada.getChildren().addAll(textoGameOver, btnSalir);
-    }
-
-
-    public void seleccionarNini(TipoNini tipoNini, String rutaImagenTransparente) {
-        niniSeleccionadoTipo = tipoNini;
-        niniTransparente.setImage(new Image(rutaImagenTransparente));
-        niniTransparente.setOpacity(0.6);
-        niniTransparente.setVisible(true);
     }
 
 

@@ -19,6 +19,8 @@ public class Pikmin extends Proyectil{
         // para posicionarlo en la pantalla
         this.imagenProyectil.setLayoutX(this.columna);
         this.imagenProyectil.setLayoutY(this.fila);
+        this.imagenProyectilQuemado.setFitWidth(ancho+20);
+        this.imagenProyectilQuemado.setFitHeight(alto+20);
 
         root.getChildren().add(imagenProyectil);
     }
@@ -34,8 +36,10 @@ public class Pikmin extends Proyectil{
         if (this.haImpactado == true) {
             return;
         }
+        this.haImpactado = true;
         root.getChildren().remove(imagenProyectil);
         root.getChildren().remove(hitbox);
+        root.getChildren().remove(imagenProyectilQuemado);
     }
 
     @Override
@@ -43,5 +47,6 @@ public class Pikmin extends Proyectil{
         columna = (columna + pixelesPorSegundo * tiempoFrames);
         this.imagenProyectil.setLayoutX(columna);
         this.hitbox.setX(columna+pixelesPorSegundo * tiempoFrames);
+        this.imagenProyectilQuemado.setLayoutX(columna);
     }
 }

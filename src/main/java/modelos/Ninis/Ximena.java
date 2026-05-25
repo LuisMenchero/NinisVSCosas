@@ -6,20 +6,19 @@ import modelos.Cosas.Cosa;
 
 import java.util.ArrayList;
 
-public class Ximena extends Nini{
+public class Ximena extends Nini {
     // --- ATRIBUTOS ---
 
     // --- CONSTRUCTOR ---
 
     public Ximena(double columna, double fila, Pane root) {
-        super(columna, fila, TipoNini.XIMENA,50, 50, 0, 5,"Animaciones/Ninis/Ximena_idle.gif", root);
+        super(columna, fila, TipoNini.XIMENA, 50, 50, 0, 5, "Animaciones/Ninis/Ximena_idle.gif", root);
     }
 
     // --- MÉTODOS ---
     @Override
-    public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas){
-        potenciar();
-        curar();
+    public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas) {
+        super.actualizar(tiempoFrames, terreno, cosas);
     }
 
     @Override
