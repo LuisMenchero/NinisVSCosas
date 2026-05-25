@@ -182,6 +182,21 @@ public class ControladorReloj {
 
     private void comprobarColisiones() {
 
+        // Para comprobar si colisiona un proyectil con la hitbox de Jud para quemar el proyectil
+        for (Proyectil proyectil : proyectiles) {
+            for (Nini nini : ninis) {
+                if (nini instanceof Jud) {
+                    if (!proyectil.estaQuemado()) {
+                        if (proyectil instanceof Nota || proyectil instanceof Pikmin || proyectil instanceof PelotaBaloncesto) {
+                            if (proyectil.getHitbox().getBoundsInParent().intersects(nini.getHitbox().getBoundsInParent())) {
+                                ((Jud) nini).quemarProyectil(proyectil);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         // Para impactos de proyectiles
         for (Proyectil proyectil : proyectiles) {
             if (!proyectil.isHaImpactado()) {
