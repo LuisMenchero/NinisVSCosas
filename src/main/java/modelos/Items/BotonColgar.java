@@ -1,8 +1,13 @@
 package modelos.Items;
-
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
+/**
+ * Representa un boton colgar
+ * @author Diego
+ * @author Luis
+ * @version 1.0
+ */
 public class BotonColgar {
     // --- ATRIBUTOS ---
     // Posicion
@@ -16,6 +21,10 @@ public class BotonColgar {
     private Pane root;
 
     // --- CONSTRUCTOR ---
+
+    /**
+     * Constructor del boton colgar / desconectar
+     */
     private BotonColgar() {
         this.imagenColgar = (new ImageView("Animaciones/Ninis/Guevara_Idle.gif"));
         this.imagenColgar.setFitWidth(ancho);
@@ -24,6 +33,5 @@ public class BotonColgar {
         this.imagenColgar.setY(posicionY);
     }
 
-    // --- METODOS ---
 
 }
