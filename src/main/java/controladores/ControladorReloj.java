@@ -234,13 +234,20 @@ public class ControladorReloj {
                             cosa.recibirDaño(99999);
                         }
                     }
-                } else if (nini instanceof Ximena && ((Ximena) nini).isHayContacto()) {
+                } else if (nini instanceof Ximena && ((Ximena) nini).hayContacto()) {
                     if (nini.getHitbox().getBoundsInParent().intersects(cosa.getHitbox().getBoundsInParent())) {
-                        PauseTransition pausa  = new PauseTransition(Duration.seconds(2));
+                        PauseTransition pausa = new PauseTransition(Duration.seconds(2));
                         pausa.setOnFinished(e -> {
                             cosa.recibirDaño(99999);
                         });
                         pausa.play();
+                    }
+                } else if (nini instanceof Maria && ((Maria) nini).hayContacto()) {
+                    if (nini.getHitbox().getBoundsInParent().intersects(cosa.getHitbox().getBoundsInParent())) {
+                        if (!((Maria) nini).estaPeleando()) {
+                            cosa.recibirDaño(99999);
+                            ((Maria) nini).setEstaPeleando(true);
+                        }
                     }
                 }
             }

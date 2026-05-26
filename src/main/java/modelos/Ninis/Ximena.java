@@ -71,11 +71,8 @@ public class Ximena extends Nini {
         return hitboxFoca;
     }
 
-    public boolean isHayContacto() {
+    public boolean hayContacto() {
         return hayContacto;
     }
 
-    public void setHayContacto(boolean hayContacto) {
-        this.hayContacto = hayContacto;
-    }
 }
