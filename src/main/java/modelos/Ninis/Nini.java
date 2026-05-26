@@ -88,8 +88,6 @@ public abstract class Nini {
         this.curacion.setLayoutY(fila);
         this.curacion.setOpacity(0.4);
         this.curacion.setVisible(false);
-
-
         hitbox = new Rectangle(
                 columna + 10,
                 fila + 20,

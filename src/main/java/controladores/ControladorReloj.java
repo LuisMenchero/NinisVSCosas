@@ -82,6 +82,7 @@ public class ControladorReloj {
         }
         return false;
     }
+
     public static boolean detectarLorena() {
         for (Nini nini : ninis) {
             if (nini instanceof Lorena) {
@@ -219,7 +220,7 @@ public class ControladorReloj {
             }
         }
 
-        // Para explosiones de algunos ninis
+        // Para explosiones de algunos ninis y tambien comprueba los ataques cuerpo a cuerpo
         for (Nini nini : ninis) {
             for (Cosa cosa : cosas) {
                 if (nini instanceof Isma && ((Isma) nini).isExplotar()) {
@@ -233,8 +234,15 @@ public class ControladorReloj {
                             cosa.recibirDaño(99999);
                         }
                     }
+                } else if (nini instanceof Ximena && ((Ximena) nini).isHayContacto()) {
+                    if (nini.getHitbox().getBoundsInParent().intersects(cosa.getHitbox().getBoundsInParent())) {
+                        PauseTransition pausa  = new PauseTransition(Duration.seconds(2));
+                        pausa.setOnFinished(e -> {
+                            cosa.recibirDaño(99999);
+                        });
+                        pausa.play();
+                    }
                 }
-
             }
         }
 
