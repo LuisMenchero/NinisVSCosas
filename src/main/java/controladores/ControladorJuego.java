@@ -313,25 +313,25 @@ public class ControladorJuego {
         if (tiempoPartida > 230) {
             ronda = 3;
         }
-        if (tiempoPartida > 320) {
+        if (tiempoPartida > 350) {
             ronda = 4;
         }
-        if (tiempoPartida > 700) {
+        if (tiempoPartida > 440) {
             ronda = 5;
         }
-        if (tiempoPartida > 900) {
+        if (tiempoPartida > 500) {
             ronda = 6;
         }
-        if (tiempoPartida > 1200) {
+        if (tiempoPartida > 590) {
             ronda = 7;
         }
-        if (tiempoPartida > 1400) {
+        if (tiempoPartida > 710) {
             ronda = 8;
         }
-        if (tiempoPartida > 1600) {
+        if (tiempoPartida > 800) {
             ronda = 9;
         }
-        if (tiempoPartida > 2000) {
+        if (tiempoPartida > 900) {
             ronda = 10;
         }
     }
