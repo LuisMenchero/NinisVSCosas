@@ -1,6 +1,8 @@
 package modelos.Ninis;
 
+import javafx.animation.PauseTransition;
 import javafx.scene.layout.Pane;
+import javafx.util.Duration;
 import modelos.Celda;
 import modelos.Cosas.Cosa;
 
@@ -8,21 +10,51 @@ import java.util.ArrayList;
 
 public class Keke extends Nini {
     // --- ATRIBUTOS ---
-
+    private double cooldownAtaque;
+    private double tiempoUltimoGolpe;
+    private boolean atacandoCosa = false;
     // --- CONSTRUCTOR ---
 
     public Keke(double columna, double fila, Pane root) {
-        super(columna, fila, TipoNini.KEKE, 125, 175, 0, 5, "Animaciones/Ninis/Keke_Idle.gif", root);
+        super(columna, fila, TipoNini.KEKE, 175, 175, 0, 5, "Animaciones/Ninis/Keke_Idle.gif", root);
+        this.cooldownAtaque = 1;
+        this.tiempoUltimoGolpe = 0;
     }
 
     // --- MÉTODOS ---
     @Override
     public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas) {
         super.actualizar(tiempoFrames, terreno, cosas);
+
     }
 
     @Override
     public void atacar(ArrayList<Cosa> cosas) {
+        if (!atacandoCosa) {
+            this.setImagenNiniImage("Animaciones/Ninis/Keke_BimBamBum.gif");
+            atacandoCosa = true;
+        }
+        PauseTransition pausa = new PauseTransition(Duration.seconds(1));
+        pausa.setOnFinished(e -> {
+            this.setImagenNiniImage("Animaciones/Ninis/Keke_Idle.gif");
+            atacandoCosa = false;
+        });
+        pausa.play();
+    }
 
+    public double getCooldownAtaque() {
+        return cooldownAtaque;
+    }
+
+    public void setCooldownAtaque(double cooldownAtaque) {
+        this.cooldownAtaque = cooldownAtaque;
+    }
+
+    public double getTiempoUltimoGolpe() {
+        return tiempoUltimoGolpe;
+    }
+
+    public void setTiempoUltimoGolpe(double tiempoUltimoGolpe) {
+        this.tiempoUltimoGolpe = tiempoUltimoGolpe;
     }
 }

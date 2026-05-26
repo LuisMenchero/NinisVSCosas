@@ -249,6 +249,24 @@ public class ControladorReloj {
                             ((Maria) nini).setEstaPeleando(true);
                         }
                     }
+                } else if (nini instanceof Keke) {
+                    if (nini.getHitbox().getBoundsInParent().intersects(cosa.getHitbox().getBoundsInParent())) {
+                        ((Keke) nini).setTiempoUltimoGolpe(((Keke) nini).getTiempoUltimoGolpe() + tiempoFrames);
+                        if (((Keke) nini).getTiempoUltimoGolpe() > ((Keke) nini).getCooldownAtaque()) {
+                            ((Keke) nini).setTiempoUltimoGolpe(0);
+                            ((Keke) nini).atacar(cosas);
+                            cosa.recibirDaño(20);
+                        }
+                    }
+                } else if (nini instanceof Hamil) {
+                    if (nini.getHitbox().getBoundsInParent().intersects(cosa.getHitbox().getBoundsInParent())) {
+                        ((Hamil) nini).setTiempoUltimoGolpe(((Hamil) nini).getTiempoUltimoGolpe() + tiempoFrames);
+                        if (((Hamil) nini).getTiempoUltimoGolpe() > ((Hamil) nini).getCooldownAtaque()) {
+                            ((Hamil) nini).setTiempoUltimoGolpe(0);
+                            ((Hamil) nini).atacar(cosas);
+                            cosa.recibirDaño(100);
+                        }
+                    }
                 }
             }
         }
