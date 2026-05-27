@@ -201,24 +201,12 @@ public abstract class Cosa {
         return daño;
     }
 
-    public void setPixelesPorSegundosActual(int pixelesPorSegundosActual) {
-        this.pixelesPorSegundosActual = pixelesPorSegundosActual;
-    }
-
-    public void setImagenCosa(String rutaNuevaAnimacion) {
-        this.imagenCosa.setImage(new Image(rutaNuevaAnimacion));
-    }
-
     public void setColumna(double columna) {
         this.columna = columna;
     }
 
     public void setMovimientoDeHitbox(TranslateTransition movimientoDeHitbox) {
         this.movimientoDeHitbox = movimientoDeHitbox;
-    }
-
-    public void setEstaRalentizado(boolean estaRalentizado) {
-        this.estaRalentizado = estaRalentizado;
     }
 
     public int getPixelesPorSegundo() {
