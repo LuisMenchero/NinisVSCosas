@@ -1,13 +1,25 @@
 package modelos.Proyectiles;
-
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
+/**
+ * Representa de forma abstracta un proyectil PelotaBaloncesto
+ * @author Diego
+ * @author Luis
+ * @version 1.0
+ */
 public class PelotaBaloncesto extends Proyectil {
     // --- ATRIBUTOS ---
 
 
     // --- CONSTRUCTOR ---
+
+    /**
+     * Constructor de PelotaBaloncesto
+     * @param fila
+     * @param columna
+     * @param root
+     */
     public PelotaBaloncesto(double fila, double columna, Pane root) {
         super(100, 200, 35,35 , fila + 55, columna + 65, root);
         // Para el gif
@@ -26,11 +38,19 @@ public class PelotaBaloncesto extends Proyectil {
     }
 
     // --- MÉTODOS ---
+
+    /**
+     * Actualiza el proyectil
+     * @param tiempoFrames Variable del reloj del tiempo que pasa
+     */
     @Override
     public void actualizar(double tiempoFrames) {
         moverProyectil(tiempoFrames);
     }
 
+    /**
+     * Impacta al chocar
+     */
     @Override
     public void impactar() {
         if (this.haImpactado == true) {
@@ -42,6 +62,10 @@ public class PelotaBaloncesto extends Proyectil {
         root.getChildren().remove(imagenProyectilQuemado);
     }
 
+    /**
+     * Mueve el proyectil
+     * @param tiempoFrames Variable del reloj del tiempo que pasa
+     */
     @Override
     public void moverProyectil(double tiempoFrames) {
         columna = (columna + pixelesPorSegundo * tiempoFrames);

@@ -1,11 +1,16 @@
 package modelos.Cosas;
-
 import javafx.animation.PauseTransition;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 import modelos.GestorButanitos;
 import modelos.Ninis.Nini;
 
+/**
+ * Representa a un enemigo Hacienda
+ * @author Diego
+ * @author Luis
+ * @version 1.0
+ */
 public class Hacienda extends Cosa {
     // --- ATRIBUTOS ---
     protected double tiempoDelUltimaResta;
@@ -15,11 +20,20 @@ public class Hacienda extends Cosa {
     private boolean estaRestando = false;
 
     // --- CONSTRUCTOR ---
+
+    /**
+     * Consrtructor de Hacienda
+     * @param root Pane root de la escena en la que aparece la cosa
+     */
     public Hacienda(Pane root) {
         super(200, 20, 60, 2, "Animaciones/Cosas/Hacienda_Andando.gif", root);
         cooldownResta = 5;
     }
 
+    /**
+     * Mueve a Hacienda segun pasa el tiempo
+     * @param tiempoFrames Variable del reloj del tiempo que pasa
+     */
     @Override
     public void caminar(double tiempoFrames) {
         columna = (columna - pixelesPorSegundosActual * tiempoFrames);
@@ -28,6 +42,11 @@ public class Hacienda extends Cosa {
         this.imagenCongelado.setLayoutX(columna);
     }
 
+    /**
+     * Hace que Hacienda ataque y haga daño a un nini
+     * @param tiempoFrames Variable del reloj del tiempo que pasa
+     * @param niniAtacando Nini al que esta atacando la cosa
+     */
     @Override
     public void atacar(double tiempoFrames, Nini niniAtacando) {
         if (!atacandoNini) {
@@ -51,6 +70,9 @@ public class Hacienda extends Cosa {
         }
     }
 
+    /**
+     * Descuenta butanitos del jugador
+     */
     public void descontar () {
         estaRestando = true;
         this.setImagenCosa("Animaciones/Cosas/Hacienda_Descontar.gif");
@@ -70,6 +92,10 @@ public class Hacienda extends Cosa {
     }
 
 
+    /**
+     * Actualiza a Hacienda
+     * @param tiempoFrames Variable del reloj del tiempo que pasa
+     */
     @Override
     public void actualizar(double tiempoFrames) {
         caminar(tiempoFrames);

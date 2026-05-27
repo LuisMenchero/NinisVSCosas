@@ -1,5 +1,4 @@
 package escenas;
-
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -14,7 +13,19 @@ import modelos.Ninis.TipoNini;
 
 import java.util.HashMap;
 
+/**
+ * Representa la Escena seleccionar del juego
+ * @author Diego
+ * @author Luis
+ * @version 1.0
+ */
 public class EscenaSeleccionar {
+
+    /**
+     * Construye la escena de seleccion y pone las cosas en sus sitios
+     * @param stage ventana de la aplicacion
+     * @return Scene
+     */
     public Scene construir(Stage stage) {
         ImageView fondo = new ImageView("imagenes/SeleccionPlanta.png");
         fondo.setFitWidth(1280);
@@ -641,6 +652,11 @@ public class EscenaSeleccionar {
         return new Scene(root, 1280, 720);
     }
 
+    /**
+     * Coloca ninis en las posiciones seleccionadas
+     * @param tipoNini enum del nini
+     * @param niniSeleccionado el nini seleccionado
+     */
     public void colocar(TipoNini tipoNini, ImageView niniSeleccionado) {
         GestorInventario geInv = GestorInventario.getInstancia();
         int posicion = geInv.añadirNiniInventario(tipoNini);
@@ -707,6 +723,21 @@ public class EscenaSeleccionar {
         }
     }
 
+    /**
+     * Quita de la posición antes seleccionada al nini
+     * @param tipoNini enum del nini
+     * @param niniSeleccionado el nini seleccionado
+     * @param fotoDesc gif del nini
+     * @param nombreNini texto de nombre del nini
+     * @param descNini texto de descripcion del nini
+     * @param costeNini texto de coste del nini
+     * @param vidaNini texto de vida del nini
+     * @param alcanceAtaque texto de cantidad del alcance del nini
+     * @param radioAtaque texto del radio de ataque del nini
+     * @param tipoProyectil texto del tipo de proyectil del nini
+     * @param dañoNini texto del daño que produce el nini
+     * @param btnQuitarNini boton con el que se quita al nini
+     */
     public void quitarSeleccionado(TipoNini tipoNini, ImageView niniSeleccionado,
                                    ImageView fotoDesc, Text nombreNini, Text descNini, Text costeNini, Text vidaNini,
                                    Text alcanceAtaque, Text radioAtaque, Text tipoProyectil, Text dañoNini, Button btnQuitarNini) {

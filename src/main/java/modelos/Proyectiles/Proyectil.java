@@ -1,10 +1,15 @@
 package modelos.Proyectiles;
-
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
+/**
+ * Representa de forma abstracta un proyectil
+ * @author Diego
+ * @author Luis
+ * @version 1.0
+ */
 public abstract class Proyectil {
     // --- ATRIBUTOS ---
     protected int pixelesPorSegundo;
@@ -28,6 +33,17 @@ public abstract class Proyectil {
     protected boolean estaQuemado = false;
 
     // --- CONSTRUCTOR ---
+
+    /**
+     * Constructor de proyectil
+     * @param pixelesPorSegundo velocidad de movimiento
+     * @param daño cuanto daño hace
+     * @param ancho tamaño horizontal
+     * @param alto tamaño vertical
+     * @param fila donde se encuentra (fila)
+     * @param columna donde se encuentra (columna)
+     * @param root Pane root de la escena en la que aparece
+     */
     public Proyectil(int pixelesPorSegundo, int daño, int ancho, int alto,double fila, double columna, Pane root) {
         this.pixelesPorSegundo = pixelesPorSegundo;
         this.daño = daño;
@@ -50,8 +66,22 @@ public abstract class Proyectil {
         this.root.getChildren().addAll(hitbox,imagenProyectilQuemado);
     }
     // --- MÉTODOS ---
+
+    /**
+     *  Actualiza el proyectil
+     * @param tiempoFrames Variable del reloj del tiempo que pasa
+     */
     protected abstract void actualizar(double tiempoFrames);
+
+    /**
+     * Mueve el proyectil
+     * @param tiempoFrames Variable del reloj del tiempo que pasa
+     */
     protected abstract void moverProyectil(double tiempoFrames);
+
+    /**
+     * Impacta al chocar
+     */
     public abstract void impactar();
 
     // --- GETTERS Y SETTERS ---

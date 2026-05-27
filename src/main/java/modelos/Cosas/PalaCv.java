@@ -1,17 +1,31 @@
 package modelos.Cosas;
-
 import javafx.scene.layout.Pane;
 import modelos.Ninis.Nini;
 
+/**
+ * Representa a un enemigo PalaCV
+ * @author Diego
+ * @author Luis
+ * @version 1.0
+ */
 public class PalaCv extends Cosa {
     // --- ATRIBUTOS ---
     private boolean palaRota = false;
 
     // --- CONSTRUCTOR ---
+
+    /**
+     * Constructor de PalaCV
+     * @param root Pane root de la escena en la que aparece la cosa
+     */
     public PalaCv(Pane root) {
         super(900, 20, 65, 2, "Animaciones/Cosas/caminar_pala.gif", root);
     }
 
+    /**
+     * Mueve a PalaCV segun pasa el tiempo
+     * @param tiempoFrames Variable del reloj del tiempo que pasa
+     */
     @Override
     public void caminar(double tiempoFrames) {
         columna = (columna - pixelesPorSegundosActual * tiempoFrames);
@@ -20,6 +34,11 @@ public class PalaCv extends Cosa {
         this.imagenCongelado.setLayoutX(columna);
     }
 
+    /**
+     * Hace que PalaCV ataque y haga daño a un nini
+     * @param tiempoFrames Variable del reloj del tiempo que pasa
+     * @param niniAtacando Nini al que esta atacando la cosa
+     */
     @Override
     public void atacar(double tiempoFrames, Nini niniAtacando) {
         if (palaRota) {
@@ -62,15 +81,22 @@ public class PalaCv extends Cosa {
         }
     }
 
+    /**
+     * Actualiza a PalaCV
+     * @param tiempoFrames Variable del reloj del tiempo que pasa
+     */
     @Override
     public void actualizar(double tiempoFrames) {
         caminar(tiempoFrames);
         if (salud <= saludMaxima / 3 && !palaRota) {
-            romperCasco();
+            romperPala();
         }
     }
 
-    public void romperCasco() {
+    /**
+     * Cambia el estado de PalaCV a palaRota y cambia sus animaciones
+     */
+    public void romperPala() {
         if (atacandoNini) {
             this.setImagenCosa("Animaciones/Cosas/Ataquendo.gif");
         } else {

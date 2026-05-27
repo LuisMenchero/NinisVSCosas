@@ -1,11 +1,14 @@
 package controladores;
-
-
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import java.io.File;
 
-
+/**
+ * Representa el controlador de musica, reproduce la musica del juego
+ * @author Diego
+ * @author Luis
+ * @version 1.0
+ */
 public class ControladorMusica {
 
     private static Media sherpa = new Media(new File("src/main/resources/Musica/Sherpa.mp3").toURI().toString());
@@ -20,7 +23,9 @@ public class ControladorMusica {
     private static MediaPlayer reproductor;
     private static int contador = 0;
 
-
+    /**
+     * Reproduce la musica
+     */
     public static void reproducirMusicaJuego () {
         reproductor = new MediaPlayer(canciones[contador]);
         reproductor.play();
@@ -28,18 +33,30 @@ public class ControladorMusica {
         reproductor.setOnEndOfMedia(() -> siguienteCancion());
     }
 
+    /**
+     * Para completamente la musica
+     */
     public static void pararMusicaJuego () {
         reproductor.stop();
     }
 
+    /**
+     * Pausa la reproduccion de la musica
+     */
     public static void pausarMusicaJuego () {
         reproductor.pause();
     }
 
+    /**
+     * Vuelve a reproducir la musica
+     */
     public static void despausarMusicaJuego () {
         reproductor.play();
     }
 
+    /**
+     * Cambia a la siguiente cancion
+     */
     public static void siguienteCancion () {
     reproductor.stop();
     contador++;
@@ -47,11 +64,16 @@ public class ControladorMusica {
     reproducirMusicaJuego();
     }
 
-
+    /**
+     * Le baja el volumen a 0 a la musica
+     */
     public static void mutearVolumen () {
         reproductor.setVolume(0);
     }
 
+    /**
+     * Vuelve a subir el volumen a 1 a la musica
+     */
     public static void desmutearVolumen () {
         reproductor.setVolume(1);
     }
