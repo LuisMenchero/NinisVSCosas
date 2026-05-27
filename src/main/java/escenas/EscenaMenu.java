@@ -1,19 +1,15 @@
 package escenas;
-import javafx.application.Application;
+import Estadisticas.GestorXML;
+import Estadisticas.TransformadorXSLT;
 import javafx.application.Platform;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.awt.*;
 import java.io.File;
-import java.io.IOException;
 
 /**
  * Representa la Escena menu del juego
@@ -60,8 +56,10 @@ public class EscenaMenu {
         btnEstadisticas.setLayoutX(535);
         btnEstadisticas.setLayoutY(390);
         btnEstadisticas.setOnAction(evento -> {
+            GestorXML.inicializarXML();
+            TransformadorXSLT.transformarXML();
             try {
-                File archivo = new File("src/main/resources/Estadisticas/prueba.txt");
+                File archivo = new File("src/main/resources/Estadisticas/resultadoEstadisticas.html");
                 Desktop.getDesktop().open(archivo);
             } catch (Exception e){
                 System.out.println("Error al abrir archivo de estadisticas");

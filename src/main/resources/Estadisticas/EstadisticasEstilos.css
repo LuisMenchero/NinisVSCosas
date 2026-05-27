@@ -1,0 +1,37 @@
+body {
+    background-color: black;
+    color: #7289da;
+}
+
+h1 {
+    color: #7289da;
+    text-align: center;
+}
+
+span {
+    color: #34e718;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+img {
+    cursor: grab;
+}
+
+table {
+    border: double;
+    margin: 0 auto;
+    background-color: #1e2124;
+    width: 60%;
+}
+
+table td {
+    background-color: #424549;
+    text-align: center;
+    padding: 10px;
+}
+
+table th {
+    background-color: #1e2124;
+    padding: 10px;
+}
