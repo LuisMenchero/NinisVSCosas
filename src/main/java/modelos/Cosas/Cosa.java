@@ -95,7 +95,7 @@ public abstract class Cosa {
         imagenCongelado.setOpacity(0.67);
         imagenCongelado.setVisible(false);
 
-        root.getChildren().addAll(imagenCosa, hitbox,imagenCongelado);
+        root.getChildren().addAll(imagenCosa, hitbox, imagenCongelado);
     }
 
 
@@ -124,11 +124,11 @@ public abstract class Cosa {
         imagenCongelado.setVisible(true);
         this.pixelesPorSegundosActual = 0;
     }
+
     public void descongelar() {
         imagenCongelado.setVisible(false);
         this.pixelesPorSegundosActual = this.pixelesPorSegundo;
     }
-
 
 
     // --- GETTERS Y SETTERS ---
@@ -138,10 +138,6 @@ public abstract class Cosa {
 
     public double getFila() {
         return fila;
-    }
-
-    public String getRutaImagenCosa() {
-        return rutaImagenCosa;
     }
 
     public ImageView getImagenCosa() {
@@ -160,8 +156,12 @@ public abstract class Cosa {
         this.imagenCosa.setImage(new Image(rutaNuevaAnimacion));
     }
 
-    public void setAtacandoNini(boolean atacandoNini) {
-        this.atacandoNini = atacandoNini;
+    public void setColumna(double columna) {
+        this.columna = columna;
+    }
+
+    public void setMovimientoDeHitbox(TranslateTransition movimientoDeHitbox) {
+        this.movimientoDeHitbox = movimientoDeHitbox;
     }
 
     public void setEstaRalentizado(boolean estaRalentizado) {

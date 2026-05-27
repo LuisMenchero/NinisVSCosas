@@ -1,8 +1,10 @@
 package controladores;
 
 import escenas.EscenaJuego;
+import javafx.animation.Animation;
 import javafx.animation.AnimationTimer;
 import javafx.animation.PauseTransition;
+import javafx.animation.TranslateTransition;
 import javafx.util.Duration;
 import modelos.Cosas.Cosa;
 import modelos.Cosas.Furgo;
@@ -267,6 +269,30 @@ public class ControladorReloj {
                             cosa.recibirDaño(100);
                         }
                     }
+                } else if (nini instanceof Eliseo && ((Eliseo) nini).getContadorEmpujones() != 0) {
+                    if (nini.getHitbox().getBoundsInParent().intersects(cosa.getHitbox().getBoundsInParent())) {
+                        if (!((Eliseo) nini).estaEmpujando()) {
+                            cosa.setMovimientoDeHitbox(null);
+                            ((Eliseo) nini).atacar(cosas);
+                            PauseTransition pausa = new PauseTransition(Duration.millis(500));
+                            pausa.setOnFinished(e -> {
+                                TranslateTransition movimientoCosaEmpujada = new TranslateTransition(Duration.millis(100), cosa.getImagenCosa());
+                                movimientoCosaEmpujada.setByX(cosa.getColumna() - 3);
+                                movimientoCosaEmpujada.play();
+                                TranslateTransition movimientoCosaEmpujadaHitbox = new TranslateTransition(Duration.millis(100), cosa.getHitbox());
+                                movimientoCosaEmpujadaHitbox.setByX(cosa.getColumna() - 3);
+                                movimientoCosaEmpujadaHitbox.play();
+                                PauseTransition pausa2 = new PauseTransition(Duration.millis(10));
+                                pausa2.setOnFinished(e2 -> {
+                                    cosa.setColumna(cosa.getColumna() - 3);
+                                    ((Eliseo) nini).setEstaEmpujando(false);
+                                    cosa.setMovimientoDeHitbox(new TranslateTransition(Duration.millis(100), cosa.getHitbox()));
+                                });
+                                pausa2.play();
+                            });
+                            pausa.play();
+                        }
+                    }
                 }
             }
         }
@@ -285,11 +311,15 @@ public class ControladorReloj {
                         }
                     }
                 } else {
-                    if (nini.getHitbox().getBoundsInParent().intersects(cosa.getHitbox().getBoundsInParent())) {
-                        cosa.setPixelesPorSegundosActual(0);
-                        cosa.atacar(tiempoFrames, nini);
-                        if (nini.isEstaMuerto()) {
-                            cosa.setPixelesPorSegundosActual(cosa.getPixelesPorSegundo());
+                    if (nini instanceof Eliseo && ((Eliseo) nini).getContadorEmpujones() > 0) {
+
+                    } else {
+                        if (nini.getHitbox().getBoundsInParent().intersects(cosa.getHitbox().getBoundsInParent())) {
+                            cosa.setPixelesPorSegundosActual(0);
+                            cosa.atacar(tiempoFrames, nini);
+                            if (nini.isEstaMuerto()) {
+                                cosa.setPixelesPorSegundosActual(cosa.getPixelesPorSegundo());
+                            }
                         }
                     }
                 }
@@ -297,7 +327,8 @@ public class ControladorReloj {
         }
 
 
-        for (Cosa cosa : cosas) {
+        for (
+                Cosa cosa : cosas) {
             if (cosa.getHitbox().getBoundsInParent().intersects(EscenaJuego.getHitboxCasa().getBoundsInParent())) {
                 ControladorJuego.terminarPartida();
             }
