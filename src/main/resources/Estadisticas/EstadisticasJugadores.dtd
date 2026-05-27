@@ -1,0 +1,39 @@
+<!ELEMENT jugadores (jugador+)>
+    <!ELEMENT jugador (nombre,ninisJugados,fecha,tiempoJugado,cosasMatadas,ninisMuertos,ninisEliminados,butanitosTotales,puntuaciónTotal,logros)>
+        <!ELEMENT nombre (#PCDATA)>
+        <!ELEMENT ninisJugados (nini*)>
+            <!ELEMENT nini (nombre,descripcion,coste,vida,alcanceAtaque,radioAtaque,tipoProyectil,daño)>
+                <!ELEMENT descripcion (#PCDATA)>
+                <!ELEMENT coste (#PCDATA)>
+                <!ELEMENT vida (#PCDATA)>
+                <!ELEMENT alcanceAtaque (#PCDATA)>
+                <!ELEMENT radioAtaque (#PCDATA)>
+                <!ELEMENT tipoProyectil (#PCDATA)>
+                <!ELEMENT daño (#PCDATA)>
+                <!ELEMENT fecha (dia,mes,año)>
+                <!ELEMENT dia (#PCDATA)>
+                <!ELEMENT mes (#PCDATA)>
+                <!ELEMENT año (#PCDATA)>
+        <!ELEMENT tiempoJugado (horas,minutos,segundos)>
+            <!ELEMENT horas (#PCDATA)>
+            <!ELEMENT minutos (#PCDATA)>
+            <!ELEMENT segundos (#PCDATA)>
+        <!ELEMENT cosasMatadas (#PCDATA)>
+        <!ELEMENT ninisMuertos (#PCDATA)>
+        <!ELEMENT ninisEliminados (#PCDATA)>
+        <!ELEMENT butanitosTotales (#PCDATA)>
+        <!ELEMENT puntuaciónTotal (#PCDATA)>
+        <!ELEMENT logros (logro+)>
+         <!ELEMENT logro (titulo,minuto,medallita)>
+            <!ELEMENT titulo (#PCDATA)>
+            <!ELEMENT minuto (#PCDATA)>
+            <!ELEMENT medallita (tipoMedalla,puntuacionLogro)>
+                <!ELEMENT tipoMedalla (#PCDATA)>
+                <!ELEMENT puntuacionLogro (#PCDATA)>
+
+    <!ATTLIST jugador id NMTOKEN #REQUIRED>
+    <!ATTLIST nini tipoNini CDATA #REQUIRED>
+    <!ATTLIST nini imagen CDATA #REQUIRED>
+    <!ATTLIST logro idLogro NMTOKEN #REQUIRED>
+    <!ATTLIST logro dificultad CDATA #REQUIRED>
+    <!ATTLIST logro completado (Si|No) #REQUIRED>
