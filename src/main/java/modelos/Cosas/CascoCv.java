@@ -4,6 +4,9 @@ import modelos.Ninis.Nini;
 
 /**
  * Representa a un enemigo CascoCv
+ * @author Diego
+ * @author Luis
+ * @version 1.0
  */
 public class CascoCv extends Cosa {
     // --- ATRIBUTOS ---

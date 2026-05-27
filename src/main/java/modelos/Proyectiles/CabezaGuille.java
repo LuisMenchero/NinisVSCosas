@@ -6,6 +6,9 @@ import java.util.ArrayList;
 
 /**
  * Representa un proyectil CabezaGuille
+ * @author Diego
+ * @author Luis
+ * @version 1.0
  */
 public class CabezaGuille extends Proyectil{
     // --- ATRIBUTOS ---

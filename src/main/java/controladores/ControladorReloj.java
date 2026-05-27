@@ -1,5 +1,4 @@
 package controladores;
-
 import escenas.EscenaJuego;
 import javafx.animation.Animation;
 import javafx.animation.AnimationTimer;
@@ -14,6 +13,12 @@ import modelos.Proyectiles.*;
 
 import java.util.ArrayList;
 
+/**
+ * Representa el ControladorReloj
+ * @author Diego
+ * @author Luis
+ * @version 1.0
+ */
 public class ControladorReloj {
 
 //esta clase sirve para que el juego funcione en si
@@ -28,6 +33,9 @@ public class ControladorReloj {
     private static ArrayList<Nini> ninis = new ArrayList<>();
     private static ArrayList<Proyectil> proyectiles = new ArrayList<>();
 
+    /**
+     * Inicia un reloj para el juego
+     */
     public void iniciarReloj() {
         if (temporizador != null) {
             temporizador.stop();
@@ -68,14 +76,26 @@ public class ControladorReloj {
 
     }
 
+    /**
+     * Registra nini en en array
+     * @param nini objeto a agregar
+     */
     public void registrarNini(Nini nini) {
         ninis.add(nini);
     }
 
+    /**
+     * Registra cosa en el array
+     * @param cosa objeto a agregar
+     */
     public void registrarCosa(Cosa cosa) {
         cosas.add(cosa);
     }
 
+    /**
+     * Detecta si el nini Guevara esta en pantalla
+     * @return boolean
+     */
     public static boolean detectarGuevara() {
         for (Nini nini : ninis) {
             if (nini instanceof Guevara) {
@@ -85,6 +105,10 @@ public class ControladorReloj {
         return false;
     }
 
+    /**
+     * Detecta si el nini Lorena esta en pantalla
+     * @return boolean
+     */
     public static boolean detectarLorena() {
         for (Nini nini : ninis) {
             if (nini instanceof Lorena) {
@@ -94,6 +118,9 @@ public class ControladorReloj {
         return false;
     }
 
+    /**
+     * Actualiza metodos internos
+     */
     public void actualizar() {
         //aqui van las cosas que requieren ser actualizadas que reciban tiempoFrames
         for (Nini nini : ninis) {
@@ -158,6 +185,9 @@ public class ControladorReloj {
         ControladorJuego.tiempoPartida = ControladorJuego.tiempoPartida + tiempoFrames;
     }
 
+    /**
+     * Pausa el juego
+     */
     public void pausa() {
 
         if (pausado) {
@@ -170,12 +200,18 @@ public class ControladorReloj {
 
     }
 
+    /**
+     * Reinicia el juego
+     */
     public static void reiniciar() {
         ninis.clear();
         cosas.clear();
         proyectiles.clear();
     }
 
+    /**
+     * Termina el juego
+     */
     public void terminar() {
         if (temporizador != null) {
             temporizador.stop();
@@ -183,6 +219,9 @@ public class ControladorReloj {
         pausado = false;
     }
 
+    /**
+     * Comprueba todas las colisiones del juego
+     */
     private void comprobarColisiones() {
 
         // Para comprobar si colisiona un proyectil con la hitbox de Jud para quemar el proyectil

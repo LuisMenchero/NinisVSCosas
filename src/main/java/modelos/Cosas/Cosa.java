@@ -13,6 +13,9 @@ import modelos.Ninis.Nini;
 
 /**
  * Representa de forma abstracta una cosa (enemigo)
+ * @author Diego
+ * @author Luis
+ * @version 1.0
  */
 public abstract class Cosa {
     // --- ATRIBUTOS ---

@@ -7,6 +7,9 @@ import modelos.Ninis.Nini;
 
 /**
  * Representa a un enemigo Jamiroquai
+ * @author Diego
+ * @author Luis
+ * @version 1.0
  */
 public class Jamiroquai extends Cosa {
     // --- ATRIBUTOS ---

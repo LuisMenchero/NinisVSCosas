@@ -4,6 +4,9 @@ import javafx.scene.layout.Pane;
 
 /**
  * Representa un proyectil Escupitajo
+ * @author Diego
+ * @author Luis
+ * @version 1.0
  */
 public class Escupitajo extends Proyectil {
     // --- ATRIBUTOS ---

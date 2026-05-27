@@ -4,6 +4,9 @@ import javafx.scene.layout.Pane;
 
 /**
  * Representa un proyectil Nota
+ * @author Diego
+ * @author Luis
+ * @version 1.0
  */
 public class Nota extends Proyectil {
     // --- ATRIBUTOS ---

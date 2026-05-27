@@ -4,6 +4,9 @@ import javafx.scene.layout.Pane;
 
 /**
  * Representa de forma abstracta un proyectil PelotaBaloncesto
+ * @author Diego
+ * @author Luis
+ * @version 1.0
  */
 public class PelotaBaloncesto extends Proyectil {
     // --- ATRIBUTOS ---

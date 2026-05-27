@@ -7,6 +7,9 @@ import modelos.Ninis.Nini;
 
 /**
  * Representa un enemigo Furgo
+ * @author Diego
+ * @author Luis
+ * @version 1.0
  */
 public class Furgo extends Cosa {
     // --- ATRIBUTOS ---

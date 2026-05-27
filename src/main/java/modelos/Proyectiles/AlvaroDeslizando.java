@@ -4,6 +4,9 @@ import javafx.scene.layout.Pane;
 
 /**
  * Representa un proyectil AlvaroDeslizando
+ * @author Diego
+ * @author Luis
+ * @version 1.0
  */
 public class AlvaroDeslizando extends Proyectil{
     // --- ATRIBUTOS ---

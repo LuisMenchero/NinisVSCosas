@@ -1,5 +1,4 @@
 package controladores;
-
 import escenas.EscenaJuego;
 import javafx.animation.PauseTransition;
 import javafx.concurrent.Service;
@@ -12,7 +11,12 @@ import modelos.Ninis.Nini;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
-
+/**
+ * Representa el ControladorJuego
+ * @author Diego
+ * @author Luis
+ * @version 1.0
+ */
 public class ControladorJuego {
 
     //voy a hacer la parte del spawn de cosas (los he llamado enemigos porque si no me hago un lio)
@@ -22,7 +26,9 @@ public class ControladorJuego {
     private static int tipo;
     public static double tiempoPartida = 0;
 
-
+    /**
+     * Hace aparecer a los enemigos segun la ronda en la que se encuentre el juego
+     */
     public static void spawnEnemigos (){
         if (tiempoUltimoEnemigo >= tiempoEnSpawnear){
             tiempoUltimoEnemigo = 0;
@@ -303,6 +309,9 @@ public class ControladorJuego {
         }
     }
 
+    /**
+     * Controla en que ronda/oleada se encuentra el juego
+     */
     private static void controladorOleadas (){
         if (tiempoPartida > 25){
             ronda = 1;
@@ -336,6 +345,9 @@ public class ControladorJuego {
         }
     }
 
+    /**
+     * Termina la partida y corta el juego
+     */
     public static void terminarPartida(){
 //        EscenaJuego.getReloj().pausa();
         EscenaJuego.getReloj().terminar();
@@ -344,6 +356,13 @@ public class ControladorJuego {
     }
 
 
+    /**
+     * Pone en cooldown un nini que ha sido usado (lo bloquea)
+     * @param tiempoCooldownPlantar tiempo que va a tardar el cooldown en terminar
+     * @param posicionBloqueoX posicion de la barra en el eje X
+     * @param posicionBloqueoY posicion de la barra en el eje Y
+     * @param root Pane root de la escena en la que aparece
+     */
     public static void bloquearNini (int tiempoCooldownPlantar, int posicionBloqueoX, int posicionBloqueoY ,Pane root) {
         // PARA LAS FOTOS DE BLOQUEO POR COOLDOWN
         ImageView bloqueo = new ImageView("Imagenes/CooldownNini.png");
@@ -362,6 +381,13 @@ public class ControladorJuego {
         pause.play();
     }
 
+    /**
+     * Muestra la barra que nos deja ver de forma visual el tiempo de cooldown que queda para que se desbloquee
+     * @param tiempoCooldownPlantar tiempo que va a tardar el cooldown en terminar
+     * @param posicionBarraX posicion de la barra en el eje X
+     * @param posicionBarraY posicion de la barra en el eje Y
+     * @param root Pane root de la escena en la que aparece
+     */
     public static void crearBarraCooldownNini (int tiempoCooldownPlantar, int posicionBarraX, int posicionBarraY ,Pane root) {
         // para pasar los segundos a milisegundos, debe ser final para poder pasarselo al servicio de abajo.
         final int cooldownEnMlSegs = tiempoCooldownPlantar * 100;

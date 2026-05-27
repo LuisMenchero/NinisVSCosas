@@ -4,6 +4,9 @@ import modelos.Ninis.Nini;
 
 /**
  * Representa un enemigo ConoCV
+ * @author Diego
+ * @author Luis
+ * @version 1.0
  */
 public class ConoCv extends Cosa {
     // --- ATRIBUTOS ---

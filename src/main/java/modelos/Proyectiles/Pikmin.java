@@ -4,6 +4,9 @@ import javafx.scene.layout.Pane;
 
 /**
  * Representa un proyectil Pikmin
+ * @author Diego
+ * @author Luis
+ * @version 1.0
  */
 public class Pikmin extends Proyectil{
     // --- ATRIBUTOS ---

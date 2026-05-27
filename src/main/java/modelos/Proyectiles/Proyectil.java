@@ -6,6 +6,9 @@ import javafx.scene.shape.Rectangle;
 
 /**
  * Representa de forma abstracta un proyectil
+ * @author Diego
+ * @author Luis
+ * @version 1.0
  */
 public abstract class Proyectil {
     // --- ATRIBUTOS ---

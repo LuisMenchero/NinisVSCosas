@@ -4,6 +4,9 @@ import modelos.Ninis.Nini;
 
 /**
  * Representa a un enemigo PalaCV
+ * @author Diego
+ * @author Luis
+ * @version 1.0
  */
 public class PalaCv extends Cosa {
     // --- ATRIBUTOS ---
