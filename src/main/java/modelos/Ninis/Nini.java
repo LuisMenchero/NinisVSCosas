@@ -1,5 +1,4 @@
 package modelos.Ninis;
-
 import controladores.ControladorReloj;
 import escenas.EscenaJuego;
 import javafx.scene.image.Image;
@@ -13,6 +12,12 @@ import modelos.Cuadricula;
 
 import java.util.ArrayList;
 
+/**
+ * Representa de forma abstracta un nini
+ * @author Diego
+ * @author Luis
+ * @version 1.0
+ */
 public abstract class Nini {
     // --- ATRIBUTOS ---
     // Posicion
@@ -47,6 +52,19 @@ public abstract class Nini {
     protected Rectangle hitbox;
 
     // --- CONSTRUCTOR ---
+
+    /**
+     * Constructor de nini
+     * @param columna lugar de las columnas en la que se encuentra
+     * @param fila lugar de las filas en la que se encuentra
+     * @param tipoNini enum del nini
+     * @param salud cantidad de salud del nini
+     * @param costeButanitos coste del nini
+     * @param cooldownDisparo tiempo que tarda en volver a disparar
+     * @param cooldownVolverPlantar tiempo que tarda en poder a volver a plantarse
+     * @param rutaImagenNini ruta de la imagen del nini
+     * @param root Pane root de la escena en la que aparece
+     */
     public Nini(double columna, double fila, TipoNini tipoNini,int salud, int costeButanitos, double cooldownDisparo, int cooldownVolverPlantar,String rutaImagenNini, Pane root) {
         this.columna = columna;
         this.fila = fila;
@@ -101,14 +119,30 @@ public abstract class Nini {
 
     // --- MÉTODOS ---
     // abstactos
+
+    /**
+     * Hace que la planta ataque a determinada cosa
+     * @param cosas a que cosa ataca
+     */
     protected abstract void atacar(ArrayList<Cosa> cosas);
 
+    /**
+     * Actualiza el nini
+     * @param tiempoFrames Variable del reloj del tiempo que pasa
+     * @param terreno Parte del terreno (En array bidimensional) en la que se encuentra
+     * @param cosas Array de cosas
+     */
     public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas) {
         potenciar();
         curar();
     }
 
     // normales
+
+    /**
+     * Recibe daño y se lo resta al nini
+     * @param daño Daño que recibe
+     */
     public void recibirDaño(int daño) {
         salud = salud - daño;
         if (salud <= 0) {
@@ -116,6 +150,9 @@ public abstract class Nini {
         }
     }
 
+    /**
+     * El nini muere y se elimina
+     */
     public void morir() {
         root.getChildren().remove(imagenNini);
         root.getChildren().remove(hitbox);
@@ -135,6 +172,9 @@ public abstract class Nini {
     }
 
 
+    /**
+     * Potencia al nini
+     */
     public void potenciar() {
         if (ControladorReloj.detectarGuevara() && !potenciado) {
             this.potenciador.setVisible(true);
@@ -144,6 +184,10 @@ public abstract class Nini {
             this.potenciado = false;
         }
     }
+
+    /**
+     * Cura al nini
+     */
     public void curar() {
         if (ControladorReloj.detectarLorena() && !curado) {
             this.salud = saludMaxima;
@@ -155,6 +199,12 @@ public abstract class Nini {
         }
     }
 
+    /**
+     * Mira si hay algun enemigo en la fila
+     * @param cosas Array de cosas
+     * @return boolean
+     */
+    //Hay que cambiar el nombre, que son cosas en general no zombies jeje
     protected boolean hayZombieEnMiFila(ArrayList<Cosa> cosas) {
         for (Cosa cosaAct : cosas) {
             if (cosaAct.getFila() == this.fila) {
