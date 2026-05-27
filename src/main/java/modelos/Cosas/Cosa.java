@@ -100,7 +100,7 @@ public abstract class Cosa {
         imagenCongelado.setOpacity(0.67);
         imagenCongelado.setVisible(false);
 
-        root.getChildren().addAll(imagenCosa, hitbox,imagenCongelado);
+        root.getChildren().addAll(imagenCosa, hitbox, imagenCongelado);
     }
 
 
@@ -159,7 +159,6 @@ public abstract class Cosa {
     }
 
 
-
     // --- GETTERS Y SETTERS ---
 
     /**
@@ -202,10 +201,26 @@ public abstract class Cosa {
         return daño;
     }
 
-    /**
-     * Getter de pixeles por segundo de la cosa
-     * @return pixelesPorSegundo
-     */
+    public void setPixelesPorSegundosActual(int pixelesPorSegundosActual) {
+        this.pixelesPorSegundosActual = pixelesPorSegundosActual;
+    }
+
+    public void setImagenCosa(String rutaNuevaAnimacion) {
+        this.imagenCosa.setImage(new Image(rutaNuevaAnimacion));
+    }
+
+    public void setColumna(double columna) {
+        this.columna = columna;
+    }
+
+    public void setMovimientoDeHitbox(TranslateTransition movimientoDeHitbox) {
+        this.movimientoDeHitbox = movimientoDeHitbox;
+    }
+
+    public void setEstaRalentizado(boolean estaRalentizado) {
+        this.estaRalentizado = estaRalentizado;
+    }
+
     public int getPixelesPorSegundo() {
         return pixelesPorSegundo;
     }
