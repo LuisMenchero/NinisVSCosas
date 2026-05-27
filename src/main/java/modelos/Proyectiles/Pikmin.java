@@ -1,13 +1,22 @@
 package modelos.Proyectiles;
-
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
+/**
+ * Representa un proyectil Pikmin
+ */
 public class Pikmin extends Proyectil{
     // --- ATRIBUTOS ---
 
 
     // --- CONSTRUCTOR ---
+
+    /**
+     * Constructor de pikmin
+     * @param fila donde se encuentra (fila)
+     * @param columna donde se encuentra (columna)
+     * @param root Pane root de la escena en la que aparece
+     */
     public Pikmin(double fila, double columna, Pane root) {
         super(200, 20, 20,20 , fila + 35, columna  + 65, root);
         // Para el gif
@@ -26,11 +35,19 @@ public class Pikmin extends Proyectil{
     }
 
     // --- MÉTODOS ---
+
+    /**
+     * Actualiza el proyectil
+     * @param tiempoFrames Variable del reloj del tiempo que pasa
+     */
     @Override
     public void actualizar(double tiempoFrames) {
         moverProyectil(tiempoFrames);
     }
 
+    /**
+     * Impacta al chocar
+     */
     @Override
     public void impactar() {
         if (this.haImpactado == true) {
@@ -42,6 +59,9 @@ public class Pikmin extends Proyectil{
         root.getChildren().remove(imagenProyectilQuemado);
     }
 
+    /**
+     * Mueve el proyectil
+     */
     @Override
     public void moverProyectil(double tiempoFrames) {
         columna = (columna + pixelesPorSegundo * tiempoFrames);
