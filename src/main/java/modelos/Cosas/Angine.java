@@ -1,19 +1,30 @@
 package modelos.Cosas;
-
 import javafx.animation.Animation;
 import javafx.animation.TranslateTransition;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 import modelos.Ninis.Nini;
 
+/**
+ * Representa un enemigo Angine
+ */
 public class Angine extends Cosa {
     // --- ATRIBUTOS ---
 
     // --- CONSTRUCTOR ---
+
+    /**
+     * Constructor de Angine
+     * @param root Pane root de la escena en la que aparece la cosa
+     */
     public Angine(Pane root) {
         super(1200, 5, 999999, 0, "Animaciones/Cosas/Angine_de_poitrine.gif", root);
     }
 
+    /**
+     * Mueve a Angine segun pasa el tiempo
+     * @param tiempoFrames Variable del reloj del tiempo que pasa
+     */
     @Override
     public void caminar(double tiempoFrames) {
         columna = (columna - pixelesPorSegundosActual * tiempoFrames);
@@ -22,6 +33,11 @@ public class Angine extends Cosa {
         this.imagenCongelado.setLayoutX(columna);
     }
 
+    /**
+     * Hace que Angine ataque y haga daño a un nini
+     * @param tiempoFrames Variable del reloj del tiempo que pasa
+     * @param niniAtacando Nini al que esta atacando la cosa
+     */
     @Override
     public void atacar(double tiempoFrames, Nini niniAtacando) {
         if (!atacandoNini) {
@@ -43,7 +59,10 @@ public class Angine extends Cosa {
         }
     }
 
-
+    /**
+     * Actualiza a Angine
+     * @param tiempoFrames Variable del reloj del tiempo que pasa
+     */
     @Override
     public void actualizar(double tiempoFrames) {
         caminar(tiempoFrames);
