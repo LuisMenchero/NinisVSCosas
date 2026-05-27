@@ -1,5 +1,4 @@
 package escenas;
-
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -16,9 +15,19 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * Representa la Escena menu del juego
+ * @author Diego
+ * @author Luis
+ * @version 1.0
+ */
 public class EscenaMenu {
 
-
+    /**
+     * Construye la escena del menu y pone las cosas en sus sitios
+     * @param stage ventana de la aplicacion
+     * @return Scene
+     */
     public Scene construir(Stage stage) {
         ImageView fondo = new ImageView("/Imagenes/fondomenu.png");
         fondo.setFitWidth(1280);

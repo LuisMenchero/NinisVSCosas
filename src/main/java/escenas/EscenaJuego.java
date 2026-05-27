@@ -1,5 +1,4 @@
 package escenas;
-
 import controladores.ControladorJuego;
 import controladores.ControladorMusica;
 import controladores.ControladorReloj;
@@ -20,6 +19,12 @@ import modelos.Ninis.*;
 
 import java.util.HashMap;
 
+/**
+ * Representa la Escena principal del juego
+ * @author Diego
+ * @author Luis
+ * @version 1.0
+ */
 public class EscenaJuego {
 
     private static ControladorReloj reloj = new ControladorReloj();
@@ -31,7 +36,11 @@ public class EscenaJuego {
     private boolean modoColgarActivo = false;
     public static Pane panelespecificoparacontroladorjuego;
 
-
+    /**
+     * Construye la escena del juego y pone las cosas en sus sitios
+     * @param stage ventana de la aplicacion
+     * @return Scene
+     */
     public Scene construir(Stage stage) {
         ImageView fondo = new ImageView("imagenes/fondoNvsW.png");
         fondo.setFitWidth(1280);
@@ -583,7 +592,10 @@ public class EscenaJuego {
         return new Scene(root, 1280, 720);
     }
 
-
+    /**
+     * Construye el panel de pausa
+     * @param stage ventana de la aplicacion
+     */
     private void ConstruirPanelPausa(Stage stage) {
 
         panelPausa.setPrefSize(1280, 720);
@@ -629,7 +641,10 @@ public class EscenaJuego {
         panelPausa.getChildren().addAll(textoPausa, btnReanudar, btnSalir);
     }
 
-
+    /**
+     * Construye el panel de la partida perdida
+     * @param stage ventana de la aplicacion
+     */
     private void ConstruirPanelPartidaPerdida(Stage stage) {
 
         panelPartidaTerminada.setPrefSize(1280, 720);
@@ -659,7 +674,9 @@ public class EscenaJuego {
         panelPartidaTerminada.getChildren().addAll(textoGameOver, btnSalir);
     }
 
-
+    /**
+     * Muestra el panel de pausa ya construido
+     */
     public void mostrarPanelPausa() {
         if (reloj.isPausado()) {
             panelPausa.setVisible(true);
