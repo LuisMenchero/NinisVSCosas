@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import modelos.Ninis.TipoNini;
 
 import java.awt.*;
 import java.io.File;
