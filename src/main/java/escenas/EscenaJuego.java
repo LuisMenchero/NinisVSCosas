@@ -657,12 +657,12 @@ public class EscenaJuego {
         Text textoGameOver = new Text("--- GAME OVER ---");
         textoGameOver.setFill(Color.RED);
         textoGameOver.setFont(Font.font("Verdana", FontWeight.BOLD, 50));
-        textoGameOver.setLayoutX(560);
-        textoGameOver.setLayoutY(300);
+        textoGameOver.setLayoutX(370);
+        textoGameOver.setLayoutY(270);
 
 
         Button btnSalir = new Button("Salir");
-        btnSalir.setLayoutX(560);
+        btnSalir.setLayoutX(570);
         btnSalir.setLayoutY(400);
         btnSalir.setOnAction(evento -> {
             ControladorReloj.reiniciar();
@@ -671,6 +671,10 @@ public class EscenaJuego {
             stage.setScene(escenaMenu.construir(stage));
             ControladorMusica.pararMusicaJuego();
         });
+        btnSalir.setStyle("-fx-background-color: none; -fx-text-fill: #dc3838; -fx-font-size: 35px;");
+        btnSalir.setOnMouseEntered(evento -> {btnSalir.setStyle("-fx-background-color: none; -fx-text-fill: white; -fx-font-size: 35px;");});
+        btnSalir.setOnMouseExited(evento -> {btnSalir.setStyle("-fx-background-color: none; -fx-text-fill: #dc3838; -fx-font-size: 35px;");});
+
 
 
         panelPartidaTerminada.setVisible(false);
@@ -698,18 +702,29 @@ public class EscenaJuego {
         caja.setAlignment(javafx.geometry.Pos.CENTER);
 
         TextField nombre = new TextField();
+        nombre.setMaxWidth(100);
+        nombre.setStyle("-fx-background-color: rgb(120,126,131); -fx-text-fill: white;");
+
 
         Button btnAceptar = new Button("Aceptar");
         btnAceptar.setOnAction(evento -> {
             String nombreJugador = nombre.getText();
             ventanaNombre.close();
         });
+        btnAceptar.setStyle("-fx-background-color: none; -fx-text-fill: #ffffff; -fx-font-size: 20px;");
+        btnAceptar.setOnMouseEntered(evento -> {btnAceptar.setStyle("-fx-background-color: none; -fx-text-fill: #979797; -fx-font-size: 20px;");});
+        btnAceptar.setOnMouseExited(evento -> {btnAceptar.setStyle("-fx-background-color: none; -fx-text-fill: #ffffff; -fx-font-size: 20px;");});
+
 
         caja.getChildren().addAll(nombre, btnAceptar);
         caja.setStyle("-fx-background-color: rgba(66,69,73,1);");
 
         Scene escena = new Scene(caja, 300, 200);
         ventanaNombre.setScene(escena);
+        Image logo = new Image("Imagenes/Ninis.png");
+        ventanaNombre.getIcons().add(logo);
+        //Esto sirve para que no se pueda cerrar la ventana, que solo se cierre al aceptar al nombre (revisar)
+        ventanaNombre.setOnCloseRequest(evento -> evento.consume());
         ventanaNombre.show();
 
     }
