@@ -10,14 +10,28 @@ import modelos.Celda;
 import modelos.Cosas.Cosa;
 
 import java.util.ArrayList;
+/**
+ * Representa a un Ximena
+ *
+ * @author Diego
+ * @author Luis
+ * @version 1.0
+ */
 
 public class Ximena extends Nini {
     // --- ATRIBUTOS ---
     private boolean hayContacto = false;
     private ImageView imagenFoca;
     private Rectangle hitboxFoca;
-    // --- CONSTRUCTOR ---
 
+    // --- CONSTRUCTOR ---
+    /**
+     * Constructor de Ximena
+     *
+     * @param columna lugar de las columnas en la que se encuentra
+     * @param fila lugar de las filas en la que se encuentra
+     * @param root Pane root de la escena en la que aparece
+     */
     public Ximena(double columna, double fila, Pane root) {
         super(columna, fila, TipoNini.XIMENA, 500, 50, 0, 5, "Animaciones/Ninis/Ximena_idle.gif", root);
         hitboxFoca = new Rectangle(
@@ -30,6 +44,13 @@ public class Ximena extends Nini {
     }
 
     // --- MÉTODOS ---
+    /**
+     * Metodo que se encarga de actualizar las acciones
+     *
+     * @param tiempoFrames es el tiempo que recibe del reloj
+     * @param terreno lugar de las filas y columnas en la que se encuentra
+     * @param cosas es el array de todas las cosas que hay en el mapa
+     */
     @Override
     public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas) {
         super.actualizar(tiempoFrames, terreno, cosas);
@@ -42,6 +63,11 @@ public class Ximena extends Nini {
         }
     }
 
+    /**
+     * Metodo que hace que Ximena ataque a una cosa
+     *
+     * @param cosas es el array de todas las cosas que hay en el mapa
+     */
     @Override
     public void atacar(ArrayList<Cosa> cosas) {
         hayContacto = true;
@@ -66,7 +92,7 @@ public class Ximena extends Nini {
 
     }
 
-
+    // GETTERS Y SETTERS
     public Rectangle getHitboxFoca() {
         return hitboxFoca;
     }

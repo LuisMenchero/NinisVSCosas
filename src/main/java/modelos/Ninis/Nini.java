@@ -1,4 +1,5 @@
 package modelos.Ninis;
+
 import controladores.ControladorReloj;
 import escenas.EscenaJuego;
 import javafx.scene.image.Image;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 
 /**
  * Representa de forma abstracta un nini
+ *
  * @author Diego
  * @author Luis
  * @version 1.0
@@ -55,17 +57,18 @@ public abstract class Nini {
 
     /**
      * Constructor de nini
-     * @param columna lugar de las columnas en la que se encuentra
-     * @param fila lugar de las filas en la que se encuentra
-     * @param tipoNini enum del nini
-     * @param salud cantidad de salud del nini
-     * @param costeButanitos coste del nini
-     * @param cooldownDisparo tiempo que tarda en volver a disparar
+     *
+     * @param columna               lugar de las columnas en la que se encuentra
+     * @param fila                  lugar de las filas en la que se encuentra
+     * @param tipoNini              enum del nini
+     * @param salud                 cantidad de salud del nini
+     * @param costeButanitos        coste del nini
+     * @param cooldownDisparo       tiempo que tarda en volver a disparar
      * @param cooldownVolverPlantar tiempo que tarda en poder a volver a plantarse
-     * @param rutaImagenNini ruta de la imagen del nini
-     * @param root Pane root de la escena en la que aparece
+     * @param rutaImagenNini        ruta de la imagen del nini
+     * @param root                  Pane root de la escena en la que aparece
      */
-    public Nini(double columna, double fila, TipoNini tipoNini,int salud, int costeButanitos, double cooldownDisparo, int cooldownVolverPlantar,String rutaImagenNini, Pane root) {
+    public Nini(double columna, double fila, TipoNini tipoNini, int salud, int costeButanitos, double cooldownDisparo, int cooldownVolverPlantar, String rutaImagenNini, Pane root) {
         this.columna = columna;
         this.fila = fila;
         this.tipoNini = tipoNini;
@@ -100,9 +103,9 @@ public abstract class Nini {
 
         // para la curacion
         this.curacion = new ImageView("Animaciones/Ninis/PotenciadorLorena.gif");
-        this.curacion.setFitWidth(ancho+20);
-        this.curacion.setFitHeight(alto+20);
-        this.curacion.setLayoutX(columna-10);
+        this.curacion.setFitWidth(ancho + 20);
+        this.curacion.setFitHeight(alto + 20);
+        this.curacion.setLayoutX(columna - 10);
         this.curacion.setLayoutY(fila);
         this.curacion.setOpacity(0.4);
         this.curacion.setVisible(false);
@@ -114,7 +117,7 @@ public abstract class Nini {
         hitbox.setOpacity(0.5);
         hitbox.setVisible(true);
 
-        root.getChildren().addAll(imagenNini, potenciador,curacion, hitbox);
+        root.getChildren().addAll(imagenNini, potenciador, curacion, hitbox);
     }
 
     // --- MÉTODOS ---
@@ -122,15 +125,17 @@ public abstract class Nini {
 
     /**
      * Hace que la planta ataque a determinada cosa
+     *
      * @param cosas a que cosa ataca
      */
     protected abstract void atacar(ArrayList<Cosa> cosas);
 
     /**
      * Actualiza el nini
+     *
      * @param tiempoFrames Variable del reloj del tiempo que pasa
-     * @param terreno Parte del terreno (En array bidimensional) en la que se encuentra
-     * @param cosas Array de cosas
+     * @param terreno      Parte del terreno (En array bidimensional) en la que se encuentra
+     * @param cosas        Array de cosas
      */
     public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas) {
         potenciar();
@@ -141,6 +146,7 @@ public abstract class Nini {
 
     /**
      * Recibe daño y se lo resta al nini
+     *
      * @param daño Daño que recibe
      */
     public void recibirDaño(int daño) {
@@ -163,10 +169,10 @@ public abstract class Nini {
 
         //Esto de aqui para que el nini no exista más (que bien me expreso)
         int filaTerreno = Cuadricula.convertirAFila(fila);
-        int columnaTerreno  = Cuadricula.convertirAColumna(columna);
-        Celda [][] terreno = EscenaJuego.getTerreno();
-        if (filaTerreno >=0 && filaTerreno < terreno.length && columnaTerreno >=0 && columnaTerreno < terreno[0].length) {
-            terreno [filaTerreno][columnaTerreno].limpiar();
+        int columnaTerreno = Cuadricula.convertirAColumna(columna);
+        Celda[][] terreno = EscenaJuego.getTerreno();
+        if (filaTerreno >= 0 && filaTerreno < terreno.length && columnaTerreno >= 0 && columnaTerreno < terreno[0].length) {
+            terreno[filaTerreno][columnaTerreno].limpiar();
         }
 
     }
@@ -201,11 +207,11 @@ public abstract class Nini {
 
     /**
      * Mira si hay algun enemigo en la fila
+     *
      * @param cosas Array de cosas
      * @return boolean
      */
-    //Hay que cambiar el nombre, que son cosas en general no zombies jeje
-    protected boolean hayZombieEnMiFila(ArrayList<Cosa> cosas) {
+    protected boolean hayCosaEnMiFila(ArrayList<Cosa> cosas) {
         for (Cosa cosaAct : cosas) {
             if (cosaAct.getFila() == this.fila) {
                 return true;
@@ -236,22 +242,9 @@ public abstract class Nini {
         return salud;
     }
 
-    public String getRutaImagenNini() {
-        return rutaImagenNini;
-    }
-
-    public ImageView getImagenNini() {
-        return imagenNini;
-    }
-
     public TipoNini getTipoNini() {
         return tipoNini;
     }
-
-    public void setPotenciado(boolean potenciado) {
-        this.potenciado = potenciado;
-    }
-
 
     public void setImagenNiniImage(String rutaNuevaAnimacion) {
         this.imagenNini.setImage(new Image(rutaNuevaAnimacion));

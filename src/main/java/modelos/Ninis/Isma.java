@@ -11,18 +11,39 @@ import modelos.Cosas.Cosa;
 
 import java.util.ArrayList;
 
+/**
+ * Representa a un Isma
+ *
+ * @author Diego
+ * @author Luis
+ * @version 1.0
+ */
 public class Isma extends Nini {
     // --- ATRIBUTOS ---
     private boolean explotar = false;
     private ImageView explosion;
     private Rectangle hitboxExplosion;
-    // --- CONSTRUCTOR ---
 
+    // --- CONSTRUCTOR ---
+    /**
+     * Constructor de Isma
+     *
+     * @param columna lugar de las columnas en la que se encuentra
+     * @param fila lugar de las filas en la que se encuentra
+     * @param root Pane root de la escena en la que aparece
+     */
     public Isma(double columna, double fila, Pane root) {
         super(columna, fila, TipoNini.ISMA, 50, 150, 0, 5, "Animaciones/Ninis/Isma_Idle.gif", root);
     }
 
     // --- MÉTODOS ---
+    /**
+     * Metodo que se encarga de actualizar las acciones
+     *
+     * @param tiempoFrames es el tiempo que recibe del reloj
+     * @param terreno lugar de las filas y columnas en la que se encuentra
+     * @param cosas es el array de todas las cosas que hay en el mapa
+     */
     @Override
     public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas) {
         super.actualizar(tiempoFrames, terreno, cosas);
@@ -42,6 +63,11 @@ public class Isma extends Nini {
         pause.play();
     }
 
+    /**
+     * Metodo que hace que Isma ataque a una cosa
+     *
+     * @param cosas es el array de todas las cosas que hay en el mapa
+     */
     @Override
     public void atacar(ArrayList<Cosa> cosas) {
         explotar = true;
@@ -57,6 +83,7 @@ public class Isma extends Nini {
         root.getChildren().addAll(explosion, hitboxExplosion);
     }
 
+    // GETTERS Y SETTERS
     public boolean isExplotar() {
         return explotar;
     }

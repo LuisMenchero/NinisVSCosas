@@ -1,8 +1,6 @@
 package modelos.Ninis;
 
-import javafx.animation.PauseTransition;
 import javafx.scene.layout.Pane;
-import javafx.util.Duration;
 import modelos.Celda;
 import modelos.Cosas.Cosa;
 import modelos.Proyectiles.Pikmin;
@@ -24,7 +22,7 @@ public class Raul extends Nini {
     @Override
     public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas) {
         super.actualizar(tiempoFrames, terreno, cosas);
-        if (hayZombieEnMiFila(cosas) || hayZombieEnMiFilaInferior(cosas) || hayZombieEnMiFilaSuperior(cosas)) {
+        if (hayCosaEnMiFila(cosas) || hayZombieEnMiFilaInferior(cosas) || hayZombieEnMiFilaSuperior(cosas)) {
             tiempoDelUltimoDisparo = tiempoDelUltimoDisparo + tiempoFrames;
             if (tiempoDelUltimoDisparo > cooldownDisparo) {
                 tiempoDelUltimoDisparo = 0;
