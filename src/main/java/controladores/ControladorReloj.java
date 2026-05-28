@@ -270,7 +270,7 @@ public class ControladorReloj {
                     if (((Isma) nini).getHitboxExplosion().getBoundsInParent().intersects(cosa.getHitbox().getBoundsInParent())) {
                         cosa.recibirDaño(99999);
                     }
-                } else if (nini instanceof Adripan && ((Adripan) nini).isEstaCargado()) {
+                } else if (nini instanceof Adripan && ((Adripan) nini).estaCargado()) {
                     if (nini.getHitbox().getBoundsInParent().intersects(cosa.getHitbox().getBoundsInParent())) {
                         ((Adripan) nini).setHayContacto(true);
                         if (((Adripan) nini).getHitboxExplosion().getBoundsInParent().intersects(cosa.getHitbox().getBoundsInParent())) {

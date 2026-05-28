@@ -7,8 +7,17 @@ import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 import java.io.File;
 
-
+/**
+ * Sirve para transformar un xslt a html
+ * @author Diego
+ * @author Luis
+ * @version 1.0
+ */
 public class TransformadorXSLT {
+
+    /**
+     * Genera un archivo html con el contenido modificado de un xslt
+     */
     public static void transformarXML() {
         try {
             // 1. Rutas de tus archivos

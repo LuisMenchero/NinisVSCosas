@@ -24,7 +24,7 @@ public class Lopez extends Nini {
     @Override
     public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas) {
         super.actualizar(tiempoFrames, terreno, cosas);
-        if (hayZombieEnMiFila(cosas)) {
+        if (hayCosaEnMiFila(cosas)) {
             tiempoDelUltimoDisparo = tiempoDelUltimoDisparo + tiempoFrames;
             if (tiempoDelUltimoDisparo > cooldownDisparo) {
                 tiempoDelUltimoDisparo = 0;

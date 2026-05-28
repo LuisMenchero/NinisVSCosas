@@ -27,8 +27,20 @@ import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
+
+/**
+ * Sirve para gestionar el archivo xml que almacena informacion de los jugadores que terminan una partida
+ * @author Diego
+ * @author Luis
+ * @version 1.0
+ */
 public class GestorXML {
 
+
+
+    /**
+     * Genera un archivo xml si no existe
+     */
     public static void inicializarXML() {
         Path path = Paths.get("src/main/resources/Estadisticas/EstadisticasJugadores.xml");
         File ficheroXml = path.toFile();
@@ -43,42 +55,13 @@ public class GestorXML {
                 System.out.println("Archivo XML inicializado correctamente.");
             } catch (IOException e) {
                 System.err.println("Error crítico al crear el archivo físico: " + e.getMessage());
-                return;
             }
-        }
-
-        // LECTURA Y PROCESAMIENTO DEL XML
-        try {
-            DocumentBuilderFactory fabrica = DocumentBuilderFactory.newInstance();
-            DocumentBuilder constructor = fabrica.newDocumentBuilder();
-
-            // Aquí Java LEE todo el XML y lo carga en la variable 'xml'
-            Document xml = constructor.parse(ficheroXml);
-            xml.getDocumentElement().normalize();
-
-            // Obtener todos los nodos
-            NodeList listaJugadores = xml.getElementsByTagName("jugador");
-
-            System.out.println("--- Lista de Jugadores Registrados ---");
-            for (int i = 0; i < listaJugadores.getLength(); i++) {
-                Element unJugador = (Element) listaJugadores.item(i);
-
-                // Extraer el texto dentro de la etiqueta <nombre>
-                NodeList nombres = unJugador.getElementsByTagName("nombre");
-                if (nombres.getLength() > 0) {
-                    String nombreJugador = nombres.item(0).getTextContent();
-                    System.out.println("Jugador " + (i + 1) + ": " + nombreJugador);
-                }
-            }
-
-        } catch (ParserConfigurationException | SAXException ex) {
-            System.err.println("Error: El archivo XML tiene un formato inválido o corrupto.");
-        } catch (IOException ioe) {
-            System.err.println("Error de lectura/escritura en el archivo: " + ioe.getMessage());
         }
     }
 
-
+    /**
+     * Escribe en el xml una nueva entrada de jugador que no existe, o sobreescribe una puntuacion de un jugador existente si ha superado su marca
+     */
     public static void registrarNuevoJugador(Scanner teclado) {
         System.out.println("Nombre del jugador: ");
         String nombreJugadorLeido = teclado.next();
