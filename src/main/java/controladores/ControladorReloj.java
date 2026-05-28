@@ -1,4 +1,5 @@
 package controladores;
+import Estadisticas.GestorXML;
 import escenas.EscenaJuego;
 import javafx.animation.Animation;
 import javafx.animation.AnimationTimer;
@@ -12,6 +13,7 @@ import modelos.Ninis.*;
 import modelos.Proyectiles.*;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * Representa el ControladorReloj
@@ -370,6 +372,9 @@ public class ControladorReloj {
                 Cosa cosa : cosas) {
             if (cosa.getHitbox().getBoundsInParent().intersects(EscenaJuego.getHitboxCasa().getBoundsInParent())) {
                 ControladorJuego.terminarPartida();
+                Scanner teclado = new Scanner(System.in);
+                GestorXML.inicializarXML();
+                GestorXML.registrarNuevoJugador(teclado);
             }
         }
 

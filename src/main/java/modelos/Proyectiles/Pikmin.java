@@ -21,9 +21,9 @@ public class Pikmin extends Proyectil{
      * @param root Pane root de la escena en la que aparece
      */
     public Pikmin(double fila, double columna, Pane root) {
-        super(200, 20, 20,20 , fila + 35, columna  + 65, root);
+        super(200, 20, 30,30 , fila + 35, columna  + 65, root);
         // Para el gif
-        this.imagenProyectil = new ImageView("Animaciones/Proyectiles/nota.gif");
+        this.imagenProyectil = new ImageView("Animaciones/Proyectiles/rock-pikmin.gif");
         this.imagenProyectil.setFitWidth(ancho);
         this.imagenProyectil.setFitHeight(alto);
 

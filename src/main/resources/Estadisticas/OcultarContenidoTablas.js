@@ -43,7 +43,7 @@ function buildDetalleRows(p) {
     rows += '<tr id="det-' + p.nombre + '-l1" style="display:none">';
     for (var j = 0; j < p.logros.length; j++) {
         var l = p.logros[j];
-        if (l.id === '01' || l.id === '02' || l.id === '03') {
+        if (l.id === '1' || l.id === '2' || l.id === '3') {
             var color = l.completado == 'Si' ? ' background-color: #6B99BF; color: #000000;' : ' ';
             rows += '<td colspan="2" style="' + TD_PLAIN + '; ' + color + '">'
                 + 'Completado: ' + l.completado + '<br>'
@@ -59,7 +59,7 @@ function buildDetalleRows(p) {
     rows += '<tr id="det-' + p.nombre + '-l2" style="display:none">';
     for (var k = 0; k < p.logros.length; k++) {
         var l2 = p.logros[k];
-        if (l2.id === '04' || l2.id === '05' || l2.id === '06') {
+        if (l2.id === '4' || l2.id === '5' || l2.id === '6') {
             var color2 = l2.completado == 'Si' ? ' background-color: #6B99BF; color: #000000;' : ' ';
             rows += '<td colspan="2" style="' + TD_PLAIN + '; ' + color2 + '">'
                 + 'Completado: ' + l2.completado + '<br>'

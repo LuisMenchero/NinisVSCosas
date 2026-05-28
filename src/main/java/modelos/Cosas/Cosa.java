@@ -122,6 +122,16 @@ public abstract class Cosa {
      */
     public abstract void atacar(double tiempoFrames, Nini niniAtacando);
 
+
+    /**
+     * Hace que la cosa sume puntos para las estadísticas
+     */
+//    public abstract void darPuntos();
+
+
+
+
+
     /**
      * Actualiza la cosa
      * @param tiempoFrames Variable del reloj del tiempo que pasa
