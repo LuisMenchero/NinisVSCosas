@@ -589,7 +589,7 @@ public class EscenaJuego {
         ConstruirPanelPartidaPerdida(stage);
         root.getChildren().addAll(panelPausa, panelPartidaTerminada, hitboxCasa);
 
-        Cosa cs = new Furgo(root);
+        Cosa cs = new Ordenador(root);
         reloj.registrarCosa(cs);
 
         return new Scene(root, 1280, 720);
