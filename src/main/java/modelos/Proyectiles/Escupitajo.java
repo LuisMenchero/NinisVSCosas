@@ -20,9 +20,9 @@ public class Escupitajo extends Proyectil {
      * @param root Pane root de la escena en la que aparece
      */
     public Escupitajo(double fila, double columna, Pane root) {
-        super(210, 1,25,25, fila + 25, columna  + 60, root);
+        super(210, 1,30,30, fila + 25, columna  + 60, root);
         // Para el gif
-        this.imagenProyectil = new ImageView("Animaciones/Ninis/Guevara_Idle.gif");
+        this.imagenProyectil = new ImageView("Animaciones/Proyectiles/Gapo.gif");
         this.imagenProyectil.setFitWidth(ancho);
         this.imagenProyectil.setFitHeight(alto);
 
