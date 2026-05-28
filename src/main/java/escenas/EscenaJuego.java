@@ -4,14 +4,17 @@ import controladores.ControladorMusica;
 import controladores.ControladorReloj;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import modelos.*;
 import modelos.Cosas.*;
@@ -686,6 +689,30 @@ public class EscenaJuego {
         }
     }
 
+    public static void mostrarPanelNombreFin () {
+        Stage ventanaNombre = new Stage();
+        ventanaNombre.initModality(Modality.APPLICATION_MODAL);
+        ventanaNombre.setTitle("Introduce tu nombre");
+
+        VBox caja = new VBox(10);
+        caja.setAlignment(javafx.geometry.Pos.CENTER);
+
+        TextField nombre = new TextField();
+
+        Button btnAceptar = new Button("Aceptar");
+        btnAceptar.setOnAction(evento -> {
+            String nombreJugador = nombre.getText();
+            ventanaNombre.close();
+        });
+
+        caja.getChildren().addAll(nombre, btnAceptar);
+        caja.setStyle("-fx-background-color: rgba(66,69,73,1);");
+
+        Scene escena = new Scene(caja, 300, 200);
+        ventanaNombre.setScene(escena);
+        ventanaNombre.show();
+
+    }
 
     public static Celda[][] getTerreno() {
         return terreno;
