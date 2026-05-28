@@ -353,6 +353,7 @@ public class ControladorJuego {
         EscenaJuego.getReloj().terminar();
         EscenaJuego.getPanelPartidaTerminada().setVisible(true);
         EscenaJuego.getPanelPartidaTerminada().toFront();
+        EscenaJuego.mostrarPanelNombreFin();
     }
 
 

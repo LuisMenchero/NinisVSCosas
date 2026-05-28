@@ -244,15 +244,17 @@ public abstract class Nini {
         return imagenNini;
     }
 
-    public void setImagenNiniImage(String rutaNuevaAnimacion) {
-        this.imagenNini.setImage(new Image(rutaNuevaAnimacion));
-    }
-
     public TipoNini getTipoNini() {
         return tipoNini;
     }
+
     public void setPotenciado(boolean potenciado) {
         this.potenciado = potenciado;
+    }
+
+
+    public void setImagenNiniImage(String rutaNuevaAnimacion) {
+        this.imagenNini.setImage(new Image(rutaNuevaAnimacion));
     }
 
     public boolean isEstaMuerto() {
