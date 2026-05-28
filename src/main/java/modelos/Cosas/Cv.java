@@ -74,4 +74,9 @@ public class Cv extends Cosa {
 
     }
 
+//    @Override
+//    public void darPuntos() {
+//
+//    }
+
 }

@@ -1,8 +1,8 @@
 package Estadisticas;
 
-import javafx.scene.image.Image;
-import modelos.Cuadricula;
+import escenas.EscenaMenu;
 import modelos.GestorInventario;
+import modelos.GestorPuntos;
 import modelos.Ninis.*;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -23,9 +23,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
@@ -40,7 +38,7 @@ public class GestorXML {
             try {
                 // Escribir la etiqueta raíz mínima para que sea un XML válido
                 try (FileWriter writer = new FileWriter(ficheroXml)) {
-                    writer.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<jugadores>\n</jugadores>");
+                    writer.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<?xml-stylesheet href=\"EstadisticasJugadores.xsl\" type=\"text/xsl\"?><?xml-model href=\"EstadisticasJugadores.xsd\"?>\n<jugadores>\n</jugadores>");
                 }
                 System.out.println("Archivo XML inicializado correctamente.");
             } catch (IOException e) {
@@ -100,6 +98,7 @@ public class GestorXML {
 
             //Busca de la lista jugadores , los modulos jugador
             NodeList jugadores = xml.getElementsByTagName("jugador");
+
             Element  entradaExistente = null;
             int puntuacionRegistrado = 0;
 
@@ -125,16 +124,11 @@ public class GestorXML {
                 // , con el que el jugador tenia ya guardado en el XML
 
 
+                GestorPuntos gestorPuntos = GestorPuntos.getInstancia();
 
 
-                // ---------    CAMBIAAAAR A LA PUNTUACION DEL JUGADOR A PARTIR DE AQUI -------
-
-
-
-
-                // cambiar el 100 por .getPuntuacionDelJugador
-                if (100 <    puntuacionRegistrado) {
-                    entradaExistente.getElementsByTagName("puntuacion").item(0).setTextContent(String.valueOf(.getPuntuacionDelJugador));
+                if (gestorPuntos.getContadorPuntosTotales() <    puntuacionRegistrado) {
+                    entradaExistente.getElementsByTagName("puntuacion").item(0).setTextContent(String.valueOf(gestorPuntos.getContadorPuntosTotales()));
 
 
                     // actualizar también la fecha al mejorar
@@ -150,7 +144,7 @@ public class GestorXML {
 
                 //Creamos el nodo jugador
                 Element nodoJugador = xml.createElement("jugador");
-                nodoJugador.setAttribute("id", String.valueOf(jugadores.getLength()));
+                nodoJugador.setAttribute("id", String.valueOf(jugadores.getLength()+1));
 
                 //Creamos el nodo nombre
                 Element nodoNombre = xml.createElement("nombre");
@@ -177,82 +171,251 @@ public class GestorXML {
                     nodoNini.setAttribute("tipoNini", String.valueOf(tipoNini));
 
 
-                    Nini niniNuevo = null;
+                    String fotoNini = " ";
+                    String nombreNini = " ";
+                    String descNini = " ";
+                    String costeNini = " ";
+                    String vidaNini = " ";
+                    String alcanceAtaque = " ";
+                    String radioAtaque = " ";
+                    String tipoProyectil = " ";
+                    String dañoNini = " ";
+
                     if (tipoNini == TipoNini.LUIS) {
-                        niniNuevo = new Luis(0,0,null);
+                        fotoNini= "../Animaciones/Ninis/Lis.gif";
+                        nombreNini = "-- LUIS --";
+                        descNini = " Luis es un hacker que consigue saltarse cualquier sistema de seguridad. Con el tiempo, consigue robar Butanitos y te los da para que los uses.";
+                        costeNini = " - COSTE BUTANITOS - - 50 butanitos.";
+                        vidaNini = " - SALUD - - 75 puntos de salud.";
+                        alcanceAtaque = " - TIEMPO DE GENERACION DE BUTANITOS - - 25 segundos.";
+                        radioAtaque = "";
+                        tipoProyectil = "";
+                        dañoNini = "";
                     } else if (tipoNini == TipoNini.DIEGO) {
-                        niniNuevo = new Diego(0,0,null);
+                        fotoNini= "../Animaciones/Ninis/DiegoEsperando.gif";
+                        nombreNini = "-- DIEGO --";
+                        descNini = " Luis es un hacker que consigue saltarse cualquier sistema de seguridad. Con el tiempo, consigue robar Butanitos y te los da para que los uses.";
+                        costeNini = " - COSTE BUTANITOS -  - 50 butanitos.";
+                        vidaNini = " - SALUD -  - 75 puntos de salud.";
+                        alcanceAtaque = " - TIEMPO DE GENERACION DE BUTANITOS - - 25 segundos.";
+                        radioAtaque = "";
+                        tipoProyectil = "";
+                        dañoNini = "";
                     } else if (tipoNini == TipoNini.CALLEJO) {
-                        niniNuevo = new Callejo(0,0,null);
+                        fotoNini= "../Animaciones/Ninis/Callejo_idle.gif";
+                        nombreNini = "-- CALLEJO --";
+                        descNini = " Luis es un hacker que consigue saltarse cualquier sistema de seguridad. Con el tiempo, consigue robar Butanitos y te los da para que los uses.";
+                        costeNini = " - COSTE BUTANITOS -  - 50 butanitos.";
+                        vidaNini = " - SALUD -  - 75 puntos de salud.";
+                        alcanceAtaque = " - TIEMPO DE GENERACION DE BUTANITOS - - 25 segundos.";
+                        radioAtaque = "";
+                        tipoProyectil = "";
+                        dañoNini = "";
                     } else if (tipoNini == TipoNini.ADRIPAN) {
-                        niniNuevo = new Adripan(0,0,null);
+                        fotoNini= "../Animaciones/Ninis/AdripanEsperando.gif";
+                        nombreNini = "-- ADRIPAN --";
+                        descNini = " Luis es un hacker que consigue saltarse cualquier sistema de seguridad. Con el tiempo, consigue robar Butanitos y te los da para que los uses.";
+                        costeNini = " - COSTE BUTANITOS -  - 50 butanitos.";
+                        vidaNini = " - SALUD -  - 75 puntos de salud.";
+                        alcanceAtaque = " - TIEMPO DE GENERACION DE BUTANITOS - - 25 segundos.";
+                        radioAtaque = "";
+                        tipoProyectil = "";
+                        dañoNini = "";
                     } else if (tipoNini == TipoNini.GUEVARA) {
-                        niniNuevo = new Guevara(0,0,null);
+                        fotoNini= "../Animaciones/Ninis/Guevara_Idle.gif";
+                        nombreNini = "-- GUEVARA --";
+                        descNini = " Luis es un hacker que consigue saltarse cualquier sistema de seguridad. Con el tiempo, consigue robar Butanitos y te los da para que los uses.";
+                        costeNini = " - COSTE BUTANITOS -  - 50 butanitos.";
+                        vidaNini = " - SALUD -  - 75 puntos de salud.";
+                        alcanceAtaque = " - TIEMPO DE GENERACION DE BUTANITOS - - 25 segundos.";
+                        radioAtaque = "";
+                        tipoProyectil = "";
+                        dañoNini = "";
                     } else if (tipoNini == TipoNini.LOPEZ) {
-                        niniNuevo = new Lopez(0,0,null);
+                        fotoNini= "../Animaciones/Ninis/LopezEsperando.gif";
+                        nombreNini = "-- LOPEZ --";
+                        descNini = " Luis es un hacker que consigue saltarse cualquier sistema de seguridad. Con el tiempo, consigue robar Butanitos y te los da para que los uses.";
+                        costeNini = " - COSTE BUTANITOS -  - 50 butanitos.";
+                        vidaNini = " - SALUD -  - 75 puntos de salud.";
+                        alcanceAtaque = " - TIEMPO DE GENERACION DE BUTANITOS - - 25 segundos.";
+                        radioAtaque = "";
+                        tipoProyectil = "";
+                        dañoNini = "";
                     } else if (tipoNini == TipoNini.ISMA) {
-                        niniNuevo = new Isma(0,0,null);
+                        fotoNini= "../Animaciones/Ninis/Isma_Idle.gif";
+                        nombreNini = "-- ISMA --";
+                        descNini = " Luis es un hacker que consigue saltarse cualquier sistema de seguridad. Con el tiempo, consigue robar Butanitos y te los da para que los uses.";
+                        costeNini = " - COSTE BUTANITOS -  - 50 butanitos.";
+                        vidaNini = " - SALUD -  - 75 puntos de salud.";
+                        alcanceAtaque = " - TIEMPO DE GENERACION DE BUTANITOS - - 25 segundos.";
+                        radioAtaque = "";
+                        tipoProyectil = "";
+                        dañoNini = "";
                     } else if (tipoNini == TipoNini.XIMENA) {
-                        niniNuevo = new Ximena(0,0,null);
+                        fotoNini= "../Animaciones/Ninis/Ximena_idle.gif";
+                        nombreNini = "-- XIMENA --";
+                        descNini = " Luis es un hacker que consigue saltarse cualquier sistema de seguridad. Con el tiempo, consigue robar Butanitos y te los da para que los uses.";
+                        costeNini = " - COSTE BUTANITOS -  - 50 butanitos.";
+                        vidaNini = " - SALUD -  - 75 puntos de salud.";
+                        alcanceAtaque = " - TIEMPO DE GENERACION DE BUTANITOS - - 25 segundos.";
+                        radioAtaque = "";
+                        tipoProyectil = "";
+                        dañoNini = "";
                     } else if (tipoNini == TipoNini.GUILLE) {
-                        niniNuevo = new Guille(0,0,null);
+                        fotoNini= "../Animaciones/Ninis/Guille_Idle.gif";
+                        nombreNini = "-- GUILLE --";
+                        descNini = " Luis es un hacker que consigue saltarse cualquier sistema de seguridad. Con el tiempo, consigue robar Butanitos y te los da para que los uses.";
+                        costeNini = " - COSTE BUTANITOS -  - 50 butanitos.";
+                        vidaNini = " - SALUD -  - 75 puntos de salud.";
+                        alcanceAtaque = " - TIEMPO DE GENERACION DE BUTANITOS - - 25 segundos.";
+                        radioAtaque = "";
+                        tipoProyectil = "";
+                        dañoNini = "";
                     } else if (tipoNini == TipoNini.DANI) {
-                        niniNuevo = new Dani(0,0,null);
+                        fotoNini= "../Animaciones/Ninis/Dani_idle.gif";
+                        nombreNini = "-- DANI --";
+                        descNini = " Luis es un hacker que consigue saltarse cualquier sistema de seguridad. Con el tiempo, consigue robar Butanitos y te los da para que los uses.";
+                        costeNini = " - COSTE BUTANITOS -  - 50 butanitos.";
+                        vidaNini = " - SALUD -  - 75 puntos de salud.";
+                        alcanceAtaque = " - TIEMPO DE GENERACION DE BUTANITOS - - 25 segundos.";
+                        radioAtaque = "";
+                        tipoProyectil = "";
+                        dañoNini = "";
                     } else if (tipoNini == TipoNini.KEKE) {
-                        niniNuevo = new Keke(0,0,null);
+                        fotoNini= "../Animaciones/Ninis/Keke_Idle.gif";
+                        nombreNini = "-- KEKE --";
+                        descNini = " Luis es un hacker que consigue saltarse cualquier sistema de seguridad. Con el tiempo, consigue robar Butanitos y te los da para que los uses.";
+                        costeNini = " - COSTE BUTANITOS -  - 50 butanitos.";
+                        vidaNini = " - SALUD -  - 75 puntos de salud.";
+                        alcanceAtaque = " - TIEMPO DE GENERACION DE BUTANITOS - - 25 segundos.";
+                        radioAtaque = "";
+                        tipoProyectil = "";
+                        dañoNini = "";
                     } else if (tipoNini == TipoNini.LORENA) {
-                        niniNuevo = new Lorena(0,0,null);
+                        fotoNini= "../Animaciones/Ninis/Lorena_Idle.gif";
+                        nombreNini = "-- LORENA --";
+                        descNini = " Luis es un hacker que consigue saltarse cualquier sistema de seguridad. Con el tiempo, consigue robar Butanitos y te los da para que los uses.";
+                        costeNini = " - COSTE BUTANITOS -  - 50 butanitos.";
+                        vidaNini = " - SALUD -  - 75 puntos de salud.";
+                        alcanceAtaque = " - TIEMPO DE GENERACION DE BUTANITOS - - 25 segundos.";
+                        radioAtaque = "";
+                        tipoProyectil = "";
+                        dañoNini = "";
                     } else if (tipoNini == TipoNini.MARIA) {
-                        niniNuevo = new Maria(0,0,null);
+                        fotoNini= "../Animaciones/Ninis/Maria_Idle.gif";
+                        nombreNini = "-- MARIA --";
+                        descNini = " Luis es un hacker que consigue saltarse cualquier sistema de seguridad. Con el tiempo, consigue robar Butanitos y te los da para que los uses.";
+                        costeNini = " - COSTE BUTANITOS -  - 50 butanitos.";
+                        vidaNini = " - SALUD -  - 75 puntos de salud.";
+                        alcanceAtaque = " - TIEMPO DE GENERACION DE BUTANITOS - - 25 segundos.";
+                        radioAtaque = "";
+                        tipoProyectil = "";
+                        dañoNini = "";
                     } else if (tipoNini == TipoNini.JUD) {
-                        niniNuevo = new Jud(0,0,null);
+                        fotoNini= "../Animaciones/Ninis/Jud_Idle.gif";
+                        nombreNini = "-- JUD --";
+                        descNini = " Luis es un hacker que consigue saltarse cualquier sistema de seguridad. Con el tiempo, consigue robar Butanitos y te los da para que los uses.";
+                        costeNini = " - COSTE BUTANITOS -  - 50 butanitos.";
+                        vidaNini = " - SALUD -  - 75 puntos de salud.";
+                        alcanceAtaque = " - TIEMPO DE GENERACION DE BUTANITOS - - 25 segundos.";
+                        radioAtaque = "";
+                        tipoProyectil = "";
+                        dañoNini = "";
                     } else if (tipoNini == TipoNini.ELSA) {
-                        niniNuevo = new Elsa(0,0,null);
+                        fotoNini= "../Animaciones/Ninis/Elsa_Idle.gif";
+                        nombreNini = "-- ELSA --";
+                        descNini = " Luis es un hacker que consigue saltarse cualquier sistema de seguridad. Con el tiempo, consigue robar Butanitos y te los da para que los uses.";
+                        costeNini = " - COSTE BUTANITOS -  - 50 butanitos.";
+                        vidaNini = " - SALUD -  - 75 puntos de salud.";
+                        alcanceAtaque = " - TIEMPO DE GENERACION DE BUTANITOS - - 25 segundos.";
+                        radioAtaque = "";
+                        tipoProyectil = "";
+                        dañoNini = "";
                     } else if (tipoNini == TipoNini.ELISEO) {
-                        niniNuevo = new Eliseo(0,0,null);
+                        fotoNini= "../Animaciones/Ninis/Eliseo_Empuje3bolas.gif";
+                        nombreNini = "-- ELISEO --";
+                        descNini = " Luis es un hacker que consigue saltarse cualquier sistema de seguridad. Con el tiempo, consigue robar Butanitos y te los da para que los uses.";
+                        costeNini = " - COSTE BUTANITOS -  - 50 butanitos.";
+                        vidaNini = " - SALUD -  - 75 puntos de salud.";
+                        alcanceAtaque = " - TIEMPO DE GENERACION DE BUTANITOS - - 25 segundos.";
+                        radioAtaque = "";
+                        tipoProyectil = "";
+                        dañoNini = "";
                     } else if (tipoNini == TipoNini.RAUL) {
-                        niniNuevo = new Raul(0,0,null);
+                        fotoNini= "../Animaciones/Ninis/Raul_Idle.gif";
+                        nombreNini = "-- RAUL --";
+                        descNini = " Luis es un hacker que consigue saltarse cualquier sistema de seguridad. Con el tiempo, consigue robar Butanitos y te los da para que los uses.";
+                        costeNini = " - COSTE BUTANITOS -  - 50 butanitos.";
+                        vidaNini = " - SALUD -  - 75 puntos de salud.";
+                        alcanceAtaque = " - TIEMPO DE GENERACION DE BUTANITOS - - 25 segundos.";
+                        radioAtaque = "";
+                        tipoProyectil = "";
+                        dañoNini = "";
                     } else if (tipoNini == TipoNini.IRENE) {
-                        niniNuevo = new Irene(0,0,null);
+                        fotoNini= "../Animaciones/Ninis/Irene_Idle.gif";
+                        nombreNini = "-- IRENE --";
+                        descNini = " Luis es un hacker que consigue saltarse cualquier sistema de seguridad. Con el tiempo, consigue robar Butanitos y te los da para que los uses.";
+                        costeNini = " - COSTE BUTANITOS -  - 50 butanitos.";
+                        vidaNini = " - SALUD -  - 75 puntos de salud.";
+                        alcanceAtaque = " - TIEMPO DE GENERACION DE BUTANITOS - - 25 segundos.";
+                        radioAtaque = "";
+                        tipoProyectil = "";
+                        dañoNini = "";
                     } else if (tipoNini == TipoNini.ALVARO) {
-                        niniNuevo = new Alvaro(0,0,null);
+                        fotoNini= "../Animaciones/Ninis/Alvaro_Idle.gif";
+                        nombreNini = "-- ALVARO --";
+                        descNini = " Luis es un hacker que consigue saltarse cualquier sistema de seguridad. Con el tiempo, consigue robar Butanitos y te los da para que los uses.";
+                        costeNini = " - COSTE BUTANITOS -  - 50 butanitos.";
+                        vidaNini = " - SALUD -  - 75 puntos de salud.";
+                        alcanceAtaque = " - TIEMPO DE GENERACION DE BUTANITOS - - 25 segundos.";
+                        radioAtaque = "";
+                        tipoProyectil = "";
+                        dañoNini = "";
                     } else if (tipoNini == TipoNini.HAMIL) {
-                        niniNuevo = new Hamil(0,0,null);
+                        fotoNini= "../Animaciones/Ninis/Hamil_Idle.gif";
+                        nombreNini = "-- HAMIL --";
+                        descNini = " Luis es un hacker que consigue saltarse cualquier sistema de seguridad. Con el tiempo, consigue robar Butanitos y te los da para que los uses.";
+                        costeNini = " - COSTE BUTANITOS -  - 50 butanitos.";
+                        vidaNini = " - SALUD -  - 75 puntos de salud.";
+                        alcanceAtaque = " - TIEMPO DE GENERACION DE BUTANITOS - - 25 segundos.";
+                        radioAtaque = "";
+                        tipoProyectil = "";
+                        dañoNini = "";
                     }
 
-                    nodoNini.setAttribute("imagen", String.valueOf(niniNuevo.getImagenNini()));
+                    nodoNini.setAttribute("imagen", fotoNini);
 
 
                     Element nodoNombreNini = xml.createElement("nombre");
-                    nodoNombreNini.setTextContent();
+                    nodoNombreNini.setTextContent(nombreNini);
                     nodoNini.appendChild(nodoNombreNini);
 
                     Element nodoDescripcionNini = xml.createElement("descripcion");
-                    nodoNombreNini.setTextContent();
+                    nodoDescripcionNini.setTextContent(descNini);
                     nodoNini.appendChild(nodoDescripcionNini);
 
                     Element nodoCosteNini = xml.createElement("coste");
-                    nodoNombreNini.setTextContent();
+                    nodoCosteNini.setTextContent(costeNini);
                     nodoNini.appendChild(nodoCosteNini);
 
                     Element nodoVidaNini = xml.createElement("vida");
-                    nodoNombreNini.setTextContent();
+                    nodoVidaNini.setTextContent(vidaNini);
                     nodoNini.appendChild(nodoVidaNini);
 
                     Element nodoAlcanceNini = xml.createElement("alcanceAtaque");
-                    nodoNombreNini.setTextContent();
+                    nodoAlcanceNini.setTextContent(alcanceAtaque);
                     nodoNini.appendChild(nodoAlcanceNini);
 
                     Element nodoRadioNini = xml.createElement("radioAtaque");
-                    nodoNombreNini.setTextContent();
+                    nodoRadioNini.setTextContent(radioAtaque);
                     nodoNini.appendChild(nodoRadioNini);
 
                     Element nodoTipoProyectilNini = xml.createElement("tipoProyectil");
-                    nodoNombreNini.setTextContent();
+                    nodoTipoProyectilNini.setTextContent(tipoProyectil);
                     nodoNini.appendChild(nodoTipoProyectilNini);
 
                     Element nodoDañoNini = xml.createElement("daño");
-                    nodoNombreNini.setTextContent();
+                    nodoDañoNini.setTextContent(dañoNini);
                     nodoNini.appendChild(nodoDañoNini);
 
                 }
@@ -260,6 +423,7 @@ public class GestorXML {
                 // Para extraer la fecha en la que se realiza la partida
                 LocalDate fechaActual = LocalDate.now();
                 Element nodoFecha = xml.createElement("fecha");
+                nodoJugador.appendChild(nodoFecha);
 
                 Element nodoDia = xml.createElement("dia");
                 nodoFecha.appendChild(nodoDia);
@@ -275,81 +439,85 @@ public class GestorXML {
 
 
                 // Para calcular y poner el tiempo que ha durado la partida
-                LocalTime tiempoActual = LocalTime.now();
+                Instant tiempoActual = Instant.now();
 
+                Duration duracion = Duration.between(EscenaMenu.getInicioPartida(), tiempoActual);
 
-                LocalTime tiempoJugado =  tiempoActual.compareTo(tiempoInicioPartida);
-
+                long horas = duracion.toHours();
+                long minutos = duracion.toMinutes() % 60;
+                long segundos = duracion.toSeconds() % 60;
 
                 Element nodoTiempoJugado = xml.createElement("tiempoJugado");
+                nodoJugador.appendChild(nodoTiempoJugado);
 
                 Element nodoHoras = xml.createElement("horas");
                 nodoTiempoJugado.appendChild(nodoHoras);
-                nodoDia.setTextContent(String.valueOf(tiempoJugado.getHour()));
+                nodoHoras.setTextContent(String.valueOf(horas));
 
                 Element nodoMinutos = xml.createElement("minutos");
                 nodoTiempoJugado.appendChild(nodoMinutos);
-                nodoMes.setTextContent(String.valueOf(tiempoJugado.getMinute()));
+                nodoMinutos.setTextContent(String.valueOf(minutos));
 
                 Element nodoSegundos = xml.createElement("segundos");
                 nodoTiempoJugado.appendChild(nodoSegundos);
-                nodoAño.setTextContent(String.valueOf(tiempoJugado.getSecond()));
+                nodoSegundos.setTextContent(String.valueOf(segundos));
 
 
                 // Para conseguir los datos de recuentos (cosas matadas, ninis muertos...)
                 Element nodoCosasMatadas = xml.createElement("cosasMatadas");
                 nodoJugador.appendChild(nodoCosasMatadas);
-                nodoJugador.setTextContent(String.valueOf());
+                nodoCosasMatadas.setTextContent(String.valueOf(9999));
 
                 Element nodoNinisMuertos = xml.createElement("ninisMuertos");
                 nodoJugador.appendChild(nodoNinisMuertos);
-                nodoJugador.setTextContent(String.valueOf());
+                nodoNinisMuertos.setTextContent(String.valueOf(9999));
 
                 Element nodoNinisEliminados = xml.createElement("ninisEliminados");
                 nodoJugador.appendChild(nodoNinisEliminados);
-                nodoJugador.setTextContent(String.valueOf());
+                nodoNinisEliminados.setTextContent(String.valueOf(9999));
 
                 Element nodoButanitosTotales = xml.createElement("butanitosTotales");
                 nodoJugador.appendChild(nodoButanitosTotales);
-                nodoJugador.setTextContent(String.valueOf());
+                nodoButanitosTotales.setTextContent(String.valueOf(9999));
 
                 Element nodoPuntuacionTotal =  xml.createElement("puntuaciónTotal");
                 nodoJugador.appendChild(nodoPuntuacionTotal);
-                nodoJugador.setTextContent(String.valueOf());
+                nodoPuntuacionTotal.setTextContent(String.valueOf(9999));
 
 
                 // Para los logros (CREAR LOS LOGROS)
                 Element nodoLogros =  xml.createElement("logros");
                 nodoJugador.appendChild(nodoLogros);
 
-                for (int i = 0; i < gelogr.getLogros().length; i++) {
+                for (int i = 0; i < EscenaMenu.getLogros().length; i++) {
                     Element nodoLogro = xml.createElement("logro");
                     nodoLogros.appendChild(nodoLogro);
-                    nodoLogro.setAttribute("idLogro", .getIdLogro);
-                    nodoLogro.setAttribute("dificultad", .getDificultad);
-                    nodoLogro.setAttribute("completado", .getCompletado);
+                    nodoLogro.setAttribute("idLogro", String.valueOf(EscenaMenu.getLogros()[i].getIdLogro()));
+                    nodoLogro.setAttribute("dificultad", String.valueOf(EscenaMenu.getLogros()[i].getTipoDificultad()));
+                    nodoLogro.setAttribute("completado",String.valueOf(EscenaMenu.getLogros()[i].estaCompletado()));
 
                     Element nodoTituloLogro =  xml.createElement("titulo");
                     nodoLogro.appendChild(nodoTituloLogro);
-                    nodoTituloLogro.setTextContent(String.valueOf(.getTitulo));
+                    nodoTituloLogro.setTextContent(String.valueOf(EscenaMenu.getLogros()[i].getTitulo()));
 
                     Element nodoMinutoLogro =  xml.createElement("minuto");
                     nodoLogro.appendChild(nodoMinutoLogro);
-                    nodoMinutoLogro.setTextContent(String.valueOf(.getMinuto));
+                    nodoMinutoLogro.setTextContent(String.valueOf(EscenaMenu.getLogros()[i].getMinuto()));
 
                     Element nodoMedallitaLogro =  xml.createElement("medallita");
                     nodoLogro.appendChild(nodoMedallitaLogro);
-                    nodoMedallitaLogro.setTextContent(String.valueOf(.getTitulo));
+
 
                     // Subelementos de la medalla
                     Element nodoTipoMedalla =  xml.createElement("tipoMedalla");
                     nodoMedallitaLogro.appendChild(nodoTipoMedalla);
-                    nodoTipoMedalla.setTextContent(String.valueOf(.getTipoMedalla));
+                    nodoTipoMedalla.setTextContent(String.valueOf(EscenaMenu.getLogros()[i].getTipoMedalla()));
 
                     Element nodoPuntuacionLogro =  xml.createElement("puntuacionLogro");
                     nodoMedallitaLogro.appendChild(nodoPuntuacionLogro);
-                    nodoPuntuacionLogro.setTextContent(String.valueOf(.getPuntuacionLogro));
+                    nodoPuntuacionLogro.setTextContent(String.valueOf(EscenaMenu.getLogros()[i].getPuntuacionLogro()));
                 }
+                jugadoresElemento.appendChild(nodoJugador);
             }
 
             // Escribir el documento o lo que tenemos en memoria actualizado en disco
@@ -368,16 +536,16 @@ public class GestorXML {
 
         }catch (ParserConfigurationException pce) {
             //Suele ocurrir cuando la configuración del DocumentBuilderFactory es incorrecta o problemas internas del parse
-           System.err.println("[GestorXml] Error al crear el parser XML: " + pce.getMessage());
+           System.err.println("Error al crear el parser XML: " + pce.getMessage());
         } catch (org.xml.sax.SAXException sae) {
             //Por error al leer o interpretar el XML (xml mal formados o estructura incorrecta)
-            System.err.println("[GestorXml] Error al parsear el XML existente: " + sae.getMessage());
+            System.err.println("Error al parsear el XML existente: " + sae.getMessage());
         } catch (java.io.IOException ioe) {
            //el archivo no existe, no tiene permisos o ruta incorrecta. No podria llegar a ser por
             //archivo inexistente , ya que nos aseguramos de crearlo si no existeSystem.err.println("[GestorXml] Error de lectura/escritura del archivo: " + ex.getMessage());
        } catch (TransformerException te) {
            //error al guardar  o escribir el archivo, es decir, al convertir el DOM a XML y escribirlo en disco ( transformarlo)
-           System.err.println("[GestorXml] Error al escribir el XML actualizado: " + te.getMessage());
+           System.err.println("Error al escribir el XML actualizado: " + te.getMessage());
         }
     }
 
