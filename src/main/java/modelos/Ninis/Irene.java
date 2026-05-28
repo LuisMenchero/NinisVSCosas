@@ -30,7 +30,7 @@ public class Irene extends Nini {
      * @param root Pane root de la escena en la que aparece
      */
     public Irene(double columna, double fila, Pane root) {
-        super(columna, fila, TipoNini.IRENE, 125, 0, 0, 200, "Animaciones/Ninis/Irene_Idle.gif", root);
+        super(columna, fila, TipoNini.IRENE, 125, 0, 0, 350, "Animaciones/Ninis/Irene_Idle.gif", root);
     }
 
     // --- MÉTODOS ---

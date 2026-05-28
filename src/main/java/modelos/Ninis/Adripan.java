@@ -37,7 +37,7 @@ public class Adripan extends Nini {
      * @param root Pane root de la escena en la que aparece
      */
     public Adripan(double columna, double fila, Pane root) {
-        super(columna, fila, TipoNini.ADRIPAN, 80, 25, 0, 5, "Animaciones/Ninis/AdripanEsperando.gif", root);
+        super(columna, fila, TipoNini.ADRIPAN, 80, 25, 0, 15, "Animaciones/Ninis/AdripanEsperando.gif", root);
     }
 
     //--- MÉTODOS ---

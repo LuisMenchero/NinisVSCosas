@@ -24,7 +24,7 @@ public class Callejo extends Nini {
      * @param root Pane root de la escena en la que aparece
      */
     public Callejo(double columna, double fila, Pane root) {
-        super(columna, fila, TipoNini.CALLEJO, 200, 50, 0, 5, "Animaciones/Ninis/Callejo_idle.gif", root);
+        super(columna, fila, TipoNini.CALLEJO, 500, 50, 0, 10, "Animaciones/Ninis/Callejo_idle.gif", root);
     }
 
     // --- MÉTODOS ---

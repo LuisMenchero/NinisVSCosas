@@ -168,7 +168,7 @@ public class EscenaSeleccionar {
             alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - Lejano.");
             radioAtaque.setText(" - RADIO ATAQUE - \n - 1 enemigo.");
             tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - Nota.");
-            dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
+            dañoNini.setText(" - DAÑO - \n - Daño por proyectil: 20 .");
             btnQuitarNini.setVisible(true);
             btnQuitarNini.setOnMouseClicked(quitarNini -> {
                 quitarSeleccionado(TipoNini.DIEGO, diego, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
@@ -184,9 +184,9 @@ public class EscenaSeleccionar {
             colocar(TipoNini.CALLEJO, callejo);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Callejo_idle.gif"));
             nombreNini.setText("-- CALLEJO --");
-            descNini.setText(" Callejo blabla.");
+            descNini.setText(" Callejo es un escudo que aguanta bastantes golpes.");
             costeNini.setText(" - COSTE BUTANITOS - \n - 50 butanitos.");
-            vidaNini.setText(" - SALUD - \n - 200 puntos de salud.");
+            vidaNini.setText(" - SALUD - \n - 500 puntos de salud.");
             alcanceAtaque.setText("");
             radioAtaque.setText("");
             tipoProyectil.setText("");
@@ -206,13 +206,13 @@ public class EscenaSeleccionar {
             colocar(TipoNini.ADRIPAN, adripan);
             fotoDesc.setImage(new Image("Animaciones/Ninis/AdripanEsperando.gif"));
             nombreNini.setText("-- ADRIPAN --");
-            descNini.setText(" Adripan blablabla.");
+            descNini.setText(" Adripan sale al campo a tomar el aire,\n cuando vapea, se carga y consigue \n la capacidad de explotar, haciendo\n mucho daño.");
             costeNini.setText(" - COSTE BUTANITOS - \n - 25 butanitos.");
             vidaNini.setText(" - SALUD - \n - 80 puntos de salud.");
             alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - Cercano.");
-            radioAtaque.setText(" - RADIO ATAQUE - \n - Casillas de alrededor.");
+            radioAtaque.setText(" - RADIO ATAQUE - \n - 3x3.");
             tipoProyectil.setText(" - TIPO DE ATAQUE - \n - Explosión.");
-            dañoNini.setText(" - DAÑO - \n - Daño de explosión: --- .");
+            dañoNini.setText(" - DAÑO - \n - Daño de explosión: 9999 .");
             btnQuitarNini.setVisible(true);
             btnQuitarNini.setOnMouseClicked(quitarNini -> {
                 quitarSeleccionado(TipoNini.ADRIPAN, adripan, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
@@ -228,13 +228,13 @@ public class EscenaSeleccionar {
             colocar(TipoNini.ISMA, isma);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Isma_Idle.gif"));
             nombreNini.setText("-- ISMA --");
-            descNini.setText("");
-            costeNini.setText(" - COSTE BUTANITOS - \n - --- butanitos.");
-            vidaNini.setText(" - SALUD - \n - --- puntos de salud.");
-            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - ---.");
-            radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
-            tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
-            dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
+            descNini.setText(" Isma se toma tranquilamente su café \n y su cigarro, pero si se cabrea  \n explota, haciendo mucho daño.");
+            costeNini.setText(" - COSTE BUTANITOS - \n - 150 butanitos.");
+            vidaNini.setText(" - SALUD - \n - 50 puntos de salud.");
+            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - Cercano.");
+            radioAtaque.setText(" - RADIO ATAQUE - \n - 3x3.");
+            tipoProyectil.setText(" - TIPO DE ATAQUE - \n - Explosión.");
+            dañoNini.setText(" - DAÑO - \n - Daño de explosión: 99999 .");
             btnQuitarNini.setVisible(true);
             btnQuitarNini.setOnMouseClicked(quitarNini -> {
                 quitarSeleccionado(TipoNini.ISMA, isma, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
@@ -252,13 +252,13 @@ public class EscenaSeleccionar {
             colocar(TipoNini.XIMENA, ximena);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Ximena_idle.gif"));
             nombreNini.setText("-- XIMENA --");
-            descNini.setText("");
-            costeNini.setText(" - COSTE BUTANITOS - \n - --- butanitos.");
-            vidaNini.setText(" - SALUD - \n - --- puntos de salud.");
-            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - ---.");
-            radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
-            tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
-            dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
+            descNini.setText(" Ximena le encantan las focas, \n tanto que ha aprendido magia \n para hacer aparecer una encima del \n que le ataque.");
+            costeNini.setText(" - COSTE BUTANITOS - \n - 50 butanitos.");
+            vidaNini.setText(" - SALUD - \n - 500 puntos de salud.");
+            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - Cercano.");
+            radioAtaque.setText(" - RADIO ATAQUE - \n - 1 casilla.");
+            tipoProyectil.setText("");
+            dañoNini.setText("");
             btnQuitarNini.setVisible(true);
             btnQuitarNini.setOnMouseClicked(quitarNini -> {
                 quitarSeleccionado(TipoNini.XIMENA, ximena, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
@@ -274,6 +274,13 @@ public class EscenaSeleccionar {
             colocar(TipoNini.LOPEZ, lopez);
             fotoDesc.setImage(new Image("Animaciones/Ninis/LopezEsperando.gif"));
             nombreNini.setText("-- LÓPEZ --");
+            descNini.setText(" '¿Qué hash dixo de mi pueblo? A que te egcupo.' ");
+            costeNini.setText(" - COSTE BUTANITOS - \n - 75 butanitos.");
+            vidaNini.setText(" - SALUD - \n - 100 puntos de salud.");
+            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - Lejano.");
+            radioAtaque.setText(" - RADIO ATAQUE - \n - Toda la linea.");
+            tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - Escupitajo.");
+            dañoNini.setText(" - DAÑO - \n - Daño por proyectil: 20 .");
             btnQuitarNini.setVisible(true);
             btnQuitarNini.setOnMouseClicked(quitarNini -> {
                 quitarSeleccionado(TipoNini.LOPEZ, lopez, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
@@ -290,13 +297,13 @@ public class EscenaSeleccionar {
             colocar(TipoNini.GUILLE, guille);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Guille_Idle.gif"));
             nombreNini.setText("-- GUILLE --");
-            descNini.setText("");
-            costeNini.setText(" - COSTE BUTANITOS - \n - --- butanitos.");
-            vidaNini.setText(" - SALUD - \n - --- puntos de salud.");
-            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - ---.");
-            radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
-            tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
-            dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
+            descNini.setText(" 'Aúpa Atleti' Guille hace crecer su \n cabeza y le mete una patada.");
+            costeNini.setText(" - COSTE BUTANITOS - \n - 175 butanitos.");
+            vidaNini.setText(" - SALUD - \n - 125 puntos de salud.");
+            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - Lejano.");
+            radioAtaque.setText(" - RADIO ATAQUE - \n - Toda la fila.");
+            tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - Cabeza de Guille.");
+            dañoNini.setText(" - DAÑO - \n - Daño por proyectil: 99999 .");
             btnQuitarNini.setVisible(true);
             btnQuitarNini.setOnMouseClicked(quitarNini -> {
                 quitarSeleccionado(TipoNini.GUILLE, guille, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
@@ -312,13 +319,13 @@ public class EscenaSeleccionar {
             colocar(TipoNini.DANI, dani);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Dani_idle.gif"));
             nombreNini.setText("-- DANI --");
-            descNini.setText("");
-            costeNini.setText(" - COSTE BUTANITOS - \n - --- butanitos.");
-            vidaNini.setText(" - SALUD - \n - --- puntos de salud.");
-            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - ---.");
-            radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
-            tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
-            dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
+            descNini.setText(" Es un gran jugador de baloncesto,\n lanza triples a sus enemigos para \n matarlos. ");
+            costeNini.setText(" - COSTE BUTANITOS - \n - 300 butanitos.");
+            vidaNini.setText(" - SALUD - \n - 100 puntos de salud.");
+            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - Lejano.");
+            radioAtaque.setText(" - RADIO ATAQUE - \n - 1 objetivo de la fila.");
+            tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - Pelota de Baloncesto.");
+            dañoNini.setText(" - DAÑO - \n - Daño por proyectil: 200 .");
             btnQuitarNini.setVisible(true);
             btnQuitarNini.setOnMouseClicked(quitarNini -> {
                 quitarSeleccionado(TipoNini.DANI, dani, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
@@ -334,13 +341,13 @@ public class EscenaSeleccionar {
             colocar(TipoNini.KEKE, keke);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Keke_Idle.gif"));
             nombreNini.setText("-- KEKE --");
-            descNini.setText("");
-            costeNini.setText(" - COSTE BUTANITOS - \n - --- butanitos.");
-            vidaNini.setText(" - SALUD - \n - --- puntos de salud.");
-            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - ---.");
-            radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
-            tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
-            dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
+            descNini.setText(" 'MMMMBIIIMM MBIM MBIM' (Sonidos de puñetazos) ");
+            costeNini.setText(" - COSTE BUTANITOS - \n - 175 butanitos.");
+            vidaNini.setText(" - SALUD - \n - 175 puntos de salud.");
+            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - Cercano.");
+            radioAtaque.setText(" - RADIO ATAQUE - \n - 1 casilla.");
+            tipoProyectil.setText("");
+            dañoNini.setText("");
             btnQuitarNini.setVisible(true);
             btnQuitarNini.setOnMouseClicked(quitarNini -> {
                 quitarSeleccionado(TipoNini.KEKE, keke, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
@@ -357,6 +364,13 @@ public class EscenaSeleccionar {
             colocar(TipoNini.GUEVARA, guevara);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Guevara_Idle.gif"));
             nombreNini.setText("-- GUEVARA --");
+            descNini.setText(" Con su gran flan potencia a todos sus fans ");
+            costeNini.setText(" - COSTE BUTANITOS - \n - 25 butanitos.");
+            vidaNini.setText(" - SALUD - \n - 500 puntos de salud.");
+            alcanceAtaque.setText("");
+            radioAtaque.setText("");
+            tipoProyectil.setText("");
+            dañoNini.setText("");
             btnQuitarNini.setVisible(true);
             btnQuitarNini.setOnMouseClicked(quitarNini -> {
                 quitarSeleccionado(TipoNini.GUEVARA, guevara, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
@@ -372,13 +386,13 @@ public class EscenaSeleccionar {
             colocar(TipoNini.LORENA, lorena);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Lorena_Idle.gif"));
             nombreNini.setText("-- LORENA --");
-            descNini.setText("");
-            costeNini.setText(" - COSTE BUTANITOS - \n - --- butanitos.");
-            vidaNini.setText(" - SALUD - \n - --- puntos de salud.");
-            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - ---.");
-            radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
-            tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
-            dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
+            descNini.setText(" 'Me consta que ahora estais curados' ");
+            costeNini.setText(" - COSTE BUTANITOS - \n - 25 butanitos.");
+            vidaNini.setText(" - SALUD - \n - 500 puntos de salud.");
+            alcanceAtaque.setText("");
+            radioAtaque.setText("");
+            tipoProyectil.setText("");
+            dañoNini.setText("");
             btnQuitarNini.setVisible(true);
             btnQuitarNini.setOnMouseClicked(quitarNini -> {
                 quitarSeleccionado(TipoNini.LORENA, lorena, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
@@ -394,13 +408,13 @@ public class EscenaSeleccionar {
             colocar(TipoNini.MARIA, maria);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Maria_Idle.gif"));
             nombreNini.setText("-- MARIA --");
-            descNini.setText("");
-            costeNini.setText(" - COSTE BUTANITOS - \n - --- butanitos.");
-            vidaNini.setText(" - SALUD - \n - --- puntos de salud.");
-            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - ---.");
-            radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
-            tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
-            dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
+            descNini.setText(" 'No te metas con Yuyu', \n cuidado si te metes con Yuyu,\n te metes con todos. ");
+            costeNini.setText(" - COSTE BUTANITOS - \n - 150 butanitos.");
+            vidaNini.setText(" - SALUD - \n - 125 puntos de salud.");
+            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - Cercano.");
+            radioAtaque.setText(" - RADIO ATAQUE - \n - 1 casilla.");
+            tipoProyectil.setText("");
+            dañoNini.setText("");
             btnQuitarNini.setVisible(true);
             btnQuitarNini.setOnMouseClicked(quitarNini -> {
                 quitarSeleccionado(TipoNini.MARIA, maria, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
@@ -416,13 +430,13 @@ public class EscenaSeleccionar {
             colocar(TipoNini.JUD, jud);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Jud_Idle.gif"));
             nombreNini.setText("-- JUD --");
-            descNini.setText("");
-            costeNini.setText(" - COSTE BUTANITOS - \n - --- butanitos.");
-            vidaNini.setText(" - SALUD - \n - --- puntos de salud.");
-            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - ---.");
-            radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
-            tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
-            dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
+            descNini.setText(" Jud sola, crea un correfoc en \n el terreno, quemando algunos proyectiles \n que pasen. ");
+            costeNini.setText(" - COSTE BUTANITOS - \n - 175 butanitos.");
+            vidaNini.setText(" - SALUD - \n - 125 puntos de salud.");
+            alcanceAtaque.setText("");
+            radioAtaque.setText("");
+            tipoProyectil.setText("");
+            dañoNini.setText("");
             btnQuitarNini.setVisible(true);
             btnQuitarNini.setOnMouseClicked(quitarNini -> {
                 quitarSeleccionado(TipoNini.JUD, jud, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
@@ -438,13 +452,13 @@ public class EscenaSeleccionar {
             colocar(TipoNini.ELSA, elsa);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Elsa_Idle.gif"));
             nombreNini.setText("-- ELSA --");
-            descNini.setText("");
-            costeNini.setText(" - COSTE BUTANITOS - \n - --- butanitos.");
-            vidaNini.setText(" - SALUD - \n - --- puntos de salud.");
-            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - ---.");
-            radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
-            tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
-            dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
+            descNini.setText(" Elsa crea una tormenta de nieve que \n congela todo el terreno \n 'Let it go, let it go' ");
+            costeNini.setText(" - COSTE BUTANITOS - \n - 0 butanitos.");
+            vidaNini.setText(" - SALUD - \n - 150 puntos de salud.");
+            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - Lejano.");
+            radioAtaque.setText(" - RADIO ATAQUE - \n - Todo el campo.");
+            tipoProyectil.setText("");
+            dañoNini.setText("");
             btnQuitarNini.setVisible(true);
             btnQuitarNini.setOnMouseClicked(quitarNini -> {
                 quitarSeleccionado(TipoNini.ELSA, elsa, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
@@ -461,13 +475,13 @@ public class EscenaSeleccionar {
             colocar(TipoNini.ELISEO, eliseo);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Eliseo3bolas_Idle.gif"));
             nombreNini.setText("-- ELISEO --");
-            descNini.setText("");
-            costeNini.setText(" - COSTE BUTANITOS - \n - --- butanitos.");
-            vidaNini.setText(" - SALUD - \n - --- puntos de salud.");
-            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - ---.");
-            radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
-            tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
-            dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
+            descNini.setText(" Eliseo es un tio muy chill, simplemente \n empuja a los enemigos si se meten \n con él. ");
+            costeNini.setText(" - COSTE BUTANITOS - \n - 75 butanitos.");
+            vidaNini.setText(" - SALUD - \n - 75 puntos de salud.");
+            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - Cercano.");
+            radioAtaque.setText(" - RADIO ATAQUE - \n - 1 casilla.");
+            tipoProyectil.setText("");
+            dañoNini.setText("");
             btnQuitarNini.setVisible(true);
             btnQuitarNini.setOnMouseClicked(quitarNini -> {
                 quitarSeleccionado(TipoNini.ELISEO, eliseo, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
@@ -483,13 +497,13 @@ public class EscenaSeleccionar {
             colocar(TipoNini.RAUL, raul);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Raul_Idle.gif"));
             nombreNini.setText("-- RAUL --");
-            descNini.setText("");
-            costeNini.setText(" - COSTE BUTANITOS - \n - --- 300 butanitos.");
-            vidaNini.setText(" - SALUD - \n - --- puntos de salud.");
-            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - ---.");
-            radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
-            tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
-            dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
+            descNini.setText(" La obsesión por los Pikmin de Rayul le \n ha hecho poder convertirse en ellos, lanza \n Pikmins roca a sus enemigos. ");
+            costeNini.setText(" - COSTE BUTANITOS - \n - 300 butanitos.");
+            vidaNini.setText(" - SALUD - \n - 75 puntos de salud.");
+            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - Lejano.");
+            radioAtaque.setText(" - RADIO ATAQUE - \n - 3 filas.");
+            tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - Pikmin.");
+            dañoNini.setText(" - DAÑO - \n - Daño por proyectil: 20 .");
             btnQuitarNini.setVisible(true);
             btnQuitarNini.setOnMouseClicked(quitarNini -> {
                 quitarSeleccionado(TipoNini.RAUL, raul, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
@@ -505,13 +519,13 @@ public class EscenaSeleccionar {
             colocar(TipoNini.IRENE, irene);
              fotoDesc.setImage(new Image("Animaciones/Ninis/Irene_Idle.gif"));
             nombreNini.setText("-- IRENE --");
-            descNini.setText("");
-            costeNini.setText(" - COSTE BUTANITOS - \n - --- butanitos.");
-            vidaNini.setText(" - SALUD - \n - --- puntos de salud.");
-            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - ---.");
-            radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
-            tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
-            dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
+            descNini.setText(" Irene hace un directo en TikTok, \n le donan rosas y con ellas te regala \n Butanitos. ");
+            costeNini.setText(" - COSTE BUTANITOS - \n - 0 butanitos.");
+            vidaNini.setText(" - SALUD - \n - 125 puntos de salud.");
+            alcanceAtaque.setText("");
+            radioAtaque.setText("");
+            tipoProyectil.setText("");
+            dañoNini.setText("");
             btnQuitarNini.setVisible(true);
             btnQuitarNini.setOnMouseClicked(quitarNini -> {
                 quitarSeleccionado(TipoNini.IRENE, irene, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
@@ -527,13 +541,13 @@ public class EscenaSeleccionar {
             colocar(TipoNini.ALVARO, alvaro);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Alvaro_Idle.gif"));
             nombreNini.setText("-- ALVARO --");
-            descNini.setText("");
-            costeNini.setText(" - COSTE BUTANITOS - \n - --- butanitos.");
-            vidaNini.setText(" - SALUD - \n - --- puntos de salud.");
-            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - ---.");
-            radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
-            tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
-            dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
+            descNini.setText(" 'Instalateh Linush yah andah', \n se desliza y relentiza a los enemigos que \n se le cruzan. ");
+            costeNini.setText(" - COSTE BUTANITOS - \n - 75 butanitos.");
+            vidaNini.setText(" - SALUD - \n - 125 puntos de salud.");
+            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - Lejano.");
+            radioAtaque.setText(" - RADIO ATAQUE - \n - 1 fila.");
+            tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - Alvaro Deslizando.");
+            dañoNini.setText(" - DAÑO - \n - Daño por proyectil: 35.");
             btnQuitarNini.setVisible(true);
             btnQuitarNini.setOnMouseClicked(quitarNini -> {
                 quitarSeleccionado(TipoNini.ALVARO, alvaro, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
@@ -548,14 +562,14 @@ public class EscenaSeleccionar {
         hamil.setOnMouseClicked(evento -> {
             colocar(TipoNini.HAMIL, hamil);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Hamil_Idle.gif"));
-            nombreNini.setText("-- --- --");
-            descNini.setText("");
-            costeNini.setText(" - COSTE BUTANITOS - \n - --- butanitos.");
-            vidaNini.setText(" - SALUD - \n - --- puntos de salud.");
-            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - ---.");
-            radioAtaque.setText(" - RADIO ATAQUE - \n - ---.");
-            tipoProyectil.setText(" - TIPO DE PROYECTIL - \n - ---.");
-            dañoNini.setText(" - DAÑO - \n - Daño por proyectil: --- .");
+            nombreNini.setText("-- HAMIL --");
+            descNini.setText(" El gran guerrero del desgarro ha llegado. ");
+            costeNini.setText(" - COSTE BUTANITOS - \n - 450 butanitos.");
+            vidaNini.setText(" - SALUD - \n - 450 puntos de salud.");
+            alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - Cercano.");
+            radioAtaque.setText(" - RADIO ATAQUE - \n - 1 casilla.");
+            tipoProyectil.setText("");
+            dañoNini.setText("");
             btnQuitarNini.setVisible(true);
             btnQuitarNini.setOnMouseClicked(quitarNini -> {
                 quitarSeleccionado(TipoNini.HAMIL, hamil, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);

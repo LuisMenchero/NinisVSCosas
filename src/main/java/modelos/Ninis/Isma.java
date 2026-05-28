@@ -33,7 +33,7 @@ public class Isma extends Nini {
      * @param root Pane root de la escena en la que aparece
      */
     public Isma(double columna, double fila, Pane root) {
-        super(columna, fila, TipoNini.ISMA, 50, 150, 0, 5, "Animaciones/Ninis/Isma_Idle.gif", root);
+        super(columna, fila, TipoNini.ISMA, 50, 150, 0, 40, "Animaciones/Ninis/Isma_Idle.gif", root);
     }
 
     // --- MÉTODOS ---

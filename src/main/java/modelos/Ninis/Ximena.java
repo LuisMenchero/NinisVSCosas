@@ -33,7 +33,7 @@ public class Ximena extends Nini {
      * @param root Pane root de la escena en la que aparece
      */
     public Ximena(double columna, double fila, Pane root) {
-        super(columna, fila, TipoNini.XIMENA, 500, 50, 0, 5, "Animaciones/Ninis/Ximena_idle.gif", root);
+        super(columna, fila, TipoNini.XIMENA, 500, 50, 0, 25, "Animaciones/Ninis/Ximena_idle.gif", root);
         hitboxFoca = new Rectangle(
                 columna + 55,
                 fila + 20,

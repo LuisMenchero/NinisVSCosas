@@ -31,7 +31,7 @@ public class Guille extends Nini {
      * @param root Pane root de la escena en la que aparece
      */
     public Guille(double columna, double fila, Pane root) {
-        super(columna, fila, TipoNini.GUILLE, 125, 175, 2, 5, "Animaciones/Ninis/Guille_Idle.gif", root);
+        super(columna, fila, TipoNini.GUILLE, 125, 175, 2, 100, "Animaciones/Ninis/Guille_Idle.gif", root);
         cabezasNuevas = new ArrayList<>();
     }
 

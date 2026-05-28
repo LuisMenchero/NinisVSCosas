@@ -30,7 +30,7 @@ public class Keke extends Nini {
      * @param root Pane root de la escena en la que aparece
      */
     public Keke(double columna, double fila, Pane root) {
-        super(columna, fila, TipoNini.KEKE, 175, 175, 0, 5, "Animaciones/Ninis/Keke_Idle.gif", root);
+        super(columna, fila, TipoNini.KEKE, 175, 175, 0, 50, "Animaciones/Ninis/Keke_Idle.gif", root);
         this.cooldownAtaque = 1;
         this.tiempoUltimoGolpe = 0;
     }

@@ -29,7 +29,7 @@ public class Alvaro extends Nini {
      * @param root Pane root de la escena en la que aparece
      */
     public Alvaro(double columna, double fila, Pane root) {
-        super(columna, fila, TipoNini.ALVARO, 125, 75, 2, 5, "Animaciones/Ninis/Alvaro_Idle.gif", root);
+        super(columna, fila, TipoNini.ALVARO, 125, 75, 2, 100, "Animaciones/Ninis/Alvaro_Idle.gif", root);
         alvaroDeslizados = new ArrayList<>();
     }
 

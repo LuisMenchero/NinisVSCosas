@@ -9,18 +9,39 @@ import modelos.Proyectiles.Escupitajo;
 import modelos.Proyectiles.Proyectil;
 
 import java.util.ArrayList;
+/**
+ * Representa a un Lopez
+ *
+ * @author Diego
+ * @author Luis
+ * @version 1.0
+ */
 
 public class Lopez extends Nini {
     // --- ATRIBUTOS EXTRA ---
     private ArrayList<Escupitajo> escupitajosNuevos;
 
     // --- CONSTRUCTOR ---
+    /**
+     * Constructor de Lopez
+     *
+     * @param columna lugar de las columnas en la que se encuentra
+     * @param fila lugar de las filas en la que se encuentra
+     * @param root Pane root de la escena en la que aparece
+     */
     public Lopez(double columna, double fila, Pane root) {
-        super(columna, fila, TipoNini.LOPEZ, 100, 75, 4, 5, "Animaciones/Ninis/LopezEsperando.gif", root);
+        super(columna, fila, TipoNini.LOPEZ, 100, 75, 4, 15, "Animaciones/Ninis/LopezEsperando.gif", root);
         escupitajosNuevos = new ArrayList<>();
     }
 
     // --- MÉTODOS ---
+    /**
+     * Metodo que se encarga de actualizar las acciones
+     *
+     * @param tiempoFrames es el tiempo que recibe del reloj
+     * @param terreno lugar de las filas y columnas en la que se encuentra
+     * @param cosas es el array de todas las cosas que hay en el mapa
+     */
     @Override
     public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas) {
         super.actualizar(tiempoFrames, terreno, cosas);
@@ -34,6 +55,11 @@ public class Lopez extends Nini {
 
     }
 
+    /**
+     * Metodo que hace que Lopez ataque a una cosa
+     *
+     * @param cosas es el array de todas las cosas que hay en el mapa
+     */
     @Override
     public void atacar(ArrayList<Cosa> cosas) {
         this.setImagenNiniImage("Animaciones/Ninis/Lopez_escupitajo.gif");
@@ -46,6 +72,8 @@ public class Lopez extends Nini {
         pausa.play();
     }
 
+
+    // GETTERS Y SETTERS
     public ArrayList<Proyectil> getEscupitajosNuevos() {
         ArrayList<Proyectil> copiaEscupitajosNuevos = new ArrayList<>();
         for (Escupitajo escupitajo : escupitajosNuevos) {

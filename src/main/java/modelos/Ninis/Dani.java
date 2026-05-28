@@ -30,7 +30,7 @@ public class Dani extends Nini {
      * @param root Pane root de la escena en la que aparece
      */
     public Dani(double columna, double fila, Pane root) {
-        super(columna, fila, TipoNini.DANI, 100, 300, 10, 5, "Animaciones/Ninis/Dani_idle.gif", root);
+        super(columna, fila, TipoNini.DANI, 100, 300, 10, 50, "Animaciones/Ninis/Dani_idle.gif", root);
         pelotasNuevas = new ArrayList<>();
     }
 

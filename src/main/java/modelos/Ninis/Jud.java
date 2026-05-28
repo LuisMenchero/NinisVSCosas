@@ -26,7 +26,7 @@ public class Jud extends Nini {
      * @param root Pane root de la escena en la que aparece
      */
     public Jud(double columna, double fila, Pane root) {
-        super(columna, fila, TipoNini.JUD, 125, 175, 0, 5, "Animaciones/Ninis/Jud_Idle.gif", root);
+        super(columna, fila, TipoNini.JUD, 125, 175, 0, 20, "Animaciones/Ninis/Jud_Idle.gif", root);
 
     }
 

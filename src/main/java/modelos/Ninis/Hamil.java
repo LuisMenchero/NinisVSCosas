@@ -30,7 +30,7 @@ public class Hamil extends Nini {
      * @param root Pane root de la escena en la que aparece
      */
     public Hamil(double columna, double fila, Pane root) {
-        super(columna, fila, TipoNini.HAMIL, 450, 450, 0, 5, "Animaciones/Ninis/Hamil_Idle.gif", root);
+        super(columna, fila, TipoNini.HAMIL, 450, 450, 0, 30, "Animaciones/Ninis/Hamil_Idle.gif", root);
         this.cooldownAtaque = 2;
         this.tiempoUltimoGolpe = 0;
     }
