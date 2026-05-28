@@ -19,6 +19,8 @@ public class Eliseo extends Nini {
     // --- ATRIBUTOS ---
     private int contadorEmpujones = 3;
     private boolean estaEmpujando = false;
+    private double tiempoUltimoGolpe = 0;
+    private double cooldownAtaque = 0.5;
 
     // --- CONSTRUCTOR ---
     /**
@@ -52,12 +54,16 @@ public class Eliseo extends Nini {
      */
     @Override
     public void atacar(ArrayList<Cosa> cosas) {
-        estaEmpujando = true;
+        if (contadorEmpujones <= 0) {
+            return;
+        }
+
         if (this.contadorEmpujones == 3) {
             this.setImagenNiniImage("Animaciones/Ninis/Eliseo_Empuje3bolas.gif");
             PauseTransition pausa = new PauseTransition(Duration.seconds(1));
             pausa.setOnFinished(e -> {
                 this.setImagenNiniImage("Animaciones/Ninis/Eliseo2bolas_Idle.gif");
+                estaEmpujando = false;
             });
             pausa.play();
         } else if (this.contadorEmpujones == 2) {
@@ -65,6 +71,7 @@ public class Eliseo extends Nini {
             PauseTransition pausa = new PauseTransition(Duration.seconds(1));
             pausa.setOnFinished(e -> {
                 this.setImagenNiniImage("Animaciones/Ninis/Eliseo1bolas_Idle.gif");
+                estaEmpujando = false;
             });
             pausa.play();
         } else if (this.contadorEmpujones == 1) {
@@ -72,9 +79,12 @@ public class Eliseo extends Nini {
             PauseTransition pausa = new PauseTransition(Duration.seconds(1));
             pausa.setOnFinished(e -> {
                 this.setImagenNiniImage("Animaciones/Ninis/EliseoSinCargas_Idle.gif");
+                estaEmpujando = false;
             });
             pausa.play();
         }
+
+        estaEmpujando = true;
         contadorEmpujones--;
     }
 
@@ -83,11 +93,17 @@ public class Eliseo extends Nini {
         return contadorEmpujones;
     }
 
-    public boolean estaEmpujando() {
-        return estaEmpujando;
+    public double getTiempoUltimoGolpe() {
+        return tiempoUltimoGolpe;
     }
 
-    public void setEstaEmpujando(boolean estaEmpujando) {
-        this.estaEmpujando = estaEmpujando;
+    public double getCooldownAtaque() {
+        return cooldownAtaque;
     }
+
+    public void setTiempoUltimoGolpe(double tiempo) {
+        this.tiempoUltimoGolpe = tiempo;
+    }
+
+
 }

@@ -1,4 +1,5 @@
 package controladores;
+
 import Estadisticas.GestorXML;
 import escenas.EscenaJuego;
 import javafx.animation.Animation;
@@ -17,6 +18,7 @@ import java.util.Scanner;
 
 /**
  * Representa el ControladorReloj
+ *
  * @author Diego
  * @author Luis
  * @version 1.0
@@ -80,6 +82,7 @@ public class ControladorReloj {
 
     /**
      * Registra nini en en array
+     *
      * @param nini objeto a agregar
      */
     public void registrarNini(Nini nini) {
@@ -88,6 +91,7 @@ public class ControladorReloj {
 
     /**
      * Registra cosa en el array
+     *
      * @param cosa objeto a agregar
      */
     public void registrarCosa(Cosa cosa) {
@@ -96,6 +100,7 @@ public class ControladorReloj {
 
     /**
      * Detecta si el nini Guevara esta en pantalla
+     *
      * @return boolean
      */
     public static boolean detectarGuevara() {
@@ -109,6 +114,7 @@ public class ControladorReloj {
 
     /**
      * Detecta si el nini Lorena esta en pantalla
+     *
      * @return boolean
      */
     public static boolean detectarLorena() {
@@ -310,9 +316,11 @@ public class ControladorReloj {
                             cosa.recibirDaño(100);
                         }
                     }
-                } else if (nini instanceof Eliseo && ((Eliseo) nini).getContadorEmpujones() != 0) {
+                } else if (nini instanceof Eliseo && ((Eliseo) nini).getContadorEmpujones() > 0) {
                     if (nini.getHitbox().getBoundsInParent().intersects(cosa.getHitbox().getBoundsInParent())) {
-                        if (!((Eliseo) nini).estaEmpujando()) {
+                        ((Eliseo) nini).setTiempoUltimoGolpe(((Eliseo) nini).getTiempoUltimoGolpe() + tiempoFrames);
+                        if (((Eliseo) nini).getTiempoUltimoGolpe() > ((Eliseo) nini).getCooldownAtaque()) {
+                            ((Eliseo) nini).setTiempoUltimoGolpe(0);
                             cosa.setMovimientoDeHitbox(null);
                             ((Eliseo) nini).atacar(cosas);
                             PauseTransition pausa = new PauseTransition(Duration.millis(500));
@@ -326,7 +334,6 @@ public class ControladorReloj {
                                 PauseTransition pausa2 = new PauseTransition(Duration.millis(10));
                                 pausa2.setOnFinished(e2 -> {
                                     cosa.setColumna(cosa.getColumna() - 3);
-                                    ((Eliseo) nini).setEstaEmpujando(false);
                                     cosa.setMovimientoDeHitbox(new TranslateTransition(Duration.millis(100), cosa.getHitbox()));
                                 });
                                 pausa2.play();
