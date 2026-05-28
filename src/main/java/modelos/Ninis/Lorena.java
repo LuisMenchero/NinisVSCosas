@@ -27,7 +27,7 @@ public class Lorena extends Nini {
      * @param root Pane root de la escena en la que aparece
      */
     public Lorena(double columna, double fila, Pane root) {
-        super(columna, fila, TipoNini.LORENA, 500, 25, 0, 5, "Animaciones/Ninis/Lorena_Idle.gif", root);
+        super(columna, fila, TipoNini.LORENA, 500, 25, 0, 300, "Animaciones/Ninis/Lorena_Idle.gif", root);
     }
 
     // --- MÉTODOS ---

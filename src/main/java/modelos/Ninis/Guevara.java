@@ -28,7 +28,7 @@ public class Guevara extends Nini {
      * @param root Pane root de la escena en la que aparece
      */
     public Guevara(double columna, double fila, Pane root) {
-        super(columna, fila, TipoNini.GUEVARA, 500, 25, 0, 5, "Animaciones/Ninis/Guevara_Idle.gif", root);
+        super(columna, fila, TipoNini.GUEVARA, 500, 25, 0, 300, "Animaciones/Ninis/Guevara_Idle.gif", root);
     }
 
     // --- MÉTODOS ---

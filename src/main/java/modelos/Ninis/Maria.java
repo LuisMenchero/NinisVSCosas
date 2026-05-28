@@ -29,7 +29,7 @@ public class Maria extends Nini {
      * @param root Pane root de la escena en la que aparece
      */
     public Maria(double columna, double fila, Pane root) {
-        super(columna, fila, TipoNini.MARIA, 125, 150, 0, 5, "Animaciones/Ninis/Maria_Idle.gif", root);
+        super(columna, fila, TipoNini.MARIA, 125, 150, 0, 20, "Animaciones/Ninis/Maria_Idle.gif", root);
     }
 
     // --- MÉTODOS ---

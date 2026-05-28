@@ -28,7 +28,7 @@ public class Elsa extends Nini {
      * @param root Pane root de la escena en la que aparece
      */
     public Elsa(double columna, double fila, Pane root) {
-        super(columna, fila, TipoNini.ELSA, 125, 0, 0, 200, "Animaciones/Ninis/Elsa_Idle.gif", root);
+        super(columna, fila, TipoNini.ELSA, 125, 0, 0, 300, "Animaciones/Ninis/Elsa_Idle.gif", root);
     }
 
     // --- MÉTODOS ---

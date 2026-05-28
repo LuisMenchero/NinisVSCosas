@@ -31,7 +31,7 @@ public class Eliseo extends Nini {
      * @param root Pane root de la escena en la que aparece
      */
     public Eliseo(double columna, double fila, Pane root) {
-        super(columna, fila, TipoNini.ELISEO, 75, 75, 3, 5, "Animaciones/Ninis/Eliseo3bolas_Idle.gif", root);
+        super(columna, fila, TipoNini.ELISEO, 75, 75, 3, 50, "Animaciones/Ninis/Eliseo3bolas_Idle.gif", root);
     }
 
     // --- MÉTODOS ---
