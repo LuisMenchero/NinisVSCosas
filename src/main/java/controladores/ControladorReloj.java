@@ -6,6 +6,14 @@ import javafx.animation.Animation;
 import javafx.animation.AnimationTimer;
 import javafx.animation.PauseTransition;
 import javafx.animation.TranslateTransition;
+import javafx.application.Platform;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import modelos.Cosas.Cosa;
 import modelos.Cosas.Furgo;
@@ -36,6 +44,7 @@ public class ControladorReloj {
     private static ArrayList<Cosa> cosas = new ArrayList<>();
     private static ArrayList<Nini> ninis = new ArrayList<>();
     private static ArrayList<Proyectil> proyectiles = new ArrayList<>();
+    private static boolean partidaTerminada = false;
 
     /**
      * Inicia un reloj para el juego
@@ -379,9 +388,44 @@ public class ControladorReloj {
                 Cosa cosa : cosas) {
             if (cosa.getHitbox().getBoundsInParent().intersects(EscenaJuego.getHitboxCasa().getBoundsInParent())) {
                 ControladorJuego.terminarPartida();
-                Scanner teclado = new Scanner(System.in);
                 GestorXML.inicializarXML();
-                GestorXML.registrarNuevoJugador(teclado);
+
+                Platform.runLater(() -> {
+                    Stage ventanaNombre = new Stage();
+                    ventanaNombre.initModality(Modality.APPLICATION_MODAL);
+                    ventanaNombre.setTitle("Introduce tu nombre");
+
+                    VBox caja = new VBox(10);
+                    caja.setAlignment(javafx.geometry.Pos.CENTER);
+
+                    TextField nombre = new TextField();
+                    nombre.setMaxWidth(100);
+                    nombre.setStyle("-fx-background-color: rgb(120,126,131); -fx-text-fill: white;");
+
+
+                    Button btnAceptar = new Button("Aceptar");
+                    btnAceptar.setOnAction(evento -> {
+                        EscenaJuego.nombreJugadorLeido = nombre.getText();
+                        ventanaNombre.close();
+                    });
+                    btnAceptar.setStyle("-fx-background-color: none; -fx-text-fill: #ffffff; -fx-font-size: 20px;");
+                    btnAceptar.setOnMouseEntered(evento -> {btnAceptar.setStyle("-fx-background-color: none; -fx-text-fill: #979797; -fx-font-size: 20px;");});
+                    btnAceptar.setOnMouseExited(evento -> {btnAceptar.setStyle("-fx-background-color: none; -fx-text-fill: #ffffff; -fx-font-size: 20px;");});
+
+
+                    caja.getChildren().addAll(nombre, btnAceptar);
+                    caja.setStyle("-fx-background-color: rgba(66,69,73,1);");
+
+                    Scene escena = new Scene(caja, 300, 200);
+                    ventanaNombre.setScene(escena);
+                    Image logo = new Image("Imagenes/Ninis.png");
+                    ventanaNombre.getIcons().add(logo);
+                    //Esto sirve para que no se pueda cerrar la ventana, que solo se cierre al aceptar al nombre (revisar)
+                    ventanaNombre.setOnCloseRequest(evento -> evento.consume());
+                    ventanaNombre.showAndWait();
+
+                    GestorXML.registrarNuevoJugador(EscenaJuego.getNombreJugadorLeido());
+                });
             }
         }
 

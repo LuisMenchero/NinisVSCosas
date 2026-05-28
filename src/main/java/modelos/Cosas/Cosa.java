@@ -1,4 +1,5 @@
 package modelos.Cosas;
+import Estadisticas.EstadisticasRecuento;
 import controladores.ControladorReloj;
 import javafx.animation.Animation;
 import javafx.animation.TranslateTransition;
@@ -87,12 +88,12 @@ public abstract class Cosa {
                 40, 60);
         hitbox.setFill(Color.RED);
         hitbox.setOpacity(0.5);
-        hitbox.setVisible(true);
+        hitbox.setVisible(false);
 
         movimientoDeHitbox = new TranslateTransition(Duration.millis(100), hitbox);
         movimientoDeHitbox.setByX(-1);
         movimientoDeHitbox.setCycleCount(Animation.INDEFINITE);
-        movimientoDeHitbox.setAutoReverse(true);
+        movimientoDeHitbox.setAutoReverse(false);
 
         // para la congelación
         imagenCongelado = new ImageView("Animaciones/Cosas/bloque_hielo.png");
@@ -126,7 +127,7 @@ public abstract class Cosa {
     /**
      * Hace que la cosa sume puntos para las estadísticas
      */
-//    public abstract void darPuntos();
+    public abstract void darPuntos();
 
 
 
@@ -153,6 +154,8 @@ public abstract class Cosa {
         root.getChildren().remove(imagenCosa);
         root.getChildren().remove(hitbox);
         ControladorReloj.getCosas().remove(this);
+        darPuntos();
+        EstadisticasRecuento.sumarCosasMatadas();
     }
 
     /**

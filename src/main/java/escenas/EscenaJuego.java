@@ -1,4 +1,5 @@
 package escenas;
+import Estadisticas.EstadisticasRecuento;
 import controladores.ControladorJuego;
 import controladores.ControladorMusica;
 import controladores.ControladorReloj;
@@ -38,6 +39,7 @@ public class EscenaJuego {
     private static Rectangle hitboxCasa;
     private boolean modoColgarActivo = false;
     public static Pane panelespecificoparacontroladorjuego;
+    public static String nombreJugadorLeido = "";
 
     /**
      * Construye la escena del juego y pone las cosas en sus sitios
@@ -424,6 +426,7 @@ public class EscenaJuego {
                     terreno[filaClick][columnaClick].getNini().morir();
                     terreno[filaClick][columnaClick].limpiar();
                     colgar.setImage(new Image("Animaciones/Items/BotonColgar.png"));
+                    EstadisticasRecuento.sumarNinisEliminados();
                 }
 
                 modoColgarActivo = false;
@@ -583,14 +586,11 @@ public class EscenaJuego {
         );
         hitboxCasa.setFill(Color.RED);
         hitboxCasa.setOpacity(0.5);
-        hitboxCasa.setVisible(true);
+        hitboxCasa.setVisible(false);
 
         ConstruirPanelPausa(stage);
         ConstruirPanelPartidaPerdida(stage);
         root.getChildren().addAll(panelPausa, panelPartidaTerminada, hitboxCasa);
-
-        Cosa cs = new Ordenador(root);
-        reloj.registrarCosa(cs);
 
         return new Scene(root, 1280, 720);
     }
@@ -693,42 +693,6 @@ public class EscenaJuego {
         }
     }
 
-    public static void mostrarPanelNombreFin () {
-        Stage ventanaNombre = new Stage();
-        ventanaNombre.initModality(Modality.APPLICATION_MODAL);
-        ventanaNombre.setTitle("Introduce tu nombre");
-
-        VBox caja = new VBox(10);
-        caja.setAlignment(javafx.geometry.Pos.CENTER);
-
-        TextField nombre = new TextField();
-        nombre.setMaxWidth(100);
-        nombre.setStyle("-fx-background-color: rgb(120,126,131); -fx-text-fill: white;");
-
-
-        Button btnAceptar = new Button("Aceptar");
-        btnAceptar.setOnAction(evento -> {
-            String nombreJugador = nombre.getText();
-            ventanaNombre.close();
-        });
-        btnAceptar.setStyle("-fx-background-color: none; -fx-text-fill: #ffffff; -fx-font-size: 20px;");
-        btnAceptar.setOnMouseEntered(evento -> {btnAceptar.setStyle("-fx-background-color: none; -fx-text-fill: #979797; -fx-font-size: 20px;");});
-        btnAceptar.setOnMouseExited(evento -> {btnAceptar.setStyle("-fx-background-color: none; -fx-text-fill: #ffffff; -fx-font-size: 20px;");});
-
-
-        caja.getChildren().addAll(nombre, btnAceptar);
-        caja.setStyle("-fx-background-color: rgba(66,69,73,1);");
-
-        Scene escena = new Scene(caja, 300, 200);
-        ventanaNombre.setScene(escena);
-        Image logo = new Image("Imagenes/Ninis.png");
-        ventanaNombre.getIcons().add(logo);
-        //Esto sirve para que no se pueda cerrar la ventana, que solo se cierre al aceptar al nombre (revisar)
-        ventanaNombre.setOnCloseRequest(evento -> evento.consume());
-        ventanaNombre.show();
-
-    }
-
     public static Celda[][] getTerreno() {
         return terreno;
     }
@@ -743,5 +707,9 @@ public class EscenaJuego {
 
     public static Pane getPanelPartidaTerminada() {
         return panelPartidaTerminada;
+    }
+
+    public static String getNombreJugadorLeido() {
+        return nombreJugadorLeido;
     }
 }

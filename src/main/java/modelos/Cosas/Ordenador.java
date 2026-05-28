@@ -6,6 +6,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
+import modelos.GestorPuntos;
 import modelos.Ninis.Nini;
 
 /**
@@ -97,6 +98,15 @@ public class Ordenador extends Cosa{
             caminar(tiempoFrames);
         }
 
+    }
+
+    /**
+     * Hace que la cosa sume puntos para las estadísticas
+     */
+    @Override
+    public void darPuntos() {
+        GestorPuntos gepun = GestorPuntos.getInstancia();
+        gepun.añadirPuntos(25);
     }
 
 }

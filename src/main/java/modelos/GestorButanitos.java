@@ -1,4 +1,5 @@
 package modelos;
+import Estadisticas.EstadisticasRecuento;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
@@ -16,7 +17,7 @@ public class GestorButanitos {
     // --- ATRIBUTOS ---
     public static GestorButanitos instancia;
     private ArrayList<Butanito> butanitos;
-    private static int contadorButanitos = 5000;
+    private static int contadorButanitos = 100;
     private Text textoContador;
 
     // --- CONSTRUCTOR ---
@@ -48,6 +49,7 @@ public class GestorButanitos {
      */
     public void añadirButanito(Butanito butanito) {
         butanitos.add(butanito);
+        EstadisticasRecuento.sumarButanitosTotales();
     }
 
     /**
@@ -96,7 +98,7 @@ public class GestorButanitos {
      * Reinicia el contador de butanitos (Usado al salir)
      */
     public static void reiniciar () {
-        contadorButanitos = 5000;
+        contadorButanitos = 100;
         instancia = null;
     }
 

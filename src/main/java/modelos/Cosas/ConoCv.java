@@ -1,5 +1,6 @@
 package modelos.Cosas;
 import javafx.scene.layout.Pane;
+import modelos.GestorPuntos;
 import modelos.Ninis.Nini;
 
 /**
@@ -93,6 +94,15 @@ public class ConoCv extends Cosa {
         if (salud <= saludMaxima / 2 && !conoRoto) {
             romperCono();
         }
+    }
+
+    /**
+     * Hace que la cosa sume puntos para las estadísticas
+     */
+    @Override
+    public void darPuntos() {
+        GestorPuntos gepun = GestorPuntos.getInstancia();
+        gepun.añadirPuntos(2);
     }
 
     /**

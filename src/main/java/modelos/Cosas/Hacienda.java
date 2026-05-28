@@ -3,6 +3,7 @@ import javafx.animation.PauseTransition;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 import modelos.GestorButanitos;
+import modelos.GestorPuntos;
 import modelos.Ninis.Nini;
 
 /**
@@ -68,6 +69,15 @@ public class Hacienda extends Cosa {
             movimientoDeHitbox.stop();
             hitbox.setTranslateX(0);
         }
+    }
+
+    /**
+     * Hace que la cosa sume puntos para las estadísticas
+     */
+    @Override
+    public void darPuntos() {
+        GestorPuntos gepun = GestorPuntos.getInstancia();
+        gepun.añadirPuntos(50);
     }
 
     /**

@@ -48,7 +48,7 @@ public class Butanito {
 
         hitbox.setFill(Color.BLUE);
         hitbox.setOpacity(0.5);
-        hitbox.setVisible(true);
+        hitbox.setVisible(false);
         hitbox.setOnMouseClicked(evento -> {recoger(); gestorButanitos.aniquilarButanito(this);});
 
 

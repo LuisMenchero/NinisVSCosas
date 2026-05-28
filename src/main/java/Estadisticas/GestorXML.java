@@ -1,5 +1,6 @@
 package Estadisticas;
 
+import escenas.EscenaJuego;
 import escenas.EscenaMenu;
 import modelos.GestorInventario;
 import modelos.GestorPuntos;
@@ -62,9 +63,7 @@ public class GestorXML {
     /**
      * Escribe en el xml una nueva entrada de jugador que no existe, o sobreescribe una puntuacion de un jugador existente si ha superado su marca
      */
-    public static void registrarNuevoJugador(Scanner teclado) {
-        System.out.println("Nombre del jugador: ");
-        String nombreJugadorLeido = teclado.next();
+    public static void registrarNuevoJugador(String nombreJugadorLeido) {
         try {
             Path path = Paths.get("src/main/resources/Estadisticas/EstadisticasJugadores.xml");
             File ficheroXml = path.toFile();
@@ -110,7 +109,7 @@ public class GestorXML {
                 GestorPuntos gestorPuntos = GestorPuntos.getInstancia();
 
 
-                if (gestorPuntos.getContadorPuntosTotales() <    puntuacionRegistrado) {
+                if (gestorPuntos.getContadorPuntosTotales() < puntuacionRegistrado) {
                     entradaExistente.getElementsByTagName("puntuacion").item(0).setTextContent(String.valueOf(gestorPuntos.getContadorPuntosTotales()));
 
 
@@ -449,23 +448,24 @@ public class GestorXML {
                 // Para conseguir los datos de recuentos (cosas matadas, ninis muertos...)
                 Element nodoCosasMatadas = xml.createElement("cosasMatadas");
                 nodoJugador.appendChild(nodoCosasMatadas);
-                nodoCosasMatadas.setTextContent(String.valueOf(9999));
+                nodoCosasMatadas.setTextContent(String.valueOf(EstadisticasRecuento.getCosasMatadas()));
 
                 Element nodoNinisMuertos = xml.createElement("ninisMuertos");
                 nodoJugador.appendChild(nodoNinisMuertos);
-                nodoNinisMuertos.setTextContent(String.valueOf(9999));
+                nodoNinisMuertos.setTextContent(String.valueOf(EstadisticasRecuento.getNinisMuertos()));
 
                 Element nodoNinisEliminados = xml.createElement("ninisEliminados");
                 nodoJugador.appendChild(nodoNinisEliminados);
-                nodoNinisEliminados.setTextContent(String.valueOf(9999));
+                nodoNinisEliminados.setTextContent(String.valueOf(EstadisticasRecuento.getNinisEliminados()));
 
                 Element nodoButanitosTotales = xml.createElement("butanitosTotales");
                 nodoJugador.appendChild(nodoButanitosTotales);
-                nodoButanitosTotales.setTextContent(String.valueOf(9999));
+                nodoButanitosTotales.setTextContent(String.valueOf(EstadisticasRecuento.getButanitosTotales()));
 
                 Element nodoPuntuacionTotal =  xml.createElement("puntuaciónTotal");
                 nodoJugador.appendChild(nodoPuntuacionTotal);
-                nodoPuntuacionTotal.setTextContent(String.valueOf(9999));
+                GestorPuntos gepun = GestorPuntos.getInstancia();
+                nodoPuntuacionTotal.setTextContent(String.valueOf(String.valueOf(gepun.getContadorPuntosTotales())));
 
 
                 // Para los logros (CREAR LOS LOGROS)

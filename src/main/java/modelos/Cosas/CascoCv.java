@@ -1,5 +1,6 @@
 package modelos.Cosas;
 import javafx.scene.layout.Pane;
+import modelos.GestorPuntos;
 import modelos.Ninis.Nini;
 
 /**
@@ -91,6 +92,15 @@ public class CascoCv extends Cosa {
         if (salud <= saludMaxima / 3 && !cascoRoto) {
             romperCasco();
         }
+    }
+
+    /**
+     * Hace que la cosa sume puntos para las estadísticas
+     */
+    @Override
+    public void darPuntos() {
+        GestorPuntos gepun = GestorPuntos.getInstancia();
+        gepun.añadirPuntos(3);
     }
 
     /**

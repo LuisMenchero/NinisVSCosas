@@ -3,6 +3,7 @@ import javafx.animation.Animation;
 import javafx.animation.TranslateTransition;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
+import modelos.GestorPuntos;
 import modelos.Ninis.Nini;
 
 /**
@@ -74,9 +75,13 @@ public class Cv extends Cosa {
 
     }
 
-//    @Override
-//    public void darPuntos() {
-//
-//    }
+    /**
+     * Hace que la cosa sume puntos para las estadísticas
+     */
+    @Override
+    public void darPuntos() {
+        GestorPuntos gepun = GestorPuntos.getInstancia();
+        gepun.añadirPuntos(1);
+    }
 
 }

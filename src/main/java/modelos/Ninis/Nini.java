@@ -1,5 +1,6 @@
 package modelos.Ninis;
 
+import Estadisticas.EstadisticasRecuento;
 import controladores.ControladorReloj;
 import escenas.EscenaJuego;
 import javafx.scene.image.Image;
@@ -10,6 +11,7 @@ import javafx.scene.shape.Rectangle;
 import modelos.Celda;
 import modelos.Cosas.Cosa;
 import modelos.Cuadricula;
+import modelos.GestorPuntos;
 
 import java.util.ArrayList;
 
@@ -115,7 +117,7 @@ public abstract class Nini {
                 70, 60);
         hitbox.setFill(Color.RED);
         hitbox.setOpacity(0.5);
-        hitbox.setVisible(true);
+        hitbox.setVisible(false);
 
         root.getChildren().addAll(imagenNini, potenciador, curacion, hitbox);
     }
@@ -174,7 +176,9 @@ public abstract class Nini {
         if (filaTerreno >= 0 && filaTerreno < terreno.length && columnaTerreno >= 0 && columnaTerreno < terreno[0].length) {
             terreno[filaTerreno][columnaTerreno].limpiar();
         }
-
+        GestorPuntos gepun = GestorPuntos.getInstancia();
+        gepun.eliminarPuntos(5);
+        EstadisticasRecuento.sumarNinisMuertos();
     }
 
 
