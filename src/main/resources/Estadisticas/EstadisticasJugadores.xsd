@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="jugadores">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="jugador" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="jugador">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="nombre" />
+                <xs:element ref="ninisJugados" />
+                <xs:element ref="fecha" />
+                <xs:element ref="tiempoJugado" />
+                <xs:element ref="cosasMatadas" />
+                <xs:element ref="ninisMuertos" />
+                <xs:element ref="ninisEliminados" />
+                <xs:element ref="butanitosTotales" />
+                <xs:element ref="puntuaciónTotal" />
+                <xs:element ref="logros" />
+            </xs:sequence>
+            <xs:attribute ref="id" />
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:element name="nombre" type="xs:string" />
+    <xs:element name="ninisJugados">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="nini" minOccurs="0" maxOccurs="8" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="nini">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="nombre" />
+                <xs:element ref="descripcion" />
+                <xs:element ref="coste" />
+                <xs:element ref="vida" />
+                <xs:element ref="alcanceAtaque" />
+                <xs:element ref="radioAtaque" />
+                <xs:element ref="tipoProyectil" />
+                <xs:element ref="daño" />
+            </xs:sequence>
+            <xs:attribute ref="tipoNini" />
+            <xs:attribute ref="imagen" />
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="descripcion" type="xs:string" />
+    <xs:element name="coste" type="xs:integer" />
+    <xs:element name="vida" type="xs:integer" />
+    <xs:element name="alcanceAtaque" type="xs:string" />
+    <xs:element name="radioAtaque" type="xs:string" />
+    <xs:element name="tipoProyectil" type="xs:string" />
+    <xs:element name="daño" type="xs:integer" />
+
+    <xs:element name="fecha">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="dia" />
+                <xs:element ref="mes" />
+                <xs:element ref="año" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="dia" type="xs:integer" />
+    <xs:element name="mes" type="xs:integer" />
+    <xs:element name="año" type="xs:integer" />
+
+
+    <xs:element name="tiempoJugado">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="horas" />
+                <xs:element ref="minutos" />
+                <xs:element ref="segundos" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="horas" type="xs:integer" />
+    <xs:element name="minutos" type="xs:integer" />
+    <xs:element name="segundos" type="xs:integer" />
+
+
+    <xs:element name="cosasMatadas" type="xs:integer" />
+    <xs:element name="ninisMuertos" type="xs:integer" />
+    <xs:element name="ninisEliminados" type="xs:integer" />
+    <xs:element name="butanitosTotales" type="xs:integer" />
+    <xs:element name="puntuaciónTotal" type="xs:integer" />
+
+    <xs:element name="logros">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="logro" minOccurs="6" maxOccurs="6" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="logro">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="titulo" />
+                <xs:element ref="minuto" />
+                <xs:element ref="medallita" />
+            </xs:sequence>
+            <xs:attribute ref="idLogro" />
+            <xs:attribute ref="dificultad" />
+            <xs:attribute ref="completado" />
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="titulo" type="xs:string" />
+    <xs:element name="minuto" type="xs:integer" />
+    <xs:element name="medallita">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="tipoMedalla" />
+                <xs:element ref="puntuacionLogro" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="tipoMedalla" type="xs:string" />
+    <xs:element name="puntuacionLogro" type="xs:integer" />
+
+
+    <xs:attribute name="id" type="xs:integer" />
+    <xs:attribute name="tipoNini">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:enumeration value="LUIS" />
+                <xs:enumeration value="DIEGO" />
+                <xs:enumeration value="CALLEJO" />
+                <xs:enumeration value="ADRIPAN" />
+                <xs:enumeration value="GUEVARA" />
+                <xs:enumeration value="LOPEZ" />
+                <xs:enumeration value="ISMA" />
+                <xs:enumeration value="XIMENA" />
+                <xs:enumeration value="GUILLE" />
+                <xs:enumeration value="DANI" />
+                <xs:enumeration value="KEKE" />
+                <xs:enumeration value="LORENA" />
+                <xs:enumeration value="MARIA" />
+                <xs:enumeration value="JUD" />
+                <xs:enumeration value="ELSA" />
+                <xs:enumeration value="ELISEO" />
+                <xs:enumeration value="RAUL" />
+                <xs:enumeration value="IRENE" />
+                <xs:enumeration value="ALVARO" />
+                <xs:enumeration value="HAMIL" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="imagen" type="xs:string" />
+    <xs:attribute name="idLogro" type="xs:integer" />
+    <xs:attribute name="dificultad" type="xs:string" />
+    <xs:attribute name="completado">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:enumeration value="Si" />
+                <xs:enumeration value="No" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:attribute>
+
+</xs:schema>
