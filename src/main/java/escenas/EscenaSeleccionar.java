@@ -184,7 +184,7 @@ public class EscenaSeleccionar {
             colocar(TipoNini.CALLEJO, callejo);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Callejo_idle.gif"));
             nombreNini.setText("-- CALLEJO --");
-            descNini.setText(" Callejo es un escudo que aguanta bastantes golpes.");
+            descNini.setText(" Callejo es un escudo que aguanta \n bastantes golpes.");
             costeNini.setText(" - COSTE BUTANITOS - \n - 50 butanitos.");
             vidaNini.setText(" - SALUD - \n - 500 puntos de salud.");
             alcanceAtaque.setText("");
@@ -274,7 +274,7 @@ public class EscenaSeleccionar {
             colocar(TipoNini.LOPEZ, lopez);
             fotoDesc.setImage(new Image("Animaciones/Ninis/LopezEsperando.gif"));
             nombreNini.setText("-- LÓPEZ --");
-            descNini.setText(" '¿Qué hash dixo de mi pueblo? A que te egcupo.' ");
+            descNini.setText(" '¿Qué hash dixo de mi pueblo? \n A que te egcupo.' ");
             costeNini.setText(" - COSTE BUTANITOS - \n - 75 butanitos.");
             vidaNini.setText(" - SALUD - \n - 100 puntos de salud.");
             alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - Lejano.");
@@ -341,7 +341,7 @@ public class EscenaSeleccionar {
             colocar(TipoNini.KEKE, keke);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Keke_Idle.gif"));
             nombreNini.setText("-- KEKE --");
-            descNini.setText(" 'MMMMBIIIMM MBIM MBIM' (Sonidos de puñetazos) ");
+            descNini.setText(" 'MMMMBIIIMM MBIM MBIM' \n (Sonidos de puñetazos) ");
             costeNini.setText(" - COSTE BUTANITOS - \n - 175 butanitos.");
             vidaNini.setText(" - SALUD - \n - 175 puntos de salud.");
             alcanceAtaque.setText(" - RANGO DE ATAQUE - \n - Cercano.");
