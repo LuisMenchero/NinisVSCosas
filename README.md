@@ -77,4 +77,4 @@ Conste que por razones más que evidentes todas las personas que aparecen en el 
 
 Aquí dejamos nuestro diagrama UML:
 
-<img src="">
+<img src="src/main/resources/Imagenes/UML_NVSC.png">

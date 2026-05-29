@@ -1,2 +1,0 @@
-# EstadisticasXml
-Proyecto para LM
