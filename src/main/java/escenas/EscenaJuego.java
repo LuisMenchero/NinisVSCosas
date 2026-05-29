@@ -63,12 +63,16 @@ public class EscenaJuego {
         //Botón de pausa
         Button btnPausa = new Button("=");
         btnPausa.setLayoutX(1200);
-        btnPausa.setLayoutY(10);
+        btnPausa.setLayoutY(20);
         btnPausa.setOnAction(evento -> {
             reloj.pausa();
             mostrarPanelPausa();
             ControladorMusica.pausarMusicaJuego();
         });
+        btnPausa.setStyle("-fx-background-color: none; -fx-text-fill: #7289da; -fx-font-size: 35px;");
+        btnPausa.setOnMouseEntered(evento -> {btnPausa.setStyle("-fx-background-color: none; -fx-text-fill: white; -fx-font-size: 35px;");});
+        btnPausa.setOnMouseExited(evento -> {btnPausa.setStyle("-fx-background-color: none; -fx-text-fill: #7289da; -fx-font-size: 35px;");});
+
 
         //Iniciar el reloj interno del juego (game loop)
         reloj.iniciarReloj();
