@@ -74,3 +74,7 @@ Hay muchas paginas, videos y referencias que hemos obtenido a lo largo del desar
 Importante:
 
 Conste que por razones más que evidentes todas las personas que aparecen en el juego son completamente conscientes de su aparición en el juego y tenemos permiso y consentimiento directo de ellos mismos. 
+
+Aquí dejamos nuestro diagrama UML:
+
+<img src="">
