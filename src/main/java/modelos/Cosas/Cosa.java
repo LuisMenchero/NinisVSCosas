@@ -43,7 +43,6 @@ public abstract class Cosa {
     protected Rectangle hitbox;
     protected TranslateTransition movimientoDeHitbox;
     protected boolean estaRalentizado = false;
-    protected boolean estaDestruida = false;
     // Congelamiento
     protected boolean estaCongelado = false;
     protected ImageView imagenCongelado;
@@ -154,6 +153,7 @@ public abstract class Cosa {
     public void morir() {
         root.getChildren().remove(imagenCosa);
         root.getChildren().remove(hitbox);
+        ControladorReloj.getCosas().remove(this);
         darPuntos();
         EstadisticasRecuento.sumarCosasMatadas();
     }
@@ -251,11 +251,6 @@ public abstract class Cosa {
      */
     public Rectangle getHitbox() {
         return hitbox;
-    }
-
-
-    public boolean estaDestruida() {
-        return estaDestruida;
     }
 
     /**

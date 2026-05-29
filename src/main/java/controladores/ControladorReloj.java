@@ -139,51 +139,41 @@ public class ControladorReloj {
      * Actualiza metodos internos
      */
     public void actualizar() {
-        // listas temporales para eliminar después del bucle
-        ArrayList<Nini> ninisMuertos = new ArrayList<>();
-        ArrayList<Cosa> cosasMuertas = new ArrayList<>();
-
-
-
-
-            //aqui van las cosas que requieren ser actualizadas que reciban tiempoFrames
-            for (Nini nini : ninis) {
-                if (nini.isEstaMuerto()){
-                    ninisMuertos.add(nini);
+        //aqui van las cosas que requieren ser actualizadas que reciban tiempoFrames
+        for (Nini nini : ninis) {
+            nini.actualizar(tiempoFrames, EscenaJuego.getTerreno(), cosas);
+            if (nini instanceof Diego) {
+                ArrayList<Proyectil> notasNuevas = ((Diego) nini).getNotasNuevas();
+                if (!notasNuevas.isEmpty()) {
+                    proyectiles.addAll(notasNuevas);
                 }
-                nini.actualizar(tiempoFrames, EscenaJuego.getTerreno(), cosas);
-                if (nini instanceof Diego) {
-                    ArrayList<Proyectil> notasNuevas = ((Diego) nini).getNotasNuevas();
-                    if (!notasNuevas.isEmpty()) {
-                        proyectiles.addAll(notasNuevas);
-                    }
-                } else if (nini instanceof Lopez) {
-                    ArrayList<Proyectil> escupitajosNuevos = ((Lopez) nini).getEscupitajosNuevos();
-                    if (!escupitajosNuevos.isEmpty()) {
-                        proyectiles.addAll(escupitajosNuevos);
-                    }
-                } else if (nini instanceof Dani) {
-                    ArrayList<Proyectil> pelotasNuevas = ((Dani) nini).getPelotasNuevas();
-                    if (!pelotasNuevas.isEmpty()) {
-                        proyectiles.addAll(pelotasNuevas);
-                    }
-                } else if (nini instanceof Raul) {
-                    ArrayList<Proyectil> pikminNuevos = ((Raul) nini).getPikminNuevos();
-                    if (!pikminNuevos.isEmpty()) {
-                        proyectiles.addAll(pikminNuevos);
-                    }
-                } else if (nini instanceof Guille) {
-                    ArrayList<Proyectil> cabezasNuevas = ((Guille) nini).getCabezasNuevas();
-                    if (!cabezasNuevas.isEmpty()) {
-                        proyectiles.addAll(cabezasNuevas);
-                    }
-                } else if (nini instanceof Alvaro) {
-                    ArrayList<Proyectil> alvaroDeslizadosNuevos = ((Alvaro) nini).getAlvaroDeslizados();
-                    if (!alvaroDeslizadosNuevos.isEmpty()) {
-                        proyectiles.addAll(alvaroDeslizadosNuevos);
-                    }
+            } else if (nini instanceof Lopez) {
+                ArrayList<Proyectil> escupitajosNuevos = ((Lopez) nini).getEscupitajosNuevos();
+                if (!escupitajosNuevos.isEmpty()) {
+                    proyectiles.addAll(escupitajosNuevos);
+                }
+            } else if (nini instanceof Dani) {
+                ArrayList<Proyectil> pelotasNuevas = ((Dani) nini).getPelotasNuevas();
+                if (!pelotasNuevas.isEmpty()) {
+                    proyectiles.addAll(pelotasNuevas);
+                }
+            } else if (nini instanceof Raul) {
+                ArrayList<Proyectil> pikminNuevos = ((Raul) nini).getPikminNuevos();
+                if (!pikminNuevos.isEmpty()) {
+                    proyectiles.addAll(pikminNuevos);
+                }
+            } else if (nini instanceof Guille) {
+                ArrayList<Proyectil> cabezasNuevas = ((Guille) nini).getCabezasNuevas();
+                if (!cabezasNuevas.isEmpty()) {
+                    proyectiles.addAll(cabezasNuevas);
+                }
+            } else if (nini instanceof Alvaro) {
+                ArrayList<Proyectil> alvaroDeslizadosNuevos = ((Alvaro) nini).getAlvaroDeslizados();
+                if (!alvaroDeslizadosNuevos.isEmpty()) {
+                    proyectiles.addAll(alvaroDeslizadosNuevos);
                 }
             }
+        }
 
         for (Proyectil proyectil : proyectiles) {
             if (proyectil instanceof Nota) {
@@ -203,11 +193,7 @@ public class ControladorReloj {
 
         for (Cosa cosa : cosas) {
             cosa.actualizar(tiempoFrames);
-            if (cosa.estaDestruida()) cosasMuertas.add(cosa);
         }
-
-        ninis.removeAll(ninisMuertos);
-        cosas.removeAll(cosasMuertas);
 
         comprobarColisiones();
 
