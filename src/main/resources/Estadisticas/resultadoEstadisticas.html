@@ -1,0 +1,177 @@
+<html>
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="EstadisticasEstilos.css">
+    </head>
+    <body>
+        <h1>
+          ESTADISTICAS NINIS VS COSAS
+        </h1>
+        <table cellspacing="3" style="background-color: #f0f0f0;">
+            <caption>Ranking</caption>
+            <thead>
+                <tr>
+                    <th id="apartados"> TOP</th><th id="apartados">NOMBRE</th><th id="apartados">PUNTUACION</th><th id="apartados">TIEMPO JUGADO</th><th id="apartados">FECHA</th>
+                </tr>
+            </thead>
+            <tbody id="ranking-body"></tbody>
+        </table>
+        <script>
+        var players = [
+         { 
+              nombre: "Diego", 
+              punt: -8, 
+              dia: "29", 
+              mes: "MAY", 
+              año: "2026", 
+              h: 0, 
+              m: 2, 
+              s: 1,
+              cosasMatadas: 2, 
+              ninisMuertos: 2, 
+              ninisEliminados: 0,
+              butanitos: 750, 
+              ninis: [  { 
+                  nombre: "-- LUIS --",
+                  imagen: "../Animaciones/Ninis/Lis.gif",
+                  descripcion: " Luis es un hacker que consigue saltarse cualquier sistema de seguridad. Con el tiempo, consigue robar Butanitos y te los da para que los uses.",
+                  coste: " - COSTE BUTANITOS - - 50 butanitos.",
+                  vida: " - SALUD - - 75 puntos de salud.",
+                  alcance: " - TIEMPO DE GENERACION DE BUTANITOS - - 25 segundos.",
+                  radio: "",
+                  proyectil: "",
+                  daño: "" }
+                  
+            , { 
+                  nombre: "-- DIEGO --",
+                  imagen: "../Animaciones/Ninis/DiegoEsperando.gif",
+                  descripcion: " Diego es un bajista profesional. Con sus solos de bajo. Sus notas salen disparadas e impactan con el primer enemigo que se le cruce.",
+                  coste: " - COSTE BUTANITOS - - 100 butanitos.",
+                  vida: " - SALUD -  - 100 puntos de salud.",
+                  alcance: " - RANGO DE ATAQUE -  - Lejano.",
+                  radio: " - RADIO ATAQUE -  - 1 enemigo.",
+                  proyectil: " - TIPO DE PROYECTIL -  - Nota.",
+                  daño: " - DAÑO -  - Daño por proyectil: 20 ." }
+                  
+            , { 
+                  nombre: "-- CALLEJO --",
+                  imagen: "../Animaciones/Ninis/Callejo_idle.gif",
+                  descripcion: " Callejo es un escudo que aguanta bastantes golpes. ",
+                  coste: " - COSTE BUTANITOS -  - 50 butanitos.",
+                  vida: " - SALUD -  - 500 puntos de salud.",
+                  alcance: "",
+                  radio: "",
+                  proyectil: "",
+                  daño: "" }
+                  
+            , { 
+                  nombre: "-- ADRIPAN --",
+                  imagen: "../Animaciones/Ninis/AdripanEsperando.gif",
+                  descripcion: " Adripan sale al campo a tomar el aire, cuando vapea, se carga y consigue la capacidad de explotar, haciendo mucho daño.",
+                  coste: " - COSTE BUTANITOS -  - 25 butanitos.",
+                  vida: " - SALUD -  - 80 puntos de salud.",
+                  alcance: " - RANGO DE ATAQUE -  - Cercano.",
+                  radio: " - TIPO DE ATAQUE -  - Explosión.",
+                  proyectil: " - DAÑO -  - Daño de explosión: 9999 .",
+                  daño: "" }
+                  
+            , { 
+                  nombre: "-- ISMA --",
+                  imagen: "../Animaciones/Ninis/Isma_Idle.gif",
+                  descripcion: " Isma se toma tranquilamente su café y su cigarro, pero si se cabrea explota, haciendo mucho daño.",
+                  coste: " - COSTE BUTANITOS -  - 150 butanitos.",
+                  vida: " - SALUD -  - 50 puntos de salud.",
+                  alcance: " - RANGO DE ATAQUE -  - Cercano.",
+                  radio: " - RADIO ATAQUE -  - 3x3.",
+                  proyectil: " - TIPO DE ATAQUE -  - Explosión.",
+                  daño: " - DAÑO -  - Daño de explosión: 99999 ." }
+                  
+            , { 
+                  nombre: "-- XIMENA --",
+                  imagen: "../Animaciones/Ninis/Ximena_idle.gif",
+                  descripcion: " Ximena le encantan las focas, tanto que ha aprendido magia para hacer aparecer una encima del que le ataque.",
+                  coste: " - COSTE BUTANITOS -  - 50 butanitos.",
+                  vida: " - SALUD -  - 500 puntos de salud.",
+                  alcance: "  - RANGO DE ATAQUE -  - Cercano.",
+                  radio: " - RADIO ATAQUE -  - 1 casilla.",
+                  proyectil: "",
+                  daño: "" }
+                  
+            , { 
+                  nombre: "-- LOPEZ --",
+                  imagen: "../Animaciones/Ninis/LopezEsperando.gif",
+                  descripcion: " '¿Qué hash dixo de mi pueblo? A que te egcupo.' ",
+                  coste: " - COSTE BUTANITOS -  - 75 butanitos.",
+                  vida: " - SALUD -  - 100 puntos de salud.",
+                  alcance: " - RANGO DE ATAQUE -  - Lejano.",
+                  radio: " - RADIO ATAQUE -  - Toda la linea.",
+                  proyectil: " - TIPO DE PROYECTIL -  - Escupitajo.",
+                  daño: " - DAÑO -  - Daño por proyectil: 20 ." }
+                  
+            , { 
+                  nombre: "-- GUILLE --",
+                  imagen: "../Animaciones/Ninis/Guille_Idle.gif",
+                  descripcion: " 'Aúpa Atleti' Guille hace crecer su cabeza y le mete una patada.",
+                  coste: " - COSTE BUTANITOS -  - 175 butanitos.",
+                  vida: " - SALUD -  - 125 puntos de salud.",
+                  alcance: " - RANGO DE ATAQUE -  - Lejano.",
+                  radio: " - RADIO ATAQUE -  - Toda la fila.",
+                  proyectil: " - TIPO DE PROYECTIL -  - Cabeza de Guille.",
+                  daño: " - DAÑO -  - Daño por proyectil: 99999 ." }
+                  
+            ],
+          logros: [ 
+             {
+              id: "1",
+              completado: "false",
+              titulo: "Coloca tu primer Nini",
+              minuto: "0",
+              tipoMedalla: "ESTIERCOL",
+              puntuacionLogro: "5" }
+
+              , {
+              id: "2",
+              completado: "false",
+              titulo: "Planta dos filas de Luises",
+              minuto: "0",
+              tipoMedalla: "BRONCE",
+              puntuacionLogro: "10" }
+
+              , {
+              id: "3",
+              completado: "false",
+              titulo: "Mata 200 cosas",
+              minuto: "0",
+              tipoMedalla: "PLATA",
+              puntuacionLogro: "15" }
+
+              , {
+              id: "4",
+              completado: "false",
+              titulo: "Llega a la oleada 10",
+              minuto: "0",
+              tipoMedalla: "ORO",
+              puntuacionLogro: "20" }
+
+              , {
+              id: "5",
+              completado: "false",
+              titulo: "Llega a la oleada 10 sin que muera ningun nini",
+              minuto: "0",
+              tipoMedalla: "BUTANITO",
+              puntuacionLogro: "50" }
+
+              , {
+              id: "6",
+              completado: "false",
+              titulo: "Elimina treinta y tres angine de poitrine",
+              minuto: "0",
+              tipoMedalla: "DIAMANTE",
+              puntuacionLogro: "33" }
+
+              ] }
+
+            ];
+          </script><script src="OcultarContenidoTablas.js"></script>
+    </body>
+</html>

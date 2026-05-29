@@ -39,7 +39,7 @@ public class Ximena extends Nini {
                 fila + 20,
                 70, 60);
         hitboxFoca.setFill(Color.BLUE);
-        hitboxFoca.setOpacity(0.5);
+        hitboxFoca.setOpacity(0);
         hitboxFoca.setVisible(true);
     }
 

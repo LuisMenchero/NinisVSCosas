@@ -83,7 +83,7 @@ public class Adripan extends Nini {
         explosion = new ImageView("Animaciones/Ninis/boom-explosion.gif");
         hitboxExplosion = new Rectangle(columna - 50, fila - 50, 180, 180);
         hitboxExplosion.setFill(Color.RED);
-        hitboxExplosion.setOpacity(0.5);
+        hitboxExplosion.setOpacity(0);
         hitboxExplosion.setVisible(true);
         explosion.setFitWidth(200);
         explosion.setFitHeight(200);
