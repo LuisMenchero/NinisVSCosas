@@ -44,9 +44,18 @@ AnimationTimer: Lo que nos permite que el juego se ejecute con sus FPS
 
 Todo esto entre algunas otras cosas como elementos gráficos que nos da JavaFX son lo que han permitido el desarrollo del juego. Y como ejemplo, el Stage es lo que nos permite tener la venta, mientras que el Scene nos da la pantalla del juego y el Pane nos deja añadir cosas como un ImageView. Mientras todo esto funciona por una parte, el AnimationTimer se ejecuta 60 veces por segundo actualizando toda la lógica interna del juego.
 
+Además, hemos investigado y usado a lo largo del proyecto disparadores, los cuales son partes de código que no se ejecutan hasta que salte un evento. Un ejemplo de ello es cuando pulsamos cualquier botón que hay, cuyo código contenido se ejecutab al ser pulsado.
+
+Para el apartado de estadísticas, hemos adjuntado a nuestros proyecto un XML con su propio DTD, XSD y XSLT. Para que todo sea automático hemos creado:
+
+- Un inicializador del XML, el cual comprueba si el documento está creado (si no está lo crea).
+
+- Un escritor que mediante una fábrica genera nuevas entradas o las remplaza.
+
+- Un transformador de XSLT a HTML, el cual, una vez leído y escrito los nuevos cambios, genera una página web de HTML siguiendo la plantilla creada en el XSLT (ya que así simplemente abrimos en HTML y nos mostraría el contenido de forma sencilla).
+
 Maven
 Es una herramienta que hemos usado la cual sirve para gestionar el proyecto mediante la automatización de la descarga y gestión de las dependencias o librerías de los proyectos.
-
 
 Para toda esta nueva información, de algún sitio teníamos que sacarla, por eso queríamos poner aquí alguna de las páginas, videos y referencias de donde nos hemos informado para haber conseguido hacer todo esto.
 
