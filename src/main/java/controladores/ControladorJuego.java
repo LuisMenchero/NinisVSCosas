@@ -295,7 +295,7 @@ public class ControladorJuego {
                     enemigoNuevo = new Angine(EscenaJuego.panelespecificoparacontroladorjuego);
                 }
                 if (tipo == 8){
-                    //enemigoNuevo = new Ordenador(EscenaJuego.panelespecificoparacontroladorjuego);
+                    enemigoNuevo = new Ordenador(EscenaJuego.panelespecificoparacontroladorjuego);
                 }
                 if (tipo == 9){
                     enemigoNuevo = new Furgo(EscenaJuego.panelespecificoparacontroladorjuego);
