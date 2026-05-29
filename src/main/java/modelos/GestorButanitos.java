@@ -90,6 +90,10 @@ public class GestorButanitos {
      * @param costeButanitos la cantidad de butanitos que queremos quitar
      */
     public void restarButanitos(int costeButanitos) {
+//            int pruebaCoste = costeButanitos;
+//            if (getContadorButanitos() - pruebaCoste < 0){
+//                return;
+//            }
         contadorButanitos = contadorButanitos - costeButanitos;
         actualizarTextoContador();
     }
