@@ -457,6 +457,11 @@ public class EscenaJuego {
                 return;
             }
 
+//            int pruebaCoste = niniYCostes.get(niniSeleccionadoTipo);
+//            if (geB.getContadorButanitos() - pruebaCoste < 0){
+//                return;
+//            }
+
             if (geB.getContadorButanitos() < niniYCostes.get(niniSeleccionadoTipo) || geB.getContadorButanitos() <= 0) {
                 return;
             }

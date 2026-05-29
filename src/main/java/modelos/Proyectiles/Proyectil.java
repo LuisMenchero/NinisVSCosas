@@ -58,7 +58,7 @@ public abstract class Proyectil {
                 15,20);
         hitbox.setFill(Color.RED);
         hitbox.setOpacity(0.5);
-        hitbox.setVisible(true);
+        hitbox.setVisible(false);
         imagenProyectilQuemado = new ImageView("Animaciones/Proyectiles/proyectil_quemado.gif");
         imagenProyectilQuemado.setX(-20);
         imagenProyectilQuemado.setY(fila);
