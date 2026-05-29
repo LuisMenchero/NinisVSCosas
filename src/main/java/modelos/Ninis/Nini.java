@@ -166,7 +166,6 @@ public abstract class Nini {
         root.getChildren().remove(hitbox);
         this.potenciador.setVisible(false);
         this.curacion.setVisible(false);
-        ControladorReloj.getNinis().remove(this);
         estaMuerto = true;
 
         //Esto de aqui para que el nini no exista más (que bien me expreso)

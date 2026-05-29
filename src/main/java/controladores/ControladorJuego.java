@@ -1,6 +1,7 @@
 package controladores;
 import escenas.EscenaJuego;
 import javafx.animation.PauseTransition;
+import javafx.application.Platform;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.scene.control.ProgressBar;
@@ -413,8 +414,7 @@ public class ControladorJuego {
                                 System.out.println("Segundos restantes " + (i/100));
                             }
                             if (i == 1) {
-                                System.out.println("Se acabo");
-                                barraCooldown.setVisible(false);
+                                Platform.runLater(() -> barraCooldown.setVisible(false));
                             }
                         }
                         return i;
