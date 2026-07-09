@@ -156,6 +156,7 @@ public abstract class Cosa {
         ControladorReloj.getCosas().remove(this);
         darPuntos();
         EstadisticasRecuento.sumarCosasMatadas();
+        ControladorReloj.getCosas().remove(this);
     }
 
     /**

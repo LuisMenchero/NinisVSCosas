@@ -25,6 +25,7 @@ public class ControladorJuego {
     private static int ronda = 0;
     private static int tipo;
     public static double tiempoPartida = 0;
+    private static boolean partidaYaTerminada = false;
 
     /**
      * Hace aparecer a los enemigos segun la ronda en la que se encuentre el juego
@@ -349,7 +350,10 @@ public class ControladorJuego {
      * Termina la partida y corta el juego
      */
     public static void terminarPartida(){
-//        EscenaJuego.getReloj().pausa();
+        if (partidaYaTerminada){
+            return;
+        }
+        partidaYaTerminada = true;
         EscenaJuego.getReloj().terminar();
         EscenaJuego.getPanelPartidaTerminada().setVisible(true);
         EscenaJuego.getPanelPartidaTerminada().toFront();
@@ -433,5 +437,9 @@ public class ControladorJuego {
 
         root.getChildren().add(barraCooldown);
 
+    }
+
+    public static void setPartidaYaTerminada(boolean partidaYaTerminada) {
+        ControladorJuego.partidaYaTerminada = partidaYaTerminada;
     }
 }

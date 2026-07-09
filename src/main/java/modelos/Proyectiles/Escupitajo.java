@@ -42,6 +42,16 @@ public class Escupitajo extends Proyectil {
     @Override
     public void actualizar(double tiempoFrames) {
         moverProyectil(tiempoFrames);
+        tiempoEnPantalla = tiempoEnPantalla + tiempoFrames;
+        if (tiempoEnPantalla >= tiempoEnDesaparecer) {
+            if (this.haImpactado == true) {
+                return;
+            }
+            this.haImpactado = true;
+            root.getChildren().remove(imagenProyectil);
+            root.getChildren().remove(hitbox);
+            root.getChildren().remove(imagenProyectilQuemado);
+        }
     }
 
     /**
@@ -49,8 +59,6 @@ public class Escupitajo extends Proyectil {
      */
     @Override
     public void impactar() {
-//        root.getChildren().remove(imagenProyectil);
-//        root.getChildren().remove(hitbox);
     }
 
     /**

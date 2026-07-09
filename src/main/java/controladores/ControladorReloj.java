@@ -139,8 +139,13 @@ public class ControladorReloj {
      * Actualiza metodos internos
      */
     public void actualizar() {
+        ArrayList<Nini> ninisCopia = new ArrayList<>(ninis);
+        ArrayList<Proyectil> proyectilesCopia = new ArrayList<>(proyectiles);
+        ArrayList<Cosa> cosasCopia = new ArrayList<>(cosas);
+
+
         //aqui van las cosas que requieren ser actualizadas que reciban tiempoFrames
-        for (Nini nini : ninis) {
+        for (Nini nini : ninisCopia) {
             nini.actualizar(tiempoFrames, EscenaJuego.getTerreno(), cosas);
             if (nini instanceof Diego) {
                 ArrayList<Proyectil> notasNuevas = ((Diego) nini).getNotasNuevas();
@@ -175,7 +180,7 @@ public class ControladorReloj {
             }
         }
 
-        for (Proyectil proyectil : proyectiles) {
+        for (Proyectil proyectil : proyectilesCopia) {
             if (proyectil instanceof Nota) {
                 ((Nota) proyectil).actualizar(tiempoFrames);
             } else if (proyectil instanceof Escupitajo) {
@@ -191,10 +196,11 @@ public class ControladorReloj {
             }
         }
 
-        for (Cosa cosa : cosas) {
+        for (Cosa cosa : cosasCopia) {
             cosa.actualizar(tiempoFrames);
         }
 
+        proyectiles.removeIf(Proyectil::isHaImpactado);
         comprobarColisiones();
 
         ControladorJuego.tiempoUltimoEnemigo = ControladorJuego.tiempoUltimoEnemigo + tiempoFrames;
@@ -221,6 +227,7 @@ public class ControladorReloj {
      * Reinicia el juego
      */
     public static void reiniciar() {
+        ControladorJuego.setPartidaYaTerminada(false);
         ninis.clear();
         cosas.clear();
         proyectiles.clear();
@@ -240,10 +247,13 @@ public class ControladorReloj {
      * Comprueba todas las colisiones del juego
      */
     private void comprobarColisiones() {
+        ArrayList<Nini> ninisCopia = new ArrayList<>(ninis);
+        ArrayList<Proyectil> proyectilesCopia = new ArrayList<>(proyectiles);
+        ArrayList<Cosa> cosasCopia = new ArrayList<>(cosas);
 
         // Para comprobar si colisiona un proyectil con la hitbox de Jud para quemar el proyectil
-        for (Proyectil proyectil : proyectiles) {
-            for (Nini nini : ninis) {
+        for (Proyectil proyectil : proyectilesCopia) {
+            for (Nini nini : ninisCopia) {
                 if (nini instanceof Jud) {
                     if (!proyectil.estaQuemado()) {
                         if (proyectil instanceof Nota || proyectil instanceof Pikmin || proyectil instanceof PelotaBaloncesto) {
@@ -257,9 +267,9 @@ public class ControladorReloj {
         }
 
         // Para impactos de proyectiles
-        for (Proyectil proyectil : proyectiles) {
+        for (Proyectil proyectil : proyectilesCopia) {
             if (!proyectil.isHaImpactado()) {
-                for (Cosa cosa : cosas) {
+                for (Cosa cosa : cosasCopia) {
                     if (proyectil.getHitbox().getBoundsInParent().intersects(cosa.getHitbox().getBoundsInParent())) {
                         cosa.recibirDaño(proyectil.getDaño());
                         proyectil.impactar();
@@ -279,8 +289,8 @@ public class ControladorReloj {
         }
 
         // Para explosiones de algunos ninis y tambien comprueba los ataques cuerpo a cuerpo
-        for (Nini nini : ninis) {
-            for (Cosa cosa : cosas) {
+        for (Nini nini : ninisCopia) {
+            for (Cosa cosa : cosasCopia) {
                 if (nini instanceof Isma && ((Isma) nini).isExplotar()) {
                     if (((Isma) nini).getHitboxExplosion().getBoundsInParent().intersects(cosa.getHitbox().getBoundsInParent())) {
                         cosa.recibirDaño(99999);
@@ -355,8 +365,8 @@ public class ControladorReloj {
         }
 
         // Para ataques de las cosas
-        for (Nini nini : ninis) {
-            for (Cosa cosa : cosas) {
+        for (Nini nini : ninisCopia) {
+            for (Cosa cosa : cosasCopia) {
                 if (cosa instanceof Furgo) {
                     if (!((Furgo) cosa).isNiniRecogido()) {
                         if (nini.getHitbox().getBoundsInParent().intersects(cosa.getHitbox().getBoundsInParent())) {
@@ -384,8 +394,7 @@ public class ControladorReloj {
         }
 
 
-        for (
-                Cosa cosa : cosas) {
+        for (Cosa cosa : cosasCopia) {
             if (cosa.getHitbox().getBoundsInParent().intersects(EscenaJuego.getHitboxCasa().getBoundsInParent())) {
                 ControladorJuego.terminarPartida();
                 GestorXML.inicializarXML();

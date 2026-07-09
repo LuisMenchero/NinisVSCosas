@@ -27,10 +27,14 @@ public abstract class Proyectil {
     //Funcionamiento
     protected Rectangle hitbox;
     protected boolean haImpactado = false;
+    protected double tiempoEnDesaparecer;
+    protected double tiempoEnPantalla;
 
     // Para saber si esta quemado
     protected ImageView imagenProyectilQuemado;
     protected boolean estaQuemado = false;
+
+    protected int ANCHO_PANTALLA = 1280;
 
     // --- CONSTRUCTOR ---
 
@@ -63,6 +67,7 @@ public abstract class Proyectil {
         imagenProyectilQuemado.setX(-20);
         imagenProyectilQuemado.setY(fila);
         imagenProyectilQuemado.setVisible(false);
+        tiempoEnDesaparecer = 10;
         this.root.getChildren().addAll(hitbox,imagenProyectilQuemado);
     }
     // --- MÉTODOS ---
@@ -83,6 +88,8 @@ public abstract class Proyectil {
      * Impacta al chocar
      */
     public abstract void impactar();
+
+
 
     // --- GETTERS Y SETTERS ---
 

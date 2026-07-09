@@ -173,12 +173,14 @@ public abstract class Nini {
         int filaTerreno = Cuadricula.convertirAFila(fila);
         int columnaTerreno = Cuadricula.convertirAColumna(columna);
         Celda[][] terreno = EscenaJuego.getTerreno();
-        if (filaTerreno >= 0 && filaTerreno < terreno.length && columnaTerreno >= 0 && columnaTerreno < terreno[0].length) {
+        if (terreno != null && filaTerreno >= 0 && filaTerreno < terreno.length
+                && columnaTerreno >= 0 && columnaTerreno < terreno[0].length) {
             terreno[filaTerreno][columnaTerreno].limpiar();
         }
         GestorPuntos gepun = GestorPuntos.getInstancia();
         gepun.eliminarPuntos(5);
         EstadisticasRecuento.sumarNinisMuertos();
+        ControladorReloj.getNinis().remove(this);
     }
 
 

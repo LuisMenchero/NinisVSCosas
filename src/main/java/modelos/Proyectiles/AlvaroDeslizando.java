@@ -44,6 +44,10 @@ public class AlvaroDeslizando extends Proyectil{
     @Override
     public void actualizar(double tiempoFrames) {
         moverProyectil(tiempoFrames);
+        tiempoEnPantalla = tiempoEnPantalla + tiempoFrames;
+        if (tiempoEnPantalla >= tiempoEnDesaparecer) {
+            impactar();
+        }
     }
 
     /**
