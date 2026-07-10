@@ -1,16 +1,19 @@
 package modelos;
 
+import javafx.scene.text.Text;
+
 public class GestorPuntos {
     // ATRIBUTOS
-    private int contadorPuntosTotales;
+    private static int contadorPuntosTotales;
     public static GestorPuntos instancia;
+    private Text textoContador;
 
     // CONSTRUCTOR
     /**
      *Constructor del gestor de butanitos (inicia arraylist)
      */
     private GestorPuntos() {
-        this.contadorPuntosTotales = 0;
+        contadorPuntosTotales = 0;
     }
 
     /**
@@ -25,12 +28,23 @@ public class GestorPuntos {
     }
 
     // METODOS
+
+    /**
+     * Recoge la nueva cantidad que tiene el contador de puntos y lo settea
+     */
+    private void actualizarTextoContador (){
+        if (textoContador != null) {
+            textoContador.setText(String.valueOf(contadorPuntosTotales));
+        }
+    }
+
     /**
      * Añade puntos al contador total de puntos
      * @param puntos la cantidad de puntos a añadir
      */
     public void añadirPuntos(int puntos) {
         contadorPuntosTotales = contadorPuntosTotales + puntos;
+        actualizarTextoContador();
     }
 
     /**
@@ -39,11 +53,25 @@ public class GestorPuntos {
      */
     public void eliminarPuntos(int puntos) {
         contadorPuntosTotales = contadorPuntosTotales - puntos;
+        actualizarTextoContador();
+    }
+
+    /**
+     * Reinicia el contador de puntos (Usado al salir)
+     */
+    public static void reiniciar () {
+        contadorPuntosTotales = 0;
+        instancia = null;
     }
 
     // GETTERS Y SETTERS
 
     public int getContadorPuntosTotales() {
         return contadorPuntosTotales;
+    }
+
+    public void setTextoContador(Text textoContador) {
+        this.textoContador = textoContador;
+        actualizarTextoContador();
     }
 }

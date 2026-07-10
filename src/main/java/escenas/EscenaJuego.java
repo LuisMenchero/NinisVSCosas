@@ -59,6 +59,7 @@ public class EscenaJuego {
         }
 
         GestorButanitos geB = GestorButanitos.getInstancia();
+        GestorPuntos geP = GestorPuntos.getInstancia();
 
         //Botón de pausa
         Button btnPausa = new Button("=");
@@ -83,6 +84,41 @@ public class EscenaJuego {
         menuPlantas.setFitHeight(75);
         menuPlantas.setLayoutX(50);
         menuPlantas.setLayoutY(20);
+
+        Text textoRonda = new Text();
+        textoRonda.setLayoutX(1130);
+        textoRonda.setLayoutY(700);
+        textoRonda.setFill(Color.RED);
+        textoRonda.setFont(Font.font("Verdana", FontWeight.BOLD, 15));
+        textoRonda.setText("RONDA");
+
+        int rondaActual = ControladorJuego.getRonda();
+        Text textoRondaActual = new Text();
+        textoRondaActual.setLayoutX(1205);
+        textoRondaActual.setLayoutY(700);
+        textoRondaActual.setFill(Color.RED);
+        textoRondaActual.setFont(Font.font("Verdana", FontWeight.BOLD, 15));
+
+        textoRondaActual.setText(String.valueOf(rondaActual));
+        ControladorJuego.setTextoRondas(textoRondaActual);
+
+        Text textoPuntuacion = new Text();
+        textoPuntuacion.setLayoutX(30);
+        textoPuntuacion.setLayoutY(700);
+        textoPuntuacion.setFill(Color.YELLOW);
+        textoPuntuacion.setFont(Font.font("Verdana", FontWeight.BOLD, 15));
+        textoPuntuacion.setText("PUNTUACIÓN = ");
+
+        int puntuaciónTotal = geP.getContadorPuntosTotales();
+        Text puntosTotales = new Text();
+        puntosTotales.setLayoutX(170);
+        puntosTotales.setLayoutY(700);
+        puntosTotales.setFill(Color.YELLOW);
+        puntosTotales.setFont(Font.font("Verdana", FontWeight.BOLD, 15));
+
+        puntosTotales.setText(String.valueOf(puntuaciónTotal));
+        geP.setTextoContador(puntosTotales);
+
 
 
         int numeroButanitos = geB.getContadorButanitos();
@@ -416,7 +452,7 @@ public class EscenaJuego {
 
                 });
 
-        Pane root = new Pane(fondo, btnPausa, menuPlantas, cuadroButanos, cantidadButanitos, colgar, luis, diego, callejo, adripan, isma, ximena, lopez, guille, dani, keke, guevara, lorena, maria, jud, elsa, eliseo, raul, irene, alvaro, hamil);
+        Pane root = new Pane(fondo, btnPausa, menuPlantas, cuadroButanos, cantidadButanitos, textoPuntuacion, textoRonda, textoRondaActual, puntosTotales, colgar, luis, diego, callejo, adripan, isma, ximena, lopez, guille, dani, keke, guevara, lorena, maria, jud, elsa, eliseo, raul, irene, alvaro, hamil);
         panelespecificoparacontroladorjuego = root;
 
         root.setOnMouseClicked((evento) -> {
@@ -639,6 +675,7 @@ public class EscenaJuego {
             reloj.terminar();
             ControladorReloj.reiniciar();
             GestorButanitos.reiniciar();
+            GestorPuntos.reiniciar();
             EscenaMenu escenaMenu = new EscenaMenu();
             stage.setScene(escenaMenu.construir(stage));
             ControladorMusica.pararMusicaJuego();
@@ -676,6 +713,7 @@ public class EscenaJuego {
         btnSalir.setOnAction(evento -> {
             ControladorReloj.reiniciar();
             GestorButanitos.reiniciar();
+            GestorPuntos.reiniciar();
             EscenaMenu escenaMenu = new EscenaMenu();
             stage.setScene(escenaMenu.construir(stage));
             ControladorMusica.pararMusicaJuego();
