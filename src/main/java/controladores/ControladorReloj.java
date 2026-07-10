@@ -104,6 +104,13 @@ public class ControladorReloj {
      * @param cosa objeto a agregar
      */
     public void registrarCosa(Cosa cosa) {
+        if (cosa == null) {
+            // Red de seguridad: si algún día vuelve a faltar una rama de "tipo"
+            // en ControladorJuego.spawnEnemigos(), esto evita que un enemigo
+            // nulo se cuele en la lista y reviente el juego con NullPointerException.
+            System.out.println("Aviso: se ha intentado registrar una Cosa nula (revisar spawnEnemigos)");
+            return;
+        }
         cosas.add(cosa);
     }
 
