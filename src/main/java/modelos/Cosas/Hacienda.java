@@ -50,7 +50,7 @@ public class Hacienda extends Cosa {
      */
     @Override
     public void atacar(double tiempoFrames, Nini niniAtacando) {
-        if (!atacandoNini) {
+        if (!atacandoNini && !estaMuerto) {
             this.setImagenCosa("Animaciones/Cosas/Hacienda_Ataque.gif");
             atacandoNini = true;
             movimientoDeHitbox.play();
@@ -116,11 +116,20 @@ public class Hacienda extends Cosa {
                 descontar();
             }
         }
+    }
 
-
-
-
-
+    /**
+     * Mata a la cosa, añadiendole previamente una animación de muerte
+     */
+    @Override
+    public void morir() {
+        this.setImagenCosa("Animaciones/Cosas/HaciendaMuerte.gif");
+        setPixelesPorSegundosActual(0);
+        PauseTransition pausa = new PauseTransition(Duration.seconds(1.5));
+        pausa.setOnFinished(e -> {
+            super.morir();
+        });
+        pausa.play();
     }
 
 }
