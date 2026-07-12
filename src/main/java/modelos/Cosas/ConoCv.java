@@ -1,10 +1,14 @@
 package modelos.Cosas;
+
+import javafx.animation.PauseTransition;
 import javafx.scene.layout.Pane;
+import javafx.util.Duration;
 import modelos.GestorPuntos;
 import modelos.Ninis.Nini;
 
 /**
  * Representa un enemigo ConoCV
+ *
  * @author Diego
  * @author Luis
  * @version 1.0
@@ -17,6 +21,7 @@ public class ConoCv extends Cosa {
 
     /**
      * Constructor de ConoCV
+     *
      * @param root Pane root de la escena en la que aparece la cosa
      */
     public ConoCv(Pane root) {
@@ -25,6 +30,7 @@ public class ConoCv extends Cosa {
 
     /**
      * Mueve a ConoCV segun pasa el tiempo
+     *
      * @param tiempoFrames Variable del reloj del tiempo que pasa
      */
     @Override
@@ -37,13 +43,14 @@ public class ConoCv extends Cosa {
 
     /**
      * Hace que ConoCV ataque y haga daño a un nini
+     *
      * @param tiempoFrames Variable del reloj del tiempo que pasa
      * @param niniAtacando Nini al que esta atacando la cosa
      */
     @Override
     public void atacar(double tiempoFrames, Nini niniAtacando) {
         if (conoRoto) {
-            if (!atacandoNini) {
+            if (!atacandoNini  && !estaMuerto) {
                 this.setImagenCosa("Animaciones/Cosas/Ataquendo.gif");
                 atacandoNini = true;
             }
@@ -60,7 +67,7 @@ public class ConoCv extends Cosa {
                 atacandoNini = false;
             }
         } else {
-            if (!atacandoNini) {
+            if (!atacandoNini  && !estaMuerto) {
                 this.setImagenCosa("Animaciones/Cosas/Cono_Ataquendo.gif");
                 atacandoNini = true;
                 movimientoDeHitbox.play();
@@ -86,12 +93,13 @@ public class ConoCv extends Cosa {
 
     /**
      * Actualiza a ConoCV
+     *
      * @param tiempoFrames Variable del reloj del tiempo que pasa
      */
     @Override
     public void actualizar(double tiempoFrames) {
         caminar(tiempoFrames);
-        if (salud <= saludMaxima / 2 && !conoRoto) {
+        if (salud <= saludMaxima / 2 && !conoRoto && !estaMuerto) {
             romperCono();
         }
     }
@@ -117,5 +125,17 @@ public class ConoCv extends Cosa {
         conoRoto = true;
     }
 
-
+    /**
+     * Mata a la cosa, añadiendole previamente una animación de muerte
+     */
+    @Override
+    public void morir() {
+        this.setImagenCosa("Animaciones/Cosas/CVmuerte.gif");
+        setPixelesPorSegundosActual(0);
+        PauseTransition pausa = new PauseTransition(Duration.seconds(1.5));
+        pausa.setOnFinished(e -> {
+            super.morir();
+        });
+        pausa.play();
+    }
 }

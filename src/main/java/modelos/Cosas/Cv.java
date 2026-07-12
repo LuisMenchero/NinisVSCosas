@@ -1,5 +1,6 @@
 package modelos.Cosas;
 import javafx.animation.Animation;
+import javafx.animation.PauseTransition;
 import javafx.animation.TranslateTransition;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
@@ -44,7 +45,7 @@ public class Cv extends Cosa {
      */
     @Override
     public void atacar(double tiempoFrames, Nini niniAtacando) {
-        if (!atacandoNini) {
+        if (!atacandoNini && !estaMuerto) {
             this.setImagenCosa("Animaciones/Cosas/Ataquendo.gif");
             atacandoNini = true;
             movimientoDeHitbox.play();
@@ -82,6 +83,21 @@ public class Cv extends Cosa {
     public void darPuntos() {
         GestorPuntos gepun = GestorPuntos.getInstancia();
         gepun.añadirPuntos(1);
+    }
+
+
+    /**
+     * Mata a la cosa, añadiendole previamente una animación de muerte
+     */
+    @Override
+    public void morir() {
+        this.setImagenCosa("Animaciones/Cosas/CVmuerte.gif");
+        setPixelesPorSegundosActual(0);
+        PauseTransition pausa = new PauseTransition(Duration.seconds(1.5));
+        pausa.setOnFinished(e -> {
+            super.morir();
+        });
+        pausa.play();
     }
 
 }

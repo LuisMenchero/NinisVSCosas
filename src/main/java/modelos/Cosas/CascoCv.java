@@ -1,5 +1,7 @@
 package modelos.Cosas;
+import javafx.animation.PauseTransition;
 import javafx.scene.layout.Pane;
+import javafx.util.Duration;
 import modelos.GestorPuntos;
 import modelos.Ninis.Nini;
 
@@ -43,7 +45,7 @@ public class CascoCv extends Cosa {
     @Override
     public void atacar(double tiempoFrames, Nini niniAtacando) {
         if (cascoRoto) {
-            if (!atacandoNini) {
+            if (!atacandoNini  && !estaMuerto) {
                 this.setImagenCosa("Animaciones/Cosas/Ataquendo.gif");
                 atacandoNini = true;
             }
@@ -60,7 +62,7 @@ public class CascoCv extends Cosa {
                 atacandoNini = false;
             }
         } else {
-            if (!atacandoNini) {
+            if (!atacandoNini  && !estaMuerto) {
                 this.setImagenCosa("Animaciones/Cosas/Casco_Ataquendo.gif");
                 atacandoNini = true;
                 movimientoDeHitbox.play();
@@ -89,7 +91,7 @@ public class CascoCv extends Cosa {
     @Override
     public void actualizar(double tiempoFrames) {
         caminar(tiempoFrames);
-        if (salud <= saludMaxima / 3 && !cascoRoto) {
+        if (salud <= saludMaxima / 3 && !cascoRoto && !estaMuerto) {
             romperCasco();
         }
     }
@@ -113,5 +115,19 @@ public class CascoCv extends Cosa {
             this.setImagenCosa("Animaciones/Cosas/caminarCV.gif");
         }
         cascoRoto = true;
+    }
+
+    /**
+     * Mata a la cosa, añadiendole previamente una animación de muerte
+     */
+    @Override
+    public void morir() {
+        this.setImagenCosa("Animaciones/Cosas/CVmuerte.gif");
+        setPixelesPorSegundosActual(0);
+        PauseTransition pausa = new PauseTransition(Duration.seconds(1.5));
+        pausa.setOnFinished(e -> {
+            super.morir();
+        });
+        pausa.play();
     }
 }

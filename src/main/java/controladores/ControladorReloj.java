@@ -378,7 +378,9 @@ public class ControladorReloj {
                     if (!((Furgo) cosa).isNiniRecogido()) {
                         if (nini.getHitbox().getBoundsInParent().intersects(cosa.getHitbox().getBoundsInParent())) {
                             cosa.setPixelesPorSegundosActual(0);
-                            cosa.atacar(tiempoFrames, nini);
+                            if (!cosa.estaMuerto()) {
+                                cosa.atacar(tiempoFrames, nini);
+                            }
                             if (nini.isEstaMuerto()) {
                                 cosa.setPixelesPorSegundosActual(cosa.getPixelesPorSegundo());
                             }

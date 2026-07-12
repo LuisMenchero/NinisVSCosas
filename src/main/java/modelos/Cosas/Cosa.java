@@ -43,6 +43,7 @@ public abstract class Cosa {
     protected Rectangle hitbox;
     protected TranslateTransition movimientoDeHitbox;
     protected boolean estaRalentizado = false;
+    protected boolean estaMuerto = false;
     // Congelamiento
     protected boolean estaCongelado = false;
     protected ImageView imagenCongelado;
@@ -140,10 +141,13 @@ public abstract class Cosa {
     public abstract void actualizar(double tiempoFrames);
 
     public void recibirDaño(int daño) {
-        this.salud = salud - daño;
-        System.out.println("Salud: " + salud);
-        if (this.salud <= 0) {
-            morir();
+        if (!estaMuerto) {
+            this.salud = salud - daño;
+            System.out.println("Salud: " + salud);
+            if (this.salud <= 0) {
+                morir();
+                setEstaMuerto(true);
+            }
         }
     }
 
@@ -246,6 +250,10 @@ public abstract class Cosa {
         return estaRalentizado;
     }
 
+    public boolean estaMuerto() {
+        return estaMuerto;
+    }
+
     /**
      * Getter de la hitbox
      * @return hitbox
@@ -286,4 +294,7 @@ public abstract class Cosa {
         this.estaRalentizado = estaRalentizado;
     }
 
+    public void setEstaMuerto(boolean estaMuerto) {
+        this.estaMuerto = estaMuerto;
+    }
 }
