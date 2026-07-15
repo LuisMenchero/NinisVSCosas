@@ -109,4 +109,17 @@ public class Ordenador extends Cosa{
         gepun.añadirPuntos(25);
     }
 
+    /**
+     * Mata a la cosa, añadiendole previamente una animación de muerte
+     */
+    @Override
+    public void morir() {
+        this.setImagenCosa("Animaciones/Cosas/computadorMuerte.gif");
+        setPixelesPorSegundosActual(0);
+        PauseTransition pausa = new PauseTransition(Duration.seconds(1.7));
+        pausa.setOnFinished(e -> {
+            super.morir();
+        });
+        pausa.play();
+    }
 }
