@@ -47,6 +47,7 @@ public abstract class Nini {
     protected String rutaImagenNini;
     protected ImageView imagenNini;
     protected Pane root;
+    protected ImageView rotura;
 
     // el gif del potenciador y gif de curación
     protected ImageView potenciador;
@@ -119,7 +120,15 @@ public abstract class Nini {
         hitbox.setOpacity(0.5);
         hitbox.setVisible(false);
 
-        root.getChildren().addAll(imagenNini, potenciador, curacion, hitbox);
+        // para la rotura
+        this.rotura = new ImageView();
+        this.rotura.setFitWidth(ancho);
+        this.rotura.setFitHeight(alto);
+        this.rotura.setLayoutX(columna);
+        this.rotura.setLayoutY(fila);
+        this.rotura.setOpacity(0.7);
+
+        root.getChildren().addAll(imagenNini, potenciador, curacion, hitbox, rotura);
     }
 
     // --- MÉTODOS ---
@@ -142,6 +151,7 @@ public abstract class Nini {
     public void actualizar(double tiempoFrames, Celda[][] terreno, ArrayList<Cosa> cosas) {
         potenciar();
         curar();
+        dibujarRotura();
     }
 
     // normales
@@ -166,6 +176,7 @@ public abstract class Nini {
         root.getChildren().remove(hitbox);
         this.potenciador.setVisible(false);
         this.curacion.setVisible(false);
+        this.rotura.setVisible(false);
         ControladorReloj.getNinis().remove(this);
         estaMuerto = true;
 
@@ -226,6 +237,22 @@ public abstract class Nini {
         return false;
     }
 
+    protected void dibujarRotura() {
+        if (salud <= (saludMaxima - (saludMaxima * 0.9))) {
+            setImagenRotura("Animaciones/Ninis/ROTO6.png");
+        } else if (salud <= (saludMaxima - (saludMaxima * 0.7))) {
+            setImagenRotura("Animaciones/Ninis/ROTO5.png");
+        } else if (salud <= (saludMaxima - (saludMaxima * 0.55))) {
+            setImagenRotura("Animaciones/Ninis/ROTO4.png");
+        } else if (salud <= (saludMaxima - (saludMaxima * 0.4))) {
+            setImagenRotura("Animaciones/Ninis/ROTO3.png");
+        } else if (salud <= (saludMaxima - (saludMaxima * 0.25))) {
+            setImagenRotura("Animaciones/Ninis/ROTO2.png");
+        } else if (salud <= (saludMaxima - (saludMaxima * 0.1))) {
+            setImagenRotura("Animaciones/Ninis/ROTO1.png");
+        }
+    }
+
 
     // --- GETTERS ---
     public double getColumna() {
@@ -254,6 +281,10 @@ public abstract class Nini {
 
     public void setImagenNiniImage(String rutaNuevaAnimacion) {
         this.imagenNini.setImage(new Image(rutaNuevaAnimacion));
+    }
+
+    public void setImagenRotura(String rutaNuevaImagen) {
+        this.rotura.setImage(new Image(rutaNuevaImagen));
     }
 
     public boolean isEstaMuerto() {
