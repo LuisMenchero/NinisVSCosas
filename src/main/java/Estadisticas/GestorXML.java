@@ -64,6 +64,9 @@ public class GestorXML {
      * Escribe en el xml una nueva entrada de jugador que no existe, o sobreescribe una puntuacion de un jugador existente si ha superado su marca
      */
     public static void registrarNuevoJugador(String nombreJugadorLeido) {
+        if (nombreJugadorLeido.isEmpty() || nombreJugadorLeido.isBlank()) {
+            nombreJugadorLeido = " --- ";
+        }
         try {
             Path path = Paths.get("src/main/resources/Estadisticas/EstadisticasJugadores.xml");
             File ficheroXml = path.toFile();

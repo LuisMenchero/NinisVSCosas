@@ -1,8 +1,11 @@
 package modelos.Items;
+import javafx.animation.PauseTransition;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.util.Duration;
 import modelos.GestorButanitos;
 
 /**
@@ -69,15 +72,16 @@ public class Butanito {
      */
     public void recoger() {
         gestorButanitos.sumarButanitos(50);
-        root.getChildren().remove(imagenButanito);
+        setImagenButanito("Animaciones/Items/ButanitoRecogido.gif");
         root.getChildren().remove(hitbox);
+        PauseTransition pausa = new PauseTransition(Duration.seconds(1.5));
+        pausa.setOnFinished(evento -> {
+            root.getChildren().remove(imagenButanito);
+        });
+        pausa.play();
     }
 
-    /**
-     * Setter de la imagen del butanito
-     * @param imagenButanito ImageView del butanito
-     */
-    public void setImagenButanito(ImageView imagenButanito) {
-        this.imagenButanito = imagenButanito;
+    public void setImagenButanito(String rutaNuevaImagen) {
+        this.imagenButanito.setImage(new Image(rutaNuevaImagen));
     }
 }
