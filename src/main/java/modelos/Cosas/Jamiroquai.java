@@ -1,5 +1,6 @@
 package modelos.Cosas;
 import javafx.animation.Animation;
+import javafx.animation.PauseTransition;
 import javafx.animation.TranslateTransition;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
@@ -84,5 +85,18 @@ public class Jamiroquai extends Cosa {
         gepun.añadirPuntos(20);
     }
 
+    /**
+     * Mata a la cosa, añadiendole previamente una animación de muerte
+     */
+    @Override
+    public void morir() {
+        this.setImagenCosa("Animaciones/Cosas/Jamiroquai_Muerte.gif");
+        setPixelesPorSegundosActual(0);
+        PauseTransition pausa = new PauseTransition(Duration.seconds(1.4));
+        pausa.setOnFinished(e -> {
+            super.morir();
+        });
+        pausa.play();
+    }
 }
 

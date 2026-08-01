@@ -96,8 +96,9 @@ public class Bonitillo extends Cosa {
     @Override
     public void morir() {
         this.setImagenCosa("Animaciones/Cosas/Bonitillo_Muerte.gif");
+        imagenCosa.setOpacity(0.6);
         setPixelesPorSegundosActual(0);
-        PauseTransition pausa = new PauseTransition(Duration.seconds(1.2));
+        PauseTransition pausa = new PauseTransition(Duration.seconds(1));
         pausa.setOnFinished(e -> {
             super.morir();
         });

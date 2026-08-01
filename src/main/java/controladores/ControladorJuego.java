@@ -54,7 +54,7 @@ public class ControladorJuego {
 
             if (ronda == 0) {
                 Cosa enemigoNuevo = null;
-                enemigoNuevo = new Bonitillo(EscenaJuego.panelespecificoparacontroladorjuego);
+                enemigoNuevo = new Cv(EscenaJuego.panelespecificoparacontroladorjuego);
                 EscenaJuego.getReloj().registrarCosa(enemigoNuevo);
                 actualizarTextoRondas();
             }
