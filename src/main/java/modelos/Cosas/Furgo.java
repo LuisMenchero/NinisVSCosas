@@ -1,5 +1,6 @@
 package modelos.Cosas;
 import javafx.animation.Animation;
+import javafx.animation.PauseTransition;
 import javafx.animation.TranslateTransition;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
@@ -97,6 +98,20 @@ public class Furgo extends Cosa {
     public void darPuntos() {
         GestorPuntos gepun = GestorPuntos.getInstancia();
         gepun.añadirPuntos(100);
+    }
+
+    /**
+     * Mata a la cosa, añadiendole previamente una animación de muerte
+     */
+    @Override
+    public void morir() {
+        this.setImagenCosa("Animaciones/Cosas/Furgo_Muerte.gif");
+        setPixelesPorSegundosActual(0);
+        PauseTransition pausa = new PauseTransition(Duration.seconds(1.5));
+        pausa.setOnFinished(e -> {
+            super.morir();
+        });
+        pausa.play();
     }
 
     public boolean isNiniRecogido() {
