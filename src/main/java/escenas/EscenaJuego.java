@@ -3,6 +3,7 @@ import Estadisticas.EstadisticasRecuento;
 import controladores.ControladorJuego;
 import controladores.ControladorMusica;
 import controladores.ControladorReloj;
+import controladores.ControladorSonidos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -51,6 +52,7 @@ public class EscenaJuego {
         fondo.setFitWidth(1280);
         fondo.setFitHeight(720);
         ControladorMusica.reproducirMusicaJuego();
+        ControladorSonidos controladorSonidos = new ControladorSonidos();
         // Para crear e inicializar el tablero donde colocar las plantas/ninis
         for (int i = 0; i < Cuadricula.columnas; i++) {
             for (int j = 0; j < Cuadricula.filas; j++) {

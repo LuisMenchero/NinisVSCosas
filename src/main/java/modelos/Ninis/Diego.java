@@ -1,5 +1,7 @@
 package modelos.Ninis;
 
+import controladores.ControladorSonidos;
+import controladores.TipoSonido;
 import javafx.animation.PauseTransition;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
@@ -68,6 +70,7 @@ public class Diego extends Nini {
             this.setImagenNiniImage("Animaciones/Ninis/DiegoEsperando.gif");
         });
         pausa.play();
+        ControladorSonidos.reproducirSonido(TipoSonido.NOTABAJO);
     }
 
     public ArrayList<Proyectil> getNotasNuevas() {

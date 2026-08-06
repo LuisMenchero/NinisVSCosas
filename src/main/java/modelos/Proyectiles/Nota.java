@@ -1,4 +1,6 @@
 package modelos.Proyectiles;
+import controladores.ControladorSonidos;
+import controladores.TipoSonido;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
@@ -62,6 +64,7 @@ public class Nota extends Proyectil {
         root.getChildren().remove(imagenProyectil);
         root.getChildren().remove(hitbox);
         root.getChildren().remove(imagenProyectilQuemado);
+        ControladorSonidos.reproducirSonido(TipoSonido.NOTABAJOIMPACTO);
     }
 
     /**

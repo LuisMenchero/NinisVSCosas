@@ -1,4 +1,6 @@
 package modelos.Items;
+import controladores.ControladorSonidos;
+import controladores.TipoSonido;
 import javafx.animation.PauseTransition;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -72,6 +74,7 @@ public class Butanito {
      */
     public void recoger() {
         gestorButanitos.sumarButanitos(50);
+        ControladorSonidos.reproducirSonido(TipoSonido.RECOGERBUTANITO);
         setImagenButanito("Animaciones/Items/ButanitoRecogido.gif");
         root.getChildren().remove(hitbox);
         PauseTransition pausa = new PauseTransition(Duration.seconds(1.5));
