@@ -15,10 +15,64 @@ public class ControladorSonidos {
 
     // Sonidos items
     private static Media recogerButanitoSonido = new Media(new File("src/main/resources/Sonidos/Items/butanitoRecogido.mp3").toURI().toString());
-    // Sonidos ninis
+
+    // Sonidos proyectiles
     private static Media notaBajoSonido = new Media(new File("src/main/resources/Sonidos/Ninis/notaBajo.mp3").toURI().toString());
     private static Media notaBajoImpactoSonido = new Media(new File("src/main/resources/Sonidos/Ninis/notaBajoImpacto.mp3").toURI().toString());
-    // Sonidos cosas
+//    private static Media pikminSonido = new Media(new File("").toURI().toString());
+//    private static Media pikminImpactoSonido = new Media(new File("").toURI().toString());
+//    private static Media pelotaSonido = new Media(new File("").toURI().toString());
+//    private static Media pelotaImpactoSonido = new Media(new File("").toURI().toString());
+//    private static Media cabezaGuilleSonido = new Media(new File("").toURI().toString());
+//    private static Media cabezaGuilleImpactoSonido = new Media(new File("").toURI().toString());
+//    private static Media alvaroDeslizandoSonido = new Media(new File("").toURI().toString());
+//    private static Media alvaroImpactoSonido = new Media(new File("").toURI().toString());
+
+    // Sonidos Ninis
+//    private static Media j = new Media(new File("").toURI().toString());
+//    private static Media ju = new Media(new File("").toURI().toString());
+//    private static Media jud = new Media(new File("").toURI().toString());
+
+
+    // Sonidos Cosas
+    private static Media cvsSonidoBase = new Media(new File("src/main/resources/Sonidos/Cosas/caminarCv.mp3").toURI().toString());
+    private static Media cvAtaqueSonido = new Media(new File("src/main/resources/Sonidos/Cosas/CvAtaque.mp3").toURI().toString());
+    private static Media cvRecibeDañoSonido = new Media(new File("src/main/resources/Sonidos/Cosas/CvDañoRecibido.mp3").toURI().toString());
+    private static Media cvConoRecibeDañoSonido = new Media(new File("src/main/resources/Sonidos/Cosas/CvConoDañoRecibido.mp3").toURI().toString());
+    private static Media cvCascoRecibeDañoSonido = new Media(new File("src/main/resources/Sonidos/Cosas/CvCascoDañoRecibido.mp3").toURI().toString());
+    private static Media cvPalaAtaqueSonido = new Media(new File("src/main/resources/Sonidos/Cosas/CvPalaAtaque.mp3").toURI().toString());
+    private static Media cvPalaRecibeDañoSonido = new Media(new File("src/main/resources/Sonidos/Cosas/CvPalaDañoRecibido.mp3").toURI().toString());
+    private static Media cvsSonidoMuerte = new Media(new File("src/main/resources/Sonidos/Cosas/CvMuerte.mp3").toURI().toString());
+//
+//    private static Media bonitilloSonidoBase = new Media(new File("").toURI().toString());
+//    private static Media bonitilloAtaqueSonido = new Media(new File("").toURI().toString());
+//    private static Media bonitilloRecibeDañoSonido = new Media(new File("").toURI().toString());
+//    private static Media bonitilloSonidoMuerte = new Media(new File("").toURI().toString());
+//
+//    private static Media jamiroquaiSonidoBase = new Media(new File("").toURI().toString());
+//    private static Media jamiroquaiAtaqueSonido = new Media(new File("").toURI().toString());
+//    private static Media jamiroquaiRecibeDañoSonido = new Media(new File("").toURI().toString());
+//    private static Media jamiroquaiSonidoMuerte = new Media(new File("").toURI().toString());
+//
+//    private static Media haciendaSonidoBase = new Media(new File("").toURI().toString());
+//    private static Media haciendaAtaqueSonido = new Media(new File("").toURI().toString());
+//    private static Media haciendaRecibeDañoSonido = new Media(new File("").toURI().toString());
+//    private static Media haciendaSonidoMuerte = new Media(new File("").toURI().toString());
+//
+//    private static Media ordenadorSonidoBase = new Media(new File("").toURI().toString());
+//    private static Media ordenadorAtaqueSonido = new Media(new File("").toURI().toString());
+//    private static Media ordenadorRecibeDañoSonido = new Media(new File("").toURI().toString());
+//    private static Media ordenadorSonidoMuerte = new Media(new File("").toURI().toString());
+//
+//    private static Media angineSonidoBase = new Media(new File("").toURI().toString());
+//    private static Media angineAtaqueSonido = new Media(new File("").toURI().toString());
+//    private static Media angineRecibeDañoSonido = new Media(new File("").toURI().toString());
+//    private static Media angineSonidoMuerte = new Media(new File("").toURI().toString());
+//
+//    private static Media furgoSonidoBase = new Media(new File("").toURI().toString());
+//    private static Media furgoAtaqueSonido = new Media(new File("").toURI().toString());
+//    private static Media furgoRecibeDañoSonido = new Media(new File("").toURI().toString());
+//    private static Media furgoSonidoMuerte = new Media(new File("").toURI().toString());
 
 
     // Lista de sonidos
@@ -34,9 +88,22 @@ public class ControladorSonidos {
         listaSonidos.put(TipoSonido.PULSARBOTON,pulsarBotonSonido);
         listaSonidos.put(TipoSonido.UNIRSELLAMADA,unirseLlamada);
         listaSonidos.put(TipoSonido.COLGARLLAMADA,colgarLlamada);
+
         listaSonidos.put(TipoSonido.RECOGERBUTANITO,recogerButanitoSonido);
+
         listaSonidos.put(TipoSonido.NOTABAJO,notaBajoSonido);
         listaSonidos.put(TipoSonido.NOTABAJOIMPACTO,notaBajoImpactoSonido);
+
+        listaSonidos.put(TipoSonido.CVBASE,cvsSonidoBase);
+        listaSonidos.put(TipoSonido.CVATAQUE,cvAtaqueSonido);
+        listaSonidos.put(TipoSonido.CVRECIBEDAÑO,cvRecibeDañoSonido);
+        listaSonidos.put(TipoSonido.CVCONORECIBEDAÑO,cvConoRecibeDañoSonido);
+        listaSonidos.put(TipoSonido.CVCASCORECIBEDAÑO,cvCascoRecibeDañoSonido);
+        listaSonidos.put(TipoSonido.CVPALAATAQUE,cvPalaAtaqueSonido);
+        listaSonidos.put(TipoSonido.CVPALARECIBEDAÑO,cvPalaRecibeDañoSonido);
+
+
+        listaSonidos.put(TipoSonido.CVMUERTE,cvsSonidoMuerte);
 
     }
 

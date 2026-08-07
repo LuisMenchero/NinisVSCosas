@@ -1,4 +1,6 @@
 package modelos.Cosas;
+import controladores.ControladorSonidos;
+import controladores.TipoSonido;
 import javafx.animation.Animation;
 import javafx.animation.PauseTransition;
 import javafx.animation.TranslateTransition;
@@ -36,6 +38,9 @@ public class Cv extends Cosa {
         this.imagenCosa.setLayoutX(columna);
         this.hitbox.setX((columna + 20) - pixelesPorSegundosActual * tiempoFrames);
         this.imagenCongelado.setLayoutX(columna);
+
+
+
     }
 
     /**
@@ -54,6 +59,7 @@ public class Cv extends Cosa {
         tiempoUltimoGolpe = tiempoUltimoGolpe + tiempoFrames;
         if (tiempoUltimoGolpe > cooldownAtaque && pixelesPorSegundosActual == 0) {
             tiempoUltimoGolpe = 0;
+            ControladorSonidos.reproducirSonido(TipoSonido.CVATAQUE);
             niniAtacando.recibirDaño(daño);
             System.out.println("vida nini : " + niniAtacando.getSalud());
         }
@@ -74,6 +80,19 @@ public class Cv extends Cosa {
     public void actualizar(double tiempoFrames) {
         caminar(tiempoFrames);
 
+        if (pixelesPorSegundosActual != 0) {
+            tiempoUltimoSonido = tiempoUltimoSonido + tiempoFrames;
+            if (tiempoUltimoSonido > 1.3) {
+                tiempoUltimoSonido = 0;
+                ControladorSonidos.reproducirSonido(TipoSonido.CVBASE);
+            }
+        }
+    }
+
+    @Override
+    public void recibirDaño(int daño) {
+        super.recibirDaño(daño);
+        ControladorSonidos.reproducirSonido(TipoSonido.CVRECIBEDAÑO);
     }
 
     /**
@@ -93,6 +112,7 @@ public class Cv extends Cosa {
     public void morir() {
         this.setImagenCosa("Animaciones/Cosas/CVmuerte.gif");
         setPixelesPorSegundosActual(0);
+        ControladorSonidos.reproducirSonido(TipoSonido.CVMUERTE);
         PauseTransition pausa = new PauseTransition(Duration.seconds(1.5));
         pausa.setOnFinished(e -> {
             super.morir();

@@ -1,5 +1,7 @@
 package modelos.Cosas;
 
+import controladores.ControladorSonidos;
+import controladores.TipoSonido;
 import javafx.animation.PauseTransition;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
@@ -58,6 +60,7 @@ public class ConoCv extends Cosa {
             tiempoUltimoGolpe = tiempoUltimoGolpe + tiempoFrames;
             if (tiempoUltimoGolpe > cooldownAtaque && pixelesPorSegundosActual == 1) {
                 tiempoUltimoGolpe = 0;
+                ControladorSonidos.reproducirSonido(TipoSonido.CVATAQUE);
                 niniAtacando.recibirDaño(daño);
                 System.out.println("vida nini : " + niniAtacando.getSalud());
             }
@@ -76,6 +79,7 @@ public class ConoCv extends Cosa {
             tiempoUltimoGolpe = tiempoUltimoGolpe + tiempoFrames;
             if (tiempoUltimoGolpe > cooldownAtaque && pixelesPorSegundosActual == 0) {
                 tiempoUltimoGolpe = 0;
+                ControladorSonidos.reproducirSonido(TipoSonido.CVATAQUE);
                 niniAtacando.recibirDaño(daño);
                 System.out.println("vida nini : " + niniAtacando.getSalud());
             }
@@ -101,6 +105,23 @@ public class ConoCv extends Cosa {
         caminar(tiempoFrames);
         if (salud <= saludMaxima / 2 && !conoRoto && !estaMuerto) {
             romperCono();
+        }
+        if (pixelesPorSegundosActual != 0) {
+            tiempoUltimoSonido = tiempoUltimoSonido + tiempoFrames;
+            if (tiempoUltimoSonido > 1.3) {
+                tiempoUltimoSonido = 0;
+                ControladorSonidos.reproducirSonido(TipoSonido.CVBASE);
+            }
+        }
+    }
+
+    @Override
+    public void recibirDaño(int daño) {
+        super.recibirDaño(daño);
+        if (!conoRoto) {
+            ControladorSonidos.reproducirSonido(TipoSonido.CVCONORECIBEDAÑO);
+        } else {
+            ControladorSonidos.reproducirSonido(TipoSonido.CVRECIBEDAÑO);
         }
     }
 
@@ -132,6 +153,7 @@ public class ConoCv extends Cosa {
     public void morir() {
         this.setImagenCosa("Animaciones/Cosas/CVmuerte.gif");
         setPixelesPorSegundosActual(0);
+        ControladorSonidos.reproducirSonido(TipoSonido.CVMUERTE);
         PauseTransition pausa = new PauseTransition(Duration.seconds(1.5));
         pausa.setOnFinished(e -> {
             super.morir();

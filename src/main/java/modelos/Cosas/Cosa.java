@@ -48,6 +48,9 @@ public abstract class Cosa {
     protected boolean estaCongelado = false;
     protected ImageView imagenCongelado;
 
+    // Para sonidos
+    protected double tiempoUltimoSonido;
+
     // --- CONSTRUCTOR ---
     /**
      * Contructor de una cosa, inicia y coloca su imagen, hitbox...
