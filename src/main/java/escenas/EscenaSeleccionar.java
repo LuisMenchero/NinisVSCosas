@@ -1,4 +1,6 @@
 package escenas;
+import controladores.ControladorSonidos;
+import controladores.TipoSonido;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -41,12 +43,14 @@ public class EscenaSeleccionar {
         btnSalir.setLayoutX(225);
         btnSalir.setLayoutY(580);
         btnSalir.setOnAction(evento -> {
+            ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
             EscenaMenu escenaMenu = new EscenaMenu();
             stage.setScene(escenaMenu.construir(stage));
         });
 
         btnSalir.setStyle("-fx-background-color: none; -fx-text-fill: #7289da; -fx-font-size: 35px;");
-        btnSalir.setOnMouseEntered(evento -> {btnSalir.setStyle("-fx-background-color: none; -fx-text-fill: white; -fx-font-size: 35px;");});
+        btnSalir.setOnMouseEntered(evento -> {ControladorSonidos.reproducirSonido(TipoSonido.MANTENERBOTON);
+            btnSalir.setStyle("-fx-background-color: none; -fx-text-fill: white; -fx-font-size: 35px;");});
         btnSalir.setOnMouseExited(evento -> {btnSalir.setStyle("-fx-background-color: none; -fx-text-fill: #7289da; -fx-font-size: 35px;");});
 
 
@@ -123,7 +127,8 @@ public class EscenaSeleccionar {
         btnQuitarNini.setLayoutY(620);
         btnQuitarNini.setVisible(false);
         btnQuitarNini.setStyle("-fx-background-color: none; -fx-text-fill: #dc3838; -fx-font-size: 35px;");
-        btnQuitarNini.setOnMouseEntered(evento -> {btnQuitarNini.setStyle("-fx-background-color: none; -fx-text-fill: white; -fx-font-size: 35px;");});
+        btnQuitarNini.setOnMouseEntered(evento -> {ControladorSonidos.reproducirSonido(TipoSonido.MANTENERBOTON);
+            btnQuitarNini.setStyle("-fx-background-color: none; -fx-text-fill: white; -fx-font-size: 35px;");});
         btnQuitarNini.setOnMouseExited(evento -> {btnQuitarNini.setStyle("-fx-background-color: none; -fx-text-fill: #dc3838; -fx-font-size: 35px;");});
 
 
@@ -137,6 +142,8 @@ public class EscenaSeleccionar {
         luis.setLayoutY(fila1);
 
         luis.setOnMouseClicked(evento -> {
+            ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
+            ControladorSonidos.reproducirSonido(TipoSonido.UNIRSELLAMADA);
             colocar(TipoNini.LUIS, luis);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Lis.gif"));
             nombreNini.setText("-- LUIS --");
@@ -149,6 +156,8 @@ public class EscenaSeleccionar {
             dañoNini.setText("");
             btnQuitarNini.setVisible(true);
             btnQuitarNini.setOnMouseClicked(quitarNini -> {
+                ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
+                ControladorSonidos.reproducirSonido(TipoSonido.COLGARLLAMADA);
                 quitarSeleccionado(TipoNini.LUIS, luis, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
             });
         });
@@ -159,6 +168,8 @@ public class EscenaSeleccionar {
         diego.setLayoutX(columna2);
         diego.setLayoutY(fila1);
         diego.setOnMouseClicked(evento -> {
+            ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
+            ControladorSonidos.reproducirSonido(TipoSonido.UNIRSELLAMADA);
             colocar(TipoNini.DIEGO, diego);
             fotoDesc.setImage(new Image("Animaciones/Ninis/DiegoEsperando.gif"));
             nombreNini.setText("-- DIEGO --");
@@ -171,6 +182,8 @@ public class EscenaSeleccionar {
             dañoNini.setText(" - DAÑO - \n - Daño por proyectil: 20 .");
             btnQuitarNini.setVisible(true);
             btnQuitarNini.setOnMouseClicked(quitarNini -> {
+                ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
+                ControladorSonidos.reproducirSonido(TipoSonido.COLGARLLAMADA);
                 quitarSeleccionado(TipoNini.DIEGO, diego, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
             });
         });
@@ -181,6 +194,8 @@ public class EscenaSeleccionar {
         callejo.setLayoutX(columna3);
         callejo.setLayoutY(fila1);
         callejo.setOnMouseClicked(evento -> {
+            ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
+            ControladorSonidos.reproducirSonido(TipoSonido.UNIRSELLAMADA);
             colocar(TipoNini.CALLEJO, callejo);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Callejo_idle.gif"));
             nombreNini.setText("-- CALLEJO --");
@@ -193,6 +208,8 @@ public class EscenaSeleccionar {
             dañoNini.setText("");
             btnQuitarNini.setVisible(true);
             btnQuitarNini.setOnMouseClicked(quitarNini -> {
+                ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
+                ControladorSonidos.reproducirSonido(TipoSonido.COLGARLLAMADA);
                 quitarSeleccionado(TipoNini.CALLEJO, callejo, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
             });
         });
@@ -203,6 +220,8 @@ public class EscenaSeleccionar {
         adripan.setLayoutX(columna4);
         adripan.setLayoutY(fila1);
         adripan.setOnMouseClicked(evento -> {
+            ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
+            ControladorSonidos.reproducirSonido(TipoSonido.UNIRSELLAMADA);
             colocar(TipoNini.ADRIPAN, adripan);
             fotoDesc.setImage(new Image("Animaciones/Ninis/AdripanEsperando.gif"));
             nombreNini.setText("-- ADRIPAN --");
@@ -215,6 +234,8 @@ public class EscenaSeleccionar {
             dañoNini.setText(" - DAÑO - \n - Daño de explosión: 9999 .");
             btnQuitarNini.setVisible(true);
             btnQuitarNini.setOnMouseClicked(quitarNini -> {
+                ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
+                ControladorSonidos.reproducirSonido(TipoSonido.COLGARLLAMADA);
                 quitarSeleccionado(TipoNini.ADRIPAN, adripan, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
             });
         });
@@ -225,6 +246,8 @@ public class EscenaSeleccionar {
         isma.setLayoutX(columna5);
         isma.setLayoutY(fila1);
         isma.setOnMouseClicked(evento -> {
+            ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
+            ControladorSonidos.reproducirSonido(TipoSonido.UNIRSELLAMADA);
             colocar(TipoNini.ISMA, isma);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Isma_Idle.gif"));
             nombreNini.setText("-- ISMA --");
@@ -237,6 +260,8 @@ public class EscenaSeleccionar {
             dañoNini.setText(" - DAÑO - \n - Daño de explosión: 99999 .");
             btnQuitarNini.setVisible(true);
             btnQuitarNini.setOnMouseClicked(quitarNini -> {
+                ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
+                ControladorSonidos.reproducirSonido(TipoSonido.COLGARLLAMADA);
                 quitarSeleccionado(TipoNini.ISMA, isma, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
             });
         });
@@ -249,6 +274,8 @@ public class EscenaSeleccionar {
         ximena.setLayoutX(columna1);
         ximena.setLayoutY(fila2);
         ximena.setOnMouseClicked(evento -> {
+            ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
+            ControladorSonidos.reproducirSonido(TipoSonido.UNIRSELLAMADA);
             colocar(TipoNini.XIMENA, ximena);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Ximena_idle.gif"));
             nombreNini.setText("-- XIMENA --");
@@ -261,6 +288,8 @@ public class EscenaSeleccionar {
             dañoNini.setText("");
             btnQuitarNini.setVisible(true);
             btnQuitarNini.setOnMouseClicked(quitarNini -> {
+                ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
+                ControladorSonidos.reproducirSonido(TipoSonido.COLGARLLAMADA);
                 quitarSeleccionado(TipoNini.XIMENA, ximena, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
             });
         });
@@ -271,6 +300,8 @@ public class EscenaSeleccionar {
         lopez.setLayoutX(columna2);
         lopez.setLayoutY(fila2);
         lopez.setOnMouseClicked(evento -> {
+            ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
+            ControladorSonidos.reproducirSonido(TipoSonido.UNIRSELLAMADA);
             colocar(TipoNini.LOPEZ, lopez);
             fotoDesc.setImage(new Image("Animaciones/Ninis/LopezEsperando.gif"));
             nombreNini.setText("-- LÓPEZ --");
@@ -283,6 +314,8 @@ public class EscenaSeleccionar {
             dañoNini.setText(" - DAÑO - \n - Daño por proyectil: 20 .");
             btnQuitarNini.setVisible(true);
             btnQuitarNini.setOnMouseClicked(quitarNini -> {
+                ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
+                ControladorSonidos.reproducirSonido(TipoSonido.COLGARLLAMADA);
                 quitarSeleccionado(TipoNini.LOPEZ, lopez, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
             });
 
@@ -294,6 +327,8 @@ public class EscenaSeleccionar {
         guille.setLayoutX(columna3);
         guille.setLayoutY(fila2);
         guille.setOnMouseClicked(evento -> {
+            ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
+            ControladorSonidos.reproducirSonido(TipoSonido.UNIRSELLAMADA);
             colocar(TipoNini.GUILLE, guille);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Guille_Idle.gif"));
             nombreNini.setText("-- GUILLE --");
@@ -306,6 +341,8 @@ public class EscenaSeleccionar {
             dañoNini.setText(" - DAÑO - \n - Daño por proyectil: 99999 .");
             btnQuitarNini.setVisible(true);
             btnQuitarNini.setOnMouseClicked(quitarNini -> {
+                ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
+                ControladorSonidos.reproducirSonido(TipoSonido.COLGARLLAMADA);
                 quitarSeleccionado(TipoNini.GUILLE, guille, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
             });
         });
@@ -316,6 +353,8 @@ public class EscenaSeleccionar {
         dani.setLayoutX(columna4);
         dani.setLayoutY(fila2);
         dani.setOnMouseClicked(evento -> {
+            ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
+            ControladorSonidos.reproducirSonido(TipoSonido.UNIRSELLAMADA);
             colocar(TipoNini.DANI, dani);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Dani_idle.gif"));
             nombreNini.setText("-- DANI --");
@@ -328,6 +367,8 @@ public class EscenaSeleccionar {
             dañoNini.setText(" - DAÑO - \n - Daño por proyectil: 200 .");
             btnQuitarNini.setVisible(true);
             btnQuitarNini.setOnMouseClicked(quitarNini -> {
+                ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
+                ControladorSonidos.reproducirSonido(TipoSonido.COLGARLLAMADA);
                 quitarSeleccionado(TipoNini.DANI, dani, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
             });
         });
@@ -338,6 +379,8 @@ public class EscenaSeleccionar {
         keke.setLayoutX(columna5);
         keke.setLayoutY(fila2);
         keke.setOnMouseClicked(evento -> {
+            ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
+            ControladorSonidos.reproducirSonido(TipoSonido.UNIRSELLAMADA);
             colocar(TipoNini.KEKE, keke);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Keke_Idle.gif"));
             nombreNini.setText("-- KEKE --");
@@ -350,6 +393,8 @@ public class EscenaSeleccionar {
             dañoNini.setText("");
             btnQuitarNini.setVisible(true);
             btnQuitarNini.setOnMouseClicked(quitarNini -> {
+                ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
+                ControladorSonidos.reproducirSonido(TipoSonido.COLGARLLAMADA);
                 quitarSeleccionado(TipoNini.KEKE, keke, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
             });
         });
@@ -361,6 +406,8 @@ public class EscenaSeleccionar {
         guevara.setLayoutX(columna1);
         guevara.setLayoutY(fila3);
         guevara.setOnMouseClicked(evento -> {
+            ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
+            ControladorSonidos.reproducirSonido(TipoSonido.UNIRSELLAMADA);
             colocar(TipoNini.GUEVARA, guevara);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Guevara_Idle.gif"));
             nombreNini.setText("-- GUEVARA --");
@@ -373,6 +420,8 @@ public class EscenaSeleccionar {
             dañoNini.setText("");
             btnQuitarNini.setVisible(true);
             btnQuitarNini.setOnMouseClicked(quitarNini -> {
+                ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
+                ControladorSonidos.reproducirSonido(TipoSonido.COLGARLLAMADA);
                 quitarSeleccionado(TipoNini.GUEVARA, guevara, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
             });
         });
@@ -383,6 +432,8 @@ public class EscenaSeleccionar {
         lorena.setLayoutX(columna2);
         lorena.setLayoutY(fila3);
         lorena.setOnMouseClicked(evento -> {
+            ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
+            ControladorSonidos.reproducirSonido(TipoSonido.UNIRSELLAMADA);
             colocar(TipoNini.LORENA, lorena);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Lorena_Idle.gif"));
             nombreNini.setText("-- LORENA --");
@@ -395,6 +446,8 @@ public class EscenaSeleccionar {
             dañoNini.setText("");
             btnQuitarNini.setVisible(true);
             btnQuitarNini.setOnMouseClicked(quitarNini -> {
+                ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
+                ControladorSonidos.reproducirSonido(TipoSonido.COLGARLLAMADA);
                 quitarSeleccionado(TipoNini.LORENA, lorena, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
             });
         });
@@ -405,6 +458,8 @@ public class EscenaSeleccionar {
         maria.setLayoutX(columna3);
         maria.setLayoutY(fila3);
         maria.setOnMouseClicked(evento -> {
+            ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
+            ControladorSonidos.reproducirSonido(TipoSonido.UNIRSELLAMADA);
             colocar(TipoNini.MARIA, maria);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Maria_Idle.gif"));
             nombreNini.setText("-- MARIA --");
@@ -417,6 +472,8 @@ public class EscenaSeleccionar {
             dañoNini.setText("");
             btnQuitarNini.setVisible(true);
             btnQuitarNini.setOnMouseClicked(quitarNini -> {
+                ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
+                ControladorSonidos.reproducirSonido(TipoSonido.COLGARLLAMADA);
                 quitarSeleccionado(TipoNini.MARIA, maria, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
             });
         });
@@ -427,6 +484,8 @@ public class EscenaSeleccionar {
         jud.setLayoutX(columna4);
         jud.setLayoutY(fila3);
         jud.setOnMouseClicked(evento -> {
+            ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
+            ControladorSonidos.reproducirSonido(TipoSonido.UNIRSELLAMADA);
             colocar(TipoNini.JUD, jud);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Jud_Idle.gif"));
             nombreNini.setText("-- JUD --");
@@ -439,6 +498,8 @@ public class EscenaSeleccionar {
             dañoNini.setText("");
             btnQuitarNini.setVisible(true);
             btnQuitarNini.setOnMouseClicked(quitarNini -> {
+                ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
+                ControladorSonidos.reproducirSonido(TipoSonido.COLGARLLAMADA);
                 quitarSeleccionado(TipoNini.JUD, jud, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
             });
         });
@@ -449,6 +510,8 @@ public class EscenaSeleccionar {
         elsa.setLayoutX(columna5);
         elsa.setLayoutY(fila3);
         elsa.setOnMouseClicked(evento -> {
+            ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
+            ControladorSonidos.reproducirSonido(TipoSonido.UNIRSELLAMADA);
             colocar(TipoNini.ELSA, elsa);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Elsa_Idle.gif"));
             nombreNini.setText("-- ELSA --");
@@ -461,6 +524,8 @@ public class EscenaSeleccionar {
             dañoNini.setText("");
             btnQuitarNini.setVisible(true);
             btnQuitarNini.setOnMouseClicked(quitarNini -> {
+                ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
+                ControladorSonidos.reproducirSonido(TipoSonido.COLGARLLAMADA);
                 quitarSeleccionado(TipoNini.ELSA, elsa, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
             });
         });
@@ -472,6 +537,8 @@ public class EscenaSeleccionar {
         eliseo.setLayoutX(columna1);
         eliseo.setLayoutY(fila4);
         eliseo.setOnMouseClicked(evento -> {
+            ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
+            ControladorSonidos.reproducirSonido(TipoSonido.UNIRSELLAMADA);
             colocar(TipoNini.ELISEO, eliseo);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Eliseo3bolas_Idle.gif"));
             nombreNini.setText("-- ELISEO --");
@@ -484,6 +551,8 @@ public class EscenaSeleccionar {
             dañoNini.setText("");
             btnQuitarNini.setVisible(true);
             btnQuitarNini.setOnMouseClicked(quitarNini -> {
+                ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
+                ControladorSonidos.reproducirSonido(TipoSonido.COLGARLLAMADA);
                 quitarSeleccionado(TipoNini.ELISEO, eliseo, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
             });
         });
@@ -494,6 +563,8 @@ public class EscenaSeleccionar {
         raul.setLayoutX(columna2);
         raul.setLayoutY(fila4);
         raul.setOnMouseClicked(evento -> {
+            ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
+            ControladorSonidos.reproducirSonido(TipoSonido.UNIRSELLAMADA);
             colocar(TipoNini.RAUL, raul);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Raul_Idle.gif"));
             nombreNini.setText("-- RAUL --");
@@ -506,6 +577,8 @@ public class EscenaSeleccionar {
             dañoNini.setText(" - DAÑO - \n - Daño por proyectil: 20 .");
             btnQuitarNini.setVisible(true);
             btnQuitarNini.setOnMouseClicked(quitarNini -> {
+                ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
+                ControladorSonidos.reproducirSonido(TipoSonido.COLGARLLAMADA);
                 quitarSeleccionado(TipoNini.RAUL, raul, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
             });
         });
@@ -516,6 +589,8 @@ public class EscenaSeleccionar {
         irene.setLayoutX(columna3);
         irene.setLayoutY(fila4);
         irene.setOnMouseClicked(evento -> {
+            ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
+            ControladorSonidos.reproducirSonido(TipoSonido.UNIRSELLAMADA);
             colocar(TipoNini.IRENE, irene);
              fotoDesc.setImage(new Image("Animaciones/Ninis/Irene_Idle.gif"));
             nombreNini.setText("-- IRENE --");
@@ -528,6 +603,8 @@ public class EscenaSeleccionar {
             dañoNini.setText("");
             btnQuitarNini.setVisible(true);
             btnQuitarNini.setOnMouseClicked(quitarNini -> {
+                ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
+                ControladorSonidos.reproducirSonido(TipoSonido.COLGARLLAMADA);
                 quitarSeleccionado(TipoNini.IRENE, irene, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
             });
         });
@@ -538,6 +615,8 @@ public class EscenaSeleccionar {
         alvaro.setLayoutX(columna4);
         alvaro.setLayoutY(fila4);
         alvaro.setOnMouseClicked(evento -> {
+            ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
+            ControladorSonidos.reproducirSonido(TipoSonido.UNIRSELLAMADA);
             colocar(TipoNini.ALVARO, alvaro);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Alvaro_Idle.gif"));
             nombreNini.setText("-- ALVARO --");
@@ -550,6 +629,8 @@ public class EscenaSeleccionar {
             dañoNini.setText(" - DAÑO - \n - Daño por proyectil: 35.");
             btnQuitarNini.setVisible(true);
             btnQuitarNini.setOnMouseClicked(quitarNini -> {
+                ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
+                ControladorSonidos.reproducirSonido(TipoSonido.COLGARLLAMADA);
                 quitarSeleccionado(TipoNini.ALVARO, alvaro, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
             });
         });
@@ -560,6 +641,8 @@ public class EscenaSeleccionar {
         hamil.setLayoutX(columna5);
         hamil.setLayoutY(fila4);
         hamil.setOnMouseClicked(evento -> {
+            ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
+            ControladorSonidos.reproducirSonido(TipoSonido.UNIRSELLAMADA);
             colocar(TipoNini.HAMIL, hamil);
             fotoDesc.setImage(new Image("Animaciones/Ninis/Hamil_Idle.gif"));
             nombreNini.setText("-- HAMIL --");
@@ -572,6 +655,8 @@ public class EscenaSeleccionar {
             dañoNini.setText("");
             btnQuitarNini.setVisible(true);
             btnQuitarNini.setOnMouseClicked(quitarNini -> {
+                ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
+                ControladorSonidos.reproducirSonido(TipoSonido.COLGARLLAMADA);
                 quitarSeleccionado(TipoNini.HAMIL, hamil, fotoDesc, nombreNini, descNini, costeNini, vidaNini, alcanceAtaque, radioAtaque, tipoProyectil, dañoNini, btnQuitarNini);
             });
         });

@@ -4,6 +4,8 @@ import Estadisticas.TransformadorXSLT;
 import Logros.Logro;
 import Logros.TipoDificultad;
 import Logros.TipoMedalla;
+import controladores.ControladorSonidos;
+import controladores.TipoSonido;
 import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -36,11 +38,13 @@ public class EscenaMenu {
         ImageView fondo = new ImageView("/Imagenes/fondomenu.png");
         fondo.setFitWidth(1280);
         fondo.setFitHeight(720);
+        ControladorSonidos controladorSonidos = new ControladorSonidos();
 
         Button btnJugar = new Button("Jugar");
         btnJugar.setLayoutX(575);
         btnJugar.setLayoutY(150);
         btnJugar.setOnAction(evento -> {
+            ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
             EscenaJuego escenaJuego = new EscenaJuego();
             stage.setScene(escenaJuego.construir(stage));
             inicioPartida = Instant.now();
@@ -58,18 +62,21 @@ public class EscenaMenu {
             logros[5] = logro6;
         });
         btnJugar.setStyle("-fx-background-color: none; -fx-text-fill: #7289da; -fx-font-size: 35px;");
-        btnJugar.setOnMouseEntered(evento -> {btnJugar.setStyle("-fx-background-color: none; -fx-text-fill: white; -fx-font-size: 35px;");});
+        btnJugar.setOnMouseEntered(evento -> {ControladorSonidos.reproducirSonido(TipoSonido.MANTENERBOTON);
+            btnJugar.setStyle("-fx-background-color: none; -fx-text-fill: white; -fx-font-size: 35px;");});
         btnJugar.setOnMouseExited(evento -> {btnJugar.setStyle("-fx-background-color: none; -fx-text-fill: #7289da; -fx-font-size: 35px;");});
 
         Button btnSeleccionar = new Button("Seleccionar ninis");
         btnSeleccionar.setLayoutX(500);
         btnSeleccionar.setLayoutY(270);
         btnSeleccionar.setOnAction(evento -> {
+            ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
             EscenaSeleccionar escenaSeleccionar = new EscenaSeleccionar();
             stage.setScene(escenaSeleccionar.construir(stage));
         });
         btnSeleccionar.setStyle("-fx-background-color: none; -fx-text-fill: #7289da; -fx-font-size: 35px;");
-        btnSeleccionar.setOnMouseEntered(evento -> {btnSeleccionar.setStyle("-fx-background-color: none; -fx-text-fill: #ffffff; -fx-font-size: 35px;");});
+        btnSeleccionar.setOnMouseEntered(evento -> {ControladorSonidos.reproducirSonido(TipoSonido.MANTENERBOTON);
+            btnSeleccionar.setStyle("-fx-background-color: none; -fx-text-fill: #ffffff; -fx-font-size: 35px;");});
         btnSeleccionar.setOnMouseExited(evento -> {btnSeleccionar.setStyle("-fx-background-color: none; -fx-text-fill: #7289da; -fx-font-size: 35px;");});
 
 
@@ -77,6 +84,7 @@ public class EscenaMenu {
         btnEstadisticas.setLayoutX(535);
         btnEstadisticas.setLayoutY(390);
         btnEstadisticas.setOnAction(evento -> {
+            ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
             GestorXML.inicializarXML();
             TransformadorXSLT.transformarXML();
             try {
@@ -87,7 +95,8 @@ public class EscenaMenu {
             }
         });
         btnEstadisticas.setStyle("-fx-background-color: none; -fx-text-fill: #7289da; -fx-font-size: 35px;");
-        btnEstadisticas.setOnMouseEntered(evento -> {btnEstadisticas.setStyle("-fx-background-color: none; -fx-text-fill: white; -fx-font-size: 35px;");});
+        btnEstadisticas.setOnMouseEntered(evento -> {ControladorSonidos.reproducirSonido(TipoSonido.MANTENERBOTON);
+            btnEstadisticas.setStyle("-fx-background-color: none; -fx-text-fill: white; -fx-font-size: 35px;");});
         btnEstadisticas.setOnMouseExited(evento -> {btnEstadisticas.setStyle("-fx-background-color: none; -fx-text-fill: #7289da; -fx-font-size: 35px;");});
 
 
@@ -96,11 +105,13 @@ public class EscenaMenu {
         btnSalir.setLayoutX(580);
         btnSalir.setLayoutY(510);
         btnSalir.setOnAction(evento -> {
+            ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
             Platform.exit();
             System.exit(0);
         });
         btnSalir.setStyle("-fx-background-color: none; -fx-text-fill: #7289da; -fx-font-size: 35px;");
-        btnSalir.setOnMouseEntered(evento -> {btnSalir.setStyle("-fx-background-color: none; -fx-text-fill: white; -fx-font-size: 35px;");});
+        btnSalir.setOnMouseEntered(evento -> {ControladorSonidos.reproducirSonido(TipoSonido.MANTENERBOTON);
+            btnSalir.setStyle("-fx-background-color: none; -fx-text-fill: white; -fx-font-size: 35px;");});
         btnSalir.setOnMouseExited(evento -> {btnSalir.setStyle("-fx-background-color: none; -fx-text-fill: #7289da; -fx-font-size: 35px;");});
 
 

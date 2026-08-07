@@ -52,7 +52,6 @@ public class EscenaJuego {
         fondo.setFitWidth(1280);
         fondo.setFitHeight(720);
         ControladorMusica.reproducirMusicaJuego();
-        ControladorSonidos controladorSonidos = new ControladorSonidos();
         // Para crear e inicializar el tablero donde colocar las plantas/ninis
         for (int i = 0; i < Cuadricula.columnas; i++) {
             for (int j = 0; j < Cuadricula.filas; j++) {
