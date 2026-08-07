@@ -1,4 +1,455 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet href="EstadisticasJugadores.xsl" type="text/xsl"?><?xml-model href="EstadisticasJugadores.xsd"?>
-<jugadores>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet href="EstadisticasJugadores.xsl" type="text/xsl"?><?xml-model href="EstadisticasJugadores.xsd"?><jugadores>
+    
+  
+  <jugador id="1">
+        
+    <nombre> --- </nombre>
+        
+    <ninisJugados>
+            
+      <nini imagen=" " tipoNini="null">
+                
+        <nombre> </nombre>
+                
+        <descripcion> </descripcion>
+                
+        <coste> </coste>
+                
+        <vida> </vida>
+                
+        <alcanceAtaque> </alcanceAtaque>
+                
+        <radioAtaque> </radioAtaque>
+                
+        <tipoProyectil> </tipoProyectil>
+                
+        <daño> </daño>
+              
+      </nini>
+            
+      <nini imagen=" " tipoNini="null">
+                
+        <nombre> </nombre>
+                
+        <descripcion> </descripcion>
+                
+        <coste> </coste>
+                
+        <vida> </vida>
+                
+        <alcanceAtaque> </alcanceAtaque>
+                
+        <radioAtaque> </radioAtaque>
+                
+        <tipoProyectil> </tipoProyectil>
+                
+        <daño> </daño>
+              
+      </nini>
+            
+      <nini imagen=" " tipoNini="null">
+                
+        <nombre> </nombre>
+                
+        <descripcion> </descripcion>
+                
+        <coste> </coste>
+                
+        <vida> </vida>
+                
+        <alcanceAtaque> </alcanceAtaque>
+                
+        <radioAtaque> </radioAtaque>
+                
+        <tipoProyectil> </tipoProyectil>
+                
+        <daño> </daño>
+              
+      </nini>
+            
+      <nini imagen=" " tipoNini="null">
+                
+        <nombre> </nombre>
+                
+        <descripcion> </descripcion>
+                
+        <coste> </coste>
+                
+        <vida> </vida>
+                
+        <alcanceAtaque> </alcanceAtaque>
+                
+        <radioAtaque> </radioAtaque>
+                
+        <tipoProyectil> </tipoProyectil>
+                
+        <daño> </daño>
+              
+      </nini>
+            
+      <nini imagen=" " tipoNini="null">
+                
+        <nombre> </nombre>
+                
+        <descripcion> </descripcion>
+                
+        <coste> </coste>
+                
+        <vida> </vida>
+                
+        <alcanceAtaque> </alcanceAtaque>
+                
+        <radioAtaque> </radioAtaque>
+                
+        <tipoProyectil> </tipoProyectil>
+                
+        <daño> </daño>
+              
+      </nini>
+            
+      <nini imagen=" " tipoNini="null">
+                
+        <nombre> </nombre>
+                
+        <descripcion> </descripcion>
+                
+        <coste> </coste>
+                
+        <vida> </vida>
+                
+        <alcanceAtaque> </alcanceAtaque>
+                
+        <radioAtaque> </radioAtaque>
+                
+        <tipoProyectil> </tipoProyectil>
+                
+        <daño> </daño>
+              
+      </nini>
+            
+      <nini imagen=" " tipoNini="null">
+                
+        <nombre> </nombre>
+                
+        <descripcion> </descripcion>
+                
+        <coste> </coste>
+                
+        <vida> </vida>
+                
+        <alcanceAtaque> </alcanceAtaque>
+                
+        <radioAtaque> </radioAtaque>
+                
+        <tipoProyectil> </tipoProyectil>
+                
+        <daño> </daño>
+              
+      </nini>
+            
+      <nini imagen=" " tipoNini="null">
+                
+        <nombre> </nombre>
+                
+        <descripcion> </descripcion>
+                
+        <coste> </coste>
+                
+        <vida> </vida>
+                
+        <alcanceAtaque> </alcanceAtaque>
+                
+        <radioAtaque> </radioAtaque>
+                
+        <tipoProyectil> </tipoProyectil>
+                
+        <daño> </daño>
+              
+      </nini>
+          
+    </ninisJugados>
+        
+    <fecha>
+            
+      <dia>7</dia>
+            
+      <mes>AUGUST</mes>
+            
+      <año>2026</año>
+          
+    </fecha>
+        
+    <tiempoJugado>
+            
+      <horas>0</horas>
+            
+      <minutos>1</minutos>
+            
+      <segundos>36</segundos>
+          
+    </tiempoJugado>
+        
+    <cosasMatadas>0</cosasMatadas>
+        
+    <ninisMuertos>0</ninisMuertos>
+        
+    <ninisEliminados>0</ninisEliminados>
+        
+    <butanitosTotales>100</butanitosTotales>
+        
+    <puntuaciónTotal>0</puntuaciónTotal>
+        
+    <logros>
+            
+      <logro completado="false" dificultad="FACIL" idLogro="1">
+                
+        <titulo>Coloca tu primer Nini</titulo>
+                
+        <minuto>0</minuto>
+                
+        <medallita>
+                    
+          <tipoMedalla>ESTIERCOL</tipoMedalla>
+                    
+          <puntuacionLogro>5</puntuacionLogro>
+                  
+        </medallita>
+              
+      </logro>
+            
+      <logro completado="false" dificultad="FACIL" idLogro="2">
+                
+        <titulo>Planta dos filas de Luises</titulo>
+                
+        <minuto>0</minuto>
+                
+        <medallita>
+                    
+          <tipoMedalla>BRONCE</tipoMedalla>
+                    
+          <puntuacionLogro>10</puntuacionLogro>
+                  
+        </medallita>
+              
+      </logro>
+            
+      <logro completado="false" dificultad="INTERMEDIO" idLogro="3">
+                
+        <titulo>Mata 200 cosas</titulo>
+                
+        <minuto>0</minuto>
+                
+        <medallita>
+                    
+          <tipoMedalla>PLATA</tipoMedalla>
+                    
+          <puntuacionLogro>15</puntuacionLogro>
+                  
+        </medallita>
+              
+      </logro>
+            
+      <logro completado="false" dificultad="DIFICIL" idLogro="4">
+                
+        <titulo>Llega a la oleada 10</titulo>
+                
+        <minuto>0</minuto>
+                
+        <medallita>
+                    
+          <tipoMedalla>ORO</tipoMedalla>
+                    
+          <puntuacionLogro>20</puntuacionLogro>
+                  
+        </medallita>
+              
+      </logro>
+            
+      <logro completado="false" dificultad="CASI_IMPOSIBLE" idLogro="5">
+                
+        <titulo>Llega a la oleada 10 sin que muera ningun nini</titulo>
+                
+        <minuto>0</minuto>
+                
+        <medallita>
+                    
+          <tipoMedalla>BUTANITO</tipoMedalla>
+                    
+          <puntuacionLogro>50</puntuacionLogro>
+                  
+        </medallita>
+              
+      </logro>
+            
+      <logro completado="false" dificultad="SECRETO" idLogro="6">
+                
+        <titulo>Elimina treinta y tres angine de poitrine</titulo>
+                
+        <minuto>0</minuto>
+                
+        <medallita>
+                    
+          <tipoMedalla>DIAMANTE</tipoMedalla>
+                    
+          <puntuacionLogro>33</puntuacionLogro>
+                  
+        </medallita>
+              
+      </logro>
+          
+    </logros>
+      
+  </jugador>
+  
+  <jugador id="2">
+    <nombre> --- </nombre>
+    <ninisJugados>
+      <nini imagen=" " tipoNini="null">
+        <nombre> </nombre>
+        <descripcion> </descripcion>
+        <coste> </coste>
+        <vida> </vida>
+        <alcanceAtaque> </alcanceAtaque>
+        <radioAtaque> </radioAtaque>
+        <tipoProyectil> </tipoProyectil>
+        <daño> </daño>
+      </nini>
+      <nini imagen=" " tipoNini="null">
+        <nombre> </nombre>
+        <descripcion> </descripcion>
+        <coste> </coste>
+        <vida> </vida>
+        <alcanceAtaque> </alcanceAtaque>
+        <radioAtaque> </radioAtaque>
+        <tipoProyectil> </tipoProyectil>
+        <daño> </daño>
+      </nini>
+      <nini imagen=" " tipoNini="null">
+        <nombre> </nombre>
+        <descripcion> </descripcion>
+        <coste> </coste>
+        <vida> </vida>
+        <alcanceAtaque> </alcanceAtaque>
+        <radioAtaque> </radioAtaque>
+        <tipoProyectil> </tipoProyectil>
+        <daño> </daño>
+      </nini>
+      <nini imagen=" " tipoNini="null">
+        <nombre> </nombre>
+        <descripcion> </descripcion>
+        <coste> </coste>
+        <vida> </vida>
+        <alcanceAtaque> </alcanceAtaque>
+        <radioAtaque> </radioAtaque>
+        <tipoProyectil> </tipoProyectil>
+        <daño> </daño>
+      </nini>
+      <nini imagen=" " tipoNini="null">
+        <nombre> </nombre>
+        <descripcion> </descripcion>
+        <coste> </coste>
+        <vida> </vida>
+        <alcanceAtaque> </alcanceAtaque>
+        <radioAtaque> </radioAtaque>
+        <tipoProyectil> </tipoProyectil>
+        <daño> </daño>
+      </nini>
+      <nini imagen=" " tipoNini="null">
+        <nombre> </nombre>
+        <descripcion> </descripcion>
+        <coste> </coste>
+        <vida> </vida>
+        <alcanceAtaque> </alcanceAtaque>
+        <radioAtaque> </radioAtaque>
+        <tipoProyectil> </tipoProyectil>
+        <daño> </daño>
+      </nini>
+      <nini imagen=" " tipoNini="null">
+        <nombre> </nombre>
+        <descripcion> </descripcion>
+        <coste> </coste>
+        <vida> </vida>
+        <alcanceAtaque> </alcanceAtaque>
+        <radioAtaque> </radioAtaque>
+        <tipoProyectil> </tipoProyectil>
+        <daño> </daño>
+      </nini>
+      <nini imagen=" " tipoNini="null">
+        <nombre> </nombre>
+        <descripcion> </descripcion>
+        <coste> </coste>
+        <vida> </vida>
+        <alcanceAtaque> </alcanceAtaque>
+        <radioAtaque> </radioAtaque>
+        <tipoProyectil> </tipoProyectil>
+        <daño> </daño>
+      </nini>
+    </ninisJugados>
+    <fecha>
+      <dia>7</dia>
+      <mes>AUGUST</mes>
+      <año>2026</año>
+    </fecha>
+    <tiempoJugado>
+      <horas>0</horas>
+      <minutos>1</minutos>
+      <segundos>25</segundos>
+    </tiempoJugado>
+    <cosasMatadas>0</cosasMatadas>
+    <ninisMuertos>0</ninisMuertos>
+    <ninisEliminados>0</ninisEliminados>
+    <butanitosTotales>100</butanitosTotales>
+    <puntuaciónTotal>0</puntuaciónTotal>
+    <logros>
+      <logro completado="false" dificultad="FACIL" idLogro="1">
+        <titulo>Coloca tu primer Nini</titulo>
+        <minuto>0</minuto>
+        <medallita>
+          <tipoMedalla>ESTIERCOL</tipoMedalla>
+          <puntuacionLogro>5</puntuacionLogro>
+        </medallita>
+      </logro>
+      <logro completado="false" dificultad="FACIL" idLogro="2">
+        <titulo>Planta dos filas de Luises</titulo>
+        <minuto>0</minuto>
+        <medallita>
+          <tipoMedalla>BRONCE</tipoMedalla>
+          <puntuacionLogro>10</puntuacionLogro>
+        </medallita>
+      </logro>
+      <logro completado="false" dificultad="INTERMEDIO" idLogro="3">
+        <titulo>Mata 200 cosas</titulo>
+        <minuto>0</minuto>
+        <medallita>
+          <tipoMedalla>PLATA</tipoMedalla>
+          <puntuacionLogro>15</puntuacionLogro>
+        </medallita>
+      </logro>
+      <logro completado="false" dificultad="DIFICIL" idLogro="4">
+        <titulo>Llega a la oleada 10</titulo>
+        <minuto>0</minuto>
+        <medallita>
+          <tipoMedalla>ORO</tipoMedalla>
+          <puntuacionLogro>20</puntuacionLogro>
+        </medallita>
+      </logro>
+      <logro completado="false" dificultad="CASI_IMPOSIBLE" idLogro="5">
+        <titulo>Llega a la oleada 10 sin que muera ningun nini</titulo>
+        <minuto>0</minuto>
+        <medallita>
+          <tipoMedalla>BUTANITO</tipoMedalla>
+          <puntuacionLogro>50</puntuacionLogro>
+        </medallita>
+      </logro>
+      <logro completado="false" dificultad="SECRETO" idLogro="6">
+        <titulo>Elimina treinta y tres angine de poitrine</titulo>
+        <minuto>0</minuto>
+        <medallita>
+          <tipoMedalla>DIAMANTE</tipoMedalla>
+          <puntuacionLogro>33</puntuacionLogro>
+        </medallita>
+      </logro>
+    </logros>
+  </jugador>
 </jugadores>

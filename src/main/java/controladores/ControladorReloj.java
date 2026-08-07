@@ -423,11 +423,13 @@ public class ControladorReloj {
 
                     Button btnAceptar = new Button("Aceptar");
                     btnAceptar.setOnAction(evento -> {
+                        ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
                         EscenaJuego.nombreJugadorLeido = nombre.getText();
                         ventanaNombre.close();
                     });
                     btnAceptar.setStyle("-fx-background-color: none; -fx-text-fill: #ffffff; -fx-font-size: 20px;");
-                    btnAceptar.setOnMouseEntered(evento -> {btnAceptar.setStyle("-fx-background-color: none; -fx-text-fill: #979797; -fx-font-size: 20px;");});
+                    btnAceptar.setOnMouseEntered(evento -> {ControladorSonidos.reproducirSonido(TipoSonido.MANTENERBOTON);
+                        btnAceptar.setStyle("-fx-background-color: none; -fx-text-fill: #979797; -fx-font-size: 20px;");});
                     btnAceptar.setOnMouseExited(evento -> {btnAceptar.setStyle("-fx-background-color: none; -fx-text-fill: #ffffff; -fx-font-size: 20px;");});
 
 

@@ -1,9 +1,6 @@
 package escenas;
 import Estadisticas.EstadisticasRecuento;
-import controladores.ControladorJuego;
-import controladores.ControladorMusica;
-import controladores.ControladorReloj;
-import controladores.ControladorSonidos;
+import controladores.*;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -67,12 +64,14 @@ public class EscenaJuego {
         btnPausa.setLayoutX(1200);
         btnPausa.setLayoutY(20);
         btnPausa.setOnAction(evento -> {
+            ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
             reloj.pausa();
             mostrarPanelPausa();
             ControladorMusica.pausarMusicaJuego();
         });
         btnPausa.setStyle("-fx-background-color: none; -fx-text-fill: #7289da; -fx-font-size: 35px;");
-        btnPausa.setOnMouseEntered(evento -> {btnPausa.setStyle("-fx-background-color: none; -fx-text-fill: white; -fx-font-size: 35px;");});
+        btnPausa.setOnMouseEntered(evento -> {ControladorSonidos.reproducirSonido(TipoSonido.MANTENERBOTON);
+            btnPausa.setStyle("-fx-background-color: none; -fx-text-fill: white; -fx-font-size: 35px;");});
         btnPausa.setOnMouseExited(evento -> {btnPausa.setStyle("-fx-background-color: none; -fx-text-fill: #7289da; -fx-font-size: 35px;");});
 
 
@@ -661,18 +660,21 @@ public class EscenaJuego {
         btnReanudar.setLayoutX(540);
         btnReanudar.setLayoutY(350);
         btnReanudar.setOnAction(evento -> {
+            ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
             reloj.pausa();
             mostrarPanelPausa();
             ControladorMusica.despausarMusicaJuego();
         });
         btnReanudar.setStyle("-fx-background-color: none; -fx-text-fill: #ffffff; -fx-font-size: 35px;");
-        btnReanudar.setOnMouseEntered(evento -> {btnReanudar.setStyle("-fx-background-color: none; -fx-text-fill: #979797; -fx-font-size: 35px;");});
+        btnReanudar.setOnMouseEntered(evento -> {ControladorSonidos.reproducirSonido(TipoSonido.MANTENERBOTON);
+            btnReanudar.setStyle("-fx-background-color: none; -fx-text-fill: #979797; -fx-font-size: 35px;");});
         btnReanudar.setOnMouseExited(evento -> {btnReanudar.setStyle("-fx-background-color: none; -fx-text-fill: #ffffff; -fx-font-size: 35px;");});
 
         Button btnSalir = new Button("Salir");
         btnSalir.setLayoutX(540);
         btnSalir.setLayoutY(400);
         btnSalir.setOnAction(evento -> {
+            ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
             reloj.terminar();
             ControladorReloj.reiniciar();
             GestorButanitos.reiniciar();
@@ -682,7 +684,8 @@ public class EscenaJuego {
             ControladorMusica.pararMusicaJuego();
         });
         btnSalir.setStyle("-fx-background-color: none; -fx-text-fill: #ffffff; -fx-font-size: 35px;");
-        btnSalir.setOnMouseEntered(evento -> {btnSalir.setStyle("-fx-background-color: none; -fx-text-fill: #979797; -fx-font-size: 35px;");});
+        btnSalir.setOnMouseEntered(evento -> {ControladorSonidos.reproducirSonido(TipoSonido.MANTENERBOTON);
+            btnSalir.setStyle("-fx-background-color: none; -fx-text-fill: #979797; -fx-font-size: 35px;");});
         btnSalir.setOnMouseExited(evento -> {btnSalir.setStyle("-fx-background-color: none; -fx-text-fill: #ffffff; -fx-font-size: 35px;");});
 
 
@@ -712,6 +715,7 @@ public class EscenaJuego {
         btnSalir.setLayoutX(570);
         btnSalir.setLayoutY(400);
         btnSalir.setOnAction(evento -> {
+            ControladorSonidos.reproducirSonido(TipoSonido.PULSARBOTON);
             ControladorReloj.reiniciar();
             GestorButanitos.reiniciar();
             GestorPuntos.reiniciar();
@@ -720,7 +724,8 @@ public class EscenaJuego {
             ControladorMusica.pararMusicaJuego();
         });
         btnSalir.setStyle("-fx-background-color: none; -fx-text-fill: #dc3838; -fx-font-size: 35px;");
-        btnSalir.setOnMouseEntered(evento -> {btnSalir.setStyle("-fx-background-color: none; -fx-text-fill: white; -fx-font-size: 35px;");});
+        btnSalir.setOnMouseEntered(evento -> {ControladorSonidos.reproducirSonido(TipoSonido.MANTENERBOTON);
+            btnSalir.setStyle("-fx-background-color: none; -fx-text-fill: white; -fx-font-size: 35px;");});
         btnSalir.setOnMouseExited(evento -> {btnSalir.setStyle("-fx-background-color: none; -fx-text-fill: #dc3838; -fx-font-size: 35px;");});
 
 
