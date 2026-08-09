@@ -43,11 +43,11 @@ public class ControladorSonidos {
     private static Media cvPalaAtaqueSonido = new Media(new File("src/main/resources/Sonidos/Cosas/CvPalaAtaque.mp3").toURI().toString());
     private static Media cvPalaRecibeDañoSonido = new Media(new File("src/main/resources/Sonidos/Cosas/CvPalaDañoRecibido.mp3").toURI().toString());
     private static Media cvsSonidoMuerte = new Media(new File("src/main/resources/Sonidos/Cosas/CvMuerte.mp3").toURI().toString());
-//
-//    private static Media bonitilloSonidoBase = new Media(new File("").toURI().toString());
-//    private static Media bonitilloAtaqueSonido = new Media(new File("").toURI().toString());
-//    private static Media bonitilloRecibeDañoSonido = new Media(new File("").toURI().toString());
-//    private static Media bonitilloSonidoMuerte = new Media(new File("").toURI().toString());
+
+    private static Media bonitilloSonidoBase = new Media(new File("src/main/resources/Sonidos/Cosas/bonitilloBase.mp3").toURI().toString());
+    private static Media bonitilloAtaqueSonido = new Media(new File("src/main/resources/Sonidos/Cosas/bonitilloAtaque.mp3").toURI().toString());
+    private static Media bonitilloRecibeDañoSonido = new Media(new File("src/main/resources/Sonidos/Cosas/bonitilloDañoRecibido.mp3").toURI().toString());
+    private static Media bonitilloSonidoMuerte = new Media(new File("src/main/resources/Sonidos/Cosas/bonitilloMuerte.mp3").toURI().toString());
 //
 //    private static Media jamiroquaiSonidoBase = new Media(new File("").toURI().toString());
 //    private static Media jamiroquaiAtaqueSonido = new Media(new File("").toURI().toString());
@@ -101,9 +101,12 @@ public class ControladorSonidos {
         listaSonidos.put(TipoSonido.CVCASCORECIBEDAÑO,cvCascoRecibeDañoSonido);
         listaSonidos.put(TipoSonido.CVPALAATAQUE,cvPalaAtaqueSonido);
         listaSonidos.put(TipoSonido.CVPALARECIBEDAÑO,cvPalaRecibeDañoSonido);
-
-
         listaSonidos.put(TipoSonido.CVMUERTE,cvsSonidoMuerte);
+
+        listaSonidos.put(TipoSonido.BONITILLOBASE,bonitilloSonidoBase);
+        listaSonidos.put(TipoSonido.BONITILLODAÑO,bonitilloAtaqueSonido);
+        listaSonidos.put(TipoSonido.BONITILLORECIBEDAÑO,bonitilloRecibeDañoSonido);
+        listaSonidos.put(TipoSonido.BONITILLOMUERE,bonitilloSonidoMuerte);
 
     }
 

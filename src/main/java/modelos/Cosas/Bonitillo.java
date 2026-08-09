@@ -1,4 +1,6 @@
 package modelos.Cosas;
+import controladores.ControladorSonidos;
+import controladores.TipoSonido;
 import javafx.animation.Animation;
 import javafx.animation.PauseTransition;
 import javafx.animation.TranslateTransition;
@@ -58,6 +60,7 @@ public class Bonitillo extends Cosa {
         tiempoUltimoGolpe = tiempoUltimoGolpe + tiempoFrames;
         if (tiempoUltimoGolpe > cooldownAtaque && pixelesPorSegundosActual == 0) {
             tiempoUltimoGolpe = 0;
+            ControladorSonidos.reproducirSonido(TipoSonido.BONITILLODAÑO);
             niniAtacando.recibirDaño(daño);
             System.out.println("vida nini : " + niniAtacando.getSalud());
         }
@@ -78,7 +81,19 @@ public class Bonitillo extends Cosa {
     @Override
     public void actualizar(double tiempoFrames) {
         caminar(tiempoFrames);
+        if (pixelesPorSegundosActual != 0) {
+            tiempoUltimoSonido = tiempoUltimoSonido + tiempoFrames;
+            if (tiempoUltimoSonido > 1) {
+                tiempoUltimoSonido = 0;
+                ControladorSonidos.reproducirSonido(TipoSonido.BONITILLOBASE);
+            }
+        }
+    }
 
+    @Override
+    public void recibirDaño(int daño) {
+        super.recibirDaño(daño);
+        ControladorSonidos.reproducirSonido(TipoSonido.BONITILLORECIBEDAÑO);
     }
 
     /**
@@ -98,6 +113,7 @@ public class Bonitillo extends Cosa {
         this.setImagenCosa("Animaciones/Cosas/Bonitillo_Muerte.gif");
         imagenCosa.setOpacity(0.6);
         setPixelesPorSegundosActual(0);
+        ControladorSonidos.reproducirSonido(TipoSonido.BONITILLOMUERE);
         PauseTransition pausa = new PauseTransition(Duration.seconds(1));
         pausa.setOnFinished(e -> {
             super.morir();
