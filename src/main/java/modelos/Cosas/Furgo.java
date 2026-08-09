@@ -1,4 +1,6 @@
 package modelos.Cosas;
+import controladores.ControladorSonidos;
+import controladores.TipoSonido;
 import javafx.animation.Animation;
 import javafx.animation.PauseTransition;
 import javafx.animation.TranslateTransition;
@@ -25,11 +27,20 @@ public class Furgo extends Cosa {
      */
     public Furgo(Pane root) {
         super(700, 75, 9999, 2, "Animaciones/Cosas/Furgo_Abierto.gif", root);
-        imagenCosa.setFitWidth(175);
-        imagenCosa.setFitHeight(175);
-        imagenCosa.setX(-20);
-        imagenCosa.setY(-30);
-        hitbox.setWidth(120);
+        ControladorSonidos.reproducirSonido(TipoSonido.FURGOARRANCANDO);
+        pixelesPorSegundosActual = 0;
+        PauseTransition pausa = new PauseTransition(Duration.seconds(1));
+        pausa.setOnFinished(e -> {
+            imagenCosa.setFitWidth(175);
+            imagenCosa.setFitHeight(175);
+            imagenCosa.setX(-20);
+            imagenCosa.setY(-30);
+            hitbox.setWidth(120);
+            pixelesPorSegundosActual = pixelesPorSegundo;
+            ControladorSonidos.reproducirSonido(TipoSonido.FURGOADELANTE);
+            ControladorSonidos.reproducirSonido(TipoSonido.FURGOATRAS);
+        });
+        pausa.play();
     }
 
     /**
@@ -67,6 +78,7 @@ public class Furgo extends Cosa {
             tiempoUltimoGolpe = tiempoUltimoGolpe + tiempoFrames;
             if (tiempoUltimoGolpe > cooldownAtaque && pixelesPorSegundosActual == 0) {
                 tiempoUltimoGolpe = 0;
+                ControladorSonidos.reproducirSonido(TipoSonido.FURGOATAQUE);
                 niniAtacando.recibirDaño(daño);
                 System.out.println("vida nini : " + niniAtacando.getSalud());
             }
@@ -88,7 +100,27 @@ public class Furgo extends Cosa {
     @Override
     public void actualizar(double tiempoFrames) {
         caminar(tiempoFrames);
+        if (pixelesPorSegundosActual != 0) {
+            tiempoUltimoSonido = tiempoUltimoSonido + tiempoFrames;
+            if (tiempoUltimoSonido > 2) {
+                tiempoUltimoSonido = 0;
+                if (!niniRecogido) {
+                    ControladorSonidos.reproducirSonido(TipoSonido.FURGOATRAS);
+                }
+                ControladorSonidos.reproducirSonido(TipoSonido.FURGOADELANTE);
+            }
+        }
+        if (niniRecogido && !estaMuerto) {
+            if (imagenCosa.getLayoutX() >= 1800) {
+                morir();
+            }
+        }
+    }
 
+    @Override
+    public void recibirDaño(int daño) {
+        super.recibirDaño(daño);
+        ControladorSonidos.reproducirSonido(TipoSonido.FURGORECIBEDAÑO);
     }
 
     /**
@@ -105,8 +137,10 @@ public class Furgo extends Cosa {
      */
     @Override
     public void morir() {
+        estaMuerto = true;
         this.setImagenCosa("Animaciones/Cosas/Furgo_Muerte.gif");
         setPixelesPorSegundosActual(0);
+        ControladorSonidos.reproducirSonido(TipoSonido.FURGOMUERTE);
         PauseTransition pausa = new PauseTransition(Duration.seconds(1.5));
         pausa.setOnFinished(e -> {
             super.morir();

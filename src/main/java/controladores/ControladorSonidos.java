@@ -68,11 +68,13 @@ public class ControladorSonidos {
 //    private static Media angineAtaqueSonido = new Media(new File("").toURI().toString());
 //    private static Media angineRecibeDañoSonido = new Media(new File("").toURI().toString());
 //    private static Media angineSonidoMuerte = new Media(new File("").toURI().toString());
-//
-//    private static Media furgoSonidoBase = new Media(new File("").toURI().toString());
-//    private static Media furgoAtaqueSonido = new Media(new File("").toURI().toString());
-//    private static Media furgoRecibeDañoSonido = new Media(new File("").toURI().toString());
-//    private static Media furgoSonidoMuerte = new Media(new File("").toURI().toString());
+
+    private static Media furgoSonidoArrancando = new Media(new File("src/main/resources/Sonidos/Cosas/FurgoArranque.mp3").toURI().toString());
+    private static Media furgoSonidoBaseAdelante = new Media(new File("src/main/resources/Sonidos/Cosas/FurgoBase.mp3").toURI().toString());
+    private static Media furgoSonidoBaseAtras = new Media(new File("src/main/resources/Sonidos/Cosas/FurgoMarchaAtras.mp3").toURI().toString());
+    private static Media furgoAtaqueSonido = new Media(new File("src/main/resources/Sonidos/Cosas/FurgoAtaque.mp3").toURI().toString());
+    private static Media furgoRecibeDañoSonido = new Media(new File("").toURI().toString());
+    private static Media furgoSonidoMuerte = new Media(new File("").toURI().toString());
 
 
     // Lista de sonidos
@@ -108,6 +110,16 @@ public class ControladorSonidos {
         listaSonidos.put(TipoSonido.BONITILLORECIBEDAÑO,bonitilloRecibeDañoSonido);
         listaSonidos.put(TipoSonido.BONITILLOMUERE,bonitilloSonidoMuerte);
 
+
+
+
+
+        listaSonidos.put(TipoSonido.FURGOARRANCANDO, furgoSonidoArrancando);
+        listaSonidos.put(TipoSonido.FURGOADELANTE, furgoSonidoBaseAdelante);
+        listaSonidos.put(TipoSonido.FURGOATRAS, furgoSonidoBaseAtras);
+        listaSonidos.put(TipoSonido.FURGOATAQUE, furgoAtaqueSonido);
+        listaSonidos.put(TipoSonido.FURGORECIBEDAÑO, furgoRecibeDañoSonido);
+        listaSonidos.put(TipoSonido.FURGOMUERTE, furgoSonidoMuerte);
     }
 
     public static void reproducirSonido(TipoSonido tipoSonido){
