@@ -26,7 +26,7 @@ public class Furgo extends Cosa {
      * @param root Pane root de la escena en la que aparece la cosa
      */
     public Furgo(Pane root) {
-        super(700, 75, 9999, 2, "Animaciones/Cosas/Furgo_Abierto.gif", root);
+        super(70, 75, 9999, 2, "Animaciones/Cosas/Furgo_Abierto.gif", root);
         ControladorSonidos.reproducirSonido(TipoSonido.FURGOARRANCANDO);
         pixelesPorSegundosActual = 0;
         PauseTransition pausa = new PauseTransition(Duration.seconds(1));
@@ -140,6 +140,8 @@ public class Furgo extends Cosa {
         estaMuerto = true;
         this.setImagenCosa("Animaciones/Cosas/Furgo_Muerte.gif");
         setPixelesPorSegundosActual(0);
+        ControladorSonidos.reproducirSonido(TipoSonido.FURGOFUEGO);
+        ControladorSonidos.reproducirSonido(TipoSonido.FURGORUEDAPINCHADA);
         ControladorSonidos.reproducirSonido(TipoSonido.FURGOMUERTE);
         PauseTransition pausa = new PauseTransition(Duration.seconds(1.5));
         pausa.setOnFinished(e -> {
