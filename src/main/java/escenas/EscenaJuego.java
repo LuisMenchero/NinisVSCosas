@@ -58,6 +58,7 @@ public class EscenaJuego {
 
         GestorButanitos geB = GestorButanitos.getInstancia();
         GestorPuntos geP = GestorPuntos.getInstancia();
+        ControladorJuego.reiniciar();
 
         //Botón de pausa
         Button btnPausa = new Button("=");

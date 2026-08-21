@@ -26,7 +26,7 @@ public class Furgo extends Cosa {
      * @param root Pane root de la escena en la que aparece la cosa
      */
     public Furgo(Pane root) {
-        super(70, 75, 9999, 2, "Animaciones/Cosas/Furgo_Abierto.gif", root);
+        super(1000, 75, 9999, 2, "Animaciones/Cosas/Furgo_Abierto.gif", root);
         ControladorSonidos.reproducirSonido(TipoSonido.FURGOARRANCANDO);
         pixelesPorSegundosActual = 0;
         PauseTransition pausa = new PauseTransition(Duration.seconds(1));

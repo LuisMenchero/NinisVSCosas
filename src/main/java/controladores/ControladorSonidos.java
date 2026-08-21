@@ -2,6 +2,7 @@ package controladores;
 
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import modelos.Cosas.Ordenador;
 
 import java.io.File;
 import java.util.HashMap;
@@ -59,10 +60,10 @@ public class ControladorSonidos {
 //    private static Media haciendaRecibeDañoSonido = new Media(new File("").toURI().toString());
 //    private static Media haciendaSonidoMuerte = new Media(new File("").toURI().toString());
 //
-//    private static Media ordenadorSonidoBase = new Media(new File("").toURI().toString());
-//    private static Media ordenadorAtaqueSonido = new Media(new File("").toURI().toString());
-//    private static Media ordenadorRecibeDañoSonido = new Media(new File("").toURI().toString());
-//    private static Media ordenadorSonidoMuerte = new Media(new File("").toURI().toString());
+    private static Media ordenadorSonidoBase = new Media(new File("src/main/resources/Sonidos/Cosas/OrdenadorBase.mp3").toURI().toString());
+    private static Media ordenadorAtaqueSonido = new Media(new File("src/main/resources/Sonidos/Cosas/OrdenadorAtaque.mp3").toURI().toString());
+    private static Media ordenadorRecibeDañoSonido = new Media(new File("src/main/resources/Sonidos/Cosas/OrdenadorRecibeDaño.mp3").toURI().toString());
+    private static Media ordenadorSonidoMuerte = new Media(new File("src/main/resources/Sonidos/Cosas/OrdenadorMuerte.mp3").toURI().toString());
 //
 //    private static Media angineSonidoBase = new Media(new File("").toURI().toString());
 //    private static Media angineAtaqueSonido = new Media(new File("").toURI().toString());
@@ -113,8 +114,10 @@ public class ControladorSonidos {
         listaSonidos.put(TipoSonido.BONITILLOMUERE,bonitilloSonidoMuerte);
 
 
-
-
+        listaSonidos.put(TipoSonido.ORDENADORBASE, ordenadorSonidoBase);
+        listaSonidos.put(TipoSonido.ORDENADORATAQUE, ordenadorAtaqueSonido);
+        listaSonidos.put(TipoSonido.ORDENADORRECIBEDAÑO, ordenadorRecibeDañoSonido);
+        listaSonidos.put(TipoSonido.ORDENADORMUERE, ordenadorSonidoMuerte);
 
         listaSonidos.put(TipoSonido.FURGOARRANCANDO, furgoSonidoArrancando);
         listaSonidos.put(TipoSonido.FURGOADELANTE, furgoSonidoBaseAdelante);

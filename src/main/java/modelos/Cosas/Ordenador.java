@@ -1,5 +1,7 @@
 package modelos.Cosas;
 
+import controladores.ControladorSonidos;
+import controladores.TipoSonido;
 import javafx.animation.PauseTransition;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -31,6 +33,7 @@ public class Ordenador extends Cosa{
      */
     public Ordenador(Pane root) {
         super(350, 25, 200, 1, "Animaciones/Cosas/Computador.gif", root);
+        ControladorSonidos.reproducirSonido(TipoSonido.ORDENADORBASE);
     }
 
     /**
@@ -70,6 +73,7 @@ public class Ordenador extends Cosa{
             explosion.setY(fila - 50);
             root.getChildren().addAll(explosion, hitboxExplosion);
 
+            ControladorSonidos.reproducirSonido(TipoSonido.ORDENADORATAQUE);
             niniAtacando.recibirDaño(daño);
             PauseTransition pausa  = new PauseTransition(Duration.seconds(0.5));
             pausa.setOnFinished(evento -> {
@@ -78,7 +82,6 @@ public class Ordenador extends Cosa{
                 root.getChildren().remove(imagenCosa);
                 root.getChildren().remove(imagenCongelado);
                 root.getChildren().remove(hitbox);
-
             });
 
             pausa.play();
@@ -97,7 +100,20 @@ public class Ordenador extends Cosa{
         if (!explotar) {
             caminar(tiempoFrames);
         }
+        if (pixelesPorSegundosActual != 0) {
+            tiempoUltimoSonido = tiempoUltimoSonido + tiempoFrames;
+            if (tiempoUltimoSonido > 9) {
+                tiempoUltimoSonido = 0;
+                ControladorSonidos.reproducirSonido(TipoSonido.ORDENADORBASE);
+            }
+        }
+    }
 
+
+    @Override
+    public void recibirDaño(int daño) {
+        super.recibirDaño(daño);
+        ControladorSonidos.reproducirSonido(TipoSonido.ORDENADORRECIBEDAÑO);
     }
 
     /**
@@ -116,6 +132,7 @@ public class Ordenador extends Cosa{
     public void morir() {
         this.setImagenCosa("Animaciones/Cosas/computadorMuerte.gif");
         setPixelesPorSegundosActual(0);
+        ControladorSonidos.reproducirSonido(TipoSonido.ORDENADORMUERE);
         PauseTransition pausa = new PauseTransition(Duration.seconds(1.7));
         pausa.setOnFinished(e -> {
             super.morir();

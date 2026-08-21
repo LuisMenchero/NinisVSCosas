@@ -32,6 +32,14 @@ public class ControladorJuego {
     private static boolean partidaYaTerminada = false;
 
 
+    public static void reiniciar() {
+        tiempoUltimoEnemigo = 0;
+        tiempoEnSpawnear = 25;
+        ronda = 0;
+        tiempoPartida = 0;
+        partidaYaTerminada = false;
+    }
+
     /**
      * Recoge la nueva cantidad que tiene el contador de puntos y lo settea
      */
