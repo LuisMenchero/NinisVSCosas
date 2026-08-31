@@ -31,8 +31,8 @@ public class ControladorSonidos {
 
     // Sonidos Ninis
 //    private static Media j = new Media(new File("").toURI().toString());
-//    private static Media ju = new Media(new File("").toURI().toString());
-//    private static Media jud = new Media(new File("").toURI().toString());
+//    private static Media j = new Media(new File("").toURI().toString());
+//    private static Media j = new Media(new File("").toURI().toString());
 
 
     // Sonidos Cosas
@@ -64,11 +64,12 @@ public class ControladorSonidos {
     private static Media ordenadorAtaqueSonido = new Media(new File("src/main/resources/Sonidos/Cosas/OrdenadorAtaque.mp3").toURI().toString());
     private static Media ordenadorRecibeDañoSonido = new Media(new File("src/main/resources/Sonidos/Cosas/OrdenadorRecibeDaño.mp3").toURI().toString());
     private static Media ordenadorSonidoMuerte = new Media(new File("src/main/resources/Sonidos/Cosas/OrdenadorMuerte.mp3").toURI().toString());
-//
-//    private static Media angineSonidoBase = new Media(new File("").toURI().toString());
-//    private static Media angineAtaqueSonido = new Media(new File("").toURI().toString());
-//    private static Media angineRecibeDañoSonido = new Media(new File("").toURI().toString());
-//    private static Media angineSonidoMuerte = new Media(new File("").toURI().toString());
+
+    private static Media angineSonidoSpawn = new Media(new File("src/main/resources/Sonidos/Cosas/AngineSpawn.mp3").toURI().toString());
+    private static Media angineSonidoBase = new Media(new File("src/main/resources/Sonidos/Cosas/AngineBase.mp3").toURI().toString());
+    private static Media angineAtaqueSonido = new Media(new File("src/main/resources/Sonidos/Cosas/AngineAtaque.mp3").toURI().toString());
+    private static Media angineRecibeDañoSonido = new Media(new File("src/main/resources/Sonidos/Cosas/AngineRecibeDaño.mp3").toURI().toString());
+    private static Media angineSonidoMuerte = new Media(new File("src/main/resources/Sonidos/Cosas/AngineMuerte.mp3").toURI().toString());
 
     private static Media furgoSonidoArrancando = new Media(new File("src/main/resources/Sonidos/Cosas/FurgoArranque.mp3").toURI().toString());
     private static Media furgoSonidoBaseAdelante = new Media(new File("src/main/resources/Sonidos/Cosas/FurgoBase.mp3").toURI().toString());
@@ -118,6 +119,12 @@ public class ControladorSonidos {
         listaSonidos.put(TipoSonido.ORDENADORATAQUE, ordenadorAtaqueSonido);
         listaSonidos.put(TipoSonido.ORDENADORRECIBEDAÑO, ordenadorRecibeDañoSonido);
         listaSonidos.put(TipoSonido.ORDENADORMUERE, ordenadorSonidoMuerte);
+
+        listaSonidos.put(TipoSonido.ANGINESPAWN, angineSonidoSpawn);
+        listaSonidos.put(TipoSonido.ANGINEBASE, angineSonidoBase);
+        listaSonidos.put(TipoSonido.ANGINEATAQUE, angineAtaqueSonido);
+        listaSonidos.put(TipoSonido.ANGINERECIBADAÑO, angineRecibeDañoSonido);
+        listaSonidos.put(TipoSonido.ANGINEMUERTE, angineSonidoMuerte);
 
         listaSonidos.put(TipoSonido.FURGOARRANCANDO, furgoSonidoArrancando);
         listaSonidos.put(TipoSonido.FURGOADELANTE, furgoSonidoBaseAdelante);

@@ -1,5 +1,8 @@
 package modelos.Cosas;
+import controladores.ControladorSonidos;
+import controladores.TipoSonido;
 import javafx.animation.Animation;
+import javafx.animation.PauseTransition;
 import javafx.animation.TranslateTransition;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
@@ -23,6 +26,7 @@ public class Angine extends Cosa {
      */
     public Angine(Pane root) {
         super(1200, 5, 999999, 0, "Animaciones/Cosas/Angine_de_poitrine.gif", root);
+        ControladorSonidos.reproducirSonido(TipoSonido.ANGINESPAWN);
     }
 
     /**
@@ -52,6 +56,7 @@ public class Angine extends Cosa {
         tiempoUltimoGolpe = tiempoUltimoGolpe + tiempoFrames;
         if (tiempoUltimoGolpe > cooldownAtaque && pixelesPorSegundosActual == 0) {
             tiempoUltimoGolpe = 0;
+            ControladorSonidos.reproducirSonido(TipoSonido.ANGINEATAQUE);
             niniAtacando.recibirDaño(daño);
             System.out.println("vida nini : " + niniAtacando.getSalud());
         }
@@ -70,7 +75,19 @@ public class Angine extends Cosa {
     @Override
     public void actualizar(double tiempoFrames) {
         caminar(tiempoFrames);
+        if (pixelesPorSegundosActual != 0) {
+            tiempoUltimoSonido = tiempoUltimoSonido + tiempoFrames;
+            if (tiempoUltimoSonido > 10) {
+                tiempoUltimoSonido = 0;
+                ControladorSonidos.reproducirSonido(TipoSonido.ANGINEBASE);
+            }
+        }
+    }
 
+    @Override
+    public void recibirDaño(int daño) {
+        super.recibirDaño(daño);
+        ControladorSonidos.reproducirSonido(TipoSonido.ANGINERECIBADAÑO);
     }
 
     /**
@@ -80,6 +97,20 @@ public class Angine extends Cosa {
     public void darPuntos() {
         GestorPuntos gepun = GestorPuntos.getInstancia();
         gepun.añadirPuntos(25);
+    }
+
+    /**
+     * Mata a la cosa, añadiendole previamente una animación de muerte
+     */
+    @Override
+    public void morir() {
+        setPixelesPorSegundosActual(0);
+        ControladorSonidos.reproducirSonido(TipoSonido.ANGINEMUERTE);
+        PauseTransition pausa = new PauseTransition(Duration.seconds(1));
+        pausa.setOnFinished(e -> {
+            super.morir();
+        });
+        pausa.play();
     }
 
 }
